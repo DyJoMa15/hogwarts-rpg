@@ -10623,6 +10623,18 @@ async function handleFreeInput() {
   const text = input.value.trim();
   if(!text) return;
 
+  // ── NPC conversation free text ──────────────────────────
+  // If we're mid-conversation with an NPC, treat typed text as dialogue
+  if (STATE._npcConvoId && NPC_DATA[STATE._npcConvoId]) {
+    input.value = '';
+    input.disabled = true;
+    document.querySelector('.free-input-btn').disabled = true;
+    await resolveNPCFreeText(STATE._npcConvoId, text);
+    input.disabled = false;
+    document.querySelector('.free-input-btn').disabled = false;
+    return;
+  }
+
   const lowerText = text.toLowerCase();
 
   // ── Companion invite detection ──
@@ -16759,12 +16771,12 @@ async function openClassScene(sessionId) {
   `;
 
   if(sess.type === 'exam') {
+    document.getElementById('classSceneModal').classList.add('open');
     openExamScene(sess);
   } else {
+    document.getElementById('classSceneModal').classList.add('open');
     await openLectureScene(sess, subj, prof);
   }
-
-  document.getElementById('classSceneModal').classList.add('open');
 }
 
 // ── Lecture scene ──
@@ -16778,7 +16790,10 @@ async function openLectureScene(sess, subj, prof) {
     return;
   }
 
-  body.innerHTML = `<div style="flex:1;display:flex;align-items:center;justify-content:center;font-family:'IM Fell English',Georgia,serif;font-size:18px;color:var(--parchment-deep);font-style:italic;">Generating lecture...</div>`;
+  body.innerHTML = `<div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
+    <div class="ai-badge" style="font-size:13px;"><div class="ai-dot"></div>${profPersonas[prof] ? prof.charAt(0).toUpperCase()+prof.slice(1) : 'Professor'} is teaching...<span class="cursor-blink"></span></div>
+    <div style="font-family:'IM Fell English',Georgia,serif;font-size:14px;color:var(--ink-light);font-style:italic;">${sess.topic}</div>
+  </div>`;
 
   // Build professor persona for AI
   const profPersonas = {
@@ -22273,6 +22288,127 @@ const RESPONSE_TONES = {
   reserved:  { label: 'Guardedly',   icon: '😶', trust:-1, affection:-1, respect:+1, rivalry:+0 },
   playful:   { label: 'Playfully',   icon: '😄', trust:+2, affection:+3, respect:-1, rivalry:-2 },
   dismissive:{ label: 'Dismissively',icon: '😒', trust:-4, affection:-3, respect:-2, rivalry:+3 },
+}
+
+// Character-specific tone button labels — what these tones actually look like
+// in conversation with this specific person.
+const NPC_TONE_LABELS = {
+  hermione: {
+    curious:   "Ask what she's working on",
+    warm:      "Tell her you've been struggling with it too",
+    assertive: "Disagree with something she said",
+    reserved:  "Listen without saying much",
+  },
+  ron: {
+    playful:   "Joke about something",
+    warm:      "Ask how his family are doing",
+    curious:   "Ask what he thinks about Hogwarts so far",
+    assertive: "Tell him what you actually think",
+  },
+  harry: {
+    warm:      "Tell him he handled that well",
+    curious:   "Ask him about flying",
+    reserved:  "Stand alongside him quietly",
+    assertive: "Say something honest",
+  },
+  neville: {
+    warm:      "Say something encouraging",
+    curious:   "Ask about Herbology",
+    playful:   "Make a joke that includes him",
+    reserved:  "Let him talk",
+  },
+  draco: {
+    assertive: "Hold your ground",
+    reserved:  "Don't give him the reaction he wants",
+    curious:   "Ask something that catches him off guard",
+    dismissive:"Make clear what you think of him",
+  },
+  hagrid: {
+    warm:      "Tell him you're glad you came",
+    playful:   "Ask about whatever creature he's hiding",
+    curious:   "Ask about his past",
+    assertive: "Press him on something he dodged",
+  },
+  mcgonagall: {
+    assertive: "State your case clearly",
+    curious:   "Ask a genuine question about Transfiguration",
+    reserved:  "Receive her words without pushing back",
+    warm:      "Thank her sincerely",
+  },
+  snape: {
+    reserved:  "Say as little as possible",
+    curious:   "Ask something academic, carefully",
+    assertive: "Answer him directly and without apology",
+    dismissive:"Let him see you are not afraid",
+  },
+  luna: {
+    curious:   "Ask what she means",
+    warm:      "Take what she says seriously",
+    playful:   "Go along with it",
+    reserved:  "Let her finish",
+  },
+  cho: {
+    warm:      "Say something kind",
+    curious:   "Ask how she is doing",
+    reserved:  "Keep it brief",
+    assertive: "Be direct about why you came over",
+  },
+  cedric: {
+    warm:      "Tell him you admire how he handles things",
+    curious:   "Ask about Hufflepuff or Quidditch",
+    assertive: "Be straightforward with him",
+    reserved:  "Keep the conversation easy",
+  },
+  fred: {
+    playful:   "Match his energy",
+    warm:      "Let him know the prank landed",
+    curious:   "Ask what they are planning",
+    assertive: "Call him out on something",
+  },
+  george: {
+    playful:   "Match his energy",
+    warm:      "Let him know the prank landed",
+    curious:   "Ask what they are planning",
+    assertive: "Call him out on something",
+  },
+  dean: {
+    warm:      "Ask how he is settling in",
+    curious:   "Ask about his interests",
+    playful:   "Keep it casual",
+    assertive: "Say what is on your mind",
+  },
+  seamus: {
+    playful:   "Laugh about something recent",
+    warm:      "Ask how things are going",
+    curious:   "Ask about his family or home",
+    assertive: "Be straightforward",
+  },
+  lavender: {
+    warm:      "Engage with what she is talking about",
+    curious:   "Ask her opinion on something",
+    playful:   "Keep it light and social",
+    reserved:  "Listen more than you speak",
+  },
+  parvati: {
+    warm:      "Be friendly and open",
+    curious:   "Ask her something genuine",
+    playful:   "Match her energy",
+    reserved:  "Smile and let her lead",
+  },
+  _default: {
+    warm:      "Say something warm",
+    curious:   "Ask a question",
+    assertive: "Be direct",
+    reserved:  "Hold back",
+    playful:   "Keep it light",
+    dismissive:"Make clear you are not interested",
+  },
+}
+
+// Returns the display label for a tone button given the NPC
+function getToneLabel(npcId, toneKey) {
+  const npcLabels = NPC_TONE_LABELS[npcId] || NPC_TONE_LABELS._default;
+  return npcLabels[toneKey] || NPC_TONE_LABELS._default[toneKey] || RESPONSE_TONES[toneKey]?.label || toneKey;
 };
 
 // Per-NPC: which four tones to offer, in order
@@ -22458,7 +22594,7 @@ function renderNPCResponseChoices(npcId, openingText) {
   const tones = getToneOptions(npcId);
 
   const choices = tones.map(tone => ({
-    text: `${tone.icon} Respond ${tone.label.toLowerCase()}`,
+    text: getToneLabel(npcId, tone.key),
     action: `npc_respond_${npcId}_${tone.key}`,
   }));
   // Persuasion unlocks a Convince option at sufficient skill
@@ -22475,7 +22611,13 @@ function renderNPCResponseChoices(npcId, openingText) {
   STATE._npcConvoId = npcId;
 
   setChoices(choices);
-  showFreeInput(false);
+  // Enable free text so player can type exactly what they want to say
+  showFreeInput(true);
+  const fi = document.getElementById('freeInput');
+  if (fi) {
+    fi.placeholder = `Say something to ${npc.name || 'them'}...`;
+    fi.value = '';
+  }
 }
 
 // ── Resolution — second AI call after player picks a tone ─
@@ -29437,6 +29579,97 @@ function importSave() {
   } catch(e) {
     setConfirmBar('Could not read save code — it may be incomplete or corrupted.', 'error');
   }
+}
+
+// ── NPC free-text conversation resolver ──────────────────
+// Called when the player types something directly during an NPC conversation.
+// The typed text is treated as actual dialogue or action — passed verbatim
+// to the AI as what the player said or did.
+async function resolveNPCFreeText(npcId, playerText) {
+  const npc     = NPC_DATA[npcId] || {};
+  const persona = NPC_PERSONAS[npcId] || npc.bio || '';
+  const rel     = STATE.relationships[npcId] || {};
+  const ctx     = buildConversationContext(npcId);
+  const opening = STATE._npcConvoOpening || '';
+
+  setChoices([]);
+  showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set in 1991.
+The player is in conversation with ${npc.name} and has chosen to say or do something specific.
+CHARACTER VOICE: ${persona}
+LOCATION: ${ctx.locName}, ${ctx.timeStr}. ${ctx.weekContext}
+RELATIONSHIP: Trust ${rel.trust||0}, Affection ${rel.affection||0}, Respect ${rel.respect||0}.
+PLAYER: ${STATE.player.firstName||'the player'} ${STATE.player.lastName||''}, ${STATE.player.house||'Gryffindor'}, ${STATE.player.bloodStatus||'half-blood'}.
+CONVERSATION OPENING: "${opening.slice(0,200)}"
+WHAT THE PLAYER SAID OR DID: "${playerText}"
+${buildStateContext()}
+INSTRUCTIONS:
+- Write ${npc.name}'s response to exactly what the player said or did. 2-3 short paragraphs.
+- If the player asked a question, ${npc.name} answers it — in character, with whatever reservations or enthusiasm that character would have.
+- If the player said something social, ${npc.name} responds socially.
+- If the player said something odd, ${npc.name} reacts to the oddness.
+- Do NOT ignore what the player typed. Engage with it directly.
+- Sound like this specific character. Not a generic NPC. Not polite and vague.
+- Second person. Present tense. 90-120 words.
+- End on a natural beat — not a cliffhanger, not a bow.`;
+
+  const resolution = await callClaude(
+    sys,
+    `${npc.name} responds to: "${playerText.slice(0,100)}"`,
+    400
+  );
+
+  const fallback = `${npc.name} considers what you said.
+
+"${playerText.slice(0,40)}${playerText.length>40?'...':''}" — they take it in, in their own way. The conversation settles.`;
+  const text = resolution || fallback;
+  const paras = text.split(/\n\n+/).filter(p => p.trim());
+
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 150));
+  }, 50);
+
+  // Infer tone from player text for relationship weighting
+  const lc = playerText.toLowerCase();
+  let inferredTone = 'assertive';
+  if (/thank|appreciate|kind|nice|great|love|brilliant|amazing/.test(lc)) inferredTone = 'warm';
+  else if (/why|how|what|curious|wonder|think|know|tell me|explain/.test(lc)) inferredTone = 'curious';
+  else if (/joke|laugh|funny|haha|alright|fine|whatever/.test(lc)) inferredTone = 'playful';
+  else if (/don't|won't|no|leave|go away|not interested/.test(lc)) inferredTone = 'reserved';
+  else if (/you're wrong|actually|disagree|that's not|incorrect/.test(lc)) inferredTone = 'assertive';
+
+  const tone = RESPONSE_TONES[inferredTone] || RESPONSE_TONES.assertive;
+  const weights = applyNPCWeightMods(npcId, inferredTone, { ...tone });
+  if (weights.trust)     adjustDim(npcId, 'trust',     Math.round(weights.trust * 0.7));
+  if (weights.affection) adjustDim(npcId, 'affection', Math.round(weights.affection * 0.7));
+  if (weights.respect)   adjustDim(npcId, 'respect',   Math.round(weights.respect * 0.7));
+  if (weights.rivalry)   adjustDim(npcId, 'rivalry',   Math.round(weights.rivalry * 0.7));
+
+  updateRelStatusAfterConvo(npcId);
+  if (npcId === 'quirrell') incrementQuirellSuspicion('npc_convo');
+
+  STATE._npcConvoOpening = null;
+  STATE._npcConvoId = null;
+
+  const relAfter = STATE.relationships[npcId] || {};
+  const canInvite = (relAfter.trust||0) >= 10 && relAfter.met;
+  setTimeout(() => {
+    const choices = [{ text: '← Back to your day', action: 'day_menu' }];
+    if (canInvite) {
+      choices.unshift({
+        text: `Do something together with ${npc.name}`,
+        action: `companion_invite_${npcId}`,
+      });
+    }
+    setChoices(choices);
+    showFreeInput(false);
+  }, 1200);
 }
 
 // Advance week function
