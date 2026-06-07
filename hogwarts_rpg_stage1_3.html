@@ -8155,6 +8155,7 @@ const VISITED = {};
 // Scenes that ALWAYS regenerate — state-dependent or interactive
 const ALWAYS_REGEN = new Set([
   'express_talk', 'express_observe', 'express_houses',
+  'express_muggles', 'express_wizards',
   'free_action' // free-typed inputs never cache
 ]);
 
@@ -8773,7 +8774,7 @@ function checkReady() {
     }, 800);
     return;
   }
-  sceneKingsCross();
+  sceneReadyToDepart();
 }
 
 // ── SCENE: KING'S CROSS ──
@@ -8785,11 +8786,8 @@ async function sceneKingsCross() {
   const cached = checkCache('kings_cross');
   if(cached.html) {
     renderNarrative(cached.html, false);
-    setChoices([
-      { text:'Explore the train — find a compartment', action:'express_explore' },
-      { text:'Sit alone by the window and watch England pass', action:'express_alone' },
-    ]);
-    showFreeInput(true);
+    setChoices(getKingsCrossChoices());
+    showFreeInput(false);
     return;
   }
 
@@ -8817,11 +8815,8 @@ async function sceneKingsCross() {
   renderNarrative(narrativeHtml);
 
   setTimeout(()=>{
-    setChoices([
-      { text:'Explore the train — find a compartment', action:'express_explore' },
-      { text:'Sit alone by the window and watch England pass', action:'express_alone' },
-    ]);
-    showFreeInput(true);
+    setChoices(getKingsCrossChoices());
+    showFreeInput(false);
   }, 1600);
 }
 
@@ -8838,7 +8833,7 @@ async function sceneExpress(type) {
       { text:'Introduce yourself and join the conversation', action:'express_talk' },
       { text:'Observe quietly before saying anything', action:'express_observe' },
       { text:'Ask about Hogwarts — what house do they want?', action:'express_houses' },
-      { text:'Watch the countryside — you will be there soon enough', action:'hogwarts_arrival' },
+      { text:'🌄 Watch the countryside pass — Scotland is coming', action:'hogsmeade_arrival' },
     ]);
     showFreeInput(true);
     return;
@@ -8884,7 +8879,7 @@ async function sceneExpress(type) {
       { text:'Introduce yourself and join the conversation', action:'express_talk' },
       { text:'Observe quietly before saying anything', action:'express_observe' },
       { text:'Ask about Hogwarts — what house do they want?', action:'express_houses' },
-      { text:'Watch the countryside — you will be there soon enough', action:'hogwarts_arrival' },
+      { text:'🌄 Watch the countryside pass — Scotland is coming', action:'hogsmeade_arrival' },
     ]);
     showFreeInput(true);
   }, 1200);
@@ -8977,7 +8972,7 @@ Player: ${STATE.player.firstName} ${STATE.player.lastName}. ${buildStateContext(
   html += paragraphs.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
   setNarrative(html);
   setTimeout(() => { document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)); }, 100);
-  setTimeout(() => { setChoices([{ text: 'The next morning — your first day at Hogwarts', action: 'hogwarts_morning_1' }]); }, 1800);
+  setTimeout(() => { setChoices([{ text: '🏠 Follow the prefects to your common room', action: 'common_room_first' }]); }, 1800);
 }
 
 async function sceneHogwardsMorning1() {
@@ -9050,7 +9045,16 @@ async function handleChoice(idx) {
     case 'express_houses':   await sceneExpress('houses'); autoMarkMet('express_houses'); break;
     case 'sorting_quiz':     renderSortingQuiz(); break;
     case 'confirm_sorting':  confirmSorting(); break;
-    case 'hogwarts_arrival': await sceneHogwartsArrival(); break;
+    case 'hogwarts_arrival':           await sceneHogwartsArrival(); break;
+    case 'hogsmeade_arrival':           await sceneHogsmeadeArrival(); break;
+    case 'scene_boats_to_hogwarts':     await sceneBoatsToHogwarts(); break;
+    case 'scene_first_sight_of_castle': await sceneFirstSightOfCastle(); break;
+    case 'scene_mcgonagall_at_doors':   await sceneMcGonagallAtDoors(); break;
+    case 'scene_great_hall_entry':      await sceneGreatHallEntry(); break;
+    case 'common_room_first':           await sceneCommonRoomFirstVisit(); break;
+    case 'express_muggles':             await sceneExpressMuggles(); break;
+    case 'express_wizards':             await sceneExpressWizards(); break;
+    case 'ready_to_depart':             await sceneReadyToDepart(); break;
     case 'hogwarts_morning_1': await sceneHogwardsMorning1(); break;
     case 'open_explore':     openExploreModal(); break;
     case 'day_common_room':  await sceneCommonRoom(); break;
@@ -29670,6 +29674,374 @@ INSTRUCTIONS:
     setChoices(choices);
     showFreeInput(false);
   }, 1200);
+}
+
+// ═══════════════════════════════════════════════════════════
+// ARRIVAL CHAIN — First-time scenes with full narrative
+//
+// Each scene is:
+// - One-time only (cached after first visit, ALWAYS_REGEN for choices)
+// - AI-generated with a strong fallback
+// - Followed by clear, specific contextual choices
+// - Chained in order with no skips possible
+//
+// Chain order:
+// Diagon Alley complete → sceneReadyToDepart
+//   → sceneKingsCross (existing, enhanced choices)
+//     → sceneOnTheTrain (new — exploration choices)
+//       → sceneHogsmeadeArrival (new)
+//         → sceneBoatsToHogwarts (new)
+//           → sceneFirstSightOfCastle (new)
+//             → sceneMcGonagallAtTheDoors (new)
+//               → sceneGreatHallEntry (new)
+//                 → sceneHogwartsArrival (existing — sorting)
+//                   → sceneCommonRoomFirstVisit (new)
+//                     → sceneHogwardsMorning1 (existing)
+// ═══════════════════════════════════════════════════════════
+
+// ── Diagon Alley: all done screen ────────────────────────
+// Replaces the plain checkReady → sceneKingsCross jump
+// with a proper "you're ready" scene that makes the
+// departure feel like a moment.
+async function sceneReadyToDepart() {
+  STATE.currentScene = 'ready_to_depart';
+  setLocation('Diagon Alley — End of the Day');
+  setChoices([]);
+  showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Diagon Alley...<span class="cursor-blink"></span></div>`);
+
+  const familiar = STATE.familiar;
+  const famLine  = familiar ? `They have a ${familiar.type} named ${familiar.name}.` : 'They have no familiar.';
+  const bloodStatus = STATE.player.bloodStatus || 'half-blood';
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set in July 1991.
+Write 2 short paragraphs. The player has finished their shopping in Diagon Alley.
+They are standing at the end of the alley with everything they need, about to head home for the last few weeks before September 1st.
+Tone: the particular feeling of preparation complete — trunk packed, list ticked, the future waiting.
+${bloodStatus === 'muggle-born' ? 'This player is Muggle-born — they are returning to a world that does not know what they now know.' : ''}
+${bloodStatus === 'pure-blood' ? 'This player comes from a wizarding family — familiar with the alley, but this year feels different.' : ''}
+No player dialogue. Second person, present tense. 80-100 words. End on the fact that September 1st is coming.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'Diagon Alley departure scene.', 250);
+  const fallback = `You reach the end of Diagon Alley with everything on the list ticked off. The trunk will be heavy. The owl — if you have one — is already impatient.\n\nSomewhere behind you the alley continues to function as it always has, indifferent to the fact that your year is about to start. September 1st is thirty-one days away. Then it is thirty.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>✓ Ready for Hogwarts</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  narHtml += `<div class="narrative-para" style="font-family:'Cinzel',serif;font-size:11px;color:var(--gold-dim);letter-spacing:0.18em;text-transform:uppercase;margin-top:16px;">September 1, 1991</div>`;
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 140));
+  }, 50);
+
+  setTimeout(() => {
+    setChoices([{
+      text: '🚂 Head to King\'s Cross — the Express leaves at eleven',
+      action: 'king_cross',
+    }]);
+    showFreeInput(false);
+  }, 1600);
+}
+
+// ── Platform 9¾ — exploration choices ────────────────────
+// sceneKingsCross already generates the AI scene well.
+// We enhance its choices to give more options before boarding.
+// This patches the choice set that appears after the scene loads.
+function getKingsCrossChoices() {
+  return [
+    { text: '👀 Watch the Muggles — none of them can see the barrier', action: 'express_muggles' },
+    { text: '🧙 Look for other wizarding families on the platform',      action: 'express_wizards' },
+    { text: '🚂 Board the train and find a compartment',                 action: 'express_explore' },
+    { text: '🪟 Find a window seat and watch England pass',              action: 'express_alone'   },
+  ];
+}
+
+// ── Muggles at King's Cross ───────────────────────────────
+async function sceneExpressMuggles() {
+  STATE.currentScene = 'express_muggles';
+  setLocation("King's Cross — Platform 9¾");
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The platform...<span class="cursor-blink"></span></div>`);
+
+  const blood = STATE.player.bloodStatus || 'half-blood';
+  const sys = `Write 2 short paragraphs. The player stands near the barrier between the Muggle world and Platform 9¾, watching ordinary people pass by. The Muggles cannot see the barrier, the train, or any of it. They walk through the space as if it is simply wall.
+${blood === 'muggle-born' ? 'The player has come from this world. They know these people. There is something strange about watching them now.' : blood === 'pure-blood' ? 'Muggles have always been an abstraction to the player. Watching them in person is unexpectedly specific.' : 'The player occupies both worlds. This is one of the moments that makes that feel real.'}
+Tone: thoughtful, a little wistful, not condescending. Second person. Present tense. 70-90 words.`;
+  const text = await callClaude(sys, 'Watching Muggles at King\'s Cross.', 220);
+  const fallback = `The ordinary world continues on the other side of the barrier, as it always has. Businessmen with briefcases. A family with too much luggage. A woman reading a paperback, not looking up.\n\nNone of them can see what is on this side. The thought sits with you for a moment — not superiority, something more complicated than that. You are standing in two worlds at once.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>The Other Side of the Barrier</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
+  setTimeout(() => {
+    setChoices([
+      { text: '🧙 Look for other wizarding families',  action: 'express_wizards'  },
+      { text: '🚂 Board the train',                    action: 'express_explore'  },
+    ]);
+  }, 1400);
+}
+
+// ── Wizarding families at King's Cross ───────────────────
+async function sceneExpressWizards() {
+  STATE.currentScene = 'express_wizards';
+  setLocation("King's Cross — Platform 9¾");
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The platform...<span class="cursor-blink"></span></div>`);
+
+  const sys = `Write 2 short paragraphs. The player is looking around Platform 9¾ at the other wizarding families saying goodbye. Canon detail: the Weasley family is here — large, red-haired, loud. Mrs Weasley is fussing. Percy is already in his prefect badge. The twins are causing minor chaos. Ron looks like he would rather be somewhere else.
+There are other families too — a Muggle-born student being embraced for too long, a pure-blood family standing slightly apart with the ease of people who have done this before.
+Second person. Present tense. 80-100 words. No player dialogue.`;
+  const text = await callClaude(sys, 'Wizarding families at King\'s Cross.', 250);
+  const fallback = `The Weasley family alone accounts for a significant portion of the noise. Six of them — at least — red-haired and impossible to miss, and a mother trying to hold all of it together with the particular competence of someone who has done this many times before. Two of the boys are already in trouble for something.\n\nEverywhere else: students of every kind, families of every shape, the particular mixture of excitement and dread that a September 1st platform produces.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>Platform 9¾</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
+  setTimeout(() => {
+    setChoices([
+      { text: '🚂 Board the train and find a compartment', action: 'express_explore' },
+      { text: '🪟 Find a window seat and watch the journey',  action: 'express_alone'   },
+    ]);
+  }, 1400);
+}
+
+// ── Hogsmeade Station arrival ─────────────────────────────
+async function sceneHogsmeadeArrival() {
+  if (STATE.flags.includes('HOGSMEADE_STATION_SEEN')) {
+    // Skip straight to boats on revisit (shouldn't happen — one-time only)
+    await sceneBoatsToHogwarts();
+    return;
+  }
+  STATE.flags.push('HOGSMEADE_STATION_SEEN');
+  STATE.currentScene = 'hogsmeade_station';
+  setLocation('Hogsmeade Station — Scotland');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Hogsmeade Station...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set September 1, 1991.
+Write 2 paragraphs. The Hogwarts Express has pulled into Hogsmeade Station. It is dark and cold — Scotland in September. The students pour off the train. Someone is shouting "Firs' years! Firs' years over here!"
+This is Hagrid. He is enormous and holds a lantern. His voice cuts through the crowd even though he is not shouting aggressively — just used to being heard.
+The first-years follow him. The older students go a different way. The crowd splits.
+Second person. Present tense. 80-100 words. No player dialogue.`;
+  const text = await callClaude(sys, 'Hogsmeade Station arrival, first years.', 260);
+  const fallback = `Scotland at night is dark in a way London never quite manages. The train exhales steam into air that smells of pine and cold water and something electric you can't name yet.\n\n"Firs' years! Firs' years over here!" The voice belongs to someone enormous — a man with a lantern held high enough that you can see him above the crowd. The older students peel away without looking. The first-years drift toward the light.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Hogsmeade Station</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*155)), 50);
+
+  // Meet Hagrid relationship bump
+  adjustDim('hagrid', 'trust', 3);
+  adjustDim('hagrid', 'affection', 2);
+  if (STATE.relationships['hagrid']) STATE.relationships['hagrid'].met = true;
+
+  setTimeout(() => {
+    setChoices([{
+      text: '⛵ Follow Hagrid down to the lake',
+      action: 'scene_boats_to_hogwarts',
+    }]);
+  }, 1600);
+}
+
+// ── Boats to Hogwarts ─────────────────────────────────────
+async function sceneBoatsToHogwarts() {
+  STATE.currentScene = 'boats_to_hogwarts';
+  setLocation('The Black Lake — By Boat');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The boats...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set September 1, 1991.
+Write 2 paragraphs. The first-year students are crossing the Black Lake in small boats — four to a boat, moving without oars, guided by some force beneath the water. The lake is still and black and very wide. Scotland is dark all around them.
+The boats are approaching a cliff face. And then the cliff bends around and reveals the castle.
+End the second paragraph exactly at the moment they see Hogwarts for the first time. Do not describe the castle yet. End on the sight beginning to register.
+Second person. Present tense. 80-100 words. No player dialogue.`;
+  const text = await callClaude(sys, 'Crossing the Black Lake to Hogwarts.', 260);
+  const fallback = `The boats move without anyone rowing — without anyone explaining why, either. The lake is black and cold and still around you, and the other first-years are quiet in a way they haven't been all evening.\n\nAhead, the cliff face curves. Hagrid in his boat at the front calls something you don't catch. And then the cliff opens, and you see it.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>⛵ The Black Lake</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+  setTimeout(() => {
+    setChoices([{
+      text: '🏰 Look up at Hogwarts',
+      action: 'scene_first_sight_of_castle',
+    }]);
+  }, 1800);
+}
+
+// ── First sight of the castle ─────────────────────────────
+async function sceneFirstSightOfCastle() {
+  STATE.currentScene = 'first_sight_castle';
+  setLocation('The Black Lake — Approaching Hogwarts');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Hogwarts...<span class="cursor-blink"></span></div>`);
+
+  const blood = STATE.player.bloodStatus || 'half-blood';
+  const bloodNote = blood === 'muggle-born'
+    ? 'This player has never seen anything like this. There is no frame of reference.'
+    : blood === 'pure-blood'
+    ? 'This player has heard about Hogwarts their whole life. They thought they knew what to expect.'
+    : 'This player knew it would be large. They did not know it would be like this.';
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set September 1, 1991.
+Write 2 paragraphs describing a student's first sight of Hogwarts Castle from the Black Lake.
+The castle is vast — windows lit against the dark sky, towers at irregular heights, reflected in the black water below. It is old in a way that feels inhabited, not abandoned. It looks like somewhere things happen.
+${bloodNote}
+This paragraph should be purely visual and emotional — no action, no dialogue. The boat is still moving. The student is still looking.
+Second person. Present tense. 90-110 words.`;
+  const text = await callClaude(sys, 'First sight of Hogwarts from the lake.', 280);
+  const fallback = `It is too large. That is the first thing. Every tower at a different height, every window lit against the dark — hundreds of them — and reflected below in the lake so that the castle seems to exist both above and beneath you.\n\nYou have seen pictures. They did not prepare you for the scale of it, or for the particular quality of the light, or for the fact that it looks — improbably, undeniably — like somewhere real things happen. The boats keep moving. You keep looking.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🏰 Hogwarts</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*165)), 50);
+  setTimeout(() => {
+    setChoices([{
+      text: '🚪 The boats reach the shore — follow the others inside',
+      action: 'scene_mcgonagall_at_doors',
+    }]);
+  }, 1800);
+}
+
+// ── McGonagall at the doors ───────────────────────────────
+async function sceneMcGonagallAtDoors() {
+  STATE.currentScene = 'mcgonagall_doors';
+  setLocation('Hogwarts — The Entrance Hall');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The entrance...<span class="cursor-blink"></span></div>`);
+
+  const rel = STATE.relationships['mcgonagall'] || {};
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set September 1, 1991.
+Write 2 paragraphs. The first-year students have come up from the lake and are standing in the entrance hall of Hogwarts — torchlit, enormous, with a marble staircase ahead of them. Professor McGonagall is waiting for them.
+CHARACTER: Professor McGonagall: strict, precise, Scottish, commanding. She does not raise her voice because she does not need to. She tells the first-years they will enter the Great Hall shortly to be sorted. She tells them this school has existed for a thousand years. She tells them to compose themselves.
+She is not unkind. She is exact.
+Second person. Present tense. 80-100 words. End with the doors to the Great Hall ahead.`;
+  const text = await callClaude(sys, 'McGonagall addresses first years at the doors.', 260);
+  const fallback = `The Entrance Hall is lit by torches and larger than any room you have been in. The marble staircase ahead is wide enough to drive a car up. Around you, forty first-years are making no noise at all.\n\nA woman in emerald green robes is waiting with the composure of someone accustomed to rooms going quiet when she enters them. "Welcome to Hogwarts," she says. "In a few moments you will be sorted. Compose yourselves." She glances at the doors ahead of her. They are very large and very closed.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>Professor McGonagall</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*155)), 50);
+
+  // McGonagall first meeting
+  if (STATE.relationships['mcgonagall']) {
+    STATE.relationships['mcgonagall'].met = true;
+    adjustDim('mcgonagall', 'trust',   2);
+    adjustDim('mcgonagall', 'respect', 5);
+  }
+
+  setTimeout(() => {
+    setChoices([{
+      text: '🚪 The doors open — enter the Great Hall',
+      action: 'scene_great_hall_entry',
+    }]);
+  }, 1600);
+}
+
+// ── Great Hall entry (first time) ─────────────────────────
+async function sceneGreatHallEntry() {
+  STATE.currentScene = 'great_hall_entry';
+  setLocation('Hogwarts — The Great Hall');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The Great Hall...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set September 1, 1991.
+Write 2-3 paragraphs. The first-year students have just walked into the Great Hall of Hogwarts for the first time.
+Describe: the enchanted ceiling (showing the night sky — clouds, stars), the four long house tables packed with older students all turning to look, thousands of floating candles, the teachers at the high table at the far end, and the old three-legged stool in the centre with a patched, battered hat on top of it.
+The older students are watching with that mixture of amusement and nostalgia that people have when they remember doing the same thing.
+The first-years come to a halt. The hall goes quiet.
+Second person. Present tense. 100-120 words. No player dialogue. End on the silence.`;
+  const text = await callClaude(sys, 'First-year students enter the Great Hall.', 300);
+  const fallback = `The doors open onto more than you expected. The ceiling shows the night sky — not painted, actually showing it, clouds moving across actual stars. The four house tables run the length of the hall, packed with hundreds of older students who have all turned to look at you. Thousands of floating candles light everything gold.\n\nAt the far end, the teachers sit at a high table, watching. In the centre of the hall, a three-legged stool holds a battered old hat with a wide brim.\n\nThe first-years file in and come to a stop. The hall is very quiet now.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>✨ The Great Hall</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+  setTimeout(() => {
+    setChoices([{
+      text: '🎩 The Sorting Hat begins — step forward',
+      action: 'hogwarts_arrival',
+    }]);
+  }, 2000);
+}
+
+// ── Common room — first visit scene ──────────────────────
+async function sceneCommonRoomFirstVisit() {
+  const house = STATE.player.house || 'Gryffindor';
+  const locMap = {
+    Gryffindor: { id:'gryffindor_tower',    desc:'in Gryffindor Tower, at the top of a moving staircase, behind a portrait of a fat lady in a pink dress', icon:'🦁' },
+    Hufflepuff:  { id:'hufflepuff_basement', desc:'in the Hufflepuff basement, round and earthy, hung with yellow and black, smelling of warmth and something herbal', icon:'🦡' },
+    Ravenclaw:   { id:'ravenclaw_tower',     desc:'in Ravenclaw Tower, high and airy, with arched windows showing the mountains and a sky full of stars', icon:'🦅' },
+    Slytherin:   { id:'slytherin_dungeon',   desc:'in the Slytherin dungeon, low-ceilinged and green-lit, with tapestries on cold stone walls and the lake outside the windows', icon:'🐍' },
+  };
+  const loc = locMap[house] || locMap.Gryffindor;
+
+  STATE.currentScene = 'common_room_first';
+  STATE.currentLocation = loc.id;
+  STATE.flags.push('COMMON_ROOM_SEEN');
+  setLocation(`${loc.icon} ${house} Common Room`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${house} Common Room...<span class="cursor-blink"></span></div>`);
+
+  const housemates = (HOUSE_DATA[house]?.housemates || [])
+    .filter(id => NPC_DATA[id] && STATE.relationships[id]?.met)
+    .slice(0, 3).map(id => NPC_DATA[id].name);
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set September 1, 1991.
+Write 2 paragraphs. A new ${house} student has just entered their common room for the very first time, immediately after the Sorting feast.
+The common room is ${loc.desc}.
+It is late — the feast has just ended. Some older students are already here, lounging, talking. The prefects have shown the first-years the way.
+${housemates.length ? `Some names the player has already heard tonight: ${housemates.join(', ')}.` : ''}
+This is their home for the next seven years. How does it feel?
+Second person. Present tense. 100-120 words. End with the player finding somewhere to sit — or simply standing and taking it in.`;
+  const text = await callClaude(sys, `${house} common room — first visit after Sorting.`, 300);
+  const defaults = {
+    Gryffindor: `The portrait swings open and Gryffindor Tower appears behind it — firelit and red and enormous, a dozen armchairs and students draped across them with the ease of people who have been here years. The noise is immediate. The warmth is immediate.\n\nYou are a Gryffindor. This is where that means. The ceiling is vaulted and the rug is worn and the fire is very bright, and you find yourself standing inside it, just for a moment, before anyone makes you do anything else.`,
+    Hufflepuff:  `The entrance is low and warm and round, and the common room on the other side of it is the most comfortable-looking space you have ever walked into. Plants on every surface. Warm yellow light. Students curled up in chairs with the ease of people who live here.\n\nThis is Hufflepuff. Your housemates drift past you, greeting each other, finding seats. Someone smiles at you — actually smiles, directly at you — before you have said a word.`,
+    Ravenclaw:   `The common room is cold and high and extraordinary — arched windows showing mountains and a sky full of stars, and bookcases lining every wall except where the windows are. Students sit at long tables with books open, or stand at the windows. The noise is quieter than you expected.\n\nThis is Ravenclaw. You find a window and stand at it for a moment, looking out at Scotland in the dark, before you realise how tired you are.`,
+    Slytherin:   `The dungeon common room is nothing like what you expected. Lower than Hogwarts' grander spaces, but not small — and green-lit by the lake outside the windows, a rippling cold light that makes everything look like it is underwater. Tapestries hang between suits of armour. The fire is smaller but very bright.\n\nThis is Slytherin. The older students do not ignore you — they assess you, which is different. You find a chair that faces the room.`,
+  };
+
+  const fallback = defaults[house] || defaults.Gryffindor;
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${loc.icon} ${house} Common Room</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para').forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  // Housemate relationship warm start
+  (HOUSE_DATA[house]?.housemates || []).forEach(id => {
+    if (STATE.relationships[id]) {
+      STATE.relationships[id].met = true;
+      adjustDim(id, 'trust', 2);
+      adjustDim(id, 'affection', 2);
+    }
+  });
+  updateRelationshipSidebar();
+
+  setTimeout(() => {
+    setChoices([{
+      text: '🌙 It has been a long day — time to sleep',
+      action: 'hogwarts_morning_1',
+    }]);
+    showFreeInput(false);
+  }, 2000);
 }
 
 // Advance week function
