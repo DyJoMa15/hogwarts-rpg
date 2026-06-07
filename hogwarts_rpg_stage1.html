@@ -686,6 +686,16 @@
   .day-mood-badge.stressed  { color: var(--red-wax); border-color: rgba(139,26,26,0.4); }
   .day-mood-badge.energised { color: var(--gold); border-color: rgba(201,168,76,0.4); }
 
+  /* Mood pill — compact inline indicator in the day status bar */
+  .day-mood-pill {
+    font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px;
+    border: 1px solid; white-space: nowrap;
+    cursor: default; transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+
   /* Day action choices get a slightly different style */
   .day-choice-cost {
     font-family: 'Cinzel', serif; font-size: 9px;
@@ -2593,6 +2603,184 @@
   }
   .brew-use-btn:hover { background: rgba(90,158,111,0.22); border-color: #7fb87f; }
 
+    /* ═══════════════ DAY MENU GROUPS ═══════════════ */
+  .choice-group-label {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    padding: 14px 0 5px;
+    margin-bottom: 0;
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+  .choice-group-label:first-child {
+    border-top: none;
+    padding-top: 0;
+  }
+
+  /* ═══════════════ EXPLORE FILTER TABS ═══════════════ */
+  .explore-filter-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+  .explore-filter-tab {
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--ink-light);
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .explore-filter-tab:hover {
+    color: var(--parchment);
+    border-bottom-color: rgba(201,168,76,0.4);
+  }
+  .explore-filter-tab.active {
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ═══════════════ SPIRITS REL TAB ═══════════════ */
+  /* Spirits use same rel-char-card styling but with a
+     ghostly tint on the border */
+  .rel-char-card[data-spirit="true"] {
+    border-color: rgba(139,158,217,0.3);
+    background: rgba(139,158,217,0.04);
+  }
+  .spirit-mechanic-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border: 1px solid rgba(139,158,217,0.3);
+    color: #8B9ED9;
+    background: rgba(139,158,217,0.08);
+    margin-top: 4px;
+  }
+
+  
+  /* ═══════════════ FROG CARD COLLECTION ═══════════════ */
+  .card-col-entry {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 16px; border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  .card-col-entry:last-child { border-bottom: none; }
+  .card-col-entry:hover { background: rgba(201,168,76,0.04); }
+  .card-col-icon { font-size: 20px; flex-shrink: 0; }
+  .card-col-info { flex: 1; min-width: 0; }
+  .card-col-name {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 0.05em; color: var(--parchment);
+  }
+  .card-col-era {
+    font-size: 10px; color: var(--ink-light);
+    letter-spacing: 0.06em; text-transform: capitalize;
+  }
+  .card-col-count {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    color: var(--gold-dim); flex-shrink: 0;
+  }
+
+  
+  /* ═══════════════ SWEET ORDERING ═══════════════ */
+  .sweet-order-tabs {
+    display: flex; border-bottom: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .sweet-order-tab {
+    flex: 1; background: transparent; border: none;
+    border-bottom: 2px solid transparent; color: var(--ink-light);
+    font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 10px 8px; cursor: pointer; transition: all 0.15s;
+  }
+  .sweet-order-tab:disabled { opacity: 0.35; cursor: not-allowed; }
+  .sweet-order-tab:hover:not(:disabled) { color: var(--parchment); }
+  .sweet-order-tab.active {
+    color: var(--gold); border-bottom-color: var(--gold);
+  }
+  .sweet-order-info {
+    padding: 8px 16px; background: rgba(0,0,0,0.1);
+    border-bottom: 1px solid var(--border);
+  }
+  .sweet-delivery-detail {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sweet-delivery-icon { font-size: 20px; }
+  .sweet-delivery-eta {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.08em; color: var(--parchment);
+  }
+  .sweet-delivery-perk {
+    font-size: 10px; color: var(--gold-dim); margin-top: 2px;
+  }
+  .sweet-order-item {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 16px; border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  .sweet-order-item:hover { background: rgba(201,168,76,0.03); }
+  .sweet-order-icon { font-size: 20px; flex-shrink: 0; }
+  .sweet-order-info-block { flex: 1; min-width: 0; }
+  .sweet-order-name {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 0.05em; color: var(--parchment);
+  }
+  .sweet-order-desc {
+    font-size: 10px; color: var(--ink-light); line-height: 1.4;
+  }
+  .sweet-order-price-block {
+    display: flex; flex-direction: column; align-items: flex-end; gap: 4px;
+    flex-shrink: 0;
+  }
+  .sweet-order-base-price {
+    font-family: 'Cinzel', serif; font-size: 10px; color: var(--gold-dim);
+  }
+  .sweet-order-qty-row {
+    display: flex; align-items: center; gap: 6px;
+  }
+  .sweet-order-qty {
+    font-family: 'Cinzel', serif; font-size: 13px; color: var(--parchment);
+    min-width: 20px; text-align: center;
+  }
+  .sweet-order-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 16px; border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.2);
+  }
+  .sweet-order-total {
+    font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold);
+  }
+
+  
+  /* ═══════════════ STUDY SUBJECT PICKER ═══════════════ */
+  .study-picker { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+  .study-pick-btn {
+    display: flex; align-items: center; gap: 10px;
+    background: transparent; border: 1px solid var(--border);
+    color: var(--parchment); padding: 10px 14px;
+    cursor: pointer; transition: all 0.15s; text-align: left;
+  }
+  .study-pick-btn:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+  .study-pick-icon { font-size: 20px; flex-shrink: 0; }
+  .study-pick-info { flex: 1; }
+  .study-pick-label { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.08em; color: var(--parchment); }
+  .study-pick-desc  { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
+  .study-pick-val   { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold-dim); flex-shrink: 0; }
+
     /* ═══════════════ REL SIDEBAR MINI LIST ═══════════════ */
   .rel-mini-empty {
     font-size: 12px; color: var(--ink-light); font-style: italic; padding: 4px 0;
@@ -3210,6 +3398,7 @@
         <div style="display:flex;gap:4px;">
           <button onclick="sceneBrew('day')" style="background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.15em;padding:3px 8px;cursor:pointer;text-transform:uppercase;">Brew</button>
           <button onclick="openSellModal()" style="background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.15em;padding:3px 8px;cursor:pointer;text-transform:uppercase;">Sell</button>
+          <button onclick="openCardCollection()" style="background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.15em;padding:3px 8px;cursor:pointer;text-transform:uppercase;">Cards</button>
         </div>
       </div>
       <div class="inventory-list" id="inventoryList">
@@ -3338,6 +3527,8 @@ const STATE = {
   _npcConvoOpening:   null,
   combatState:        { active: false },
   chessGame:          { active: false },
+  cardCollection:     {},
+  pendingOrders:      [],
   temporaryBuffs:     [],
   _apBonus:           0,
   _potionReady:       null,
@@ -3416,6 +3607,7 @@ const STATE = {
   explorationLog: [],                    // [{ locationId, timeOfDay, week, summary }]
   curfewStrikes: 0,                      // caught out of bounds count this term
   detentionCount: 0,                     // total detentions served
+  quirrellSuspicion: 0,                  // accumulating wrongness counter
   discoveredSecrets: [],                 // secret locations found
   visitCounts: {},                       // { locationId: n } for frequency tracking
 
@@ -3789,16 +3981,9 @@ function resolveWand() {
     coreData,
   };
 
-  // Apply stat boosts
-  const allBoosts = { ...woodData.stats };
-  Object.entries(coreData.stats).forEach(([k,v]) => {
-    allBoosts[k] = (allBoosts[k]||0) + v;
-  });
-  Object.entries(allBoosts).forEach(([k,v]) => {
-    if(STATE.skills[k] !== undefined)
-      STATE.skills[k] = Math.min(100, STATE.skills[k] + v);
-  });
-  updateSkills();
+  // Apply stat boosts via the idempotent helper
+  STATE.player._wandStatsApplied = false; // reset so helper applies fresh
+  applyWandStatsIfNeeded();
 
   // Mark wand as acquired in inventory
   if(!STATE.inventory.some(i=>i.id==='wand')) {
@@ -3810,8 +3995,19 @@ function resolveWand() {
 }
 
 function wandName(key) {
-  // Convert camelCase key to display name
-  return key.replace(/([A-Z])/g, ' $1').replace(/^./, s=>s.toUpperCase()).trim();
+  // Explicit display names for wand woods
+  const names = {
+    acacia:'Acacia', alder:'Alder', apple:'Apple', ash:'Ash', aspen:'Aspen',
+    blackthorn:'Blackthorn', blackWalnut:'Black Walnut', cedar:'Cedar',
+    cherry:'Cherry', chestnut:'Chestnut', cypress:'Cypress', dogwood:'Dogwood',
+    ebony:'Ebony', elder:'Elder', elm:'Elm', englishOak:'English Oak',
+    fir:'Fir', hawthorn:'Hawthorn', hazel:'Hazel', holly:'Holly',
+    hornbeam:'Hornbeam', larch:'Larch', laurel:'Laurel', maple:'Maple',
+    pear:'Pear', pine:'Pine', poplar:'Poplar', redOak:'Red Oak',
+    redwood:'Redwood', rowan:'Rowan', silver:'Silver Lime', spruce:'Spruce',
+    sycamore:'Sycamore', vine:'Vine', walnut:'Walnut', willow:'Willow', yew:'Yew',
+  };
+  return names[key] || key.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase()).trim();
 }
 
 function showWandResult(wood, core, length, flex, woodData, coreData, boosts) {
@@ -7553,12 +7749,32 @@ function updateWandDisplay() {
   const w = STATE.player.wand;
   if(!w) { el.innerHTML = '<div class="familiar-empty">No wand yet.</div>'; return; }
   const woodDisplay = wandName(w.wood);
+  // Build stat boost summary for display
+  const allBoosts = {};
+  if (w.woodData?.stats) Object.entries(w.woodData.stats).forEach(([k,v]) => {
+    allBoosts[k] = (allBoosts[k]||0) + v;
+  });
+  if (w.coreData?.stats) Object.entries(w.coreData.stats).forEach(([k,v]) => {
+    allBoosts[k] = (allBoosts[k]||0) + v;
+  });
+  const statNames = { magicalPower:'Power', intellect:'Intellect',
+    potionsMastery:'Potions', arcaneKnowledge:'Arcane', dueling:'Dueling',
+    stealth:'Stealth', persuasion:'Persuasion', empathy:'Empathy',
+    courage:'Courage', luck:'Luck', herbologyMastery:'Herbology', quidditch:'Quidditch' };
+  const boostPills = Object.entries(allBoosts)
+    .filter(([,v]) => v > 0)
+    .sort(([,a],[,b]) => b - a)
+    .slice(0, 4) // show top 4 boosts
+    .map(([k,v]) => `<span class="wand-stat-pill">+${v} ${statNames[k]||k}</span>`)
+    .join('');
+
   el.innerHTML = `
     <div class="familiar-display">
       <div class="familiar-icon">🪄</div>
       <div class="familiar-info">
         <div class="familiar-name">${w.length} ${woodDisplay}</div>
-        <div class="familiar-bonus">${w.coreData.name} · ${w.flexibility}</div>
+        <div class="familiar-bonus">${w.coreData?.name || ''} · ${w.flexibility}</div>
+        ${boostPills ? `<div style="margin-top:4px;line-height:1.8">${boostPills}</div>` : ''}
       </div>
     </div>`;
 }
@@ -7670,7 +7886,17 @@ function buyItem(shopId, itemId) {
   const item = shop.items.find(i=>i.id===itemId);
   if(!item) return;
   if(!spend(item.price.g, item.price.s||0, item.price.k||0)) { showToast('Not enough gold.'); return; }
-  STATE.inventory.push({id:item.id, name:item.name});
+  const isIngredient = ITEM_CATALOGUE[item.id]?.cat === 'ingredient';
+  const qualityChance = isIngredient && typeof herbologyIngredientQualityChance === 'function'
+    ? herbologyIngredientQualityChance() : 0;
+  const quality = isIngredient && Math.random() < qualityChance ? 'high_quality' : 'standard';
+  const invEntry = { id:item.id, name:item.name };
+  if (isIngredient && quality === 'high_quality') {
+    invEntry.quality = 'high_quality';
+    invEntry.icon    = ITEM_CATALOGUE[item.id]?.icon || '🧪';
+    showToast(`✨ High-quality ${item.name} — your Herbology knowledge shows.`, 3000);
+  }
+  STATE.inventory.push(invEntry);
   if(item.statBoost) {
     Object.entries(item.statBoost).forEach(([k,v]) => {
       if(STATE.skills[k] !== undefined) STATE.skills[k] = Math.min(100, STATE.skills[k]+v);
@@ -7679,7 +7905,12 @@ function buyItem(shopId, itemId) {
   updateInventory();
   updateSkills();
   renderShopItems(shop);
-  showToast(`Purchased: ${item.name}`);
+  // Trigger card draw for chocolate frogs
+  if (item.mechanic === 'card_draw' && typeof handleChocolateFrogDraw === 'function') {
+    handleChocolateFrogDraw();
+  } else {
+    showToast(`Purchased: ${item.name}`);
+  }
   checkShoppingProgress();
 }
 
@@ -7890,6 +8121,7 @@ Skills: Magical Power ${STATE.skills.magicalPower}, Intellect ${STATE.skills.int
 ${typeof buildFamiliarContext === 'function' ? buildFamiliarContext() : 'Familiar: ' + (STATE.familiar ? STATE.familiar.name : 'none') + '.'}
 Gold: ${STATE.currency.galleons} Galleons.
 Inventory items: ${STATE.inventory.map(i=>i.name).join(', ')||'none yet'}.
+${typeof buildSkillContext === 'function' ? buildSkillContext() : ''}
 IMPORTANT — NPC appearance comments: When writing scenes where NPCs first meet the player, weave in brief, natural reactions to their appearance where appropriate. These should feel organic — a glance, a comment, an observation — never forced. Some NPCs may be complimentary, others neutral, others subtly critical (especially Draco and Pansy). Match the NPC's established personality. Do not comment on appearance in every scene, only meaningfully at first meetings.`;
   const alterations = (STATE.worldAlterations||[]).map(a =>
     `- ${a.npcName} was ${a.type} in Year ${a.year}. ${a.substitutionNarrative||''}`
@@ -8725,6 +8957,21 @@ async function handleChoice(idx) {
     case 'day_visit_hagrid': await sceneVisitHagrid(); break;
     case 'day_curfew_explore': await sceneCurfewExplore(); break;
     case 'open_board':        openBoardModal(); break;
+    case 'open_brew_study':   sceneBrew('study'); break;
+    case 'peeves_standup': {
+      const courage = STATE.skills?.courage || 10;
+      if (skillPass('courage', 35)) {
+        showToast('⚡ Peeves backs off — impressed despite himself.', 3500);
+        STATE.playerMood = STATE.playerMood === 'stressed' ? 'rested' : STATE.playerMood;
+      } else {
+        showToast('Peeves cackles. Standing firm made no difference.', 3000);
+      }
+      setChoices([{ text: '← Continue on', action: 'resume_explore' }]);
+      break;
+    }
+    case 'resume_explore': renderDayMenu(); break;
+    case 'day_great_hall':    await sceneGreatHall(); break;
+    case 'open_sweet_order':  openSweetOrderModal(); break;
     case 'open_brew':         await sceneBrew('day');   break;
     case 'open_brew_study':   await sceneBrew('study'); break;
     case 'scene_mirror_harry_player': await sceneMirrorOfErised('harry_player'); break;
@@ -8772,6 +9019,31 @@ async function handleChoice(idx) {
         handleGameAgain(gameType);
         break;
       }
+      if (action.startsWith('scene_npc_')) {
+        const npcId = action.slice(10);
+        await sceneNPC(npcId);
+        break;
+      }
+      if (action.startsWith('ghost_ask_')) {
+        // ghost_ask_{npcId}_{topic}
+        const parts   = action.slice(10).split('_');
+        const topic   = parts.pop();
+        const ghostId = parts.join('_');
+        await resolveGhostConvo(ghostId, topic);
+        break;
+      }
+      if (action.startsWith('ghost_mechanic_')) {
+        const ghostId = action.slice(15);
+        const mech    = NPC_DATA[ghostId]?.ghostMechanic;
+        const fns = {
+          filch_misdirect:  activateGhostMechanic_filch_misdirect,
+          vouch_for_player: activateGhostMechanic_vouch_for_player,
+          lore_unlock:      activateGhostMechanic_lore_unlock,
+          intimidate_npc:   activateGhostMechanic_intimidate_npc,
+        };
+        if (fns[mech]) await fns[mech](ghostId);
+        break;
+      }
       if (action.startsWith('npc_respond_')) {
         // Resolution: player has chosen a response tone
         const parts = action.slice(12).split('_');
@@ -8816,9 +9088,12 @@ function checkShoppingProgress() {
 // INIT
 // ═══════════════════════════════════════════════════════════
 function init() {
+  ghostNPCInit(); // register ghost NPCs into NPC_DATA before anything else
+  if (typeof unlockSchoolOwl === 'function') unlockSchoolOwl();
   updateGoldDisplay();
   updateInventory();
   updateWandDisplay();
+  applyWandStatsIfNeeded();
   updateFamiliar();
   updateSkills();
   updateAlignmentSidebar();
@@ -8976,6 +9251,8 @@ function buildSaveData() {
     _npcConvoOpening:   null,
     combatState:        { active: false },
     chessGame:          { active: false },
+    cardCollection:     JSON.parse(JSON.stringify(STATE.cardCollection || {})),
+    pendingOrders:      JSON.parse(JSON.stringify(STATE.pendingOrders || [])),
     pendingSales:       JSON.parse(JSON.stringify(STATE.pendingSales||[])),
     _npcConvoId:        null,
     owlPost:            JSON.parse(JSON.stringify(STATE.owlPost||[])),
@@ -8999,6 +9276,7 @@ function buildSaveData() {
     explorationLog:     JSON.parse(JSON.stringify(STATE.explorationLog||[])),
     curfewStrikes:      STATE.curfewStrikes || 0,
     detentionCount:     STATE.detentionCount || 0,
+    quirrellSuspicion:  STATE.quirrellSuspicion || 0,
     discoveredSecrets:  [...(STATE.discoveredSecrets||[])],
     visitCounts:        JSON.parse(JSON.stringify(STATE.visitCounts||{})),
     prophet:      JSON.parse(JSON.stringify(STATE.prophet||{issues:[],lastGeneratedWeek:0,unreadCount:0})),
@@ -9070,7 +9348,9 @@ function applySaveData(data) {
   if(data.owlLastPostWeek != null) STATE.owlLastPostWeek = data.owlLastPostWeek;
   if(data._catLeadLocation !== undefined) STATE._catLeadLocation = data._catLeadLocation;
   if(data._ferretLastEvent !== undefined) STATE._ferretLastEvent = data._ferretLastEvent;
-  if(data.pendingSales)  STATE.pendingSales = data.pendingSales;
+  if(data.pendingSales)    STATE.pendingSales = data.pendingSales;
+  if(data.cardCollection)  STATE.cardCollection = data.cardCollection;
+  if(data.pendingOrders)   STATE.pendingOrders  = data.pendingOrders;
   if(data.injuries)                STATE.injuries = data.injuries;
   if(data._hospitalRecoveryDays != null) STATE._hospitalRecoveryDays = data._hospitalRecoveryDays;
   if(data.dailyAP != null)         STATE.dailyAP = data.dailyAP;
@@ -9086,6 +9366,7 @@ function applySaveData(data) {
   if(data.explorationLog)      STATE.explorationLog = data.explorationLog;
   if(data.curfewStrikes != null) STATE.curfewStrikes = data.curfewStrikes;
   if(data.detentionCount != null) STATE.detentionCount = data.detentionCount;
+  if(data.quirrellSuspicion != null) STATE.quirrellSuspicion = data.quirrellSuspicion;
   if(data.discoveredSecrets)   STATE.discoveredSecrets = data.discoveredSecrets;
   if(data.visitCounts)         STATE.visitCounts = data.visitCounts;
   STATE.discoveredLocations = data.discoveredLocations || {};
@@ -9279,6 +9560,8 @@ function executeLoad(n) {
   updateGoldDisplay();
   updateInventory();
   updateWandDisplay();
+  // Re-apply wand stat boosts defensively (handles pre-wand saves)
+  applyWandStatsIfNeeded();
   updateFamiliar();
   updateSkills();
   document.getElementById('gameDate').textContent =
@@ -9358,12 +9641,7 @@ document.addEventListener('keydown', e => {
 // RELATIONSHIP UI SYSTEM
 // ═══════════════════════════════════════════════════════════
 
-const REL_TABS = [
-  { key:'met',        label:'Met' },
-  { key:'students',   label:'Students' },
-  { key:'professors', label:'Professors' },
-  { key:'all',        label:'All' },
-];
+// REL_TABS moved to UI restructure block
 
 let _relActiveTab = 'met';
 
@@ -9430,27 +9708,8 @@ function switchRelTab(key) {
   renderRelTab(key);
 }
 
-function renderRelTab(key) {
-  const body = document.getElementById('relModalBody');
-  const allNpcs = Object.values(NPC_DATA);
+// renderRelTab moved to UI restructure block
 
-  let npcs;
-  if(key === 'met')        npcs = allNpcs.filter(n => STATE.relationships[n.id]?.met);
-  else if(key === 'students')   npcs = allNpcs.filter(n => n.year < 99);
-  else if(key === 'professors') npcs = allNpcs.filter(n => n.year === 99);
-  else npcs = allNpcs;
-
-  const desc = document.getElementById('relModalDesc');
-  if(key === 'met') desc.textContent = npcs.length ? `${npcs.length} character${npcs.length!==1?'s':''} encountered.` : 'No one met yet — get out there.';
-  else desc.textContent = `Showing ${npcs.length} characters.`;
-
-  if(!npcs.length) {
-    body.innerHTML = `<div style="padding:32px;text-align:center;color:var(--ink-light);font-style:italic;font-family:'IM Fell English',Georgia,serif;font-size:18px;">No characters in this category yet.</div>`;
-    return;
-  }
-
-  body.innerHTML = `<div class="rel-char-grid">${npcs.map(npc => buildRelCard(npc)).join('')}</div>`;
-}
 
 function buildRelCard(npc) {
   const rel = STATE.relationships[npc.id] || {};
@@ -16494,9 +16753,13 @@ function completeClassSession(sessId, prof) {
     : _selectedEngagement === 'daydream' ? 0.5
     : _selectedEngagement === 'trouble' ? 0.3 : 1.0;
 
+  const intellectMult = typeof intellectXPMultiplier === 'function'
+    ? intellectXPMultiplier() : 1.0;
+
   Object.entries(xp).forEach(([skill, amount]) => {
     if(STATE.skills[skill] !== undefined) {
-      STATE.skills[skill] = Math.min(100, STATE.skills[skill] + Math.round(amount * engagementMultiplier));
+      STATE.skills[skill] = Math.min(100, STATE.skills[skill]
+        + Math.round(amount * engagementMultiplier * intellectMult));
     }
   });
 
@@ -16659,7 +16922,10 @@ function answerQuiz(chosen, btn, correct) {
 
 function finishQuiz() {
   const { sess, questions, correct, prof } = _quizState;
-  const score = correct / questions.length;
+  // Arcane Knowledge grants a buffer of extra allowed wrong answers
+  const arcaneBuffer = typeof arcaneQuizBuffer === 'function' ? arcaneQuizBuffer() : 0;
+  const adjustedCorrect = Math.min(questions.length, correct + arcaneBuffer);
+  const score = adjustedCorrect / questions.length;
   const grade = score >= EXAM_THRESHOLDS.great ? 'great'
     : score >= EXAM_THRESHOLDS.good ? 'good'
     : score >= EXAM_THRESHOLDS.acceptable ? 'acceptable' : 'poor';
@@ -17449,6 +17715,18 @@ function applyHouseSorting(house) {
 
 // ── Core explore function — AI narrates a location visit ──────────────────
 async function exploreLocation(locationId, timeOfDay) {
+  // Forbidden forest — dedicated encounter scenes
+  if (['forbidden_forest_edge','forbidden_forest_shallow','forbidden_forest_deep'].includes(locationId)) {
+    if (typeof sceneForestEncounter === 'function') {
+      await sceneForestEncounter(locationId);
+      return;
+    }
+  }
+  // Hogsmeade — age gate for Year 1
+  if (locationId === 'hogsmeade_village' || locationId === 'hogsmeade_unsupervised') {
+    if (typeof checkHogsmeadeAccess === 'function' && !checkHogsmeadeAccess()) return;
+  }
+
   const loc = LOCATION_DATA[locationId];
   if (!loc) return;
 
@@ -17584,6 +17862,12 @@ Rules:
   // Check for boss encounter triggers
   if (typeof checkBossEncounterTriggers === 'function') {
     checkBossEncounterTriggers(locationId, timeOfDay);
+  }
+
+  // Peeves random encounter
+  if (typeof triggerPeevesEncounter === 'function') {
+    const peevesTriggered = await triggerPeevesEncounter(locationId);
+    if (peevesTriggered) return; // Peeves interrupts the explore
   }
 
   // Log the visit
@@ -17787,6 +18071,10 @@ function checkExploreRewards(locationId, timeOfDay, firstVisit) {
   const loc = LOCATION_DATA[locationId];
   if (!loc) return;
 
+  // Luck bonus: high Luck increases chance of finding something notable
+  const luckFindBonus = (STATE.skills?.luck || 10) >= SKILL_THRESHOLDS.LUCK_EXPLORE_BONUS
+    ? 0.15 : 0;
+
   // Solo astronomy tower at night
   if (locationId === 'astronomy_tower' && timeOfDay === 'night') {
     if (!STATE.flags.includes('ASTRONOMY_TOWER_SOLO')) {
@@ -17914,77 +18202,26 @@ function closeExploreModal() {
   document.getElementById('exploreModal').classList.remove('open');
 }
 
-function renderExploreMap() {
-  const mapPanel = document.getElementById('exploreMapPanel');
-  if (!mapPanel) return;
+// renderExploreMap moved to UI restructure block
 
-  // Group locations by floor/area
-  const groups = {
-    'Common Rooms': ['gryffindor_tower','hufflepuff_basement','ravenclaw_tower','slytherin_dungeon'],
-    'Classrooms': ['transfig_classroom','charms_classroom','potions_classroom','snapes_office'],
-    'Castle': ['great_hall','entrance_hall','marble_staircase','library','restricted_section',
-               'seventh_floor_corridor','room_of_requirement_locked','third_floor_corridor','fluffy_room'],
-    'Towers': ['astronomy_tower'],
-    'Grounds': ['grounds','hogwarts_lake','quidditch_pitch','hagrid_hut',
-                'forbidden_forest_edge','forbidden_forest_shallow','forbidden_forest_deep'],
-    'Secret': ['kitchens','hogsmeade_passage','hogsmeade_unsupervised'],
-  };
-
-  const timeOfDay = STATE.explorationTimeOfDay || 'daytime';
-  const current = STATE.currentLocation || 'gryffindor_tower';
-
-  let html = '';
-  Object.entries(groups).forEach(([label, locIds]) => {
-    const available = locIds.filter(id => LOCATION_DATA[id]);
-    if (!available.length) return;
-
-    html += `<div class="explore-map-section">${label}</div>`;
-    available.forEach(id => {
-      const loc = LOCATION_DATA[id];
-      if (!loc) return;
-      const discovered = STATE.discoveredLocations?.[id];
-      const isCurrent = id === current;
-      const risk = calculateCurfewRisk(id, timeOfDay);
-      const riskCls = risk >= 1 ? `r${Math.min(risk, 4)}` : '';
-
-      // Hide undiscovered secrets
-      if (loc.requiresDiscovery && !discovered && label === 'Secret') {
-        html += `<div class="explore-map-loc locked">
-          <span class="explore-map-loc-icon">❓</span>
-          <span class="explore-map-loc-name" style="font-style:italic;">Unknown</span>
-        </div>`;
-        return;
-      }
-
-      const playerHouse = STATE.player.house || '';
-      const houseData = HOUSE_DATA[playerHouse] || {};
-      const isHomeRoom = houseData.commonRoom === id;
-      const isRestricted = discovered === 'restricted' ||
-        (loc.houseOnly && loc.houseOnly !== playerHouse);
-      if (isRestricted && !isHomeRoom) {
-        html += `<div class="explore-map-loc restricted-room">
-          <span class="explore-map-loc-icon">${loc.icon}</span>
-          <span class="explore-map-loc-name">${loc.name}</span>
-        </div>`;
-        return;
-      }
-      html += `<button class="explore-map-loc ${isCurrent ? 'current' : ''} ${isHomeRoom ? 'home-room' : ''} ${!discovered && loc.requiresDiscovery ? 'undiscovered' : ''}"
-        onclick="exploreLocationInModal('${id}','${timeOfDay}')">
-        <span class="explore-map-loc-icon">${loc.icon}</span>
-        <span class="explore-map-loc-name">${loc.name}</span>
-        ${risk >= 2 ? `<span class="explore-map-loc-risk ${riskCls}"></span>` : ''}
-      </button>`;
-    });
-  });
-
-  mapPanel.innerHTML = html;
-}
 
 // ── Explore a location inside the modal ──────────────────────────────────
 async function exploreLocationInModal(locationId, timeOfDay) {
   STATE.currentLocation = locationId;
   STATE.explorationTimeOfDay = timeOfDay;
   renderExploreMap(); // refresh current indicator
+
+  // Forbidden forest — dedicated encounter scenes
+  if (['forbidden_forest_edge','forbidden_forest_shallow','forbidden_forest_deep'].includes(locationId)) {
+    if (typeof sceneForestEncounter === 'function') {
+      await sceneForestEncounter(locationId);
+      return;
+    }
+  }
+  // Hogsmeade — age gate for Year 1
+  if (locationId === 'hogsmeade_village' || locationId === 'hogsmeade_unsupervised') {
+    if (typeof checkHogsmeadeAccess === 'function' && !checkHogsmeadeAccess()) return;
+  }
 
   // Show in-modal scene panel (same as main panel but inside modal)
   const sceneEl = document.getElementById('exploreScenePanel');
@@ -18515,6 +18752,30 @@ function generateBoardPosts() {
     if (ev.npc) usedNPCs.add(ev.npc);
   });
 
+  // ── 1.5. Card trade posts (occasional) ──────────────────
+  if (Math.random() < 0.25 && week >= 2) {
+    const traderIds = Object.keys(typeof CARD_TRADER_NPCS !== 'undefined' ? CARD_TRADER_NPCS : {})
+      .filter(id => STATE.relationships[id]?.met);
+    if (traderIds.length) {
+      const traderId = traderIds[Math.floor(Math.random() * traderIds.length)];
+      const npc      = NPC_DATA[traderId] || {};
+      const allCards = Object.entries(typeof FROG_CARDS !== 'undefined' ? FROG_CARDS : {});
+      if (allCards.length) {
+        const wantedCard = allCards[Math.floor(Math.random() * allCards.length)];
+        posts.push({
+          id:     `card_trade_${week}_${traderId}`,
+          type:   'card_trade',
+          poster:  npc.name || traderId,
+          icon:   '🐸',
+          title:  'Card Trade Offer',
+          body:   `${npc.name} is looking for ${wantedCard[1].name}. Has duplicates to offer. Find them in the common room.`,
+          reward: 'A duplicate card',
+          week,
+        });
+      }
+    }
+  }
+
   // ── 2. Procedural tutoring posts (4 per week) ──
   const students = getBoardStudentPool();
   const shuffle = arr => arr.slice().sort(() => (week * 1337 + arr.length) % 5 - 2 + seededRand(week + arr.length) * 0.1);
@@ -18966,6 +19227,8 @@ function initNewDay(dow, mood) {
   STATE._apBonus = 0; // consume the bonus
   STATE.dayPhase = 'breakfast';
   STATE.dayActionLog = [];
+  // Clear per-day flags
+  STATE.flags = (STATE.flags || []).filter(f => f !== 'PEEVES_TODAY');
   checkIgnoredDetentions();
   applyHospitalRecovery();
   updateDayStatusBar();
@@ -19030,13 +19293,30 @@ function updateDayStatusBar() {
   if (!bar || bar.style.display === 'none') return;
   const ap = STATE.dailyAP || 0;
   const max = STATE.dailyAPMax || 4;
+  const mood = STATE.playerMood || 'rested';
   const pips = Array.from({length: max}, (_, i) =>
     `<span class="day-ap-pip ${i < ap ? 'filled' : 'spent'}"></span>`
   ).join('');
   const flavour = getDayFlavour();
+
+  // Mood indicator — colour-coded pill with emoji and label
+  const moodConfig = {
+    rested:    { icon: '✦', label: 'Rested',    colour: 'var(--gold-dim)',  bg: 'rgba(201,168,76,0.08)'  },
+    energised: { icon: '⚡', label: 'Energised', colour: '#5a9e6f',          bg: 'rgba(90,158,111,0.12)'  },
+    tired:     { icon: '◦', label: 'Tired',      colour: '#c08855',          bg: 'rgba(192,136,85,0.12)'  },
+    stressed:  { icon: '◈', label: 'Stressed',   colour: '#b85555',          bg: 'rgba(184,85,85,0.10)'   },
+  };
+  const m = moodConfig[mood] || moodConfig.rested;
+  const moodPill = `<span class="day-mood-pill"
+    style="color:${m.colour};background:${m.bg};border-color:${m.colour}30;"
+    title="Mood: ${m.label} — affects your AP and how scenes are written">
+    ${m.icon} ${m.label}
+  </span>`;
+
   bar.innerHTML = `
     <div class="day-status-label">${getDayPhaseLabel()}</div>
     <div class="day-ap-pips">${pips}</div>
+    ${moodPill}
     ${flavour ? `<div class="day-status-flavour">${flavour}</div>` : ''}
     ${ap === 0 ? `<button class="day-sleep-btn" onclick="sceneSleep()">🌙 Sleep</button>` : ''}
   `;
@@ -19065,6 +19345,7 @@ async function sleepAndNewDay() {
   await resolvePendingBoardPosts();
   await resolvePendingSales();
   if (typeof expireTemporaryBuffs === 'function') expireTemporaryBuffs();
+  if (typeof resolvePendingOrders === 'function') resolvePendingOrders();
   initNewDay(newDow, nextMood);
   await sceneMorning(nextMood, newDow);
 }
@@ -19115,6 +19396,18 @@ async function sceneMorning(mood, dow) {
   const classesToday = Object.values(SUBJECTS_Y1)
     .filter(s => s.day === dayName).map(s => s.name);
 
+  // ── Special week atmosphere overrides ─────────────────
+  // Christmas break (weeks 14-17) — distinct scene
+  if (week >= 14 && week <= 17 && !STATE.flags.includes('YEAR_1_ENDED')) {
+    await sceneChristmasMorning(dow);
+    return;
+  }
+  // Exam week (week 33) — distinct scene
+  if (week === 33) {
+    await sceneExamWeekMorning(dow);
+    return;
+  }
+
   // Week 2 Monday — board discovery hint
   const boardHint = (week === 2 && dow === 1 && !STATE.flags.includes('BOARD_DISCOVERED'))
     ? `IMPORTANT: Weave in naturally — a housemate mentions in passing that they spotted something new on the notice board by the entrance. Keep it brief and casual, not a tutorial. Just: someone saw it, something about it, it stuck. No more than one sentence.`
@@ -19164,84 +19457,8 @@ Second person. Present tense. 120-150 words. End with breakfast done, ready to b
 }
 
 // ── Day choices ───────────────────────────────────────────
-function renderDayChoices(dow, classesToday, phase) {
-  const ap = STATE.dailyAP || 0;
-  const house = STATE.player.house || 'Gryffindor';
-  const choices = [];
+// renderDayChoices moved to UI restructure block
 
-  // Hospital Wing recovery — if admitted, restrict day choices
-  if (STATE.hospitalState?.admitted) {
-    const dtype = DETENTION_TYPES; // still show detentions if due
-    const hosp = STATE.hospitalState;
-    const recovMsg = hosp.recoveryDaysLeft > 0
-      ? `🏥 Still recovering — Pomfrey won't release you yet (${hosp.recoveryDaysLeft} day${hosp.recoveryDaysLeft>1?'s':''} remaining)`
-      : '🏥 Pomfrey is reviewing your condition this morning';
-    choices.push({ text: recovMsg, action: 'day_sleep' });
-    if (ap >= 40 && (STATE.skills.stealth||10) >= 40) {
-      choices.push({ text: '🚪 Try to leave early', action: 'hospital_escape' });
-    }
-    choices.push({ text: '🌙 Rest in the ward', action: 'day_sleep' });
-    setChoices(choices); showFreeInput(false);
-    return;
-  }
-
-  // Detention due today — show as first locked choice
-  const todayDet = getTodaysDetention();
-  if (todayDet && ap > 0) {
-    const dtype = DETENTION_TYPES[todayDet.type] || DETENTION_TYPES.filch_trophies;
-    choices.push({
-      text: `${dtype.icon} Serve detention — ${dtype.label} (${todayDet.apCost} AP)`,
-      action: `serve_detention_${todayDet.id}`,
-    });
-  }
-
-  if (classesToday && classesToday.length > 0 && ap > 0)
-    choices.push({ text: '📚 Attend classes', action: 'day_attend_class' });
-  if (ap > 0)
-    choices.push({ text: `🏠 Common room`, action: 'day_common_room' });
-  if (ap > 0)
-    choices.push({ text: '🗺️ Explore the castle or grounds', action: 'open_explore' });
-  // Visit Hagrid — available morning, afternoon, evening only (not midnight)
-  const canVisitHagrid = ap > 0 && ['morning','daytime','afternoon','evening'].includes(phase);
-  if (canVisitHagrid && (STATE.currentWeek||1) >= 2)
-    choices.push({ text: '🛖 Visit Hagrid', action: 'day_visit_hagrid' });
-  if (ap > 0)
-    choices.push({ text: '📖 Study or do homework', action: 'day_study' });
-  // Board: only visible after discovered, and only during daytime/morning phases
-  if (STATE.flags.includes('BOARD_DISCOVERED') && ap > 0 &&
-      (phase === 'breakfast' || phase === 'morning' || phase === 'afternoon')) {
-    choices.push({ text: '📋 Notice board', action: 'open_board' });
-  }
-  if (STATE.dayPhase === 'evening' || STATE.dayPhase === 'night')
-    choices.push({ text: '🌙 Sneak out after curfew', action: 'day_curfew_explore' });
-  // Quidditch match — Week 10, Saturday (dow=6)
-  const isQuidditchWeek = (STATE.currentWeek||1) === 10 && dow === 6;
-  const matchSeen = STATE.flags.includes('QUIDDITCH_MATCH_1');
-  if (isQuidditchWeek && !matchSeen && (phase === 'morning' || phase === 'afternoon')) {
-    // Year 1: team is full — Harry is Seeker. Always watch.
-    choices.unshift({
-      text: '🏟️ Watch the Quidditch match — Gryffindor vs Slytherin',
-      action: 'quidditch_watch_stands',
-    });
-  }
-  // Brew option — available when player has ingredients and AP
-  {
-    const hasIngredients = STATE.inventory.some(i =>
-      typeof ITEM_CATALOGUE !== 'undefined' && ITEM_CATALOGUE[i.id]?.cat === 'ingredient'
-    );
-    const hasRecipes = typeof getBrewableRecipes === 'function'
-      && getBrewableRecipes().some(r => r.isKnown);
-    const brewOk = ap > 0 && hasIngredients && hasRecipes
-      && !['breakfast','night'].includes(phase);
-    if (brewOk) {
-      choices.push({ text: '🧪 Brew a potion', action: 'open_brew' });
-    }
-  }
-  choices.push({ text: ap === 0 ? '🌙 Sleep — end the day' : '🌙 Turn in early', action: 'day_sleep' });
-
-  setChoices(choices);
-  showFreeInput(true);
-}
 
 // ── Common room ───────────────────────────────────────────
 
@@ -19342,39 +19559,8 @@ ${buildStateContext()}`;
 }
 
 // ── Study ─────────────────────────────────────────────────
-async function sceneStudy() {
-  if (!consumeAP(AP_COST.study, 'study')) return;
-  const week = STATE.currentWeek || 1;
-  setLocation('Studying'); setChoices([]);
-  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Studying...<span class="cursor-blink"></span></div>`);
+// sceneStudy replaced by batch_features block
 
-  const gained = Math.random() > 0.5 ? 'intellect' : 'arcaneKnowledge';
-  STATE.skills[gained] = Math.min(100, (STATE.skills[gained]||10) + 1);
-
-  const sys = `Write 1-2 paragraphs of the player studying at Hogwarts — a quiet spot, working through notes, a small distraction or discovery. Which subject feels hardest at week ${week}. 80-120 words. Second person. ${buildStateContext()}`;
-  const text = await callClaude(sys, 'Study scene.', 280);
-  const fallback = `A quiet corner. Quill scratching. The particular silence of people concentrating nearby.\n\nThe notes make more sense on a second reading.`;
-
-  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
-  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>Scene Generated</div>`;
-  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
-  narHtml += `<div class="narrative-para" style="color:var(--gold-dim);font-style:italic;font-size:15px;margin-top:12px;">✦ ${gained === 'intellect' ? 'Intellect' : 'Arcane Knowledge'} +1</div>`;
-  setNarrative(narHtml);
-  setTimeout(() => {
-    document.querySelectorAll('.narrative-para').forEach((el,i) =>
-      setTimeout(() => el.classList.add('visible'), i*150));
-  }, 80);
-  updateSkills();
-  // Potions study — offer practical brew option
-  const studyHasIngredients = STATE.inventory.some(i =>
-    typeof ITEM_CATALOGUE !== 'undefined' && ITEM_CATALOGUE[i.id]?.cat === 'ingredient'
-  );
-  const studyChoices = [{ text: '← Back to your day', action: 'day_menu' }];
-  if (studyHasIngredients) {
-    studyChoices.unshift({ text: '🧪 Practice brew (no AP cost)', action: 'open_brew_study' });
-  }
-  setTimeout(() => { setChoices(studyChoices); showFreeInput(true); }, 1500);
-}
 
 // ── Visit Hagrid ──────────────────────────────────────────
 async function sceneVisitHagrid() {
@@ -19392,6 +19578,13 @@ async function sceneCurfewExplore() {
 
 // ── Attend class ──────────────────────────────────────────
 async function sceneAttendClass() {
+  // Week 2 Thursday — first flying lesson (one-time canonical scene)
+  const _flyWeek = STATE.currentWeek || 1;
+  const _flyDow  = STATE.dayOfWeek   || 1;
+  if (_flyWeek === 2 && _flyDow === 4 && !STATE.flags.includes('FLYING_LESSON_DONE')) {
+    await sceneFlyingLesson();
+    return;
+  }
   if (!consumeAP(AP_COST.class, 'class')) return;
   const dow  = STATE.dayOfWeek || 1;
   const week = STATE.currentWeek || 1;
@@ -21705,6 +21898,14 @@ function getLocationNPCs(locationId, timeOfDay) {
     .filter(({ id }, idx) => isAvailable(id) && seededRandom(idx) < affinityList[idx].prob)
     .map(({ id }) => ({ id, name: NPC_DATA[id]?.name || id }));
 
+  // Add ghost presence
+  if (typeof getGhostPresence === 'function') {
+    const ghostsPresent = getGhostPresence(locationId, phase, dow);
+    ghostsPresent.forEach(g => {
+      if (!present.some(p => p.id === g.id)) present.push(g);
+    });
+  }
+
   return present.slice(0, 6);
 }
 
@@ -22044,6 +22245,12 @@ function getFamiliarNPCSignal(npcId) {
 async function sceneNPC(npcId) {
   const npc  = NPC_DATA[npcId];
   if (!npc) return;
+  // Ghosts use their own conversation system
+  if (typeof GHOST_NPC_IDS !== 'undefined' && GHOST_NPC_IDS.has(npcId)
+      && npcId !== 'peeves') {
+    await sceneGhost(npcId);
+    return;
+  }
 
   const rel    = STATE.relationships[npcId] || {};
   const status = getRelStatus(npcId);
@@ -22064,6 +22271,7 @@ async function sceneNPC(npcId) {
     : `Relationship: ${getRelLabel(npcId)}. Trust: ${rel.trust||0}, Affection: ${rel.affection||0}, Respect: ${rel.respect||0}.`;
 
   const intuitionSignal = getNPCIntuitionSignal(npcId);
+  const quirrellSignal  = npcId === 'quirrell' ? getQuirellSuspicionNote() : '';
   const familiarSignal  = getFamiliarNPCSignal(npcId);
 
   const sys = `You are the narrative engine for a mature Harry Potter RPG set in 1991.
@@ -22074,6 +22282,7 @@ CONTEXT: ${ctx.weekContext}
 RELATIONSHIP: ${relDesc}
 PLAYER: ${STATE.player.firstName || 'the player'} ${STATE.player.lastName || ''}, ${playerHouse}, ${playerBlood}.
 ${intuitionSignal}
+${quirrellSignal}
 ${familiarSignal}
 ${buildStateContext()}
 INSTRUCTIONS:
@@ -22089,6 +22298,9 @@ INSTRUCTIONS:
   showFreeInput(false);
   setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
 
+  // Empathy: surface subtext signal before the AI scene
+  const empathySignal = typeof getEmpathySignal === 'function' ? getEmpathySignal(npcId) : null;
+
   const opening = await callClaude(sys, `Opening scene with ${npc.name}, week ${STATE.currentWeek||1}.`, 350);
 
   if (!opening) {
@@ -22101,6 +22313,13 @@ INSTRUCTIONS:
   const paras = opening.split(/\n\n+/).filter(p => p.trim());
   let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
   narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  // Empathy subtext signal — rendered as a subtle italicised observation
+  if (empathySignal) {
+    narHtml += `<div class="narrative-para empathy-signal">
+      <span style="opacity:0.6;font-size:12px;letter-spacing:0.06em;">👁 </span>
+      <em>${empathySignal}</em>
+    </div>`;
+  }
   setNarrative(narHtml);
 
   setTimeout(() => {
@@ -22121,6 +22340,13 @@ function renderNPCResponseChoices(npcId, openingText) {
     text: `${tone.icon} Respond ${tone.label.toLowerCase()}`,
     action: `npc_respond_${npcId}_${tone.key}`,
   }));
+  // Persuasion unlocks a Convince option at sufficient skill
+  if (typeof hasConvinceTone === 'function' && hasConvinceTone(npcId)) {
+    choices.push({
+      text: '🗣 Convince them of something',
+      action: `npc_respond_${npcId}_convince`,
+    });
+  }
   choices.push({ text: '← Back to your day', action: 'day_menu' });
 
   // Store opening for context in resolution
@@ -22134,7 +22360,17 @@ function renderNPCResponseChoices(npcId, openingText) {
 // ── Resolution — second AI call after player picks a tone ─
 async function resolveNPCConvo(npcId, toneKey) {
   const npc     = NPC_DATA[npcId] || {};
-  const tone    = RESPONSE_TONES[toneKey];
+  // Convince is a persuasion-check tone not in RESPONSE_TONES
+  const isConvince = toneKey === 'convince';
+  let convinceResult = null;
+  if (isConvince) {
+    const passed = skillPass('persuasion',
+      SKILL_THRESHOLDS.PERSUASION_NPC_CONVINCE + (STATE.skills?.persuasion || 10) * 0.3);
+    convinceResult = passed ? 'success' : 'failure';
+    // Map to nearest existing tone for weight lookup
+    toneKey = passed ? 'assertive' : 'dismissive';
+  }
+  const tone    = RESPONSE_TONES[toneKey] || RESPONSE_TONES.assertive;
   const persona = NPC_PERSONAS[npcId] || npc.bio || '';
   const ctx     = buildConversationContext(npcId);
   const opening = STATE._npcConvoOpening || '';
@@ -22188,9 +22424,9 @@ INSTRUCTIONS:
   // Update met flag and status
   updateRelStatusAfterConvo(npcId);
 
-  // Intuition growth for catching Quirrell's wrongness
-  if (npcId === 'quirrell' && (STATE.skills?.intuition||0) >= 25) {
-    checkIntuitionGrowth('caught_npc_deception');
+  // Quirrell wrongness accumulator
+  if (npcId === 'quirrell') {
+    incrementQuirellSuspicion('npc_convo');
   }
 
   // Clear convo state
@@ -22924,7 +23160,9 @@ async function resolveCombatRound(type, id, actionLabel, actionDesc, spellData) 
   if (enemyHits && roundRisk === 'serious') momentumDelta -= 1;
   if (playerProtected && !success)          momentumDelta += 1;
 
-  cs.momentum = Math.max(-3, Math.min(3, cs.momentum + momentumDelta));
+  const momFloor = typeof courageMomentumFloor === 'function'
+    ? courageMomentumFloor() : -3;
+  cs.momentum = Math.max(momFloor, Math.min(3, cs.momentum + momentumDelta));
 
   // Determine player injury from enemy action
   if (enemyHits) {
@@ -23528,7 +23766,8 @@ async function resolvePendingSales() {
 
     // Each day that passes gives the sale another chance to resolve
     // More time = higher cumulative probability
-    const dailyChance = sale.chance * (1 + daysSinceListing * 0.15);
+    const luckMod   = typeof luckRoll === 'function' ? luckRoll(0) - 0 : 0;
+    const dailyChance = sale.chance * (1 + daysSinceListing * 0.15) + luckMod;
     const roll = Math.random();
 
     if (roll < Math.min(0.97, dailyChance)) {
@@ -23950,8 +24189,11 @@ End on a beat that feels complete — not a cliffhanger.`;
       .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 150));
   }, 50);
 
-  // Apply relationship gains
-  Object.entries(act.relGain || {}).forEach(([dim, val]) => adjustDim(npcId, dim, val));
+  // Apply relationship gains — Empathy multiplies all gains
+  const empMult = typeof empathyCompanionMultiplier === 'function'
+    ? empathyCompanionMultiplier() : 1.0;
+  Object.entries(act.relGain || {}).forEach(([dim, val]) =>
+    adjustDim(npcId, dim, Math.round(val * empMult)));
   updateRelationshipSidebar();
 
   // Skill boost for study activities
@@ -25136,6 +25378,16 @@ function openGamePicker(presentNPCObjs) {
             </div>
           </button>
 
+          <button class="game-pick-btn"
+            onclick="openCardTradeMenu(presentNPCObjs)"
+            ${!playerCount?'disabled':''}>
+            <span class="game-pick-icon">🐸</span>
+            <div class="game-pick-info">
+              <div class="game-pick-name">Trade Chocolate Frog Cards</div>
+              <div class="game-pick-desc">Swap duplicates with classmates. Duplicates needed to trade.</div>
+            </div>
+          </button>
+
           <button class="game-pick-btn ${!ronHere&&playerCount<1?'game-pick-disabled':''}"
             onclick="launchChessFromCommonRoom()"
             ${!playerCount?'disabled':''}>
@@ -25855,13 +26107,18 @@ const POTION_EFFECT_HANDLERS = {
 };
 
 // ── Skill check ───────────────────────────────────────────
-function brewSkillCheck(difficulty) {
+function brewSkillCheck(difficulty, ingredients) {
   const mastery = STATE.skills?.potionsMastery || 10;
   const luck    = STATE.skills?.luck           || 10;
-  // Roll 1–40 + mastery + luck bonus
+  // High-quality ingredients reduce the difficulty threshold
+  const highQualityCount = (ingredients || []).filter(ingId =>
+    STATE.inventory.some(i => i.id === ingId && i.quality === 'high_quality')
+  ).length;
+  const qualityBonus = highQualityCount * 3;
+  // Roll 1–40 + mastery + luck bonus + quality bonus
   const roll    = Math.floor(Math.random() * 40) + 1;
   const bonus   = Math.floor(luck / 20); // 0–5
-  const total   = mastery + roll + bonus;
+  const total   = mastery + roll + bonus + qualityBonus;
   const threshold = difficulty * 16; // D1=16, D2=32, D3=48, D4=64, D5=80
 
   if (total >= threshold + 15) return 'perfect';
@@ -26158,10 +26415,2833 @@ function expireTemporaryBuffs() {
   }
 }
 
+// ═══════════════════════════════════════════════════════════
+// SKILL SYSTEM — Centralised stat checks and modifiers
+//
+// Design principles:
+// 1. One function (skillCheck) for every stat-gated decision
+// 2. One function (luckRoll) for every probability roll
+// 3. Each stat has a clear contract — what it affects and how
+// 4. Everything is additive — new content plugs in without
+//    touching existing code
+// 5. All thresholds are constants — easy to tune later
+//
+// To add a new skill gate: call skillCheck(skill, threshold)
+// To add a new luck-influenced roll: wrap in luckRoll()
+// ═══════════════════════════════════════════════════════════
+
+// ── Skill thresholds ─────────────────────────────────────
+// All gates in the game reference these constants.
+// Change a constant here and it propagates everywhere.
+const SKILL_THRESHOLDS = {
+  // Persuasion
+  PERSUASION_DETENTION_AVOID:   35,   // talk your way out of minor detention
+  PERSUASION_SHOP_HAGGLE:       45,   // unlock haggling in the sell modal
+  PERSUASION_NPC_CONVINCE:      40,   // unlock Convince tone in NPC scenes
+  PERSUASION_BOARD_NEGOTIATE:   50,   // negotiate higher reward on board posts
+
+  // Empathy
+  EMPATHY_NPC_READ:             40,   // see subtext signal in NPC openings
+  EMPATHY_COMPANION_BONUS:      50,   // +25% relationship gain from activities
+  EMPATHY_QUIRRELL_SIGNAL:      55,   // second Quirrell wrongness signal type
+  EMPATHY_HOSPITAL_SIT:         45,   // "Sit with them" option for injured NPCs
+
+  // Arcane Knowledge
+  ARCANE_RESTRICTED_SECTION:    30,   // bypass alarm in restricted section
+  ARCANE_QUIZ_BUFFER:           40,   // +1 allowed wrong answer on quizzes
+  ARCANE_IDENTIFY_ITEMS:        35,   // identify unknown items in inventory
+  ARCANE_LORE_DISCOVERIES:      45,   // surface extra lore during exploration
+
+  // Intellect
+  INTELLECT_STUDY_CHOICE:       50,   // choose which skill to boost in sceneStudy
+  INTELLECT_XP_BONUS_1:         40,   // +10% class session XP
+  INTELLECT_XP_BONUS_2:         60,   // +20% class session XP (stacks to +20%)
+
+  // Herbology
+  HERBOLOGY_INGREDIENT_QUALITY: 40,   // chance of high-quality ingredients
+  HERBOLOGY_GREENHOUSE_EXPLORE: 35,   // extra explore options in greenhouses
+  HERBOLOGY_SPROUT_BONUS:       50,   // permanent Sprout relationship modifier
+
+  // Luck
+  LUCK_EXPLORE_BONUS:           60,   // increased chance of finding notable items
+  LUCK_BOARD_SELL_BONUS:        55,   // items sell slightly faster on the board
+
+  // Courage
+  COURAGE_CURFEW_BONUS:         40,   // reduced curfew detection chance
+  COURAGE_STAND_GROUND:         35,   // "Stand your ground" in hostile NPC moments
+  COURAGE_FORBIDDEN_FOREST:     65,   // can explore forbidden forest corridor
+  COURAGE_COMBAT_FLOOR:         30,   // momentum can't collapse completely
+
+  // Intuition
+  INTUITION_NPC_SUBTEXT:        50,   // see hidden signals in NPC scenes
+  INTUITION_DANGER_SENSE:       25,   // low-level location danger signals
+  INTUITION_QUIRRELL_HIGH:      50,   // full Quirrell wrongness detection
+};
+
+// ── Core skill check function ─────────────────────────────
+// Returns: 'critical_success' | 'success' | 'failure' | 'critical_failure'
+// Usage: const result = skillCheck('persuasion', SKILL_THRESHOLDS.PERSUASION_DETENTION_AVOID)
+//
+// skillValue:  the player's current skill (0-100)
+// threshold:   difficulty baseline
+// options:     { luckInfluence: bool, roll: 'd20'|'d100', verbose: bool }
+function skillCheck(skillName, threshold, options = {}) {
+  const skillValue    = STATE.skills?.[skillName] || 10;
+  const luck          = options.luckInfluence !== false ? (STATE.skills?.luck || 10) : 0;
+  const rollMax       = options.roll === 'd100' ? 100 : 20;
+  const roll          = Math.floor(Math.random() * rollMax) + 1;
+  const luckBonus     = Math.floor((luck - 50) / 10); // -5 to +5
+  const total         = skillValue + roll + luckBonus;
+  const critSuccThresh= threshold + Math.floor(rollMax * 0.3);
+  const critFailThresh= threshold - Math.floor(rollMax * 0.15);
+
+  let result;
+  if (total >= critSuccThresh)  result = 'critical_success';
+  else if (total >= threshold)  result = 'success';
+  else if (total < critFailThresh) result = 'critical_failure';
+  else                          result = 'failure';
+
+  if (options.verbose) {
+    console.log(`[skillCheck] ${skillName}(${skillValue}) + roll(${roll}) + luck(${luckBonus}) = ${total} vs ${threshold} → ${result}`);
+  }
+  return result;
+}
+
+// Convenience: returns true on success/critical_success
+function skillPass(skillName, threshold, options = {}) {
+  const r = skillCheck(skillName, threshold, options);
+  return r === 'success' || r === 'critical_success';
+}
+
+// ── Universal luck roll ───────────────────────────────────
+// Wraps any base probability with a luck influence.
+// baseChance: 0.0–1.0 probability
+// Returns adjusted probability (still 0.0–1.0)
+// Usage: if (Math.random() < luckRoll(0.3)) { ... }
+function luckRoll(baseChance) {
+  const luck   = STATE.skills?.luck || 10;
+  const bonus  = (luck - 50) * 0.001; // ±0.05 at extremes
+  return Math.max(0.02, Math.min(0.98, baseChance + bonus));
+}
+
+// ── Intellect XP multiplier ───────────────────────────────
+// Used in completeClassSession for all session XP gains
+function intellectXPMultiplier() {
+  const intel = STATE.skills?.intellect || 10;
+  if (intel >= SKILL_THRESHOLDS.INTELLECT_XP_BONUS_2) return 1.20;
+  if (intel >= SKILL_THRESHOLDS.INTELLECT_XP_BONUS_1) return 1.10;
+  return 1.0;
+}
+
+// ── Empathy companion bonus ───────────────────────────────
+// Called from runCompanionActivity to multiply relationship gains
+function empathyCompanionMultiplier() {
+  const emp = STATE.skills?.empathy || 10;
+  return emp >= SKILL_THRESHOLDS.EMPATHY_COMPANION_BONUS ? 1.25 : 1.0;
+}
+
+// ── Persuasion: NPC "Convince" tone ──────────────────────
+// Returns true if Convince option should appear in NPC scenes
+function hasConvinceTone(npcId) {
+  const persuasion = STATE.skills?.persuasion || 10;
+  if (persuasion < SKILL_THRESHOLDS.PERSUASION_NPC_CONVINCE) return false;
+  // Convince never works on Snape, Umbridge, Filch regardless of skill
+  const neverConvinced = ['snape', 'umbridge', 'filch', 'binns'];
+  return !neverConvinced.includes(npcId);
+}
+
+// ── Persuasion: detention avoidance ──────────────────────
+// Returns true if player gets to attempt a talk-out
+// Called from the catcher detection logic
+function canAttemptDetentionAvoid(catcherId) {
+  const persuasion = STATE.skills?.persuasion || 10;
+  if (persuasion < SKILL_THRESHOLDS.PERSUASION_DETENTION_AVOID) return false;
+  // Snape needs 70+ to even attempt
+  if (catcherId === 'snape' && persuasion < 70) return false;
+  return true;
+}
+
+// ── Empathy: NPC subtext signal ───────────────────────────
+// Returns a brief insight string, or null if threshold not met
+function getEmpathySignal(npcId) {
+  const emp = STATE.skills?.empathy || 10;
+  if (emp < SKILL_THRESHOLDS.EMPATHY_NPC_READ) return null;
+  const npc = NPC_DATA[npcId] || {};
+  const rel = STATE.relationships[npcId] || {};
+
+  // Context-sensitive signals based on NPC state
+  const signals = {
+    harry:    rel.trust < 10
+                ? 'He is guarded. Not unfriendly — just careful about who he lets in.'
+                : rel.trust > 40
+                  ? 'He seems comfortable with you. More himself than he usually lets on.'
+                  : 'He is watching you, deciding something.',
+    hermione: (STATE.currentWeek || 1) < 5
+                ? 'She is trying too hard. The confidence is partly performance.'
+                : 'She is genuinely engaged — not showing off, actually thinking.',
+    neville:  'He is braced for something unkind. He always is.',
+    draco:    'The contempt is for show. Underneath it he is working out where you stand.',
+    quirrell: 'Something about the set of his shoulders is wrong. Not fear. Occupation.',
+    ron:      'He is easier to read than he realises. Right now he is fine — actually fine.',
+    snape:    'His attention, when it falls on you, is more considered than his tone.',
+  };
+
+  return signals[npcId] || null;
+}
+
+// ── Arcane Knowledge: quiz buffer ────────────────────────
+// Returns number of extra wrong answers allowed before failing
+function arcaneQuizBuffer() {
+  const arcane = STATE.skills?.arcaneKnowledge || 10;
+  return arcane >= SKILL_THRESHOLDS.ARCANE_QUIZ_BUFFER ? 1 : 0;
+}
+
+// ── Arcane Knowledge: item identification ─────────────────
+// Returns true if player can identify unknown inventory items
+function canIdentifyItems() {
+  return (STATE.skills?.arcaneKnowledge || 10) >= SKILL_THRESHOLDS.ARCANE_IDENTIFY_ITEMS;
+}
+
+// ── Courage: combat momentum floor ───────────────────────
+// Returns the lowest momentum the player can reach in combat
+// At Courage 30: floor is -3 (no change)
+// At Courage 55: floor is -2
+// At Courage 80: floor is -1
+function courageMomentumFloor() {
+  const courage = STATE.skills?.courage || 10;
+  if (courage >= 80) return -1;
+  if (courage >= 55) return -2;
+  if (courage >= SKILL_THRESHOLDS.COURAGE_COMBAT_FLOOR) return -2;
+  return -3;
+}
+
+// ── Herbology: ingredient quality chance ──────────────────
+// Called when buying ingredients — chance of 'high_quality' flag
+function herbologyIngredientQualityChance() {
+  const herb = STATE.skills?.herbologyMastery || 10;
+  if (herb < SKILL_THRESHOLDS.HERBOLOGY_INGREDIENT_QUALITY) return 0;
+  return Math.min(0.5, 0.20 + (herb - 40) * 0.005); // 20-50% at 40-100
+}
+
+// ── buildStateContext extension ───────────────────────────
+// Appends skill-derived context to AI prompts
+// Called from buildStateContext() — just append this to the base string
+function buildSkillContext() {
+  const s = STATE.skills || {};
+  const lines = [];
+
+  if ((s.persuasion || 0) >= 40)
+    lines.push(`Persuasion ${s.persuasion} — the player can talk their way into and out of things.`);
+  if ((s.empathy || 0) >= 40)
+    lines.push(`Empathy ${s.empathy} — the player reads people well; they notice subtext.`);
+  if ((s.arcaneKnowledge || 0) >= 40)
+    lines.push(`Arcane Knowledge ${s.arcaneKnowledge} — strong theoretical foundation; knows magical lore.`);
+  if ((s.intellect || 0) >= 40)
+    lines.push(`Intellect ${s.intellect} — academically sharp; learns quickly.`);
+  if ((s.courage || 0) >= 50)
+    lines.push(`Courage ${s.courage} — does not back down easily; holds nerve under pressure.`);
+  if ((s.luck || 0) >= 60)
+    lines.push(`Luck ${s.luck} — things tend to break their way.`);
+  if ((s.herbologyMastery || 0) >= 40)
+    lines.push(`Herbology ${s.herbologyMastery} — genuinely knowledgeable about plants.`);
+
+  return lines.length ? '\nSkill context: ' + lines.join(' ') : '';
+}
+
+// ═══════════════════════════════════════════════════════════
+// UI RESTRUCTURE — Step 1 of build order
+//
+// Changes:
+// 1. Day menu — grouped categories, max 6 visible at once
+// 2. Explore modal — floor/area filter tabs
+// 3. Relationship modal — add Spirits tab, fix tab labels
+// ═══════════════════════════════════════════════════════════
+
+// ════════════════════════════════════════════════════════════
+// 1. DAY MENU — Grouped choices
+// Rather than a flat list of up to 11+ items, choices are
+// organised into semantic groups shown as labelled sections.
+// Each group only shows when its items are relevant.
+// ════════════════════════════════════════════════════════════
+
+// Replaces renderDayChoices entirely
+function renderDayChoices(dow, classesToday, phase) {
+  const ap    = STATE.dailyAP || 0;
+  const house = STATE.player.house || 'Gryffindor';
+  const week  = STATE.currentWeek || 1;
+
+  // ── Hospital override ─────────────────────────────────────
+  if (STATE.hospitalState?.admitted) {
+    const hosp = STATE.hospitalState;
+    const recovMsg = hosp.recoveryDaysLeft > 0
+      ? `🏥 Still recovering — ${hosp.recoveryDaysLeft} day${hosp.recoveryDaysLeft>1?'s':''} remaining`
+      : '🏥 Pomfrey is reviewing your condition this morning';
+    const choices = [{ text: recovMsg, disabled: true }];
+    if (ap >= 40 && (STATE.skills?.stealth||10) >= 40)
+      choices.push({ text: '🚪 Try to leave early', action: 'hospital_escape' });
+    choices.push({ text: '🌙 Rest in the ward', action: 'day_sleep' });
+    setChoices(choices);
+    showFreeInput(false);
+    return;
+  }
+
+  // ── Build grouped choices ─────────────────────────────────
+  // Each group: { label, choices[] }
+  // Empty groups are hidden. Groups with one item collapse
+  // label if it would just repeat the button.
+
+  const groups = [];
+
+  // ── Urgent (detention, Quidditch — always first if applicable)
+  const urgent = [];
+  const todayDet = getTodaysDetention?.();
+  if (todayDet && ap > 0) {
+    const dtype = DETENTION_TYPES[todayDet.type] || DETENTION_TYPES.filch_trophies;
+    urgent.push({
+      text:   `${dtype.icon} Serve detention — ${dtype.label}`,
+      action: `serve_detention_${todayDet.id}`,
+    });
+  }
+  const isQuidditchWeek = week === 10 && dow === 6;
+  if (isQuidditchWeek && !STATE.flags.includes('QUIDDITCH_MATCH_1')
+      && (phase === 'morning' || phase === 'afternoon' || phase === 'daytime')) {
+    urgent.push({
+      text:   '🏟️ Watch the Quidditch match — Gryffindor vs Slytherin',
+      action: 'quidditch_watch_stands',
+    });
+  }
+  if (urgent.length) groups.push({ label: null, choices: urgent });
+
+  // ── Academic ──────────────────────────────────────────────
+  const academic = [];
+  if (classesToday?.length > 0 && ap > 0)
+    academic.push({ text: '📚 Attend classes', action: 'day_attend_class' });
+  if (ap > 0)
+    academic.push({ text: '📖 Study', action: 'day_study' });
+
+  // Brew — only when ingredients + known recipe + right time
+  const hasIngredients = STATE.inventory.some(i =>
+    typeof ITEM_CATALOGUE !== 'undefined' && ITEM_CATALOGUE[i.id]?.cat === 'ingredient'
+  );
+  const hasRecipes = typeof getBrewableRecipes === 'function'
+    && getBrewableRecipes().some(r => r.isKnown);
+  if (ap > 0 && hasIngredients && hasRecipes && !['breakfast','night'].includes(phase))
+    academic.push({ text: '🧪 Brew a potion', action: 'open_brew' });
+
+  if (academic.length) groups.push({ label: 'Academic', choices: academic });
+
+  // ── Social ────────────────────────────────────────────────
+  const social = [];
+  if (ap > 0)
+    social.push({ text: `🏠 Common room`, action: 'day_common_room' });
+  if (ap > 0 && week >= 2 && ['morning','daytime','afternoon','evening'].includes(phase))
+    social.push({ text: '🛖 Visit Hagrid', action: 'day_visit_hagrid' });
+  // Great Hall — available at meal phases
+  if (ap > 0 && ['breakfast','afternoon','evening'].includes(phase))
+    social.push({ text: '🍽️ Great Hall', action: 'day_great_hall' });
+
+  if (social.length) groups.push({ label: 'Social', choices: social });
+
+  // ── Explore ───────────────────────────────────────────────
+  const explore = [];
+  if (ap > 0)
+    explore.push({ text: '🗺️ Explore the castle or grounds', action: 'open_explore' });
+  if (phase === 'evening' || phase === 'night')
+    explore.push({ text: '🌙 Sneak out after curfew', action: 'day_curfew_explore' });
+  if (explore.length) groups.push({ label: 'Explore', choices: explore });
+
+  // ── Commerce ──────────────────────────────────────────────
+  const commerce = [];
+  if (STATE.flags.includes('BOARD_DISCOVERED') && ap > 0
+      && ['breakfast','morning','daytime','afternoon'].includes(phase))
+    commerce.push({ text: '📋 Notice board', action: 'open_board' });
+  // Order sweets — available once owl is registered or school owl known
+  if (ap > 0 && (STATE.familiar?.type === 'owl' || STATE.flags.includes('SCHOOL_OWL_KNOWN')))
+    commerce.push({ text: '📦 Order from Honeydukes', action: 'open_sweet_order' });
+  if (commerce.length) groups.push({ label: 'Commerce', choices: commerce });
+
+  // ── Rest ──────────────────────────────────────────────────
+  groups.push({
+    label: null,
+    choices: [{ text: ap === 0 ? '🌙 Sleep — end the day' : '🌙 Turn in early', action: 'day_sleep' }],
+  });
+
+  // ── Render grouped choices ────────────────────────────────
+  renderGroupedChoices(groups);
+  showFreeInput(true);
+}
+
+// Renders choices with optional group labels
+function renderGroupedChoices(groups) {
+  const section = document.getElementById('choicesSection');
+  const grid    = document.getElementById('choicesGrid');
+  const allChoices = groups.flatMap(g => g.choices);
+
+  if (!allChoices.length) { section.style.display = 'none'; return; }
+  section.style.display = 'block';
+
+  // Store flat list for handleChoice index lookup
+  window._currentChoices = allChoices;
+
+  let offset = 0;
+  grid.innerHTML = groups.map(group => {
+    if (!group.choices.length) return '';
+    const label = group.label
+      ? `<div class="choice-group-label">${group.label}</div>`
+      : '';
+    const buttons = group.choices.map((c, localIdx) => {
+      const globalIdx = offset + localIdx;
+      if (c.disabled) {
+        return `<button class="choice-btn" disabled
+          style="opacity:0.35;cursor:not-allowed;border-style:dashed;">${c.text}</button>`;
+      }
+      return `<button class="choice-btn" onclick="handleChoice(${globalIdx})">${c.text}</button>`;
+    }).join('');
+    offset += group.choices.length;
+    return label + buttons;
+  }).join('');
+}
+
+// ════════════════════════════════════════════════════════════
+// 2. EXPLORE MODAL — Floor/area filter
+// The existing renderExploreMap groups locations correctly
+// but shows all groups at once. Add a filter tab row at the
+// top of the explore map panel.
+// ════════════════════════════════════════════════════════════
+
+let _exploreFilter = 'all'; // 'all'|'castle'|'grounds'|'common'|'secret'
+
+function renderExploreMap() {
+  const mapPanel = document.getElementById('exploreMapPanel');
+  if (!mapPanel) return;
+
+  const groups = {
+    'Common Rooms': ['gryffindor_tower','hufflepuff_basement','ravenclaw_tower','slytherin_dungeon'],
+    'Classrooms':   ['transfig_classroom','charms_classroom','potions_classroom','snapes_office'],
+    'Castle':       ['great_hall','entrance_hall','marble_staircase','library','restricted_section',
+                     'seventh_floor_corridor','room_of_requirement_locked',
+                     'third_floor_corridor','fluffy_room'],
+    'Towers':       ['astronomy_tower'],
+    'Grounds':      ['grounds','hogwarts_lake','quidditch_pitch','hagrid_hut',
+                     'forbidden_forest_edge','forbidden_forest_shallow','forbidden_forest_deep'],
+    'Secret':       ['kitchens','hogsmeade_passage','hogsmeade_unsupervised'],
+  };
+
+  // Filter map: which groups show for each filter tab
+  const filterGroups = {
+    all:    Object.keys(groups),
+    castle: ['Castle','Towers','Classrooms'],
+    common: ['Common Rooms'],
+    grounds:['Grounds'],
+    secret: ['Secret'],
+  };
+
+  const activeGroups = filterGroups[_exploreFilter] || filterGroups.all;
+  const timeOfDay = STATE.explorationTimeOfDay || 'daytime';
+  const current   = STATE.currentLocation || 'gryffindor_tower';
+
+  // Filter tab strip
+  const filters = [
+    { key:'all',     label:'All' },
+    { key:'castle',  label:'Castle' },
+    { key:'common',  label:'Common Rooms' },
+    { key:'grounds', label:'Grounds' },
+    { key:'secret',  label:'Secret' },
+  ];
+  const tabHtml = `<div class="explore-filter-tabs">
+    ${filters.map(f => `
+      <button class="explore-filter-tab ${_exploreFilter === f.key ? 'active' : ''}"
+        onclick="setExploreFilter('${f.key}')">${f.label}</button>
+    `).join('')}
+  </div>`;
+
+  let locHtml = '';
+  Object.entries(groups).forEach(([label, locIds]) => {
+    if (!activeGroups.includes(label)) return;
+    const available = locIds.filter(id => LOCATION_DATA[id]);
+    if (!available.length) return;
+
+    locHtml += `<div class="explore-map-section">${label}</div>`;
+    available.forEach(id => {
+      const loc = LOCATION_DATA[id];
+      if (!loc) return;
+      const discovered = STATE.discoveredLocations?.[id];
+      const isCurrent  = id === current;
+      const risk       = calculateCurfewRisk(id, timeOfDay);
+      const riskCls    = risk >= 1 ? `r${Math.min(risk, 4)}` : '';
+
+      if (loc.requiresDiscovery && !discovered && label === 'Secret') {
+        locHtml += `<div class="explore-map-loc locked">
+          <span class="explore-map-loc-icon">❓</span>
+          <span class="explore-map-loc-name" style="font-style:italic;">Unknown passage</span>
+        </div>`;
+        return;
+      }
+
+      const playerHouse = STATE.player.house || '';
+      const houseData   = HOUSE_DATA[playerHouse] || {};
+      const isHomeRoom  = houseData.commonRoom === id;
+      const isRestricted = discovered === 'restricted' ||
+        (loc.houseOnly && loc.houseOnly !== playerHouse);
+
+      if (isRestricted && !isHomeRoom) {
+        locHtml += `<div class="explore-map-loc restricted-room">
+          <span class="explore-map-loc-icon">${loc.icon}</span>
+          <span class="explore-map-loc-name">${loc.name}</span>
+        </div>`;
+        return;
+      }
+
+      locHtml += `<button class="explore-map-loc
+        ${isCurrent ? 'current' : ''}
+        ${isHomeRoom ? 'home-room' : ''}
+        ${!discovered && loc.requiresDiscovery ? 'undiscovered' : ''}"
+        onclick="exploreLocationInModal('${id}','${timeOfDay}')">
+        <span class="explore-map-loc-icon">${loc.icon}</span>
+        <span class="explore-map-loc-name">${loc.name}</span>
+        ${risk >= 2 ? `<span class="explore-map-loc-risk ${riskCls}"></span>` : ''}
+      </button>`;
+    });
+  });
+
+  mapPanel.innerHTML = tabHtml + locHtml;
+}
+
+function setExploreFilter(filter) {
+  _exploreFilter = filter;
+  renderExploreMap();
+}
+
+// ════════════════════════════════════════════════════════════
+// 3. RELATIONSHIP MODAL — Add Spirits tab
+// Ghost/spirit NPCs get their own tab. The existing tab
+// system is extended; ghost NPCs are identified by role.
+// ════════════════════════════════════════════════════════════
+
+// Ghost NPC ids — used for Spirits tab filtering
+const GHOST_NPC_IDS = new Set([
+  'nearly_headless_nick', 'fat_friar', 'grey_lady', 'bloody_baron', 'peeves',
+]);
+
+// Extended tab list — replaces REL_TABS constant
+const REL_TABS = [
+  { key:'met',        label:'Met' },
+  { key:'students',   label:'Students' },
+  { key:'professors', label:'Staff' },
+  { key:'spirits',    label:'Spirits' },
+];
+
+// Extended renderRelTab to handle spirits
+function renderRelTab(key) {
+  const body    = document.getElementById('relModalBody');
+  const desc    = document.getElementById('relModalDesc');
+  const allNpcs = Object.values(NPC_DATA);
+
+  let npcs;
+  let descText;
+
+  if (key === 'met') {
+    npcs = allNpcs.filter(n =>
+      STATE.relationships[n.id]?.met && !GHOST_NPC_IDS.has(n.id)
+    );
+    descText = npcs.length
+      ? `${npcs.length} character${npcs.length !== 1 ? 's' : ''} encountered.`
+      : 'No one met yet — get out there.';
+  } else if (key === 'students') {
+    npcs = allNpcs.filter(n => n.year < 99 && n.year > 0 && !GHOST_NPC_IDS.has(n.id));
+    descText = `${npcs.length} students.`;
+  } else if (key === 'professors') {
+    npcs = allNpcs.filter(n => n.year === 99 && !GHOST_NPC_IDS.has(n.id));
+    descText = `${npcs.length} staff members.`;
+  } else if (key === 'spirits') {
+    npcs = allNpcs.filter(n => GHOST_NPC_IDS.has(n.id));
+    descText = npcs.length
+      ? `${npcs.length} spirit${npcs.length !== 1 ? 's' : ''} known to haunt these halls.`
+      : 'No spirits encountered yet.';
+  } else {
+    npcs = allNpcs.filter(n => !GHOST_NPC_IDS.has(n.id));
+    descText = `${npcs.length} characters.`;
+  }
+
+  if (desc) desc.textContent = descText;
+
+  if (!npcs.length) {
+    body.innerHTML = `<div style="padding:32px;text-align:center;color:var(--ink-light);
+      font-style:italic;font-family:'IM Fell English',Georgia,serif;font-size:18px;">
+      No characters in this category yet.</div>`;
+    return;
+  }
+
+  body.innerHTML = `<div class="rel-char-grid">
+    ${npcs.map(npc => buildRelCard(npc)).join('')}
+  </div>`;
+}
+
+// ── Placeholders — will be replaced by full implementations ──
+// ═══════════════════════════════════════════════════════════
+// GREAT HALL SCENE — Dynamic, event-aware
+//
+// Available at breakfast, afternoon (lunch), and evening (dinner).
+// Each meal phase has distinct atmosphere. The scene pulls from:
+//   - Who is actually present (getLocationNPCs)
+//   - Active relationship statuses (tense, hostile, close, etc.)
+//   - Recent flags (Quidditch, troll, detentions, etc.)
+//   - Current week / seasonal atmosphere
+//   - Player mood, house points, pending orders
+//   - Daily Prophet topics (from board state)
+//
+// The AI gets a rich, specific context that produces a scene
+// unique to this player's actual game state.
+// ═══════════════════════════════════════════════════════════
+
+async function sceneGreatHall() {
+  const phase = STATE.dayPhase || 'breakfast';
+  const week  = STATE.currentWeek || 1;
+  const dow   = STATE.dayOfWeek || 1;
+  const house = STATE.player.house || 'Gryffindor';
+
+  const mealLabel = {
+    breakfast: 'Breakfast',
+    morning:   'Breakfast',
+    daytime:   'Lunch',
+    afternoon: 'Lunch',
+    evening:   'Dinner',
+    night:     'Late supper',
+  }[phase] || 'Breakfast';
+
+  setLocation(`🍽️ The Great Hall — ${mealLabel}`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The Great Hall...<span class="cursor-blink"></span></div>`);
+
+  // ── 1. Who is present ──────────────────────────────────
+  const presentNPCs = getLocationNPCs('great_hall', phase);
+  const metPresent  = presentNPCs.filter(n =>
+    STATE.relationships[n.id]?.met && n.id !== 'peeves'
+  );
+
+  // Partition by relationship status for the AI
+  const closeNPCs   = metPresent.filter(n =>
+    ['close','friendly'].includes(getRelStatus(n.id)));
+  const tenseNPCs   = metPresent.filter(n =>
+    ['tense','hostile'].includes(getRelStatus(n.id)));
+  const neutralNPCs = metPresent.filter(n =>
+    ['neutral','acquaintance'].includes(getRelStatus(n.id)));
+
+  // ── 2. Event-specific blurbs ───────────────────────────
+  // These are concrete, specific details the AI must weave in
+  const flags     = STATE.flags || [];
+  const eventNotes = [];
+
+  // Recent major events
+  if (flags.includes('TROLL_ENCOUNTERED') && week <= 10)
+    eventNotes.push('The Halloween troll incident happened recently. People are still talking about it — mostly about Harry and Ron and Hermione, and how they ended up together in the bathroom. There are rumours the player was involved.');
+
+  if (flags.includes('QUIDDITCH_MATCH_1') && week <= 12)
+    eventNotes.push('Gryffindor won their first Quidditch match. Harry Potter caught the Snitch in his mouth. The Gryffindor table is still buzzing about it when anyone mentions it.');
+
+  if (flags.includes('WITNESSED_FIRST_CATCH') && week <= 12)
+    eventNotes.push('The player was in the stands for Harry\'s first match. They saw the whole thing.');
+
+  if (flags.includes('CHESS_CHAMBER_WON'))
+    eventNotes.push('Something happened beneath the school recently — few students know details, but there are whispers. Harry Potter has been in the Hospital Wing. Dumbledore was seen returning to the castle at speed.');
+
+  if (flags.includes('RON_SACRIFICED'))
+    eventNotes.push('Ron Weasley is not at the table this morning. He is still in the Hospital Wing. Fred and George keep glancing at his empty seat.');
+
+  if (flags.includes('MIRROR_SEEN') && week >= 14 && week <= 18)
+    eventNotes.push('Christmas break. The hall is nearly empty — only a handful of students stayed behind. The enchanted ceiling reflects grey winter sky. Everything is quieter and somehow larger.');
+
+  if (flags.includes('NICK_MISDIRECTED_FILCH'))
+    eventNotes.push('Filch has been seen stomping around the east wing looking furious about something — nobody knows exactly what happened but several students look quietly amused.');
+
+  if (flags.includes('YEAR_1_ENDED'))
+    eventNotes.push('The year is over. Everyone is going home tomorrow. The hall feels different — lighter and heavier at once.');
+
+  // Seasonal / week atmosphere
+  const weekAtmosphere = (() => {
+    if (week <= 2)  return 'First week of term. Everyone is new and awkward and excited, sorting things out — where to sit, who to sit with. The ceiling is enchanted and September light falls through tall windows.';
+    if (week <= 5)  return 'Early autumn term. The novelty has worn off enough for routines to start forming. People are beginning to sit in the same spots.';
+    if (week === 7 || week === 8) return 'Halloween is close. The hall is decorated with live bats and jack-o\'-lanterns. The atmosphere is festive and slightly chaotic.';
+    if (week >= 9 && week <= 11) return 'November chill. The enchanted ceiling has been showing fog and grey cloud. People are layering up and complaining about the cold dungeons.';
+    if (week >= 12 && week <= 14) return 'End of term approaching. People are talking about going home for Christmas. Lists being written. Owls sent.';
+    if (week >= 15 && week <= 17) return 'Christmas break. The hall is nearly empty — only the students who stayed. The decorations are still up: twelve enormous Christmas trees, magical snow that doesn\'t melt. It is peaceful in a way the term never is.';
+    if (week >= 18 && week <= 20) return 'Back from Christmas. Everyone looks slightly different — taller, or rested, or both. There\'s a returning-to-something feeling.';
+    if (week >= 21 && week <= 25) return 'Deep winter term. Darker mornings, longer evenings. The Daily Prophet gets read more carefully at breakfast.';
+    if (week >= 26 && week <= 28) return 'Spring returning. The ceiling reflects blue sky for the first time in months. The mood lifts slightly.';
+    if (week >= 29 && week <= 32) return 'Spring term. Warm enough for windows to be cracked open. Exams are starting to be mentioned, mostly in dread.';
+    if (week === 33) return 'Exam week. The library has been packed for days. People are eating faster, revising at the table, looking slightly wild-eyed. Hermione has colour-coded notes. Even Fred and George are pretending to revise.';
+    if (week >= 34) return 'End of year. The hall feels like something is winding down. Summer is close.';
+    return 'Mid-term. The rhythm of the year has settled.';
+  })();
+
+  // Specific tense relationship callout (max one — most dramatic)
+  const tensionNote = tenseNPCs.length
+    ? `IMPORTANT: ${tenseNPCs[0].name} is in the hall. Their relationship with the player is ${getRelStatus(tenseNPCs[0].id)}. Show this physically — they occupy the same space without acknowledging each other, or there is a moment of eye contact that goes wrong. Do not state the tension; show it in behaviour.`
+    : '';
+
+  // Close relationship warmth (max one — most significant)
+  const warmthNote = closeNPCs.length
+    ? `${closeNPCs[0].name} is at the table and their relationship with the player is ${getRelStatus(closeNPCs[0].id)}. This should feel visible — easy body language, a seat saved, a glance across the hall. One specific detail.`
+    : '';
+
+  // Owl post / pending deliveries
+  const orderNote = (STATE.pendingOrders||[]).length
+    ? `The player has a sweet order pending from Honeydukes. This is not yet delivered — but if it is a morning scene, a school owl or their own owl might be seen arriving at the table with something.`
+    : '';
+
+  // House Cup context
+  const pts = STATE.housePoints || {};
+  const sorted = Object.entries(pts).sort(([,a],[,b])=>b-a);
+  const cupNote = sorted.length && sorted[0][1] > 0
+    ? `Current House Cup standings: ${sorted.map(([h,p])=>`${h} ${p}`).join(', ')}. ${sorted[0][0] === house ? 'Your house is leading.' : sorted[0][0] + ' is ahead.'}`
+    : '';
+
+  // Mood effect on scene
+  const moodNote = {
+    rested:    'The player is well-rested. They can take in the hall properly.',
+    energised: 'The player feels sharp and alive. Food tastes better when you feel this way.',
+    tired:     'The player is tired. The noise of the hall is a little too much. Coffee or tea is a necessity.',
+    stressed:  'The player is stressed. The hall\'s energy is difficult to absorb right now — too much happening at once.',
+  }[STATE.playerMood || 'rested'];
+
+  // Detention context
+  const detNote = (STATE.detentionCount||0) > 0 && (STATE.pendingDetentions||[]).length > 0
+    ? `The player has a detention pending. It sits in the back of their mind.`
+    : '';
+
+  // ── 3. Phase-specific scene instructions ───────────────
+  const phaseInstructions = {
+    breakfast: `Breakfast: post owls swooping in with letters and parcels, the sound of mail arriving. The house tables filling up. Toast, pumpkin juice, porridge. The enchanted ceiling showing the morning sky. People still half-asleep or already absorbed in newspapers. The day has not started yet — it is almost starting.`,
+    morning:   `Breakfast: same as above. It is still morning.`,
+    daytime:   `Lunch: quicker than breakfast or dinner. People in and out — classes before and after. The hall never quite fills. A chance to breathe or a moment to miss.`,
+    afternoon: `Lunch: same — quick, transient, the midpoint of the day.`,
+    evening:   `Dinner: the fullest the hall gets. Every table occupied. Candles floating, the ceiling showing whatever the sky outside is doing. The noise is considerable. This is the social peak of the day — conversations that couldn't happen in class, plans made, disputes continued, friendships consolidated. It has an ending: when the food is cleared and people drift away, the day is functionally over.`,
+    night:     `Late — the kitchens have sent something up for students still awake. The hall is nearly empty. Candles lower. The ceiling shows stars or cloud.`,
+  }[phase] || '';
+
+  // ── 4. Build the full AI prompt ────────────────────────
+  const presentNames = metPresent.map(n => n.name).join(', ') || 'scattered students';
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set in 1991.
+Write a Great Hall scene. Second person, present tense. 3 short paragraphs. 150-190 words total.
+
+MEAL: ${mealLabel}. Week ${week} of term.
+PLAYER: ${STATE.player.firstName || 'the player'} ${STATE.player.lastName || ''}, ${house}.
+MOOD: ${moodNote}
+
+ATMOSPHERE THIS WEEK: ${weekAtmosphere}
+SCENE TYPE: ${phaseInstructions}
+
+PEOPLE PRESENT (met by player): ${presentNames || 'a few faces not yet known'}.
+${warmthNote}
+${tensionNote}
+
+${eventNotes.length ? 'RECENT EVENTS TO WEAVE IN (pick the most relevant one or two — do not list them; show them in the texture of the scene):\n' + eventNotes.map(e=>`- ${e}`).join('\n') : ''}
+${cupNote ? 'HOUSE CUP: ' + cupNote : ''}
+${orderNote}
+${detNote}
+
+INSTRUCTIONS:
+- Para 1: The hall itself — the physical space, the enchanted ceiling, the sound and smell. Make it specific to the season and meal time.
+- Para 2: One specific observed moment — something the player notices. This is where character dynamics, tensions, warmth, or recent events surface. One thing, concrete and vivid.
+- Para 3: The player settling in. Their food, their state of mind, what they are about to face (the day ahead or the day winding down). End here — do not close the scene.
+
+Do NOT write generic description. Every detail should be earned from the context above.
+Do NOT mention characters not in the present list unless canon demands it.
+Do NOT be sentimental or tidy. The Great Hall is a specific, lived-in place.
+${buildStateContext()}`;
+
+  // ── 5. Call Claude ─────────────────────────────────────
+  const text = await callClaude(sys, `Great Hall — ${mealLabel}, week ${week}.`, 500);
+
+  const fallbacks = {
+    breakfast: `The hall fills slowly. Owls drop letters onto plates before people are awake enough to catch them. The ceiling is pale morning sky. Someone further down the table is reading the Prophet upside down.\n\nAcross the hall — at the Slytherin table — there is a moment of eye contact that resolves into nothing. Just two people eating.\n\nYour toast is cold. It doesn't matter. The day is starting whether you're ready or not.`,
+    afternoon: `The lunch rush is already thinning. People eat standing or moving, plates in hand, one eye on the clock. The house tables have gaps in them — the hall never really fills at midday.\n\nSomething is being said at the Gryffindor table that makes three people laugh at once. You catch the end of it without the beginning.\n\nYou find a seat. Whatever comes next, it's easier to face after eating.`,
+    evening:   `Dinner is the hall at full volume. Every table full, candles floating at face height, the ceiling mirroring whatever the sky is doing outside. You can hear five conversations simultaneously and follow none of them.\n\nSomeone you know is on the far side of the hall. They see you. They don't wave. You don't either.\n\nThe food is good. The evening stretches ahead. You eat and think about what it contains.`,
+  };
+  const fallback = fallbacks[phase] || fallbacks.breakfast;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+
+  // ── 6. Render ──────────────────────────────────────────
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🍽️ The Great Hall — ${mealLabel}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 160));
+  }, 50);
+
+  // ── 7. Track visit, micro-gains, and post-choices ─────
+  STATE.dayActionLog = STATE.dayActionLog || [];
+  STATE.dayActionLog.push(`Great Hall — ${mealLabel}`);
+
+  // Being in the same space matters — small relationship warmth
+  metPresent.forEach(({ id }) => {
+    if (STATE.relationships[id]?.met) {
+      adjustDim(id, 'affection', 1);
+    }
+  });
+  updateRelationshipSidebar();
+  STATE._lastGreatHallWeek = week;
+  STATE._lastGreatHallPhase = phase;
+
+  // Relationship micro-gain for people present (being in the same
+  // space matters — small but real)
+  metPresent.forEach(({ id }) => {
+    if (STATE.relationships[id]?.met) {
+      adjustDim(id, 'affection', 1);
+    }
+  });
+
+  // Offer to talk to someone present after the scene
+  const talkable = metPresent.filter(n =>
+    !GHOST_NPC_IDS?.has(n.id) && STATE.relationships[n.id]?.met
+  ).slice(0, 3);
+
+  setTimeout(() => {
+    const choices = [];
+    talkable.forEach(({ id, name }) => {
+      const npc = NPC_DATA[id] || {};
+      choices.push({
+        text: `Talk to ${name}`,
+        action: `scene_npc_${id}`,
+      });
+    });
+    choices.push({ text: '← Back to your day', action: 'day_menu' });
+    setChoices(choices);
+    showFreeInput(false);
+  }, 1800);
+}
+
+// openSweetOrderModal moved to sweet ordering block
+
+// ── Apply wand stat boosts (idempotent) ──────────────────
+// Called on load and on fresh init after wand is assigned.
+// Uses STATE.player._wandStatsApplied flag to avoid double-dipping.
+function applyWandStatsIfNeeded() {
+  const wand = STATE.player?.wand;
+  if (!wand || !wand.wood || !wand.core) return;
+  if (STATE.player._wandStatsApplied) return;
+
+  const woodData = WAND_WOODS[wand.wood];
+  const coreData = WAND_CORES[wand.core];
+  if (!woodData || !coreData) return;
+
+  const boosts = { ...woodData.stats };
+  Object.entries(coreData.stats).forEach(([k,v]) => {
+    boosts[k] = (boosts[k]||0) + v;
+  });
+  Object.entries(boosts).forEach(([k,v]) => {
+    if (STATE.skills[k] !== undefined)
+      STATE.skills[k] = Math.min(100, STATE.skills[k] + v);
+  });
+
+  STATE.player._wandStatsApplied = true;
+  updateSkills();
+}
+
+// ═══════════════════════════════════════════════════════════
+// HOUSE GHOST & SPIRITS SYSTEM
+//
+// Five spirits, each with:
+// - Full NPC_DATA entry (id, name, icon, bio, dims, etc.)
+// - NPC_PERSONAS entry for AI voice
+// - Location affinity (where they appear by time/day)
+// - Unique mechanic that helps or hinders based on relationship
+// - Full sceneNPC support via ghost-specific conversation prompt
+//
+// Peeves is NOT a relationship NPC — he is a random encounter
+// injected into the explore system with no relationship track.
+// ═══════════════════════════════════════════════════════════
+
+// ── Ghost NPC data ────────────────────────────────────────
+// Added into NPC_DATA at runtime via ghostNPCInit()
+// year: 0 = special (ghost/spirit category)
+// houseOnly: which house common room they haunt (or null)
+// ghostMechanic: key for unique ability
+// dims: base relationship dimensions
+
+const GHOST_NPC_ENTRIES = {
+
+  nearly_headless_nick: {
+    id:          'nearly_headless_nick',
+    name:        'Nearly Headless Nick',
+    icon:        '👻',
+    house:       'Gryffindor',
+    year:        0,
+    meetsYear:   1,
+    role:        'Ghost — Gryffindor Tower',
+    bloodStatus: 'Unknown',
+    born:        '1442 (deceased 1492)',
+    bio:         'Sir Nicholas de Mimsy-Porpington. Executed on 31 October 1492 — incompetently. The axeman required 45 blows and still left an inch of skin connecting his head to his neck. He has been sensitive about this ever since. Good-natured, slightly pompous, deeply interested in the living.',
+    tags:        ['Ghost','Gryffindor','Sir Nicholas de Mimsy-Porpington'],
+    romantic:    false,
+    deathYear:   null,
+    skills:      { persuasion:55, empathy:60, stealth:70, intellect:50 },
+    ghostMechanic: 'filch_misdirect', // can divert Filch from catching the player
+    houseOnly:   'Gryffindor',
+    dims:        { trust:5, affection:8, respect:5, fear:0, rivalry:0, loyalty:0 },
+    houseModifiers: { Gryffindor:{ trust:15, affection:10 }, Hufflepuff:{}, Ravenclaw:{}, Slytherin:{ trust:-5 } },
+  },
+
+  fat_friar: {
+    id:          'fat_friar',
+    name:        'The Fat Friar',
+    icon:        '🕊️',
+    house:       'Hufflepuff',
+    year:        0,
+    meetsYear:   1,
+    role:        'Ghost — Hufflepuff Basement',
+    bloodStatus: 'Unknown',
+    born:        'Medieval (deceased)',
+    bio:         'A jolly Hufflepuff ghost who still carries the charitable warmth of his monastic life. Welcomes everyone. Occasionally embarrassed by his house affiliation with particularly unruly students, but never for long. Once cured the pox with a barrel of pickle juice and considered it his finest hour.',
+    tags:        ['Ghost','Hufflepuff'],
+    romantic:    false,
+    deathYear:   null,
+    skills:      { empathy:80, persuasion:65, luck:55 },
+    ghostMechanic: 'vouch_for_player', // can reduce detention severity if relationship is strong
+    houseOnly:   'Hufflepuff',
+    dims:        { trust:10, affection:15, respect:5, fear:0, rivalry:0, loyalty:5 },
+    houseModifiers: { Gryffindor:{ trust:5 }, Hufflepuff:{ trust:20, affection:15 }, Ravenclaw:{ trust:5 }, Slytherin:{ trust:-2 } },
+  },
+
+  grey_lady: {
+    id:          'grey_lady',
+    name:        'The Grey Lady',
+    icon:        '🌫️',
+    house:       'Ravenclaw',
+    year:        0,
+    meetsYear:   1,
+    role:        'Ghost — Ravenclaw Tower',
+    bloodStatus: 'Unknown',
+    born:        'Medieval (deceased)',
+    bio:         'Helena Ravenclaw. Daughter of Rowena Ravenclaw. Stole her mother\'s diadem and fled, was killed by the Bloody Baron, and has haunted the castle in silence ever since. Cold, proud, intensely private. Speaks rarely and means every word. She knows more than she will ever willingly share.',
+    tags:        ['Ghost','Ravenclaw','Helena Ravenclaw'],
+    romantic:    false,
+    deathYear:   null,
+    skills:      { intellect:95, arcaneKnowledge:90, empathy:30, stealth:60 },
+    ghostMechanic: 'lore_unlock', // reveals hidden lore entries at high relationship; diadem hints
+    houseOnly:   'Ravenclaw',
+    dims:        { trust:-5, affection:-5, respect:10, fear:5, rivalry:0, loyalty:0 },
+    houseModifiers: { Gryffindor:{}, Hufflepuff:{}, Ravenclaw:{ trust:15, respect:10 }, Slytherin:{ trust:-5 } },
+  },
+
+  bloody_baron: {
+    id:          'bloody_baron',
+    name:        'The Bloody Baron',
+    icon:        '🩸',
+    house:       'Slytherin',
+    year:        0,
+    meetsYear:   1,
+    role:        'Ghost — Slytherin Dungeon',
+    bloodStatus: 'Unknown',
+    born:        'Medieval (deceased)',
+    bio:         'Slytherin\'s ghost. Covered in silver bloodstains — the blood of Helena Ravenclaw, whom he killed when she refused to return with him, then his own when he took his life from remorse. He never speaks of it. He is feared even by Peeves, which tells you everything you need to know.',
+    tags:        ['Ghost','Slytherin'],
+    romantic:    false,
+    deathYear:   null,
+    skills:      { fear:90, dueling:85, stealth:60, courage:80 },
+    ghostMechanic: 'intimidate_npc', // can frighten hostile NPCs away from the player
+    houseOnly:   'Slytherin',
+    dims:        { trust:-15, affection:-10, respect:5, fear:20, rivalry:0, loyalty:0 },
+    houseModifiers: { Gryffindor:{ trust:-5, fear:5 }, Hufflepuff:{ fear:5 }, Ravenclaw:{}, Slytherin:{ trust:10, fear:-5, respect:15 } },
+  },
+};
+
+// ── Personas for AI voice ─────────────────────────────────
+const GHOST_PERSONAS = {
+  nearly_headless_nick: `Nearly Headless Nick: genial, slightly vain, desperate to be taken seriously as a proper ghost (he was denied the Headless Hunt for the inch of skin). Speaks with the formality of 1492 but adapted to modern Hogwarts. Loves gossip about the living. Often references his execution with theatrical melancholy. Never actually malicious — genuinely fond of Gryffindors. Will subtly probe whether you think he deserves to be in the Headless Hunt.`,
+
+  fat_friar: `The Fat Friar: boundlessly cheerful, genuinely warm, the kind of person who finds the best in everyone including people who clearly don't deserve it. Speaks simply and kindly. Occasionally references his monastic past — pickling, fasting, healing the sick. Takes his role as Hufflepuff ghost seriously and is quietly proud of any student who shows decency. The only ghost who will genuinely laugh at himself.`,
+
+  grey_lady: `The Grey Lady: cold, quiet, precise. Every word chosen. She does not offer information — she withholds it, and releases it only when convinced of your worthiness or sincerity. She is not unkind, but she has been disappointed too many times to be warm. She knows about the diadem but will never mention it directly. Her responses are short and often contain more silence than speech. She is always watching something only she can see.`,
+
+  bloody_baron: `The Bloody Baron: never speaks first. When he does speak, it is short, deliberate, and carries weight. He does not explain himself. He does not justify. He carries his guilt like armour — visible, permanent, not discussed. He will not be flattered. He respects directness and despises pretence. If he helps you, he will do so without comment. If he warns you, heed it.`,
+};
+
+// ── Location affinity for ghosts ──────────────────────────
+// Integrated into getLocationNPCs via ghostLocationPresence()
+const GHOST_LOCATION_AFFINITY = {
+  nearly_headless_nick: {
+    gryffindor_tower:    { morning:0.5, daytime:0.2, afternoon:0.4, evening:0.7, night:0.6 },
+    great_hall:          { morning:0.3, daytime:0.1, afternoon:0.2, evening:0.5, night:0.1 },
+    entrance_hall:       { morning:0.1, daytime:0.2, afternoon:0.2, evening:0.2, night:0.3 },
+    marble_staircase:    { morning:0.2, daytime:0.3, afternoon:0.3, evening:0.3, night:0.4 },
+  },
+  fat_friar: {
+    hufflepuff_basement: { morning:0.5, daytime:0.2, afternoon:0.4, evening:0.7, night:0.5 },
+    great_hall:          { morning:0.4, daytime:0.2, afternoon:0.3, evening:0.6, night:0.1 },
+    grounds:             { morning:0.1, daytime:0.2, afternoon:0.2, evening:0.1, night:0.0 },
+  },
+  grey_lady: {
+    ravenclaw_tower:     { morning:0.3, daytime:0.1, afternoon:0.3, evening:0.6, night:0.7 },
+    library:             { morning:0.1, daytime:0.3, afternoon:0.3, evening:0.4, night:0.3 },
+    seventh_floor_corridor:{ morning:0.0, daytime:0.1, afternoon:0.1, evening:0.2, night:0.4 },
+  },
+  bloody_baron: {
+    slytherin_dungeon:   { morning:0.3, daytime:0.1, afternoon:0.2, evening:0.5, night:0.7 },
+    potions_classroom:   { morning:0.0, daytime:0.2, afternoon:0.1, evening:0.1, night:0.2 },
+    entrance_hall:       { morning:0.0, daytime:0.1, afternoon:0.1, evening:0.2, night:0.3 },
+    dungeon_corridor:    { morning:0.0, daytime:0.1, afternoon:0.1, evening:0.3, night:0.5 },
+  },
+};
+
+// ── Ghost presence in getLocationNPCs ─────────────────────
+// Called at the end of getLocationNPCs before returning
+function getGhostPresence(locationId, phase, dow) {
+  const present = [];
+  const isFreeDay = !hasClassesToday(dow);
+
+  Object.entries(GHOST_LOCATION_AFFINITY).forEach(([ghostId, affinity]) => {
+    const locProbs = affinity[locationId];
+    if (!locProbs) return;
+
+    const baseProb = locProbs[phase] ?? 0;
+    const prob = isFreeDay ? Math.min(0.9, baseProb * 1.3) : baseProb;
+
+    // Seeded random: consistent for same location+day combination
+    const seed = (STATE.currentWeek||1) * 53 + (STATE.dayOfWeek||1) * 11
+               + locationId.length + ghostId.length;
+    const rand = Math.abs(Math.sin(seed * 9301 + 49297)) % 1;
+
+    if (rand < prob && NPC_DATA[ghostId]) {
+      present.push({ id: ghostId, name: NPC_DATA[ghostId].name });
+    }
+  });
+
+  return present;
+}
+
+// ── Ghost conversation system ─────────────────────────────
+// Ghosts use sceneNPC but with a ghost-specific prompt overlay
+// Called from sceneNPC when npcId is in GHOST_NPC_IDS
+async function sceneGhost(npcId) {
+  const npc  = NPC_DATA[npcId];
+  const rel  = STATE.relationships[npcId] || {};
+  if (!npc) return;
+
+  const trust     = rel.trust     || 0;
+  const affection = rel.affection || 0;
+  const fear      = rel.fear      || 0;
+  const isFirstMeet = !rel.met;
+  const persona = GHOST_PERSONAS[npcId] || npc.bio;
+  const week    = STATE.currentWeek || 1;
+  const phase   = STATE.dayPhase || 'evening';
+
+  setLocation(`${npc.icon} ${npc.name}`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+
+  if (isFirstMeet) {
+    STATE.relationships[npcId].met = true;
+    updateRelSidebarList();
+  }
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write an encounter with ${npc.name}. 2-3 short paragraphs.
+CHARACTER: ${persona}
+RELATIONSHIP: Trust ${trust}, Affection ${affection}, Fear ${fear}.
+${isFirstMeet ? 'This is the first time the player has encountered this ghost.' : ''}
+CONTEXT: Week ${week}, ${phase}. ${npc.house} ghost.
+GHOST RULES: Ghosts are not alive. They pass through walls and objects. They are pale, translucent, slightly cold to be near. They remember being alive but do not feel pain or hunger. Their manner reflects who they were in life.
+Write in second person, present tense. The ghost should feel genuinely distinct — not generically spooky.
+${trust >= 30 ? 'The ghost is reasonably well-disposed toward the player.' : trust < 0 ? 'The ghost is cold and unwelcoming.' : 'The ghost regards the player with neutral interest.'}
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Ghost encounter: ${npc.name}.`, 400);
+  const fallback = `${npc.name} drifts through the wall ahead of you with no particular urgency.\n\nThe temperature drops a degree or two. Their eyes find you — not unkindly, but with the particular attention of something that has watched people come and go for centuries.\n\n"You," they say, or something close to it. They wait.`;
+
+  const paras = (text || fallback).split('\n\n').filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 160));
+  }, 50);
+
+  adjustDim(npcId, 'trust', 1);
+  updateRelationshipSidebar();
+
+  // Ghost-specific response choices
+  setTimeout(() => renderGhostResponseChoices(npcId), 900);
+}
+
+function renderGhostResponseChoices(npcId) {
+  const npc   = NPC_DATA[npcId];
+  const rel   = STATE.relationships[npcId] || {};
+  const trust = rel.trust || 0;
+  const mech  = npc?.ghostMechanic;
+
+  const choices = [
+    { text: '💬 Ask about the castle',        action: `ghost_ask_${npcId}_castle` },
+    { text: '💬 Ask about their life',         action: `ghost_ask_${npcId}_life` },
+    { text: '💬 Ask about Hogwarts history',   action: `ghost_ask_${npcId}_history` },
+  ];
+
+  // Mechanic option — unlocks at trust threshold
+  const mechThresholds = {
+    filch_misdirect: 20,
+    vouch_for_player: 15,
+    lore_unlock: 35,
+    intimidate_npc: 25,
+  };
+  const mechLabels = {
+    filch_misdirect:  '👻 Ask Nick to misdirect Filch',
+    vouch_for_player: '🕊️ Ask the Friar to speak on your behalf',
+    lore_unlock:      '🌫️ Ask her what she knows',
+    intimidate_npc:   '🩸 Ask the Baron to deal with someone',
+  };
+  if (mech && trust >= (mechThresholds[mech] || 20)) {
+    choices.push({ text: mechLabels[mech], action: `ghost_mechanic_${npcId}` });
+  } else if (mech) {
+    choices.push({
+      text: `${mechLabels[mech]} (more trust needed)`,
+      disabled: true,
+    });
+  }
+
+  choices.push({ text: '← Leave', action: 'day_menu' });
+  setChoices(choices);
+  showFreeInput(false);
+
+  // Store for handleChoice
+  STATE._ghostConvoId = npcId;
+}
+
+// ── Ghost conversation resolution ─────────────────────────
+async function resolveGhostConvo(npcId, topic) {
+  const npc     = NPC_DATA[npcId];
+  const rel     = STATE.relationships[npcId] || {};
+  const persona = GHOST_PERSONAS[npcId] || npc.bio;
+
+  const topicPrompts = {
+    castle:  `The player asks about the castle — its secrets, hidden passages, things others don't know about.`,
+    life:    `The player asks about the ghost's life before death — who they were, what they remember.`,
+    history: `The player asks about Hogwarts history — the founders, the early years, what has changed.`,
+  };
+
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+  setChoices([]); showFreeInput(false);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write ${npc.name}'s response. 2-3 short paragraphs. Second person, present tense.
+CHARACTER: ${persona}
+RELATIONSHIP: Trust ${rel.trust||0}, Affection ${rel.affection||0}.
+TOPIC: ${topicPrompts[topic] || 'A general conversation.'}
+Stay completely in character. Ghosts have centuries of memory — their answers should feel ancient and specific.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Ghost response: ${npcId}, ${topic}.`, 380);
+  const fallback = `${npc.name} is quiet for a moment.\n\nThen they answer — not everything, but enough. The words carry the particular weight of something that has had five hundred years to settle.`;
+
+  const paras = (text || fallback).split('\n\n').filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 160));
+  }, 50);
+
+  // Relationship gain from conversation
+  adjustDim(npcId, 'trust',     2);
+  adjustDim(npcId, 'affection', 1);
+  adjustDim(npcId, 'respect',   1);
+
+  // Grey Lady lore unlock on history topic
+  if (npcId === 'grey_lady' && topic === 'history' && (rel.trust||0) >= 30) {
+    if (!STATE.flags.includes('GREY_LADY_DIADEM_HINT')) {
+      STATE.flags.push('GREY_LADY_DIADEM_HINT');
+      setTimeout(() => showToast('📜 The Grey Lady has hinted at something hidden. Check your Knowledge tab.', 5000), 2500);
+      learnKnowledge?.('history', 'ravenclaw_diadem');
+    }
+  }
+
+  updateRelationshipSidebar();
+  setTimeout(() => renderGhostResponseChoices(npcId), 1400);
+}
+
+// ── Ghost mechanic activations ────────────────────────────
+
+// Nick: misdirects Filch for 24 hours — detection chance halved
+async function activateGhostMechanic_filch_misdirect(npcId) {
+  const rel = STATE.relationships[npcId] || {};
+  if ((rel.trust||0) < 20) { showToast('Nick doesn\'t know you well enough to risk Filch\'s temper.', 3000); return; }
+
+  STATE.flags.push('NICK_MISDIRECTED_FILCH');
+  STATE._filchMisdirectExpiry = (STATE.currentWeek||1) * 7 + (STATE.dayOfWeek||1) + 1;
+  adjustDim(npcId, 'trust', -3); // costs a bit of goodwill
+
+  const sys = `Write 2 paragraphs of Nearly Headless Nick cheerfully agreeing to lead Filch on a merry chase through the east wing to give the player some breathing room. Nick should be delighted — he rarely gets to feel useful. Slightly pompous but genuinely warm. Second person, present tense.`;
+  const text = await callClaude(sys, 'Nick misdirects Filch.', 280);
+  const fallback = `Nick straightens — or tries to, given the limitations of his neck. "Consider it done," he says, with the air of someone who has been waiting years for exactly this kind of assignment.\n\nHe drifts off through the wall at speed, calling "Mr Filch! Mr Filch, there's something DREADFUL happening in the east wing!" The sound fades. You have the corridor to yourself.`;
+
+  showGhostMechanicResult(npcId, text || fallback);
+  showToast('👻 Nick is leading Filch away. Curfew risk reduced until tomorrow.', 4500);
+}
+
+// Friar: vouches for player — reduces next detention severity by one tier
+async function activateGhostMechanic_vouch_for_player(npcId) {
+  const rel = STATE.relationships[npcId] || {};
+  if ((rel.trust||0) < 15) { showToast('The Friar would love to help but doesn\'t know you well enough to vouch.', 3000); return; }
+
+  STATE.flags.push('FRIAR_VOUCHED');
+  adjustDim(npcId, 'trust', -2);
+
+  const sys = `Write 2 paragraphs of the Fat Friar enthusiastically offering to speak on the player's behalf — to reduce the severity of their next punishment, smooth things over with a professor, or simply tell anyone who asks what a good sort the player is. The Friar should be genuinely kind and slightly embarrassingly enthusiastic about it. Second person, present tense.`;
+  const text = await callClaude(sys, 'Friar vouches for player.', 280);
+  const fallback = `"Of course, of course!" The Friar beams with the brightness of someone who has never entirely stopped being a monk at heart. "I shall speak to them directly. You're a good sort — I've been watching. People don't always notice when I watch, but I do."\n\nHe pats you on the shoulder with a hand that passes slightly through and leaves a cold patch. "Leave it to me," he says firmly. He drifts toward the staffroom with considerable purpose.`;
+
+  showGhostMechanicResult(npcId, text || fallback);
+  showToast('🕊️ The Friar will vouch for you. Next detention reduced by one tier.', 4500);
+}
+
+// Grey Lady: unlocks a lore entry — diadem, Ravenclaw history, or castle secrets
+async function activateGhostMechanic_lore_unlock(npcId) {
+  const rel = STATE.relationships[npcId] || {};
+  if ((rel.trust||0) < 35) { showToast('She is not ready to tell you anything yet.', 3000); return; }
+
+  adjustDim(npcId, 'trust', 1);
+  adjustDim(npcId, 'respect', 3);
+
+  const alreadyHinted = STATE.flags.includes('GREY_LADY_DIADEM_HINT');
+  const loreKey = alreadyHinted ? 'ravenclaw_history' : 'ravenclaw_diadem';
+
+  const sys = `Write 2-3 paragraphs of the Grey Lady sharing something she rarely shares. She does not volunteer information — she offers a fragment, a hint, a direction. She speaks of her mother's wisdom and something her mother made — something hidden, something lost. She does not name it. She never names it. But she watches to see if you understand. Cold, precise, minimal. Second person, present tense.`;
+  const text = await callClaude(sys, 'Grey Lady shares lore.', 320);
+  const fallback = `She is quiet so long you almost think she won't answer.\n\nThen: "My mother made something," she says. "Everyone knows about the castle she built. Fewer know about what she kept, after it was built. And fewer still know where things go when they are lost deliberately."\n\nShe turns away. The conversation, apparently, is over.`;
+
+  showGhostMechanicResult(npcId, text || fallback);
+  if (!alreadyHinted) {
+    STATE.flags.push('GREY_LADY_DIADEM_HINT');
+    learnKnowledge?.('history', 'ravenclaw_diadem');
+    showToast('📜 Something the Grey Lady said has stayed with you. Knowledge updated.', 5000);
+  }
+}
+
+// Bloody Baron: intimidates a hostile NPC — rivalry/fear dims reset
+async function activateGhostMechanic_intimidate_npc(npcId) {
+  const rel = STATE.relationships[npcId] || {};
+  if ((rel.trust||0) < 25) { showToast('The Baron does not take requests from strangers.', 3000); return; }
+
+  // Prompt player to name the NPC they want intimidated
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>🩸 The Bloody Baron</div>
+    <div class="narrative-para">The Baron looks at you with an expression that might be interest, or might be contempt — with him it is hard to tell.</div>
+    <div class="narrative-para">"Who," he says, "has been troubling you."</div>
+    <div class="narrative-para" style="color:var(--ink-light);font-style:italic;font-size:13px;">Type the name of the person — student or otherwise.</div>`);
+
+  setChoices([]);
+  showFreeInput(true, (name) => {
+    resolveBaronIntimidation(npcId, name.trim());
+  });
+}
+
+async function resolveBaronIntimidation(baronId, targetName) {
+  // Find matching NPC
+  const target = Object.values(NPC_DATA).find(n =>
+    n.name.toLowerCase().includes(targetName.toLowerCase())
+  );
+
+  adjustDim(baronId, 'trust', -5); // costs significant goodwill
+
+  const sys = `Write 2 paragraphs of the Bloody Baron dealing with ${targetName || 'a troublesome student'} — not violently, but with the particular weight of something that has been dead for five centuries and carries visible proof of violence. The person simply leaves. They do not want to be where the Baron is. Nobody does. He returns to the player without comment. Second person, present tense.`;
+  const text = await callClaude(sys, 'Baron intimidates NPC.', 280);
+  const fallback = `You hear it before you see it — the sound of someone walking quickly in the opposite direction.\n\nThe Baron returns. He does not explain what happened. He does not need to. "They won't trouble you again," he says, and drifts back through the wall without another word.`;
+
+  // Apply to target NPC if found
+  if (target && STATE.relationships[target.id]) {
+    STATE.relationships[target.id].rivalry = Math.max(-100,
+      (STATE.relationships[target.id].rivalry||0) - 15);
+    STATE.relationships[target.id].fear = Math.max(-100,
+      (STATE.relationships[target.id].fear||0) - 10);
+  }
+
+  showGhostMechanicResult(baronId, text || fallback);
+}
+
+function showGhostMechanicResult(npcId, narrative) {
+  const npc = NPC_DATA[npcId];
+  const paras = narrative.split('\n\n').filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 160));
+  }, 50);
+  setTimeout(() => {
+    setChoices([{ text: '← Leave', action: 'day_menu' }]);
+    showFreeInput(false);
+  }, 1800);
+}
+
+// ════════════════════════════════════════════════════════════
+// PEEVES — Random disruptive encounter (NOT a relationship NPC)
+// Triggered randomly during exploration at ~15% chance.
+// Different behaviours based on time of day and location.
+// ════════════════════════════════════════════════════════════
+
+const PEEVES_ENCOUNTERS = [
+  {
+    phase:   ['morning','daytime'],
+    desc:    'Water balloon ambush — soaked and embarrassed. Courage check to respond.',
+    effect:  { mood: 'stressed', ap: -0 },
+    courage_response: true,
+  },
+  {
+    phase:   ['evening','night'],
+    desc:    'Peeves blocks the corridor screaming and rattling chains. Draws attention.',
+    effect:  { curfew_risk: true },
+    courage_response: true,
+  },
+  {
+    phase:   ['daytime'],
+    desc:    'Peeves steals something from inventory for five minutes then returns it.',
+    effect:  { temp_item_loss: true },
+    courage_response: false,
+  },
+  {
+    phase:   ['morning','evening'],
+    desc:    'Peeves announces loudly to everyone nearby that you look suspicious.',
+    effect:  { mood: 'stressed' },
+    courage_response: false,
+  },
+];
+
+async function triggerPeevesEncounter(locationId) {
+  // Only trigger with 15% chance during explore
+  if (Math.random() > 0.03) return false;
+  // Peeves avoids the Bloody Baron's territory
+  if (locationId === 'slytherin_dungeon') return false;
+  // Already had Peeves today
+  if (STATE.flags.includes('PEEVES_TODAY')) return false;
+
+  STATE.flags.push('PEEVES_TODAY');
+  const phase    = STATE.dayPhase || 'daytime';
+  const matching = PEEVES_ENCOUNTERS.filter(e => e.phase.includes(phase));
+  const encounter = matching[Math.floor(Math.random() * matching.length)]
+    || PEEVES_ENCOUNTERS[0];
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write a brief Peeves encounter — 2 short paragraphs. Second person, present tense.
+ENCOUNTER: ${encounter.desc}
+PEEVES: The poltergeist. Chaotic, mischievous, genuinely malicious without being evil. Loud. Delighted by embarrassment. Rhymes sometimes when he's particularly pleased. He cannot be reasoned with but can occasionally be outbravoed.
+Location: ${locationId}. Time: ${phase}.
+Make it specific and a little undignified. This is not a horror encounter — it is an inconvenience.`;
+
+  const text = await callClaude(sys, 'Peeves encounter.', 280);
+  const fallback = `You hear him before you see him — a cackle, high and sharp, from somewhere just above your head.\n\nPeeves swoops down and does something unpleasant. He is gone before you can respond, leaving you slightly damp and significantly annoyed.`;
+
+  const paras = (text || fallback).split('\n\n').filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>👹 Peeves</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+
+  // Apply effect
+  if (encounter.effect.mood === 'stressed' && STATE.playerMood !== 'stressed') {
+    STATE.playerMood = 'stressed';
+    updateDayStatusBar();
+  }
+  if (encounter.effect.curfew_risk && STATE.dayPhase === 'night') {
+    STATE.curfewStrikes = (STATE.curfewStrikes || 0) + 1;
+  }
+
+  // Courage response option
+  if (encounter.courage_response && (STATE.skills?.courage||10) >= 30) {
+    narHtml += `<div style="margin-top:12px;font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.1em;color:var(--gold-dim);">
+      Your courage might be enough to make him back off — or it might make things worse.
+    </div>`;
+  }
+
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 120));
+  }, 50);
+
+  const choices = [];
+  if (encounter.courage_response && (STATE.skills?.courage||10) >= 30) {
+    choices.push({ text: '⚡ Stand your ground', action: 'peeves_standup' });
+  }
+  choices.push({ text: '← Continue on', action: 'resume_explore' });
+
+  setTimeout(() => { setChoices(choices); showFreeInput(false); }, 1200);
+  return true;
+}
+
+// ── Initialise ghost NPCs into NPC_DATA ───────────────────
+function ghostNPCInit() {
+  Object.entries(GHOST_NPC_ENTRIES).forEach(([id, npc]) => {
+    if (!NPC_DATA[id]) {
+      NPC_DATA[id] = npc;
+    }
+  });
+  // Add ghost personas into NPC_PERSONAS
+  Object.entries(GHOST_PERSONAS).forEach(([id, persona]) => {
+    if (!NPC_PERSONAS[id]) {
+      NPC_PERSONAS[id] = persona;
+    }
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// CHOCOLATE FROG CARD SYSTEM
+//
+// 101 canonical Famous Witches & Wizards cards.
+// Rarity tiers: common, uncommon, rare, ultra_rare
+// Draw on purchase, track collection, trade in common room
+// and via the notice board.
+//
+// Rarity logic (canon-informed):
+//   ultra_rare  — Ancient/obscure figures, hard to find
+//   rare        — Notable but not household names
+//   uncommon    — Well-known historical figures
+//   common      — Famous living/recent wizards (Dumbledore,
+//                 Harry, Merlin, Founders — always sought)
+//
+// Drop rates per purchase:
+//   common:     45%   (any common card)
+//   uncommon:   30%   (any uncommon card)
+//   rare:       18%   (any rare card)
+//   ultra_rare:  7%   (any ultra-rare card)
+//   Within tier, equal probability per card.
+// ═══════════════════════════════════════════════════════════
+
+const FROG_CARDS = {
+
+  // ── Ultra Rare ────────────────────────────────────────
+  // Ancient Greeks, obscure medieval figures, very hard to find
+  herpo_the_foul:        { name:'Herpo the Foul',          era:'Ancient Greek',  rarity:'ultra_rare', icon:'🐍', desc:'First known creator of a Basilisk. Parselmouth. First known maker of a Horcrux.' },
+  andros_the_invincible: { name:'Andros the Invincible',   era:'Ancient Greek',  rarity:'ultra_rare', icon:'⚔️', desc:'Only known wizard to produce a Patronus the size of a giant.' },
+  circe:                 { name:'Circe',                   era:'Ancient Greek',  rarity:'ultra_rare', icon:'🐷', desc:'Lived on the island of Aeaea. Expert at turning lost sailors into pigs.' },
+  mopsus:                { name:'Mopsus',                  era:'Ancient Greek',  rarity:'ultra_rare', icon:'🔮', desc:'Soothsayer who vanquished the Seer Calchas in a contest of their powers.' },
+  falco_aesalon:         { name:'Falco Aesalon',           era:'Ancient Greek',  rarity:'ultra_rare', icon:'🦅', desc:'First recorded Animagus. Could transform into a falcon.' },
+  dzou_yen:              { name:'Dzou Yen',                era:'4th century BC', rarity:'ultra_rare', icon:'⚗️', desc:'Chinese alchemist of great renown.' },
+  paracelsus:            { name:'Paracelsus',              era:'Dates unknown',  rarity:'ultra_rare', icon:'🧪', desc:'Secretive alchemist. Very little known about this wizard.' },
+  merwyn_the_malicious:  { name:'Merwyn the Malicious',    era:'Medieval',       rarity:'ultra_rare', icon:'💀', desc:'Credited with the invention of many unpleasant jinxes and hexes.' },
+  ethelred_ever_ready:   { name:'Ethelred the Ever-Ready', era:'Medieval',       rarity:'ultra_rare', icon:'⚡', desc:'Famous for taking offence at nothing and cursing innocent bystanders. Died in gaol.' },
+  fulbert_the_fearful:   { name:'Fulbert the Fearful',     era:'Medieval',       rarity:'ultra_rare', icon:'🏠', desc:'Famous for never leaving his house. Died when a Defensive Charm backfired and the roof fell in.' },
+
+  // ── Rare ──────────────────────────────────────────────
+  ptolemy:               { name:'Ptolemy',                 era:'85–unknown',     rarity:'rare', icon:'🌌', desc:'Geographer and astronomer. Claudius Ptolemy.' },
+  cornelius_agrippa:     { name:'Cornelius Agrippa',       era:'1486–1535',      rarity:'rare', icon:'📚', desc:'Celebrated wizard imprisoned by Muggles for his writing.' },
+  cliodna:               { name:'Cliodne',                 era:'Medieval',       rarity:'rare', icon:'🌊', desc:'Irish druidess who first discovered the properties of Moondew. Bird Animagus.' },
+  morgan_le_fay:         { name:'Morgan le Fay',           era:'Medieval',       rarity:'rare', icon:'🌙', desc:'King Arthur\'s half-sister. Dark sorceress. Enemy of Merlin. Bird Animagus.' },
+  burdock_muldoon:       { name:'Burdock Muldoon',         era:'1429–1490',      rarity:'rare', icon:'⚖️', desc:'Chief of the Wizards\' Council 1448–50.' },
+  elfrida_clagg:         { name:'Elfrida Clagg',           era:'1612–1687',      rarity:'rare', icon:'⚖️', desc:'Chieftaness of Warlock\'s Council.' },
+  alberta_toothill:      { name:'Alberta Toothill',        era:'1391–1483',      rarity:'rare', icon:'⚔️', desc:'Winner of the All-England Wizarding Duelling Competition of 1430.' },
+  hengist_of_woodcroft:  { name:'Hengist of Woodcroft',    era:'Medieval',       rarity:'rare', icon:'🏘️', desc:'Founded the village of Hogsmeade after fleeing Muggle persecutors.' },
+  queen_maeve:           { name:'Queen Maeve',             era:'Medieval',       rarity:'rare', icon:'👑', desc:'Legendary witch who trained young sorcerers in Ireland before Hogwarts was established.' },
+  ignatia_wildsmith:     { name:'Ignatia Wildsmith',       era:'1227–1320',      rarity:'rare', icon:'🔥', desc:'Witch who invented Floo Powder.' },
+  bridget_wenlock:       { name:'Bridget Wenlock',         era:'1202–1285',      rarity:'rare', icon:'7️⃣', desc:'Famous Arithmancer. First to establish the magical properties of the number seven.' },
+  cyprian_youdle:        { name:'Cyprian Youdle',          era:'1312–1357',      rarity:'rare', icon:'🏟️', desc:'Only Quidditch referee ever to die during a match.' },
+  chauncey_oldridge:     { name:'Chauncey Oldridge',       era:'1342–1379',      rarity:'rare', icon:'🐉', desc:'First known victim of Dragon Pox.' },
+  gifford_ollerton:      { name:'Gifford Ollerton',        era:'1390–1441',      rarity:'rare', icon:'🗡️', desc:'Famous giant-slayer who killed the giant Hengist of Upper Barnton.' },
+  musidora_barkwith:     { name:'Musidora Barkwith',       era:'1520–1666',      rarity:'rare', icon:'🎵', desc:'Composer of the unfinished Wizarding Suite. Its performance has been banned since 1902.' },
+  flavius_belby:         { name:'Flavius Belby',           era:'1715–1791',      rarity:'rare', icon:'🌿', desc:'Only wizard ever to survive a Lethifold attack.' },
+  almeric_sawbridge:     { name:'Almeric Sawbridge',       era:'1602–1699',      rarity:'rare', icon:'🌊', desc:'Famous for conquering the river troll terrorising the River Wye.' },
+  gondoline_oliphant:    { name:'Gondoline Oliphant',      era:'1720–1799',      rarity:'rare', icon:'🪨', desc:'Famous for studies of trolls. Clubbed to death in the Cotswolds while sketching.' },
+  mirabella_plunkett:    { name:'Mirabella Plunkett',      era:'1839–unknown',   rarity:'rare', icon:'🐟', desc:'Fell in love with a merman in Loch Lomond. Transfigured herself into a haddock.' },
+  crispin_cronk:         { name:'Crispin Cronk',           era:'1795–1872',      rarity:'rare', icon:'🦁', desc:'Sent to Azkaban for continuing to keep Sphinxes in his back garden.' },
+  dymphna_furmage:       { name:'Dymphna Furmage',         era:'1612–1698',      rarity:'rare', icon:'🫙', desc:'Famously abducted by pixies on holiday in Cornwall. Campaigned for pixie destruction.' },
+
+  // ── Uncommon ──────────────────────────────────────────
+  godric_gryffindor:     { name:'Godric Gryffindor',       era:'Medieval',       rarity:'uncommon', icon:'🦁', desc:'Co-founder of Hogwarts. First owner of the Sorting Hat. Most accomplished dueller of his age.' },
+  helga_hufflepuff:      { name:'Helga Hufflepuff',        era:'Medieval',       rarity:'uncommon', icon:'🦡', desc:'Co-founder of Hogwarts. Particularly famous for food-related Charms.' },
+  rowena_ravenclaw:      { name:'Rowena Ravenclaw',        era:'Medieval',       rarity:'uncommon', icon:'🦅', desc:'Co-founder of Hogwarts. Came up with the ever-changing floor plan.' },
+  salazar_slytherin:     { name:'Salazar Slytherin',       era:'Medieval',       rarity:'uncommon', icon:'🐍', desc:'Co-founder of Hogwarts. First recorded Parselmouth. Builder of the Chamber of Secrets.' },
+  adalbert_waffling:     { name:'Adalbert Waffling',       era:'1899–1981',      rarity:'uncommon', icon:'📖', desc:'Famous magical theoretician. Every modern witch and wizard has learned from his writings.' },
+  alberic_grunnion:      { name:'Alberic Grunnion',        era:'1803–1882',      rarity:'uncommon', icon:'💣', desc:'Inventor of the Dungbomb.' },
+  mungo_bonham:          { name:'Mungo Bonham',            era:'1560–1659',      rarity:'uncommon', icon:'🏥', desc:'Famous wizard healer. Founded St Mungo\'s Hospital for Magical Maladies and Injuries.' },
+  artemisia_lufkin:      { name:'Artemisia Lufkin',        era:'1754–1825',      rarity:'uncommon', icon:'⚖️', desc:'First witch to become Minister for Magic, in 1798.' },
+  beatrix_bloxam:        { name:'Beatrix Bloxam',          era:'1794–1910',      rarity:'uncommon', icon:'📕', desc:'Author of the Toadstool Tales, banned for causing nausea and vomiting.' },
+  bowman_wright:         { name:'Bowman Wright',           era:'1492–1560',      rarity:'uncommon', icon:'🥇', desc:'Famous for developing the Golden Snitch.' },
+  felix_summerbee:       { name:'Félix Summerbee',         era:'1447–1508',      rarity:'uncommon', icon:'😄', desc:'Inventor of Cheering Charms.' },
+  gunhilda_of_gorsemoor: { name:'Gunhilda of Gorsemoor',   era:'1556–1639',      rarity:'uncommon', icon:'💉', desc:'One-eyed, hump-backed witch famous for developing a cure for Dragon Pox.' },
+  laverne_de_montmorency:{ name:'Laverne de Montmorency',  era:'1823–1893',      rarity:'uncommon', icon:'💕', desc:'Inventor of many Love Potions.' },
+  glover_hipworth:       { name:'Glover Hipworth',         era:'1742–1805',      rarity:'uncommon', icon:'🤧', desc:'Invented the Pepperup Potion — a cure for the common cold. Leaves drinker smoking at the ears.' },
+  beaumont_marjoribanks: { name:'Beaumont Marjoribanks',   era:'1742–1845',      rarity:'uncommon', icon:'🌱', desc:'Pioneer of Herbology. Collector of rare magical flowers. Discovered Gillyweed.' },
+  elladora_ketteridge:   { name:'Elladora Ketteridge',     era:'1656–1729',      rarity:'uncommon', icon:'🌿', desc:'Discovered the use of Gillyweed when she nearly suffocated after eating it.' },
+  edgar_stroulger:       { name:'Edgar Stroulger',         era:'1703–1798',      rarity:'uncommon', icon:'👁️', desc:'Inventor of the Sneakoscope.' },
+  balfour_blane:         { name:'Balfour Blane',           era:'1566–1629',      rarity:'uncommon', icon:'🧪', desc:'Established the Committee on Experimental Charms.' },
+  grogan_stump:          { name:'Grogan Stump',            era:'1770–1884',      rarity:'uncommon', icon:'🏛️', desc:'Popular Minister for Magic, appointed 1811.' },
+  cassandra_vablatsky:   { name:'Cassandra Vablatsky',     era:'1894–1997',      rarity:'uncommon', icon:'🔮', desc:'Celebrated Seer and author of Unfogging the Future.' },
+  gulliver_pokeby:       { name:'Gulliver Pokeby',         era:'1750–1839',      rarity:'uncommon', icon:'🦢', desc:'Expert on magical birds. First to identify the meaning of Augurey song.' },
+  archibald_alderton:    { name:'Archibald Alderton',      era:'1568–1623',      rarity:'uncommon', icon:'🎂', desc:'Famous for blowing up the hamlet of Little Dropping whilst attempting to magically mix a birthday cake.' },
+  hesper_starkey:        { name:'Hesper Starkey',          era:'Unknown',        rarity:'uncommon', icon:'🌙', desc:'Studied how phases of the moon affect potion-making.' },
+  honoria_nutcombe:      { name:'Honoria Nutcombe',        era:'1665–1743',      rarity:'uncommon', icon:'🧙‍♀️', desc:'Founded the Society for the Reformation of Hags.' },
+  dorcas_wellbeloved:    { name:'Dorcas Wellbeloved',      era:'1812–1904',      rarity:'uncommon', icon:'🤝', desc:'Founder of the Society for Distressed Witches.' },
+  havelock_sweeting:     { name:'Havelock Sweeting',       era:'1634–1710',      rarity:'uncommon', icon:'🦄', desc:'Unicorn expert. Helped set up unicorn reservations throughout Britain.' },
+  justus_pilliwickle:    { name:'Justus Pilliwickle',      era:'1862–1953',      rarity:'uncommon', icon:'⚖️', desc:'Celebrated Head of the Department of Magical Law Enforcement.' },
+  blenheim_stalk:        { name:'Blenheim Stalk',          era:'1920–present',   rarity:'uncommon', icon:'📘', desc:'Non-magical expert. Author of Muggles Who Notice, a study of Muggle awareness of magic.' },
+  gaspard_shingleton:    { name:'Gaspard Shingleton',      era:'1959–present',   rarity:'uncommon', icon:'🫙', desc:'Inventor of the Self-Stirring Cauldron.' },
+  leopoldina_smethwyck:  { name:'Leopoldina Smethwyck',    era:'1829–1910',      rarity:'uncommon', icon:'🏟️', desc:'First British witch to referee a Quidditch match.' },
+  daisy_dodderidge:      { name:'Daisy Dodderidge',        era:'1467–1555',      rarity:'uncommon', icon:'🍺', desc:'First landlady of the Leaky Cauldron. Built it as a gateway to Diagon Alley.' },
+  carlotta_pinkstone:    { name:'Carlotta Pinkstone',      era:'1922–present',   rarity:'uncommon', icon:'✊', desc:'Famous campaigner for lifting the Statute of Secrecy. Imprisoned several times.' },
+  jocunda_sykes:         { name:'Jocunda Sykes',           era:'1915–present',   rarity:'uncommon', icon:'🧹', desc:'First person to fly across the Atlantic on a broomstick.' },
+  miranda_goshawk:       { name:'Miranda Goshawk',         era:'1921–present',   rarity:'uncommon', icon:'📗', desc:'Author of The Standard Book of Spells series.' },
+
+  // ── Common ────────────────────────────────────────────
+  // Famous and recent — everyone wants these
+  albus_dumbledore:      { name:'Albus Dumbledore',        era:'1881–1997',      rarity:'common',   icon:'⭐', desc:'Considered by many the greatest wizard of modern times. Headmaster of Hogwarts.' },
+  merlin:                { name:'Merlin',                   era:'Medieval',       rarity:'common',   icon:'🔮', desc:'Most famous wizard of all time. Sometimes known as the Prince of Enchanters.' },
+  harry_potter:          { name:'Harry Potter',             era:'1980–present',   rarity:'common',   icon:'⚡', desc:'The Boy Who Lived.' },
+  herpo_foul_common:     { name:'Herpo the Foul',           era:'Ancient Greek',  rarity:'common',   icon:'🐍', desc:'A duplicate of the rare version — still sought after.' },
+  newt_scamander:        { name:'Newt Scamander',           era:'1897–present',   rarity:'common',   icon:'🦎', desc:'Celebrated author of Fantastic Beasts and Where to Find Them.' },
+  bertie_bott_card:      { name:'Bertie Bott',              era:'1935–present',   rarity:'common',   icon:'🫘', desc:'Inventor of Bertie Bott\'s Every Flavour Beans — quite by mistake.' },
+  gilderoy_lockhart:     { name:'Gilderoy Lockhart',        era:'1964–present',   rarity:'common',   icon:'💇', desc:'Wizarding celebrity. Author. Order of Merlin (Third Class). Currently recovering from memory loss.' },
+  gwenog_jones:          { name:'Gwenog Jones',             era:'1968–present',   rarity:'common',   icon:'🏟️', desc:'Captain and Beater of the Holyhead Harpies.' },
+  bowman_wright_common:  { name:'Bowman Wright',            era:'1492–1560',      rarity:'common',   icon:'🥇', desc:'Famous for developing the Golden Snitch.' },
+  celestina_warbeck:     { name:'Celestina Warbeck',        era:'1917–present',   rarity:'common',   icon:'🎵', desc:'Popular singing sorceress.' },
+  joscelind_wadcock:     { name:'Joscelind Wadcock',        era:'1911–present',   rarity:'common',   icon:'🏟️', desc:'Chaser for Puddlemere United. Record holder for goals in a season.' },
+  dunbar_oglethorpe:     { name:'Dunbar Oglethorpe',        era:'1968–present',   rarity:'common',   icon:'🏆', desc:'Chief of Q.U.A.B.B.L.E.' },
+  montague_knightley:    { name:'Montague Knightley',       era:'1506–1588',      rarity:'common',   icon:'♟️', desc:'Wizard\'s Chess Champion.' },
+  myron_wagtail:         { name:'Myron Wagtail',            era:'1970–present',   rarity:'common',   icon:'🎤', desc:'Lead singer of the Weird Sisters.' },
+  donaghan_tremlett:     { name:'Donaghan Tremlett',        era:'1972–present',   rarity:'common',   icon:'🎸', desc:'Bass player with the Weird Sisters.' },
+  devlin_whitehorn:      { name:'Devlin Whitehorn',         era:'1945–present',   rarity:'common',   icon:'🧹', desc:'Founder of the Nimbus racing broom company.' },
+  greta_catchlove:       { name:'Greta Catchlove',          era:'1960–present',   rarity:'common',   icon:'🧀', desc:'Author of Charm Your Own Cheese.' },
+  derwent_shimpling:     { name:'Derwent Shimpling',        era:'1912–present',   rarity:'common',   icon:'🌿', desc:'Ate an entire Venomous Tentacula on a bet and survived, though is still purple.' },
+  glenda_chittock:       { name:'Glenda Chittock',          era:'1964–present',   rarity:'common',   icon:'📻', desc:'Popular presenter of the Wizarding Wireless Network\'s Witching Hour.' },
+};
+
+// ── Card rarity pools ─────────────────────────────────────
+function buildCardPools() {
+  const pools = { common:[], uncommon:[], rare:[], ultra_rare:[] };
+  Object.entries(FROG_CARDS).forEach(([id, card]) => {
+    pools[card.rarity]?.push(id);
+  });
+  return pools;
+}
+
+// ── Draw a random card ────────────────────────────────────
+function drawFrogCard() {
+  const luck   = STATE.skills?.luck || 10;
+  const pools  = buildCardPools();
+
+  // Base drop rates — luck nudges rare/ultra_rare slightly
+  const luckBonus = Math.max(0, (luck - 50) * 0.0005);
+  const roll = Math.random();
+  let tier;
+  if      (roll < 0.07 + luckBonus)  tier = 'ultra_rare';
+  else if (roll < 0.25 + luckBonus)  tier = 'rare';
+  else if (roll < 0.55)              tier = 'uncommon';
+  else                                tier = 'common';
+
+  const pool = pools[tier];
+  if (!pool?.length) return drawFrogCard(); // fallback if pool empty
+  const cardId = pool[Math.floor(Math.random() * pool.length)];
+  return { id: cardId, ...FROG_CARDS[cardId] };
+}
+
+// ── Add card to STATE collection ──────────────────────────
+function addCardToCollection(cardId) {
+  if (!STATE.cardCollection) STATE.cardCollection = {};
+  STATE.cardCollection[cardId] = (STATE.cardCollection[cardId] || 0) + 1;
+}
+
+function getCardCount(cardId) {
+  return STATE.cardCollection?.[cardId] || 0;
+}
+
+function hasDuplicate(cardId) {
+  return getCardCount(cardId) > 1;
+}
+
+function getTotalCards() {
+  return Object.values(STATE.cardCollection || {}).reduce((s,n) => s+n, 0);
+}
+
+function getUniqueCards() {
+  return Object.keys(STATE.cardCollection || {}).filter(id => (STATE.cardCollection[id]||0) >= 1).length;
+}
+
+// ── Wire card draw into buyItem ───────────────────────────
+// Called when chocolate_frog is purchased
+function handleChocolateFrogDraw() {
+  const card = drawFrogCard();
+  addCardToCollection(card.id);
+
+  const isNew = getCardCount(card.id) === 1;
+  const isDupe = !isNew;
+
+  // Toast with rarity indicator
+  const rarityColour = {
+    common:'var(--gold)',
+    uncommon:'#8B9ED9',
+    rare:'#C9A84C',
+    ultra_rare:'#C05555',
+  }[card.rarity] || 'var(--gold)';
+
+  const toastMsg = isNew
+    ? `🐸 NEW card: ${card.name} (${card.rarity.replace('_',' ')})`
+    : `🐸 ${card.name} — duplicate (you have ${getCardCount(card.id)})`;
+
+  showToast(toastMsg, 4000);
+
+  // Show card detail briefly
+  setTimeout(() => showCardDetail(card, isNew), 500);
+
+  return card;
+}
+
+function showCardDetail(card, isNew) {
+  const rarityLabel = { common:'Common', uncommon:'Uncommon',
+                         rare:'Rare', ultra_rare:'Ultra Rare' }[card.rarity];
+  const rarityColour = { common:'var(--gold-dim)', uncommon:'#8B9ED9',
+                          rare:'#C9A84C', ultra_rare:'#C05555' }[card.rarity];
+
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay open';
+  modal.id = 'cardDrawModal';
+  modal.innerHTML = `
+    <div class="modal" style="max-width:360px;text-align:center;">
+      <div style="padding:28px 24px 20px;">
+        <div style="font-size:52px;margin-bottom:12px;">${card.icon}</div>
+        <div style="font-family:'Cinzel',serif;font-size:18px;letter-spacing:0.08em;
+          color:var(--parchment);margin-bottom:4px;">${card.name}</div>
+        <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.18em;
+          text-transform:uppercase;color:${rarityColour};margin-bottom:12px;">
+          ${rarityLabel} · ${card.era}
+        </div>
+        <div style="font-family:'Crimson Pro',Georgia,serif;font-size:14px;
+          color:var(--ink-light);line-height:1.6;margin-bottom:16px;">${card.desc}</div>
+        ${isNew
+          ? `<div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.2em;
+              color:#5a9e6f;text-transform:uppercase;">✦ New to your collection</div>`
+          : `<div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.2em;
+              color:var(--ink-light);text-transform:uppercase;">Duplicate — ${getCardCount(card.id)} owned</div>`
+        }
+        <div style="margin-top:6px;font-family:'Cinzel',serif;font-size:9px;color:var(--ink-light);">
+          Collection: ${getUniqueCards()} / ${Object.keys(FROG_CARDS).length} unique
+        </div>
+      </div>
+      <div style="border-top:1px solid var(--border);padding:14px;">
+        <button class="brew-btn" onclick="document.getElementById('cardDrawModal').remove()">
+          Close
+        </button>
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+// ── Card Collection Viewer ────────────────────────────────
+function openCardCollection() {
+  const existing = document.getElementById('cardCollectionModal');
+  if (existing) existing.remove();
+
+  const collection = STATE.cardCollection || {};
+  const allCards   = Object.entries(FROG_CARDS);
+  const owned      = allCards.filter(([id]) => (collection[id]||0) >= 1);
+  const unowned    = allCards.filter(([id]) => !collection[id]);
+
+  const modal = document.createElement('div');
+  modal.id = 'cardCollectionModal';
+  modal.className = 'modal-overlay open';
+
+  // Group owned cards by rarity
+  const byRarity = { ultra_rare:[], rare:[], uncommon:[], common:[] };
+  owned.forEach(([id, card]) => byRarity[card.rarity]?.push([id, card]));
+
+  const rarityLabel = { ultra_rare:'Ultra Rare', rare:'Rare',
+                         uncommon:'Uncommon', common:'Common' };
+  const rarityColour = { ultra_rare:'#C05555', rare:'#C9A84C',
+                          uncommon:'#8B9ED9', common:'var(--gold-dim)' };
+
+  let ownedHtml = '';
+  Object.entries(byRarity).forEach(([tier, cards]) => {
+    if (!cards.length) return;
+    ownedHtml += `<div class="brew-section-title" style="color:${rarityColour[tier]}">
+      ${rarityLabel[tier]}
+    </div>`;
+    cards.forEach(([id, card]) => {
+      const count = collection[id] || 0;
+      ownedHtml += `<div class="card-col-entry">
+        <span class="card-col-icon">${card.icon}</span>
+        <div class="card-col-info">
+          <div class="card-col-name">${card.name}</div>
+          <div class="card-col-era">${card.era}</div>
+        </div>
+        ${count > 1 ? `<span class="card-col-count">×${count}</span>` : ''}
+        ${count > 1 ? `<button class="brew-use-btn" onclick="openCardTradeOffer('${id}')">Trade</button>` : ''}
+      </div>`;
+    });
+  });
+
+  modal.innerHTML = `
+    <div class="modal" style="max-width:520px;max-height:88vh;display:flex;flex-direction:column;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-shop-name">🐸 Famous Witches & Wizards Cards</div>
+          <div class="modal-shop-desc">${getUniqueCards()} / ${Object.keys(FROG_CARDS).length} unique · ${getTotalCards()} total</div>
+        </div>
+        <button class="modal-close" onclick="document.getElementById('cardCollectionModal').remove()">✕</button>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:8px 0;">
+        ${owned.length ? ownedHtml : '<div class="brew-empty">No cards yet. Buy a Chocolate Frog.</div>'}
+        ${unowned.length ? `<div class="brew-section-title" style="margin-top:8px;">Not Yet Found (${unowned.length})</div>
+          <div style="padding:8px 16px;color:var(--ink-light);font-style:italic;font-size:12px;">
+            ${unowned.slice(0,5).map(([,c])=>c.name).join(' · ')}${unowned.length>5?' · and more…':''}
+          </div>` : ''}
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+// ── NPC Card Trading (Common Room) ────────────────────────
+// NPCs who collect and will trade cards
+const CARD_TRADER_NPCS = {
+  ron:     { eagerness:0.9, message:'Go on then, let\'s have a look at what you\'ve got.' },
+  harry:   { eagerness:0.6, message:'Sure, I\'m always after Agrippa.' },
+  neville: { eagerness:0.7, message:'Oh, I\'ve been trying to find Merwyn the Malicious for weeks.' },
+  dean:    { eagerness:0.6, message:'Yeah, I\'ve got some doubles. What are you after?' },
+  seamus:  { eagerness:0.65,message:'Trading? I\'m in. What do you need?' },
+  ernie:   { eagerness:0.5, message:'I maintain a careful inventory. Let\'s see what we can arrange.' },
+  hannah:  { eagerness:0.5, message:'I\'ve got a few duplicates I wouldn\'t mind trading.' },
+  justin:  { eagerness:0.55,message:'My cousin got me into collecting these. Yes, let\'s trade.' },
+  cedric:  { eagerness:0.5, message:'Sure, I can spare a few. What do you need?' },
+  fred:    { eagerness:0.7, message:'We\'ve got stacks of doubles. Name your price.' },
+  george:  { eagerness:0.7, message:'Three of us collecting — we\'ve got everything twice over.' },
+  colin:   { eagerness:0.8, message:'Oh brilliant! Yes! I\'ve been looking for the Quidditch ones.' },
+  luna:    { eagerness:0.6, message:'I mostly collect for the Wrackspurt information, but yes.' },
+};
+
+function openCardTrade(npcId, presentNPCObjs) {
+  const npc   = NPC_DATA[npcId] || {};
+  const trader= CARD_TRADER_NPCS[npcId];
+  if (!trader) { showToast(`${npc.name} doesn't trade cards.`, 2500); return; }
+
+  const rel = STATE.relationships[npcId] || {};
+  if ((rel.trust||0) < 5) {
+    showToast(`${npc.name} doesn't know you well enough to trade.`, 2500);
+    return;
+  }
+
+  const myDuplicates = Object.entries(STATE.cardCollection || {})
+    .filter(([,count]) => count > 1)
+    .map(([id]) => ({ id, ...FROG_CARDS[id] }));
+
+  if (!myDuplicates.length) {
+    showToast('You have no duplicate cards to trade.', 2500);
+    return;
+  }
+
+  const modal = document.createElement('div');
+  modal.id = 'cardTradeModal';
+  modal.className = 'modal-overlay open';
+  modal.innerHTML = `
+    <div class="modal" style="max-width:480px;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-shop-name">${npc.icon} Trade with ${npc.name}</div>
+          <div class="modal-shop-desc" style="font-style:italic;">"${trader.message}"</div>
+        </div>
+        <button class="modal-close" onclick="document.getElementById('cardTradeModal').remove()">✕</button>
+      </div>
+      <div style="padding:12px 16px;">
+        <div class="brew-section-title">Your duplicates — select one to offer</div>
+        ${myDuplicates.map(card => `
+          <div class="card-col-entry" style="cursor:pointer"
+            onclick="proposeCardTrade('${card.id}','${npcId}')">
+            <span class="card-col-icon">${card.icon}</span>
+            <div class="card-col-info">
+              <div class="card-col-name">${card.name}</div>
+              <div class="card-col-era">${card.rarity.replace('_',' ')} · ${card.era}</div>
+            </div>
+            <span class="card-col-count">×${getCardCount(card.id)}</span>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  document.body.appendChild(modal);
+}
+
+async function proposeCardTrade(offeredCardId, npcId) {
+  document.getElementById('cardTradeModal')?.remove();
+  const npc       = NPC_DATA[npcId] || {};
+  const trader    = CARD_TRADER_NPCS[npcId];
+  const offered   = FROG_CARDS[offeredCardId];
+  const rel       = STATE.relationships[npcId] || {};
+
+  // NPC offers a random card they "have" — weighted by rarity
+  // NPC gives a card equal or lesser rarity (fair trade)
+  const pools     = buildCardPools();
+  const tierOrder = ['ultra_rare','rare','uncommon','common'];
+  const offerTier = tierOrder.indexOf(offered.rarity);
+  // NPC can offer same tier or one below
+  const npcTier   = Math.random() < 0.3 && offerTier > 0
+    ? tierOrder[offerTier - 1] : tierOrder[offerTier];
+  const pool      = pools[npcTier] || pools.common;
+  const npcCardId = pool[Math.floor(Math.random() * pool.length)];
+  const npcCard   = FROG_CARDS[npcCardId];
+
+  // Apply
+  STATE.cardCollection[offeredCardId]--;
+  if (STATE.cardCollection[offeredCardId] <= 0) delete STATE.cardCollection[offeredCardId];
+  addCardToCollection(npcCardId);
+
+  adjustDim(npcId, 'trust',     2);
+  adjustDim(npcId, 'affection', 3);
+  updateRelationshipSidebar();
+
+  const isNew = getCardCount(npcCardId) === 1;
+  const sys = `Write one short sentence of ${npc.name} making the trade. Stay in their voice. Casual, specific. Second person.`;
+  const text = await callClaude(sys, 'Card trade line.', 80);
+
+  showToast(
+    `Traded ${offered.name} → received ${npcCard.name}${isNew ? ' (NEW!)' : ''}`,
+    4500
+  );
+  if (text) showToast(text.trim(), 3500);
+}
+
+function openCardTradeOffer(cardId) {
+  document.getElementById('cardCollectionModal')?.remove();
+  // Show who is currently in the common room and can trade
+  const locId = {
+    Gryffindor:'gryffindor_tower', Hufflepuff:'hufflepuff_basement',
+    Ravenclaw:'ravenclaw_tower',   Slytherin:'slytherin_dungeon',
+  }[STATE.player.house] || 'gryffindor_tower';
+  const phase = STATE.dayPhase || 'evening';
+  const present = typeof getLocationNPCs === 'function'
+    ? getLocationNPCs(locId, phase) : [];
+  const traders = present.filter(n => CARD_TRADER_NPCS[n.id]);
+  if (!traders.length) {
+    showToast('Nobody in the common room trades cards right now.', 3000);
+    return;
+  }
+  // Open trade with first available trader
+  openCardTrade(traders[0].id, present);
+}
+
+function openCardTradeMenu(presentNPCObjs) {
+  document.getElementById('gamePicker')?.remove();
+  const traders = (presentNPCObjs || []).filter(n =>
+    typeof CARD_TRADER_NPCS !== 'undefined' && CARD_TRADER_NPCS[n.id]
+    && (STATE.relationships[n.id]?.trust || 0) >= 5
+  );
+  if (!traders.length) {
+    showToast('No card traders in the common room right now.', 2500);
+    return;
+  }
+  // If only one trader, go directly
+  if (traders.length === 1) {
+    openCardTrade(traders[0].id, presentNPCObjs);
+    return;
+  }
+  // Multiple traders — show picker
+  const modal = document.createElement('div');
+  modal.className = 'modal-overlay open';
+  modal.id = 'cardTraderPickModal';
+  modal.innerHTML = `<div class="modal" style="max-width:360px;">
+    <div class="modal-header">
+      <div class="modal-shop-name">🐸 Trade with whom?</div>
+      <button class="modal-close" onclick="document.getElementById('cardTraderPickModal').remove()">✕</button>
+    </div>
+    <div style="padding:12px 16px;display:flex;flex-direction:column;gap:8px;">
+      ${traders.map(n => `<button class="companion-act-btn"
+        onclick="document.getElementById('cardTraderPickModal').remove();openCardTrade('${n.id}',[])">
+        <span class="ca-icon">${NPC_DATA[n.id]?.icon||'👤'}</span>
+        <div class="companion-act-info">
+          <div class="companion-act-label">${n.name}</div>
+        </div>
+      </button>`).join('')}
+    </div>
+  </div>`;
+  document.body.appendChild(modal);
+}
+
+// ═══════════════════════════════════════════════════════════
+// SWEET ORDERING SYSTEM
+//
+// Three delivery methods:
+// 1. Own owl    — arrives next morning at breakfast. 5-10% discount.
+// 2. School owl — arrives in 2 days. Small handling fee (+3k per item).
+// 3. Hogsmeade friend favour — arrives on next Hogsmeade weekend.
+//    Price varies by relationship. Year 3+ only. May decline.
+//
+// Hogsmeade weekends: Weeks 8, 13, 20, 26 (Saturdays, dow=6)
+// First-years cannot visit themselves — the gate is enforced.
+// ═══════════════════════════════════════════════════════════
+
+const HOGSMEADE_WEEKENDS = [8, 13, 20, 26]; // week numbers, always Saturday
+
+function isHogsmeadeWeekend(week, dow) {
+  return dow === 6 && HOGSMEADE_WEEKENDS.includes(week);
+}
+
+function nextHogsmeadeWeekend(currentWeek) {
+  const next = HOGSMEADE_WEEKENDS.find(w => w > currentWeek);
+  return next || null; // null if past last one this year
+}
+
+// ── Which NPCs can do Hogsmeade favours ──────────────────
+// Year 3+ students the player has met and has positive trust with.
+// Relationship affects willingness and price.
+function getHogsmeadeFavourNPCs() {
+  return Object.values(NPC_DATA)
+    .filter(npc => {
+      if (!npc.year || npc.year < 3 || npc.year > 7) return false;
+      if (npc.year === 99) return false; // staff
+      const rel = STATE.relationships[npc.id] || {};
+      if (!rel.met) return false;
+      const trust = rel.trust || 0;
+      // Closed personalities need higher trust to agree
+      const isClosed = typeof CLOSED_PERSONALITY_NPCS !== 'undefined'
+        && CLOSED_PERSONALITY_NPCS.has(npc.id);
+      return isClosed ? trust >= 20 : trust >= 5;
+    })
+    .sort((a, b) => {
+      const ta = STATE.relationships[a.id]?.trust || 0;
+      const tb = STATE.relationships[b.id]?.trust || 0;
+      return tb - ta; // sort by trust — friendliest first
+    })
+    .slice(0, 8); // max 8 options
+}
+
+// Price modifier for Hogsmeade favour
+// High trust = no markup. Low trust = markup. Hostile = possible refusal.
+function hogsmeadePriceModifier(npcId) {
+  const trust = STATE.relationships[npcId]?.trust || 0;
+  if (trust >= 50) return 0.95;   // 5% discount (they like you)
+  if (trust >= 30) return 1.00;   // fair price
+  if (trust >= 15) return 1.15;   // 15% markup (doing you a favour)
+  if (trust >= 5)  return 1.30;   // 30% markup (reluctant)
+  return null; // refuses
+}
+
+// ── Main ordering modal ───────────────────────────────────
+function openSweetOrderModal() {
+  const existing = document.getElementById('sweetOrderModal');
+  if (existing) existing.remove();
+
+  const hasOwnOwl   = STATE.familiar?.type === 'owl';
+  const week        = STATE.currentWeek || 1;
+  const dow         = STATE.dayOfWeek   || 1;
+  const phase       = STATE.dayPhase    || 'morning';
+  const nextHogs    = nextHogsmeadeWeekend(week);
+  const favourNPCs  = getHogsmeadeFavourNPCs();
+
+  // Owl delivery ETA text
+  const ownOwlEta = phase === 'night'
+    ? 'Arrives morning after next (ordered at night — owl skips tomorrow\'s breakfast)'
+    : 'Arrives tomorrow morning at breakfast';
+  const schoolOwlEta = 'Arrives in 2 days';
+  const hogsEta = nextHogs
+    ? `Arrives Week ${nextHogs} (next Hogsmeade weekend)`
+    : 'No Hogsmeade weekends remaining this year';
+
+  // Build sweet catalogue — all cat:'sweet' items
+  const sweetItems = Object.entries(ITEM_CATALOGUE)
+    .filter(([, item]) => item.cat === 'sweet')
+    .sort(([, a], [, b]) => a.valueK - b.valueK);
+
+  const modal = document.createElement('div');
+  modal.id = 'sweetOrderModal';
+  modal.className = 'modal-overlay open';
+
+  modal.innerHTML = `
+    <div class="modal" style="max-width:600px;max-height:90vh;display:flex;flex-direction:column;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-shop-name">🍬 Order from Honeydukes</div>
+          <div class="modal-shop-desc">Choose your delivery method, then select items.</div>
+        </div>
+        <button class="modal-close" onclick="document.getElementById('sweetOrderModal').remove()">✕</button>
+      </div>
+
+      <!-- Delivery method tabs -->
+      <div class="sweet-order-tabs">
+        <button class="sweet-order-tab ${hasOwnOwl ? 'active' : ''}"
+          id="tab-own-owl" onclick="selectDeliveryTab('own_owl')"
+          ${!hasOwnOwl ? 'disabled title="You need your own owl"' : ''}>
+          🦉 Own Owl${hasOwnOwl ? '' : ' (no owl)'}
+        </button>
+        <button class="sweet-order-tab ${!hasOwnOwl ? 'active' : ''}"
+          id="tab-school-owl" onclick="selectDeliveryTab('school_owl')">
+          📬 School Owl
+        </button>
+        <button class="sweet-order-tab"
+          id="tab-hogsmeade" onclick="selectDeliveryTab('hogsmeade')"
+          ${!favourNPCs.length ? 'disabled title="No year 3+ friends met yet"' : ''}>
+          🏘️ Hogsmeade Favour
+        </button>
+      </div>
+
+      <!-- Delivery info strip -->
+      <div class="sweet-order-info" id="sweetDeliveryInfo">
+        ${hasOwnOwl
+          ? `<div class="sweet-delivery-detail">
+               <span class="sweet-delivery-icon">🦉</span>
+               <div>
+                 <div class="sweet-delivery-eta">${ownOwlEta}</div>
+                 <div class="sweet-delivery-perk">✦ 7% discount on all items</div>
+               </div>
+             </div>`
+          : `<div class="sweet-delivery-detail">
+               <span class="sweet-delivery-icon">📬</span>
+               <div>
+                 <div class="sweet-delivery-eta">${schoolOwlEta}</div>
+                 <div class="sweet-delivery-perk">+3k handling fee per order</div>
+               </div>
+             </div>`
+        }
+      </div>
+
+      <!-- Item list -->
+      <div style="flex:1;overflow-y:auto;" id="sweetItemList">
+        ${sweetItems.map(([id, item]) => `
+          <div class="sweet-order-item" id="soi-${id}">
+            <span class="sweet-order-icon">${item.icon}</span>
+            <div class="sweet-order-info-block">
+              <div class="sweet-order-name">${item.name}</div>
+              <div class="sweet-order-desc">${item.desc || ''}</div>
+            </div>
+            <div class="sweet-order-price-block">
+              <div class="sweet-order-base-price" id="sop-${id}">${displayPrice(0,0,item.valueK)}</div>
+              <div class="sweet-order-qty-row">
+                <button class="sell-adj-btn" onclick="adjustSweetQty('${id}',-1)">−</button>
+                <span class="sweet-order-qty" id="soq-${id}">0</span>
+                <button class="sell-adj-btn" onclick="adjustSweetQty('${id}',1)">+</button>
+              </div>
+            </div>
+          </div>`).join('')}
+      </div>
+
+      <!-- Hogsmeade NPC picker (hidden by default) -->
+      <div id="hogsmeadeNPCPicker" style="display:none;padding:12px 16px;
+        border-top:1px solid var(--border);background:rgba(0,0,0,0.15);">
+        <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.16em;
+          text-transform:uppercase;color:var(--gold-dim);margin-bottom:8px;">
+          Ask someone to pick it up for you
+        </div>
+        ${favourNPCs.length
+          ? favourNPCs.map(npc => {
+              const mod = hogsmeadePriceModifier(npc.id);
+              const label = mod === null ? 'May refuse'
+                : mod <= 0.99 ? 'Friendly — small discount'
+                : mod <= 1.01 ? 'Fair price'
+                : mod <= 1.20 ? 'Slight markup'
+                : 'Significant markup';
+              return `<button class="companion-act-btn ${mod===null?'companion-act-locked':''}"
+                onclick="${mod!==null?`selectHogsmeadeNPC('${npc.id}',${mod})`:'showToast(\"They might not agree.\",2000)'}"
+                ${mod===null?'disabled':''}>
+                <span class="ca-icon">${npc.icon||'👤'}</span>
+                <div class="companion-act-info">
+                  <div class="companion-act-label">${npc.name} (Year ${npc.year})</div>
+                  <div class="companion-act-desc">${label}</div>
+                </div>
+              </button>`;
+            }).join('')
+          : '<div style="color:var(--ink-light);font-style:italic;font-size:13px;">No year 3+ friends available yet.</div>'
+        }
+      </div>
+
+      <!-- Order footer -->
+      <div class="sweet-order-footer">
+        <div class="sweet-order-total">
+          Total: <span id="sweetOrderTotal">0k</span>
+          <span id="sweetOrderBalance" style="font-size:10px;color:var(--ink-light);"></span>
+        </div>
+        <button class="brew-btn" style="min-width:120px;" onclick="submitSweetOrder()">
+          Place Order
+        </button>
+      </div>
+    </div>`;
+
+  document.body.appendChild(modal);
+
+  // Initialise state
+  window._sweetOrderState = {
+    method:    hasOwnOwl ? 'own_owl' : 'school_owl',
+    hogsNpcId: null,
+    hogsNpcMod:1.0,
+    quantities: {},
+  };
+
+  updateSweetOrderTotal();
+}
+
+let _activeDeliveryTab = 'own_owl';
+
+function selectDeliveryTab(method) {
+  _activeDeliveryTab = method;
+  window._sweetOrderState.method = method;
+
+  // Update tab active state
+  ['own_owl','school_owl','hogsmeade'].forEach(m => {
+    const btn = document.getElementById(`tab-${m.replace('_','-')}`);
+    if (btn) btn.classList.toggle('active', m === method);
+  });
+
+  // Update info strip
+  const infoEl = document.getElementById('sweetDeliveryInfo');
+  const phase  = STATE.dayPhase || 'morning';
+  const nextH  = nextHogsmeadeWeekend(STATE.currentWeek||1);
+
+  if (method === 'own_owl') {
+    infoEl.innerHTML = `<div class="sweet-delivery-detail">
+      <span class="sweet-delivery-icon">🦉</span>
+      <div>
+        <div class="sweet-delivery-eta">${phase==='night'?'Arrives morning after next':'Arrives tomorrow morning'}</div>
+        <div class="sweet-delivery-perk">✦ 7% discount applied</div>
+      </div></div>`;
+  } else if (method === 'school_owl') {
+    infoEl.innerHTML = `<div class="sweet-delivery-detail">
+      <span class="sweet-delivery-icon">📬</span>
+      <div>
+        <div class="sweet-delivery-eta">Arrives in 2 days</div>
+        <div class="sweet-delivery-perk">+3k handling fee per order</div>
+      </div></div>`;
+  } else {
+    infoEl.innerHTML = `<div class="sweet-delivery-detail">
+      <span class="sweet-delivery-icon">🏘️</span>
+      <div>
+        <div class="sweet-delivery-eta">${nextH?`Arrives Week ${nextH} (Hogsmeade weekend)`:'No Hogsmeade weekends left this year'}</div>
+        <div class="sweet-delivery-perk">Price varies by friendship</div>
+      </div></div>`;
+  }
+
+  // Show/hide NPC picker
+  const npcPicker = document.getElementById('hogsmeadeNPCPicker');
+  if (npcPicker) npcPicker.style.display = method === 'hogsmeade' ? 'block' : 'none';
+
+  updateSweetOrderTotal();
+}
+
+function selectHogsmeadeNPC(npcId, priceMod) {
+  window._sweetOrderState.hogsNpcId  = npcId;
+  window._sweetOrderState.hogsNpcMod = priceMod;
+  const npc = NPC_DATA[npcId] || {};
+  showToast(`${npc.name} will pick up your order.`, 2500);
+  // Highlight selected NPC button
+  document.querySelectorAll('#hogsmeadeNPCPicker .companion-act-btn').forEach(btn => {
+    btn.style.borderColor = '';
+  });
+  updateSweetOrderTotal();
+}
+
+function adjustSweetQty(itemId, delta) {
+  const state = window._sweetOrderState;
+  if (!state) return;
+  state.quantities[itemId] = Math.max(0, (state.quantities[itemId]||0) + delta);
+  const el = document.getElementById(`soq-${itemId}`);
+  if (el) el.textContent = state.quantities[itemId];
+  updateSweetOrderTotal();
+}
+
+function updateSweetOrderTotal() {
+  const state    = window._sweetOrderState;
+  if (!state) return;
+  const method   = state.method;
+  const isMod    = method === 'own_owl' ? 0.93
+    : method === 'hogsmeade' ? (state.hogsNpcMod || 1.0) : 1.0;
+  const handling = method === 'school_owl' && Object.values(state.quantities).some(q=>q>0) ? 3 : 0;
+
+  let totalK = handling;
+  Object.entries(state.quantities).forEach(([id, qty]) => {
+    if (!qty) return;
+    const item = ITEM_CATALOGUE[id];
+    if (!item) return;
+    totalK += Math.round(item.valueK * qty * isMod);
+  });
+
+  const el  = document.getElementById('sweetOrderTotal');
+  const bal = document.getElementById('sweetOrderBalance');
+  if (el) el.textContent = displayPrice(0,0,totalK);
+  if (bal) {
+    const have = totalKnuts();
+    bal.textContent = have >= totalK
+      ? ` (you have ${displayPrice(0,0,have)})`
+      : ` — short by ${displayPrice(0,0,totalK-have)}`;
+    bal.style.color = have >= totalK ? 'var(--ink-light)' : '#b85555';
+  }
+}
+
+async function submitSweetOrder() {
+  const state  = window._sweetOrderState;
+  if (!state)  return;
+
+  const method = state.method;
+  const items  = Object.entries(state.quantities)
+    .filter(([,qty]) => qty > 0)
+    .map(([id,qty]) => ({ id, qty, item: ITEM_CATALOGUE[id] }));
+
+  if (!items.length) { showToast('Select at least one item.', 2000); return; }
+
+  // Hogsmeade requires an NPC selected
+  if (method === 'hogsmeade' && !state.hogsNpcId) {
+    showToast('Choose someone to pick it up for you.', 2500);
+    return;
+  }
+
+  // Calculate total
+  const priceMod = method === 'own_owl' ? 0.93
+    : method === 'hogsmeade' ? (state.hogsNpcMod||1.0) : 1.0;
+  const handling = method === 'school_owl' ? 3 : 0;
+  let totalK = handling;
+  items.forEach(({ id, qty }) => {
+    const item = ITEM_CATALOGUE[id];
+    totalK += Math.round(item.valueK * qty * priceMod);
+  });
+
+  if (!spend(0,0,totalK)) {
+    showToast('Not enough gold.', 2500);
+    return;
+  }
+
+  // Calculate delivery timing
+  const week  = STATE.currentWeek || 1;
+  const dow   = STATE.dayOfWeek   || 1;
+  const phase = STATE.dayPhase    || 'morning';
+
+  let deliveryWeek, deliveryDow;
+  if (method === 'own_owl') {
+    // Next morning — if night, skip one morning
+    if (phase === 'night') {
+      deliveryWeek = dow === 7 ? week+1 : week;
+      deliveryDow  = dow === 7 ? 1 : dow+1;
+    } else {
+      deliveryWeek = dow === 7 ? week+1 : week;
+      deliveryDow  = dow === 7 ? 1 : dow+1;
+    }
+  } else if (method === 'school_owl') {
+    const newDow = (dow + 1) % 7 + 1;
+    deliveryWeek = newDow < dow ? week+1 : week;
+    deliveryDow  = (dow + 1) % 7 || 7;
+    // Add another day
+    const finalDow = (deliveryDow + 1) % 7 || 7;
+    deliveryWeek = finalDow < deliveryDow ? deliveryWeek+1 : deliveryWeek;
+    deliveryDow  = finalDow;
+  } else {
+    // Hogsmeade weekend
+    const nextH = nextHogsmeadeWeekend(week);
+    if (!nextH) { showToast('No Hogsmeade weekends left this year.', 3000); return; }
+    deliveryWeek = nextH;
+    deliveryDow  = 6;
+
+    // NPC relationship check — chance they decline even after agreement
+    const npcRel = STATE.relationships[state.hogsNpcId]?.trust || 0;
+    if (npcRel < 10 && Math.random() < 0.2) {
+      const npc = NPC_DATA[state.hogsNpcId] || {};
+      showToast(`${npc.name} changed their mind. Order cancelled.`, 4000);
+      // Refund
+      addGold(0,0,totalK);
+      document.getElementById('sweetOrderModal')?.remove();
+      return;
+    }
+  }
+
+  // Queue the order
+  if (!STATE.pendingOrders) STATE.pendingOrders = [];
+  STATE.pendingOrders.push({
+    id:       `order_${Date.now()}`,
+    method,
+    npcId:    state.hogsNpcId || null,
+    items:    items.map(i => ({ id:i.id, qty:i.qty, name:i.item.name, icon:i.item.icon })),
+    totalK,
+    deliveryWeek,
+    deliveryDow,
+    phase:    'morning', // always arrives at morning/breakfast
+  });
+
+  document.getElementById('sweetOrderModal')?.remove();
+
+  const methodLabel = method === 'own_owl' ? 'your owl'
+    : method === 'school_owl' ? 'a school owl'
+    : `${NPC_DATA[state.hogsNpcId]?.name || 'your friend'}`;
+  const etaLabel = method === 'hogsmeade'
+    ? `Week ${deliveryWeek} (Hogsmeade weekend)`
+    : 'tomorrow morning';
+
+  showToast(
+    `Order placed via ${methodLabel}. ${items.map(i=>`${i.qty}× ${i.item.name}`).join(', ')}. Arriving ${etaLabel}.`,
+    5000
+  );
+
+  // Hogsmeade NPC gets relationship bump for doing the favour
+  if (method === 'hogsmeade' && state.hogsNpcId) {
+    adjustDim(state.hogsNpcId, 'trust',     3);
+    adjustDim(state.hogsNpcId, 'affection', 4);
+    adjustDim(state.hogsNpcId, 'loyalty',   2);
+    updateRelationshipSidebar();
+  }
+}
+
+// ── Resolve pending orders on sleep ──────────────────────
+function resolvePendingOrders() {
+  if (!STATE.pendingOrders?.length) return;
+  const week = STATE.currentWeek || 1;
+  const dow  = STATE.dayOfWeek   || 1;
+  const remaining = [];
+
+  STATE.pendingOrders.forEach(order => {
+    // Check if delivery week and day match
+    const weekMatch = order.deliveryWeek === week;
+    const dowMatch  = order.deliveryDow  === dow;
+    if (!weekMatch || !dowMatch) { remaining.push(order); return; }
+
+    // Deliver items to inventory
+    order.items.forEach(({ id, qty, name, icon }) => {
+      for (let i = 0; i < qty; i++) {
+        STATE.inventory.push({ id, name, icon: icon || ITEM_CATALOGUE[id]?.icon || '🍬' });
+      }
+    });
+    updateInventory();
+
+    const fromLabel = order.npcId
+      ? `from ${NPC_DATA[order.npcId]?.name || 'your friend'}`
+      : order.method === 'own_owl' ? 'via your owl' : 'via school owl';
+    showToast(
+      `📦 Order arrived ${fromLabel}: ${order.items.map(i=>`${i.qty}× ${i.name}`).join(', ')}`,
+      5000
+    );
+  });
+
+  STATE.pendingOrders = remaining;
+}
+
+// ── Flag that school owl is always available ──────────────
+// Once the player reaches the Owlery or buys with school owl,
+// set the flag so the Commerce group appears
+function unlockSchoolOwl() {
+  if (!STATE.flags.includes('SCHOOL_OWL_KNOWN')) {
+    STATE.flags.push('SCHOOL_OWL_KNOWN');
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// BATCH FEATURES — Steps 7-13
+// 7.  Study subject picker (Intellect 50+ UI)
+// 8.  Flying lesson scene (Week 2, canonical)
+// 9.  Quirrell wrongness thread (suspicion accumulator)
+// 10. Christmas break atmosphere (weeks 14-17)
+// 11. Exam week atmosphere (week 33)
+// 12. Forbidden Forest encounter content (canonical)
+// 13. Hogsmeade age gate (first-years locked out)
+// ═══════════════════════════════════════════════════════════
+
+// ════════════════════════════════════════════════════════════
+// 7. STUDY SUBJECT PICKER
+// Players with Intellect 50+ choose which skill to develop.
+// Below that threshold, random as before.
+// ════════════════════════════════════════════════════════════
+
+async function sceneStudy() {
+  if (!consumeAP(AP_COST.study, 'study')) return;
+  const week    = STATE.currentWeek || 1;
+  const intellect = STATE.skills?.intellect || 10;
+  const canChoose = intellect >= SKILL_THRESHOLDS.INTELLECT_STUDY_CHOICE; // 50
+
+  setLocation('📖 Studying');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Studying...<span class="cursor-blink"></span></div>`);
+
+  if (canChoose) {
+    // Show subject picker — let the player decide
+    await sceneStudyPicker(week);
+  } else {
+    // Random between intellect and arcane knowledge
+    const gained = Math.random() > 0.5 ? 'intellect' : 'arcaneKnowledge';
+    await sceneStudyRandom(week, gained);
+  }
+}
+
+async function sceneStudyPicker(week) {
+  // All studyable skills with labels and descriptions
+  const studyOptions = [
+    { skill:'intellect',        label:'General Studies',    desc:'Reinforce your overall academic foundation.',             icon:'🧠' },
+    { skill:'arcaneKnowledge',  label:'Magical Theory',     desc:'Study magical law, history, and theoretical foundations.',icon:'📜' },
+    { skill:'potionsMastery',   label:'Potions',            desc:'Review ingredient properties and brewing methodology.',   icon:'🧪' },
+    { skill:'herbologyMastery', label:'Herbology',          desc:'Study plant properties, care, and practical application.',icon:'🌿' },
+    { skill:'magicalPower',     label:'Spell Practice',     desc:'Work through spell mechanics and wand technique.',        icon:'⚡' },
+    { skill:'empathy',          label:'People-watching',    desc:'Observe and understand the people around you.',           icon:'👁️' },
+    { skill:'stealth',          label:'Quiet Movement',     desc:'Study routes, timing, and how to move unnoticed.',        icon:'🌑' },
+  ];
+
+  // Show current skill values for context
+  const optHtml = studyOptions.map(opt => {
+    const current = STATE.skills?.[opt.skill] || 10;
+    return `<button class="study-pick-btn" onclick="confirmStudyChoice('${opt.skill}','${week}')">
+      <span class="study-pick-icon">${opt.icon}</span>
+      <div class="study-pick-info">
+        <div class="study-pick-label">${opt.label}</div>
+        <div class="study-pick-desc">${opt.desc}</div>
+      </div>
+      <span class="study-pick-val">${current}</span>
+    </button>`;
+  }).join('');
+
+  setNarrative(`
+    <div class="ai-badge"><div class="ai-dot"></div>📖 What will you study?</div>
+    <div class="narrative-para" style="color:var(--ink-light);font-style:italic;margin-bottom:12px;">
+      Your intellect is developed enough to direct your own study. Choose your focus.
+    </div>
+    <div class="study-picker">${optHtml}</div>
+  `);
+  setChoices([{ text:'← Back to your day', action:'day_menu' }]);
+  showFreeInput(false);
+}
+
+async function confirmStudyChoice(skill, week) {
+  document.querySelectorAll('.study-pick-btn').forEach(b => b.style.opacity='0.4');
+  await sceneStudyRandom(week, skill);
+}
+
+async function sceneStudyRandom(week, gained) {
+  const names = {
+    intellect:'Intellect', arcaneKnowledge:'Arcane Knowledge',
+    potionsMastery:'Potions', herbologyMastery:'Herbology',
+    magicalPower:'Magical Power', empathy:'Empathy', stealth:'Stealth',
+  };
+  STATE.skills[gained] = Math.min(100, (STATE.skills[gained]||10) + 2);
+  updateSkills();
+
+  const sys = `Write 1-2 paragraphs of a Hogwarts student studying ${names[gained]||gained} alone — a quiet spot, notes, a specific small moment of understanding or frustration. Week ${week} of term. 80-110 words. Second person. Present tense. ${buildStateContext()}`;
+  const text = await callClaude(sys, `Study scene — ${gained}.`, 280);
+  const fallback = `A quiet corner, quill scratching against parchment.\n\nThe notes make more sense the second time through. Something clicks — small, but real — and you mark it before it slips away.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>📖 Studying — ${names[gained]||gained}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  narHtml += `<div class="narrative-para" style="color:var(--gold-dim);font-style:italic;font-size:15px;margin-top:12px;">✦ ${names[gained]||gained} +2</div>`;
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para').forEach((el,i) =>
+      setTimeout(() => el.classList.add('visible'), i*150));
+  }, 50);
+
+  const studyChoices = [{ text:'← Back to your day', action:'day_menu' }];
+  const hasIng = STATE.inventory.some(i => ITEM_CATALOGUE[i.id]?.cat === 'ingredient');
+  if (hasIng) studyChoices.unshift({ text:'🧪 Practice brew (no AP cost)', action:'open_brew_study' });
+  setTimeout(() => { setChoices(studyChoices); showFreeInput(true); }, 1500);
+}
+
+// ════════════════════════════════════════════════════════════
+// 8. FLYING LESSON SCENE — Week 2, Thursday (canonical)
+// Neville loses control, Harry retrieves the Remembrall,
+// McGonagall recruits Harry on the spot as Gryffindor Seeker.
+// One-time scene, flags FLYING_LESSON_DONE.
+// ════════════════════════════════════════════════════════════
+
+async function sceneFlyingLesson() {
+  if (STATE.flags.includes('FLYING_LESSON_DONE')) return; // fallback guard
+  STATE.flags.push('FLYING_LESSON_DONE');
+
+  setLocation('🧹 First Flying Lesson — the Lawn');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Flying lesson...<span class="cursor-blink"></span></div>`);
+
+  const house = STATE.player.house || 'Gryffindor';
+  const nevRel = STATE.relationships['neville']?.trust || 0;
+  const harryRel = STATE.relationships['harry']?.trust || 0;
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991, Week 2.
+Write the first flying lesson. 4 paragraphs. Second person, present tense.
+CANON EVENTS THAT MUST HAPPEN:
+1. Madam Hooch orders everyone to mount their brooms on the count of three. Jump up. Most brooms comply. Neville's broom rises too fast, without him commanding it — he panics, grabs on, the broom carries him up and sideways. He hits the castle wall. Falls. Breaks his wrist. Hooch takes him to the Hospital Wing, orders everyone to stay on the ground or be expelled.
+2. Draco Malfoy picks up Neville's Remembrall (which fell). Taunts the player and Harry about it. He flies up.
+3. Harry Potter, without thinking, mounts his broom and goes after Draco. It is the most natural thing he has ever done — like he was born to it. He catches the Remembrall.
+4. McGonagall witnesses everything from a window. She is furious at first. Then she marches out and recruits Harry as the new Gryffindor Seeker — youngest in a century.
+PLAYER CONTEXT: ${house} student. Gryffindor and Slytherin share this lesson.
+${nevRel > 20 ? 'The player and Neville have some relationship — the fall affects them more than it might otherwise.' : ''}
+${harryRel > 20 ? 'The player knows Harry — they watched his face when he went up. Pure instinct.' : ''}
+Write vividly. The brooms, the autumn air, the shock of Neville's fall, Draco's sneer, Harry's impossible acceleration, McGonagall's face cycling through fury to calculation. 250-300 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'Flying lesson — Week 2 canonical scene.', 700);
+  const fallback = `The brooms snap up on the count of three — all but Neville's, which rises on its own before he's ready. He yelps, grabs the handle too tight, and the broom takes him sideways into the castle wall. The crack when he hits is audible. Madam Hooch orders everyone to stay grounded while she takes him to the Hospital Wing.
+
+Nobody stays grounded. Draco Malfoy scoops up the Remembrall from the grass and flies up, jeering. Harry Potter, beside you, looks at the broom between his feet, looks at Draco — and goes.
+
+There is no hesitation. No thought. He mounts and is in the air in the same motion, and the way he flies is not like someone who has learned — it is like someone who has always known. He swoops past Draco, who is so surprised he drops the ball, and Harry catches it ten feet from the ground.
+
+McGonagall is in the window. She has seen all of it. She comes outside with an expression that takes a moment to decipher — and then she is steering Harry away from the crowd, speaking quietly, and the words Quidditch Seeker reach you from fifteen feet away.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🧹 First Flying Lesson</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para').forEach((el,i) =>
+      setTimeout(() => el.classList.add('visible'), i*160));
+  }, 50);
+
+  // Relationship effects
+  adjustDim('harry',  'trust', 4); adjustDim('harry',  'affection', 3);
+  adjustDim('neville','trust', 3); adjustDim('neville','affection', 4); // saw him get hurt
+  adjustDim('draco',  'rivalry', 3);
+  adjustDim('hooch',  'trust', 2);
+  STATE.skills.quidditch = Math.min(100, (STATE.skills.quidditch||10) + 1);
+  updateSkills(); updateRelationshipSidebar();
+
+  // Flag Harry as Seeker — affects Quidditch scene context
+  if (!STATE.flags.includes('HARRY_IS_SEEKER')) STATE.flags.push('HARRY_IS_SEEKER');
+
+  setTimeout(() => {
+    setChoices([{ text:'← Back to your day', action:'day_menu' }]);
+    showFreeInput(false);
+  }, 2200);
+}
+
+// ════════════════════════════════════════════════════════════
+// 9. QUIRRELL WRONGNESS THREAD
+// A QUIRRELL_SUSPICION counter accumulates across conversations.
+// At 3+ a journal entry appears. At 5+ a new dialogue option
+// unlocks. High Intuition amplifies the signal strength.
+// ════════════════════════════════════════════════════════════
+
+// Called from sceneNPC when talking to Quirrell — and from
+// general exploration signals near him
+function incrementQuirellSuspicion(reason) {
+  if (!STATE.quirrellSuspicion) STATE.quirrellSuspicion = 0;
+  const intuition = STATE.skills?.intuition || 10;
+  // High intuition means each instance counts more
+  const weight = intuition >= 50 ? 2 : intuition >= 25 ? 1 : 1;
+  STATE.quirrellSuspicion += weight;
+
+  const threshold3 = 3;
+  const threshold5 = 5;
+
+  if (STATE.quirrellSuspicion >= threshold3 && !STATE.flags.includes('QUIRRELL_JOURNAL_ENTRY')) {
+    STATE.flags.push('QUIRRELL_JOURNAL_ENTRY');
+    learnKnowledge?.('history', 'quirrell_suspicion');
+    setTimeout(() => {
+      showToast('📜 Something about Professor Quirrell keeps bothering you. You\'ve made a note of it.', 5000);
+    }, 2000);
+  }
+
+  if (STATE.quirrellSuspicion >= threshold5 && !STATE.flags.includes('QUIRRELL_DEEP_SUSPICION')) {
+    STATE.flags.push('QUIRRELL_DEEP_SUSPICION');
+    setTimeout(() => {
+      showToast('⚠️ You\'ve now noticed something wrong with Quirrell five separate times. This isn\'t nerves.', 5000);
+    }, 2000);
+  }
+}
+
+// Returns the Quirrell signal note for NPC prompts
+function getQuirellSuspicionNote() {
+  const suspicion = STATE.quirrellSuspicion || 0;
+  const intuition = STATE.skills?.intuition || 10;
+  const flags = STATE.flags || [];
+
+  if (suspicion === 0 && intuition < 25) return '';
+
+  if (intuition >= 50) {
+    return `HIGH INTUITION SIGNAL: Something is deeply wrong with Quirrell. Not just nerves — occupation. The stammer is too consistent. His eyes avoid eye contact in a way that feels deliberate. The garlic smell is theatrical. Something lives behind his eyes that is not him. Weave in one brief, specific physical detail. Do NOT name what it is.`;
+  }
+  if (intuition >= 25 || suspicion >= 2) {
+    return `MID INTUITION SIGNAL: Something is slightly off about Quirrell. One small detail that doesn't fit — a pause before answering, the way his hands move, a moment where his manner shifts.`;
+  }
+  return '';
+}
+
+// ════════════════════════════════════════════════════════════
+// 10. CHRISTMAS BREAK ATMOSPHERE — Weeks 14-17
+// The castle empties. Unique morning scene for students
+// who stayed behind. Rare professor dialogue. Lore chances.
+// ════════════════════════════════════════════════════════════
+
+async function sceneChristmasMorning(dow) {
+  const week = STATE.currentWeek || 1;
+  const dayName = getDayName(dow);
+  const house = STATE.player.house || 'Gryffindor';
+
+  setLocation(`❄️ ${house} — Christmas Break`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Christmas morning...<span class="cursor-blink"></span></div>`);
+
+  // Who stayed behind? Only a handful.
+  const stayedBehind = ['harry','ron','fred','george','neville','nearly_headless_nick']
+    .filter(id => STATE.relationships[id]?.met);
+
+  // Rare lore chance — higher with arcane knowledge
+  const arcane = STATE.skills?.arcaneKnowledge || 10;
+  const loreChance = Math.random() < (arcane / 200 + 0.1);
+  const loreOptions = [
+    'An old portrait near the staircase says something in passing about the founders — something that doesn\'t appear in any textbook.',
+    'You notice a door you\'ve passed a hundred times that opens today onto a room you\'ve never seen.',
+    'Dumbledore is in the corridor, doing something unidentifiable, and he nods at you with the specific warmth of someone who knows far more than they\'re saying.',
+    'The library is almost entirely empty. A book falls from a shelf on its own. You put it back. It falls again.',
+    'Professor McGonagall is in the Great Hall alone, reading something, and she looks up and invites you to sit. She talks, briefly, not about school.',
+  ];
+  const loreEvent = loreChance ? loreOptions[Math.floor(Math.random() * loreOptions.length)] : null;
+
+  // Mirror trigger during Christmas
+  const mirrorNote = (week >= 14 && week <= 17 && !STATE.flags.includes('MIRROR_SEEN') && !STATE.flags.includes('MIRROR_TRIGGERED'))
+    ? 'IMPORTANT: Harry has recently discovered the Mirror of Erised. He has been slipping away late at night. If the player has high trust with Harry (or is paying attention), they might notice he seems distracted, different — like someone who has found something he cannot explain and cannot stop returning to. Do NOT reveal what he found. Just show the change in him.'
+    : '';
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write a Christmas break morning at Hogwarts. Week ${week}. ${dayName}.
+The castle is nearly empty — most students have gone home. The quiet is a different kind of quiet than the term produces: larger, older, more itself.
+Students who stayed: ${stayedBehind.join(', ') || 'almost no one the player knows'}.
+There are twelve enormous Christmas trees in the Great Hall. Magical snow that doesn't melt. The enchanted ceiling reflects winter sky. The decorations have been up since term ended.
+It is peaceful in a way that is also a little strange — the castle without the crowd it was built to hold.
+${loreEvent ? 'WEAVE THIS IN NATURALLY — do not announce it:\n' + loreEvent : ''}
+${mirrorNote}
+Player: ${STATE.player.firstName || 'the player'}, ${house}.
+Mood: ${STATE.playerMood || 'rested'}.
+3 paragraphs. Second person. Present tense. 130-160 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Christmas break morning, week ${week}.`, 400);
+  const fallback = `The castle is enormous when it's empty.\n\nBreakfast is laid for twelve instead of five hundred. The house tables look absurd with their expanses of clean cloth and scattered plates. The enchanted ceiling shows low winter cloud. Fred and George are already eating, arguing about something with the particular energy of people who have nowhere to be.\n\nOutside the windows, snow that the castle produces rather than receives lies on the grounds without melting, as if the castle has decided winter is how things should be for now.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>❄️ Christmas Break — Week ${week}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para').forEach((el,i) =>
+      setTimeout(() => el.classList.add('visible'), i*160));
+  }, 50);
+
+  // Mirror trigger check
+  if (week >= 14 && week <= 17) checkMirrorTrigger();
+
+  // Lore gain
+  if (loreChance && arcane >= 30) {
+    STATE.skills.arcaneKnowledge = Math.min(100, (STATE.skills.arcaneKnowledge||10) + 1);
+    updateSkills();
+  }
+
+  const classesToday = []; // No classes during Christmas
+  setTimeout(() => renderDayChoices(dow, classesToday, 'morning'), 1800);
+}
+
+// ════════════════════════════════════════════════════════════
+// 11. EXAM WEEK ATMOSPHERE — Week 33
+// Library packed. Hermione running revision circles.
+// Fred and George loudly claiming exams don't matter.
+// Tension across the school.
+// ════════════════════════════════════════════════════════════
+
+async function sceneExamWeekMorning(dow) {
+  const week = STATE.currentWeek || 1;
+  const dayName = getDayName(dow);
+  const house = STATE.player.house || 'Gryffindor';
+  const intellect = STATE.skills?.intellect || 10;
+
+  setLocation(`📚 ${house} — Exam Week`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Exam week...<span class="cursor-blink"></span></div>`);
+
+  const hermioneRel = STATE.relationships['hermione']?.met;
+  const fredRel     = STATE.relationships['fred']?.met;
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991. Week 33. Exam week.
+Write a morning scene at Hogwarts during end-of-year exams. ${dayName}.
+ATMOSPHERE TO CAPTURE:
+- The library has been packed for days. Students claiming the same seats at dawn.
+- Hermione has colour-coded revision notes. She has been running study circles every evening. She looks tired but certain.
+- Fred and George Weasley are loudly, cheerfully declaring that exams don't matter and they've never been a problem. ${fredRel ? 'They say this directly to anyone who will listen.' : ''}
+- Somewhere in the building, Quirrell is behaving strangely. Something beneath the school is building.
+- The Great Hall at breakfast is unusually quiet — people are reading while they eat.
+- The year is almost over. That fact is present in everything.
+PLAYER CONTEXT: ${house}. Intellect ${intellect}. ${intellect >= 60 ? 'Academically prepared — this is manageable.' : intellect >= 40 ? 'Reasonably ready but feeling the pressure.' : 'Under-prepared and aware of it.'}
+${hermioneRel ? 'Hermione is in the hall, colour-coded notes spread across the table, a quill in each hand.' : ''}
+3 paragraphs. Second person. Present tense. 120-150 words. Make it feel specific to this week, this year.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Exam week morning, week ${week}.`, 380);
+  const fallback = `The library opened at six this morning. You know this because three people mentioned it at breakfast, each with the look of someone who had been there.\n\nHermione has her notes organised by colour, by subject, by sub-topic within subject. She has also organised a study circle that no one explicitly agreed to join but everyone is attending. Fred and George have been announcing loudly all morning that they've never once revised and it's never been a problem, which would be more reassuring if Fred didn't currently have his Transfiguration textbook open under the table.\n\nThe year is almost done. Whatever happens in that examination hall, it will have happened.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>📚 Exam Week — Week ${week}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para').forEach((el,i) =>
+      setTimeout(() => el.classList.add('visible'), i*160));
+  }, 50);
+
+  const classesToday = Object.values(SUBJECTS_Y1)
+    .filter(s => s.day === getDayName(dow)).map(s => s.name);
+  setTimeout(() => renderDayChoices(dow, classesToday, 'morning'), 1800);
+}
+
+// ════════════════════════════════════════════════════════════
+// 12. FORBIDDEN FOREST ENCOUNTER CONTENT
+// Three forest locations with escalating danger.
+// Canonical detention scene available at week 20+.
+// Unicorn blood / cloaked figure / Firenze — week 22+.
+// ════════════════════════════════════════════════════════════
+
+const FOREST_ENCOUNTERS = {
+  forbidden_forest_edge: {
+    minWeek: 1,
+    minCourage: 20,
+    encounters: [
+      { id:'rustling', desc:'Something large moves in the trees. It stops when you do. Then you hear hooves.', effect: null },
+      { id:'centaur_glimpse', desc:'A centaur — tall, dark-coated — stands at the tree line watching you. When you look directly at it, it steps back into shadow.', effect: { arcaneKnowledge: 1 } },
+      { id:'acromantula_silk', desc:'The path ahead is strung with thick silver threads between the trees. Not a spiderweb. Something larger.', effect: null, flag: 'ACROMANTULA_SILK_SEEN' },
+    ],
+  },
+  forbidden_forest_shallow: {
+    minWeek: 8,
+    minCourage: 35,
+    encounters: [
+      { id:'unicorn_tracks', desc:'Silver hoofprints in the soil. They lead deeper in. One print has something dark in it — a smear of something that shimmers and goes still.', effect: { arcaneKnowledge: 1 }, flag: 'UNICORN_TRACKS_SEEN' },
+      { id:'firenze_encounter', desc:'A centaur with a palomino coat steps from between the trees. He looks at you — not at your face, at something above you — and says, with deliberate care: "The planets have been saying something for weeks. I wonder if you can hear it."', effect: { intuition: 2 }, flag: 'FIRENZE_MET' },
+      { id:'dark_shape', desc:'Something moves between the trees ahead. Not an animal — the wrong shape, the wrong silence. You cannot make out detail. It is gone before you can focus.', effect: null, flag: 'DARK_SHAPE_SEEN' },
+    ],
+  },
+  forbidden_forest_deep: {
+    minWeek: 20,
+    minCourage: 60,
+    encounters: [
+      { id:'unicorn_dying', desc:'A unicorn lies in the clearing. It is still breathing, but barely. Silver blood — liquid and bright — pools beneath it. Whatever did this came from the forest side. You can feel where it went.', effect: { arcaneKnowledge: 2, courage: -2 }, flag: 'UNICORN_DYING_SEEN' },
+      { id:'cloaked_figure', desc:'The figure that emerges from the trees is not right. It moves without sound. It crouches over the unicorn. When it looks up, there is nothing beneath the hood that should be there. You cannot run. You cannot move. Then something crashes through the undergrowth toward it, and it retreats.', effect: { arcaneKnowledge: 3 }, flag: 'CLOAKED_FIGURE_SEEN', requiresFlag: 'UNICORN_DYING_SEEN' },
+      { id:'firenze_rescue', desc:'Firenze stands between you and where the cloaked figure was. He does not explain what it was. He says: "Drink the blood of a unicorn and you will have half a life. A half-life. There are some things the price of which matters." He will not say more.', effect: { arcaneKnowledge: 3, intuition: 2 }, flag: 'FIRENZE_TOLD_TRUTH', requiresFlag: 'CLOAKED_FIGURE_SEEN' },
+    ],
+  },
+};
+
+async function sceneForestEncounter(locationId) {
+  const locData   = FOREST_ENCOUNTERS[locationId];
+  if (!locData) return;
+
+  const week     = STATE.currentWeek || 1;
+  const courage  = STATE.skills?.courage || 10;
+  const flags    = STATE.flags || [];
+
+  if (week < locData.minWeek) {
+    showToast(`You don't feel ready to go deeper yet.`, 2500);
+    return;
+  }
+  if (courage < locData.minCourage) {
+    showToast(`Something in you holds back. The courage isn't there yet.`, 2500);
+    return;
+  }
+
+  // Pick appropriate encounter — prefer unflagged, in order
+  const available = locData.encounters.filter(e => {
+    if (flags.includes(e.id)) return false; // already seen
+    if (e.requiresFlag && !flags.includes(e.requiresFlag)) return false;
+    return true;
+  });
+
+  if (!available.length) {
+    // All encounters seen — generic atmosphere
+    await sceneForestAtmosphere(locationId);
+    return;
+  }
+
+  const encounter = available[0];
+  STATE.flags.push(encounter.id);
+
+  setLocation(`🌲 ${LOCATION_DATA[locationId]?.name || 'The Forbidden Forest'}`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The forest...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write a Forbidden Forest encounter. 3 paragraphs. Second person, present tense.
+LOCATION: ${LOCATION_DATA[locationId]?.name || locationId}. Week ${week}.
+ENCOUNTER: ${encounter.desc}
+THE FOREST: Ancient, dense, not naturally dark but unnaturally so. Things live here that live nowhere else. The ground muffles sound. Even the trees seem to be listening.
+TONE: Atmospheric dread, not horror. Something is wrong with this place but not in the way a haunted house is wrong — in the way a very old place that has kept its own counsel for centuries is wrong.
+Courage skill: ${courage}. ${courage >= 60 ? 'The player does not freeze.' : 'The player notices they want to run.'}
+Do not over-explain. Let the encounter breathe.
+130-160 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Forest encounter: ${encounter.id}.`, 420);
+  const fallback = `The forest is not what you expected.\n\nYou expected darkness — and there is darkness — but it is the particular darkness of a place with too much life in it rather than not enough. Everything moves here. The ground does too, slightly, underfoot.\n\n${encounter.desc} You stand very still for what feels like a long time. Then you breathe. Then you start back toward the castle.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🌲 The Forbidden Forest</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para').forEach((el,i) =>
+      setTimeout(() => el.classList.add('visible'), i*160));
+  }, 50);
+
+  // Apply effects
+  if (encounter.effect) {
+    Object.entries(encounter.effect).forEach(([skill, delta]) => {
+      if (STATE.skills[skill] !== undefined) {
+        STATE.skills[skill] = Math.max(0, Math.min(100, (STATE.skills[skill]||10) + delta));
+      }
+    });
+    updateSkills();
+  }
+  if (encounter.flag) STATE.flags.push(encounter.flag);
+  updateRelationshipSidebar();
+
+  // Firenze — add to NPC relationships
+  if (['firenze_encounter','firenze_rescue'].includes(encounter.id)) {
+    if (!STATE.relationships['firenze']) {
+      STATE.relationships['firenze'] = { met:true, trust:15, affection:5, respect:20, fear:0, rivalry:0, loyalty:0, status:'acquaintance' };
+    }
+  }
+
+  // Cloaked figure — Quirrell suspicion jumps
+  if (encounter.id === 'cloaked_figure') {
+    incrementQuirellSuspicion('cloaked_figure_forest');
+    STATE.quirrellSuspicion = Math.max(STATE.quirrellSuspicion||0, 4);
+  }
+
+  setTimeout(() => {
+    setChoices([{ text:'← Leave the forest', action:'day_menu' }]);
+    showFreeInput(false);
+  }, 2200);
+}
+
+async function sceneForestAtmosphere(locationId) {
+  // Called when all specific encounters are exhausted
+  const loc = LOCATION_DATA[locationId]?.name || 'The Forbidden Forest';
+  const sys = `Write 2 paragraphs of a Hogwarts student in ${loc}. The specific encounter has passed; this is the forest itself. The sounds, the scale, the particular quality of its darkness. Something is always moving. Nothing ever fully resolves. 80-100 words. Second person, present tense.`;
+  const text = await callClaude(sys, 'Forest atmosphere.', 250);
+  const fallback = `The forest is as it always is — ancient, watchful, unmoved by your presence.\n\nYou have been here before. It does not care.`;
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🌲 ${loc}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para').forEach((el,i) =>
+      setTimeout(() => el.classList.add('visible'), i*160));
+  }, 50);
+  setTimeout(() => {
+    setChoices([{ text:'← Leave the forest', action:'day_menu' }]);
+    showFreeInput(false);
+  }, 1800);
+}
+
+// ════════════════════════════════════════════════════════════
+// 13. HOGSMEADE AGE GATE
+// First-years cannot visit Hogsmeade. Clean one-liner
+// that fires whenever a first-year tries to access it.
+// The infrastructure is ready for Year 3 when it opens.
+// ════════════════════════════════════════════════════════════
+
+function checkHogsmeadeAccess() {
+  const year = STATE.player.year || 1;
+  if (year < 3) {
+    // Show a brief scene rather than just a toast
+    setLocation('🏘️ Hogsmeade — The Village');
+    setNarrative(`
+      <div class="ai-badge"><div class="ai-dot"></div>🏘️ Hogsmeade</div>
+      <div class="narrative-para">The carriages to Hogsmeade leave without you.</div>
+      <div class="narrative-para">First-years are not permitted to visit the village. You knew this before you tried — you tried anyway, which is understandable. The Three Broomsticks will still be there in two years.</div>
+      <div class="narrative-para" style="color:var(--ink-light);font-style:italic;font-size:14px;">Hogsmeade opens to third-years and above.</div>
+    `);
+    setTimeout(() => {
+      setChoices([{ text:'← Back to the castle', action:'day_menu' }]);
+      showFreeInput(false);
+    }, 800);
+    return false; // access denied
+  }
+  return true; // access granted
+}
+
 // Advance week function
 function advanceWeek() {
   STATE.currentWeek = Math.min(34, (STATE.currentWeek||1) + 1);
   const w = STATE.currentWeek;
+  // School owl always available from week 1
+  if (typeof unlockSchoolOwl === 'function') unlockSchoolOwl();
   renderTimetableSidebar();
   renderTimetableWeek(w);
   if (STATE.boardState) STATE.boardState.week = 0;
