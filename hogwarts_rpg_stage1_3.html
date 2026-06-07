@@ -2781,6 +2781,130 @@
   .study-pick-desc  { font-size: 11px; color: var(--ink-light); margin-top: 2px; }
   .study-pick-val   { font-family: 'Cinzel', serif; font-size: 12px; color: var(--gold-dim); flex-shrink: 0; }
 
+  
+  /* ═══════════════ PROPHET CANON STORIES ═══════════════ */
+  .prophet-canon-story {
+    border: 1px solid var(--border); padding: 12px 16px;
+    margin-bottom: 12px; background: rgba(0,0,0,0.2);
+  }
+  .prophet-story-category {
+    font-family: 'Cinzel', serif; font-size: 8px;
+    letter-spacing: 0.22em; color: var(--gold-dim);
+    margin-bottom: 4px;
+  }
+  .prophet-story-headline {
+    font-family: 'Cinzel', serif; font-size: 12px;
+    color: var(--parchment); letter-spacing: 0.04em;
+    margin-bottom: 6px; line-height: 1.4;
+  }
+  .prophet-story-body {
+    font-size: 11px; color: var(--ink-light);
+    line-height: 1.6; font-family: 'Crimson Pro', Georgia, serif;
+  }
+
+  
+  /* ═══════════════ COMBAT OVERHAUL ═══════════════ */
+  .combat-hp-row {
+    display: flex; gap: 12px; padding: 6px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .combat-hp-block {
+    flex: 1; display: flex; align-items: center; gap: 6px;
+  }
+  .combat-hp-label {
+    font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.1em; color: var(--ink-light);
+    white-space: nowrap; min-width: 36px;
+  }
+  .combat-hp-bar-bg {
+    flex: 1; height: 6px; background: rgba(255,255,255,0.08);
+    border-radius: 3px; overflow: hidden;
+  }
+  .combat-hp-bar-fill {
+    height: 100%; border-radius: 3px;
+    transition: width 0.4s ease, background 0.4s ease;
+  }
+  .combat-hp-num {
+    font-family: 'Cinzel', serif; font-size: 9px;
+    color: var(--ink-light); min-width: 24px; text-align: right;
+  }
+  .combat-comeback-btn {
+    width: 100%; margin: 6px 0; padding: 8px;
+    background: rgba(184,85,85,0.12);
+    border: 1px solid rgba(184,85,85,0.5);
+    color: #e8a0a0;
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.15s; animation: pulse-red 2s infinite;
+  }
+  .combat-comeback-btn:hover {
+    background: rgba(184,85,85,0.25); border-color: #b85555;
+  }
+  @keyframes pulse-red {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(184,85,85,0); }
+    50%       { box-shadow: 0 0 8px 2px rgba(184,85,85,0.3); }
+  }
+  .combat-status-tag {
+    display: inline-block; font-size: 8px; letter-spacing: 0.1em;
+    padding: 1px 5px; border-radius: 2px; margin: 1px;
+    font-family: 'Cinzel', serif; text-transform: uppercase;
+  }
+  .combat-status-tag.player { background: rgba(184,85,85,0.15); color: #e8a0a0; border: 1px solid rgba(184,85,85,0.3); }
+  .combat-status-tag.enemy  { background: rgba(90,158,111,0.15); color: #a0d4b8; border: 1px solid rgba(90,158,111,0.3); }
+  .combat-log-entry { padding: 3px 8px; font-size: 11px; line-height: 1.5; border-left: 2px solid transparent; margin: 2px 0; }
+  .combat-log-entry.good { border-left-color: #5a9e6f; }
+  .combat-log-entry.bad  { border-left-color: #b85555; }
+  .log-round { font-family: 'Cinzel', serif; font-size: 8px; color: var(--gold-dim); margin-right: 6px; }
+  .log-text  { color: var(--parchment); }
+
+  
+  /* ═══════════════ ROMANCE SYSTEM ═══════════════ */
+  .romance-card {
+    border: 1px solid var(--border); padding: 14px 16px;
+    margin-bottom: 10px; background: rgba(0,0,0,0.15);
+    transition: border-color 0.2s;
+  }
+  .romance-card:hover { border-color: rgba(201,168,76,0.3); }
+  .romance-card-header { display: flex; align-items: center; gap: 12px; }
+  .romance-card-icon { font-size: 28px; flex-shrink: 0; }
+  .romance-card-info { flex: 1; }
+  .romance-card-name { font-family:'Cinzel',serif; font-size:13px; color:var(--parchment); letter-spacing:0.05em; }
+  .romance-card-stage { font-size:10px; letter-spacing:0.1em; font-family:'Cinzel',serif; margin-top:2px; }
+  .romance-card-attraction { text-align:center; flex-shrink:0; }
+  .romance-buff-badge {
+    margin-top: 8px; font-family:'Cinzel',serif; font-size:8px;
+    letter-spacing:0.16em; color:var(--gold); text-transform:uppercase;
+    padding: 3px 8px; border: 1px solid rgba(201,168,76,0.3);
+    background: rgba(201,168,76,0.06); display:inline-block;
+  }
+  .romance-section-title {
+    font-family:'Cinzel',serif; font-size:8px; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--gold-dim);
+    padding: 10px 0 6px; border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .romance-date-btn {
+    display: block; width: 100%; text-align: left;
+    background: transparent; border: 1px solid var(--border);
+    color: var(--parchment); font-family:'Cinzel',serif; font-size:9px;
+    letter-spacing:0.1em; padding: 6px 10px; cursor:pointer;
+    margin-bottom: 4px; transition: all 0.12s;
+  }
+  .romance-date-btn:hover { border-color:var(--gold); color:var(--gold); }
+  .romance-action-btn {
+    flex: 1; background:rgba(201,168,76,0.06);
+    border:1px solid rgba(201,168,76,0.25);
+    color:var(--gold-dim); font-family:'Cinzel',serif;
+    font-size:9px; letter-spacing:0.14em; text-transform:uppercase;
+    padding: 6px 10px; cursor:pointer; transition:all 0.12s;
+  }
+  .romance-action-btn:hover { background:rgba(201,168,76,0.12); color:var(--gold); }
+  .romance-action-btn.confess {
+    border-color:rgba(90,158,111,0.4); color:#5a9e6f;
+    background:rgba(90,158,111,0.06);
+  }
+  .romance-action-btn.confess:hover { background:rgba(90,158,111,0.14); }
+
     /* ═══════════════ REL SIDEBAR MINI LIST ═══════════════ */
   .rel-mini-empty {
     font-size: 12px; color: var(--ink-light); font-style: italic; padding: 4px 0;
@@ -4456,6 +4580,17 @@ const NPC_DATA = {
     skills:{ quidditch:82, empathy:68, intellect:72, arcaneKnowledge:65, magicalPower:62, courage:58, persuasion:60, dueling:55, luck:48, stealth:45, potionsMastery:55, herbologyMastery:48 },
     dims:{ trust:10, affection:10, respect:12, fear:0, rivalry:5, loyalty:5 },
     houseModifiers:{ Ravenclaw:{ trust:12, affection:10 } },
+  },
+  lily_moon: {
+    id:'lily_moon', name:'Lily Moon', icon:'🌙', house:'Ravenclaw',
+    year:1, meetsYear:1, role:'Student — Same Year',
+    bloodStatus:'Half-blood', born:'1976',
+    bio:'Quiet at first in the way some people are quiet — not shy exactly, but selective. Lily Moon watches before she speaks, and when she speaks it lands. Once she trusts someone she opens completely: laughing without restraint, sharp and funny and unguarded in a way that feels like a gift. She is short with black curly hair and pale skin and blue eyes that have a habit of saying more than her face intends. She is not someone who makes herself easy to know. She is someone worth the effort.',
+    tags:['Ravenclaw','Half-blood'],
+    romantic:true, deathYear:null,
+    skills:{ intellect:78, arcaneKnowledge:72, empathy:80, persuasion:70, stealth:55, magicalPower:65, courage:60, dueling:55, potionsMastery:62, herbologyMastery:58, luck:65, quidditch:35, intuition:78 },
+    dims:{ trust:0, affection:0, respect:5, fear:0, rivalry:0, loyalty:0 },
+    houseModifiers:{ Gryffindor:{ trust:5 }, Hufflepuff:{ trust:8 }, Ravenclaw:{ trust:15, affection:5 }, Slytherin:{ trust:-5 } },
   },
   luna: {
     id:'luna', name:'Luna Lovegood', icon:'🌕', house:'Ravenclaw',
@@ -7590,6 +7725,9 @@ function initRelationships() {
       };
     }
   });
+
+  // Seed attraction and romanceStage on all NPCs
+  if (typeof initAttractionDimension === 'function') initAttractionDimension();
 }
 
 function clampDim(v) { return Math.max(-100, Math.min(100, Math.round(v))); }
@@ -8251,6 +8389,8 @@ IMPORTANT — NPC appearance comments: When writing scenes where NPCs first meet
     .filter(([,s])=>s.companion&&!s.dead)
     .map(([id])=>NPC_DATA[id]?.name||id).join(', ') || 'none';
   const darkLine = (STATE.darkPathStage||0) > 0 ? `Dark Path Stage: ${STATE.darkPathStage}. Alignment: ${STATE.alignmentScore}.` : '';
+  const alignCtx = typeof buildAlignmentContext === 'function' ? buildAlignmentContext() : '';
+  const compCtx  = typeof buildCompetenceContext === 'function' ? buildCompetenceContext() : '';
   const ghostLine = (STATE.flags||[]).includes('GHOST_MODE') ? 'IMPORTANT: Player is dead and continuing as a ghost. They cannot interact physically or be seen by most people.' : '';
   return base +
     (alterations ? `\nWorld alterations (permanent):\n${alterations}` : '') +
@@ -8259,6 +8399,8 @@ IMPORTANT — NPC appearance comments: When writing scenes where NPCs first meet
     (killHistory ? `\nKilling history: ${killHistory}` : '') +
     (companions !== 'none' ? `\nCompanions currently with player: ${companions}` : '') +
     (darkLine ? '\n'+darkLine : '') +
+    (alignCtx || '') +
+    (compCtx  || '') +
     (ghostLine ? '\n'+ghostLine : '') +
     ((STATE.flags||[]).includes('VOLDEMORT_WINS_DARK_TIMELINE') ? '\nDARK TIMELINE ACTIVE: Voldemort has won. The wizarding world is under Death Eater control.' : '') +
     (typeof buildKnowledgeContext === 'function' ? '\n' + buildKnowledgeContext() : '');
@@ -9082,6 +9224,20 @@ async function handleChoice(idx) {
     case 'day_visit_hagrid': await sceneVisitHagrid(); break;
     case 'day_curfew_explore': await sceneCurfewExplore(); break;
     case 'open_board':        openBoardModal(); break;
+    case 'comeback_move':     await useComebackMove(); break;
+    case 'norbert_worry':     showToast('You voice your concerns. Hagrid names him Norbert.', 3000); renderDayMenu(); break;
+    case 'norbert_support':   adjustDim('hagrid','trust',4); showToast('Hagrid is touched. You keep the secret.', 3000); renderDayMenu(); break;
+    case 'norbert_help_smuggle': STATE.flags.push('NORBERT_HELP_COMMITTED'); renderDayMenu(); break;
+    case 'fluffy_debrief':    {
+        if (!STATE.flags.includes('TRAPDOOR_NOTICED')) STATE.flags.push('TRAPDOOR_NOTICED');
+        showToast('Something is beneath the school. Under the dog. Behind the locked door.', 5000);
+        renderDayMenu();
+        break;
+      }
+    case 'troll_fight_assist': await startCombat('troll_bathroom', null, 'boss'); break;
+    case 'troll_run':          adjustHousePoints(STATE.player.house, -5, 'Ran from the troll'); renderDayMenu(); break;
+    case 'troll_fight_direct': await startCombat('troll_bathroom', null, 'boss'); break;
+    case 'restricted_section_more': await sceneRestrictedSection(); break;
     case 'open_brew_study':   sceneBrew('study'); break;
     case 'peeves_standup': {
       const courage = STATE.skills?.courage || 10;
@@ -9148,6 +9304,27 @@ async function handleChoice(idx) {
         const npcId = action.slice(10);
         await sceneNPC(npcId);
         break;
+      }
+      if (action.startsWith('romance_accept_')) {
+        await resolveRomanceAccept(action.slice(15)); break;
+      }
+      if (action.startsWith('romance_soft_decline_')) {
+        resolveRomanceSoftDecline(action.slice(21)); break;
+      }
+      if (action.startsWith('flirt_')) {
+        await sceneFlirt(action.slice(6)); break;
+      }
+      if (action.startsWith('confess_')) {
+        await scenePlayerConfession(action.slice(8)); break;
+      }
+      if (action.startsWith('jealousy_reassure_')) {
+        const jId = action.slice(18);
+        adjustDim(jId,'trust',8); adjustAttraction(jId,5);
+        showToast('You reassure them. They believe you — for now.', 3000);
+        renderDayMenu(); break;
+      }
+      if (action.startsWith('jealousy_admit_')) {
+        await triggerNPCBreakup(action.slice(15), 'jealousy_final'); break;
       }
       if (action.startsWith('ghost_ask_')) {
         // ghost_ask_{npcId}_{topic}
@@ -9475,6 +9652,8 @@ function applySaveData(data) {
   if(data._ferretLastEvent !== undefined) STATE._ferretLastEvent = data._ferretLastEvent;
   if(data.pendingSales)    STATE.pendingSales = data.pendingSales;
   if(data.cardCollection)  STATE.cardCollection = data.cardCollection;
+  // Re-seed attraction and romanceStage after load
+  if (typeof initAttractionDimension === 'function') setTimeout(initAttractionDimension, 100);
   if(data.pendingOrders)   STATE.pendingOrders  = data.pendingOrders;
   if(data.injuries)                STATE.injuries = data.injuries;
   if(data._hospitalRecoveryDays != null) STATE._hospitalRecoveryDays = data._hospitalRecoveryDays;
@@ -12123,8 +12302,9 @@ function renderKnowStats() {
   const spellsKnown = Object.keys(STATE.knownKnowledge.spells || {}).length;
   const potionsKnown = Object.keys(STATE.knownKnowledge.potions || {}).length;
   const unforgivables = ['crucio','imperio','avada_kedavra'].filter(id => STATE.knownKnowledge.spells?.[id]);
-  const locsDiscovered = Object.keys(STATE.discoveredLocations || {}).length;
-  const locsTotal = Object.keys(LOCATIONS).length;
+  const locsDiscovered = Object.entries(STATE.discoveredLocations || {})
+    .filter(([id, val]) => val === true && LOCATION_DATA[id]).length;
+  const locsTotal = Object.keys(LOCATION_DATA).length;
 
   bar.innerHTML = `
     <div class="know-stat"><span class="know-stat-num">${totalKnown}</span> / ${totalAvail} known</div>
@@ -16827,6 +17007,15 @@ Tone: literary, atmospheric, grounded. The classroom feels real. Include sensory
 Include specific professor speech and behaviour consistent with their character.
 Do NOT mention game mechanics, stats, or knowledge unlocks. Write only narrative.`;
 
+  // Check for special session first
+  if (typeof checkSpecialClassSession === 'function') {
+    const wasSpecial = await checkSpecialClassSession(sess);
+    if (wasSpecial) {
+      renderLectureUI(sess, subj, prof, null);
+      return;
+    }
+  }
+
   const text = await callClaude(systemPrompt,
     `Write the ${subj?.name||'class'} lesson on "${sess.topic}" for ${STATE.player.firstName} ${STATE.player.lastName}, ${STATE.player.house||'Hogwarts'} student.`, 600);
 
@@ -16847,6 +17036,23 @@ function renderLectureUI(sess, subj, prof, lectureHtml) {
         return allK.find(e=>e.id===id)?.name || id;
       }).join(', ')}</div>`
     : '';
+
+  // If lectureHtml is null, the body was already populated by a special
+  // class session — just append the engagement controls without overwriting
+  if (lectureHtml === null) {
+    const actions = document.createElement('div');
+    actions.className = 'class-actions';
+    actions.innerHTML = `
+      <div class="class-engage-opts" id="engageOpts">
+        <button class="class-engage-btn" onclick="selectEngagement('notes',this)">📝 Take notes carefully</button>
+        <button class="class-engage-btn" onclick="selectEngagement('question',this)">✋ Ask a question</button>
+        <button class="class-engage-btn" onclick="selectEngagement('daydream',this)">💭 Daydream</button>
+        <button class="class-engage-btn" onclick="selectEngagement('trouble',this)">😈 Cause a disturbance</button>
+      </div>
+      <button class="begin-btn" style="margin-top:0;" onclick="completeClassSession('${sess.id}', '${prof}')">Attend Session →</button>`;
+    body.appendChild(actions);
+    return;
+  }
 
   body.innerHTML = `
     <div class="class-lecture-body" id="lectureText">
@@ -17427,6 +17633,10 @@ function renderProphetMain(issue) {
     </div>
   ` : '';
 
+  // Canon story for this issue's week
+  const canonStory = typeof enrichProphetWithCanon === 'function'
+    ? enrichProphetWithCanon(issue.week || STATE.currentWeek || 1) : '';
+
   main.innerHTML = `
     <div class="prophet-paper">
       <div class="prophet-masthead">
@@ -17435,6 +17645,7 @@ function renderProphetMain(issue) {
         <div class="prophet-masthead-date">${issue.date}</div>
         <div class="prophet-masthead-price">3 Knuts · Est. 1743 · Enchanted moving photographs throughout</div>
       </div>
+      ${canonStory}
       ${articlesHtml}
       ${rumoursHtml}
     </div>
@@ -17855,6 +18066,14 @@ function applyHouseSorting(house) {
 
 // ── Core explore function — AI narrates a location visit ──────────────────
 async function exploreLocation(locationId, timeOfDay) {
+  // Third floor corridor — Fluffy encounter
+  if (locationId === 'third_floor_corridor' && !STATE.flags?.includes('FLUFFY_ENCOUNTERED')) {
+    const week = STATE.currentWeek || 1;
+    if (week >= 3) {
+      if (typeof sceneFluffy === 'function') { await sceneFluffy(); return; }
+    }
+  }
+
   // Forbidden forest — dedicated encounter scenes
   if (['forbidden_forest_edge','forbidden_forest_shallow','forbidden_forest_deep'].includes(locationId)) {
     if (typeof sceneForestEncounter === 'function') {
@@ -17862,6 +18081,11 @@ async function exploreLocation(locationId, timeOfDay) {
       return;
     }
   }
+  // Restricted section — custom content scene
+  if (locationId === 'restricted_section') {
+    if (typeof sceneRestrictedSection === 'function') { await sceneRestrictedSection(); return; }
+  }
+
   // Hogsmeade — age gate for Year 1
   if (locationId === 'hogsmeade_village' || locationId === 'hogsmeade_unsupervised') {
     if (typeof checkHogsmeadeAccess === 'function' && !checkHogsmeadeAccess()) return;
@@ -19706,6 +19930,12 @@ ${buildStateContext()}`;
 async function sceneVisitHagrid() {
   if (!consumeAP(AP_COST.npc_visit, 'npc_visit')) return;
   STATE.currentLocation = 'hagrid_hut';
+  const week = STATE.currentWeek || 1;
+  // Norbert subplot takes priority on specific weeks
+  if (typeof checkNorbertEvent === 'function') {
+    const norbertFired = await checkNorbertEvent(week);
+    if (norbertFired) return;
+  }
   await exploreLocation('hagrid_hut', STATE.dayPhase === 'evening' ? 'evening' : 'daytime');
 }
 
@@ -21091,6 +21321,10 @@ async function generateOwlPost(week) {
   }[blood] || '';
 
   // Canon events colour the letter
+  // Extra context from actual game events
+  const gameEventContext = typeof buildOwlPostContext === 'function'
+    ? buildOwlPostContext(week) : '';
+
   const weekEvent = {
     8:  'The troll incident at Halloween has reached the family — they heard something happened. They are worried.',
     10: 'Word of the Quidditch match has reached home somehow. They want to know what happened.',
@@ -21103,7 +21337,7 @@ async function generateOwlPost(week) {
 Write a letter from the player's family, arriving by owl at Hogwarts.
 Player: ${name}, ${blood}, ${house}.
 ${bloodContext}
-${weekEvent ? `CURRENT EVENTS context (shape the letter around this naturally): ${weekEvent}` : `Week ${week} of term — an ordinary letter, warm and specific.`}
+${weekEvent ? `CURRENT EVENTS context: ${weekEvent}` : gameEventContext ? `GAME EVENTS context: ${gameEventContext}` : `Week ${week} of term — an ordinary letter, warm and specific.`}
 ${giftNote}
 The letter should feel like it comes from a real family — specific details, a particular voice, some small news from home, genuine concern or pride.
 DO NOT be generic. Give the family a personality.
@@ -22357,6 +22591,12 @@ const NPC_TONE_LABELS = {
     reserved:  "Keep it brief",
     assertive: "Be direct about why you came over",
   },
+  lily_moon: {
+    curious:   "Ask what she actually thinks — not what she's read",
+    warm:      "Make her laugh about something specific",
+    playful:   "Tease her, gently",
+    assertive: "Say the thing you're thinking without the usual deflection",
+  },
   cedric: {
     warm:      "Tell him you admire how he handles things",
     curious:   "Ask about Hufflepuff or Quidditch",
@@ -22608,9 +22848,20 @@ function renderNPCResponseChoices(npcId, openingText) {
       action: `npc_respond_${npcId}_convince`,
     });
   }
-  choices.push({ text: '← Back to your day', action: 'day_menu' });
-
-  // Store opening for context in resolution
+  // Romance options — flirt/confess if applicable
+  if (typeof ROMANCE_DATA !== 'undefined' && ROMANCE_DATA[npcId]) {
+    const romStage   = STATE.relationships[npcId]?.romanceStage || 'none';
+    const attraction = STATE.relationships[npcId]?.attraction   || 0;
+    if (romStage === 'together') {
+      choices.push({ text: `💫 Be with ${npc.name}`, action: `flirt_${npcId}` });
+    } else if (['aware','interested','flirting','tension'].includes(romStage) && attraction >= 20) {
+      choices.push({ text: '💬 Flirt', action: `flirt_${npcId}` });
+    }
+    if (['tension','confessed'].includes(romStage)) {
+      choices.push({ text: '💫 Confess', action: `confess_${npcId}` });
+    }
+  }
+  choices.push({ text: '← Back to your day', action: 'day_menu' }); resolution
   STATE._npcConvoOpening = openingText;
   STATE._npcConvoId = npcId;
 
@@ -23139,166 +23390,14 @@ async function startCombat(encounterId, npcId, context = 'unprovoked') {
     };
   }
 
-  // Generate combat opening
+  // Generate combat opening scene before showing panel
+  await sceneCombatOpening(STATE.combatState);
   await renderCombatPanel();
 }
 
 // ── Main combat panel renderer ────────────────────────────
-async function renderCombatPanel(pendingResult = null) {
-  const cs = STATE.combatState;
-  if (!cs?.active) return;
+// renderCombatPanel replaced by combat overhaul
 
-  const mom = getMomentumLabel(cs.momentum);
-  const spells  = getCombatSpells();
-  const potions = getCombatPotions();
-
-  // Round label
-  const roundLabel = cs.round > cs.maxRounds
-    ? 'Final Round'
-    : `Round ${cs.round} of ${cs.maxRounds}`;
-
-  // Generate enemy action narration for this round
-  let enemyActionText = '';
-  if (cs.bossData?.rounds?.[cs.round - 1]) {
-    enemyActionText = cs.bossData.rounds[cs.round - 1].enemyAction;
-  } else if (cs.enemyId && NPC_DATA[cs.enemyId]) {
-    const npc = NPC_DATA[cs.enemyId];
-    const persona = NPC_PERSONAS[cs.enemyId] || '';
-    const sys = `You are the narrative engine for a Harry Potter RPG.
-Write ONE sentence describing what ${npc.name} does in this round of a duel.
-Round ${cs.round}. Momentum: ${mom.label} (${cs.momentum > 0 ? 'player winning' : cs.momentum < 0 ? 'player losing' : 'even'}).
-Enemy status effects: ${cs.enemyEffects.join(', ') || 'none'}.
-Character voice: ${persona.slice(0, 100)}
-One sentence. Present tense. Vivid. No dialogue.`;
-    enemyActionText = await callClaude(sys, 'Enemy action.', 80) || `${npc.name} raises their wand.`;
-  }
-
-  // Spell buttons
-  const spellBtns = spells.length
-    ? spells.map(s => `
-      <button class="combat-action-btn spell ${s.type}" onclick="executeCombatAction('spell','${s.id}')">
-        <span class="ca-icon">${s.icon}</span>
-        <span class="ca-label">${s.label}</span>
-        <span class="ca-power">${'●'.repeat(Math.min(s.power, 5))}</span>
-        <span class="ca-desc">${s.desc}</span>
-      </button>`).join('')
-    : '<div class="combat-no-spells">No combat spells learned yet.</div>';
-
-  const potionBtns = potions.length
-    ? potions.map(p => `
-      <button class="combat-action-btn potion ${p.type}" onclick="executeCombatAction('potion','${p.id}')">
-        <span class="ca-icon">${p.icon}</span>
-        <span class="ca-label">${p.label}</span>
-        <span class="ca-desc">${p.desc}</span>
-      </button>`).join('')
-    : '<div class="combat-no-spells">No usable potions carried.</div>';
-
-  const actionBtns = Object.entries(COMBAT_ACTIONS)
-    .filter(([key]) => key !== 'flee' || cs.allowEscape)
-    .map(([key, a]) => `
-      <button class="combat-action-btn action" onclick="executeCombatAction('action','${key}')">
-        <span class="ca-icon">${a.icon}</span>
-        <span class="ca-label">${a.label}</span>
-        <span class="ca-desc">${a.desc}</span>
-      </button>`).join('');
-
-  // Status effects
-  const playerEffects = cs.statusEffects.length
-    ? cs.statusEffects.map(e => `<span class="combat-status-tag player">${e}</span>`).join('')
-    : '';
-  const enemyEffects = cs.enemyEffects.length
-    ? cs.enemyEffects.map(e => `<span class="combat-status-tag enemy">${e}</span>`).join('')
-    : '';
-
-  // Round log (last 3 entries)
-  const logHtml = cs.log.slice(-3).map(entry => `
-    <div class="combat-log-entry ${entry.type}">
-      <span class="log-round">R${entry.round}</span>
-      <span class="log-text">${entry.text}</span>
-    </div>`).join('');
-
-  // Previous result text
-  const resultHtml = pendingResult ? `
-    <div class="combat-result-flash ${pendingResult.type}">
-      ${pendingResult.text}
-    </div>` : '';
-
-  const panelHtml = `
-<div class="combat-panel" id="combatPanel">
-  <!-- Enemy header -->
-  <div class="combat-enemy-bar">
-    <div class="combat-enemy-identity">
-      <span class="combat-enemy-icon">${cs.enemyIcon}</span>
-      <div>
-        <div class="combat-enemy-name">${cs.enemyName}</div>
-        <div class="combat-round-label">${roundLabel}</div>
-      </div>
-    </div>
-    <div class="combat-momentum-track">
-      <div class="momentum-label" style="color:${mom.colour}">${mom.icon} ${mom.label}</div>
-      <div class="momentum-bar">
-        ${[...Array(7)].map((_,i) => {
-          const pos = i - 3; // -3 to +3
-          const filled = cs.momentum >= 0 ? pos <= cs.momentum && pos >= 0
-                                          : pos >= cs.momentum && pos <= 0;
-          const isCenter = pos === 0;
-          return `<div class="momentum-pip ${filled ? 'filled' : ''} ${isCenter ? 'center' : ''}"
-            style="${filled ? `background:${mom.colour}` : ''}"></div>`;
-        }).join('')}
-      </div>
-    </div>
-  </div>
-
-  ${enemyEffects ? `<div class="combat-effects-bar enemy-effects">${enemyEffects}</div>` : ''}
-
-  <!-- Enemy action this round -->
-  <div class="combat-enemy-action">
-    <span class="combat-enemy-action-label">⚔ This round</span>
-    <span class="combat-enemy-action-text">${enemyActionText}</span>
-    ${playerEffects ? `<div class="combat-effects-bar player-effects">${playerEffects}</div>` : ''}
-  </div>
-
-  ${resultHtml}
-
-  <!-- Round log -->
-  ${logHtml ? `<div class="combat-log">${logHtml}</div>` : ''}
-
-  <!-- Action tabs -->
-  <div class="combat-tabs">
-    <button class="combat-tab active" onclick="switchCombatTab('spells',this)">⚡ Spells</button>
-    <button class="combat-tab" onclick="switchCombatTab('potions',this)">🧪 Potions</button>
-    <button class="combat-tab" onclick="switchCombatTab('actions',this)">🤸 Actions</button>
-    <button class="combat-tab" onclick="switchCombatTab('freeform',this)">✍ Write it</button>
-  </div>
-
-  <div class="combat-action-grid" id="combatActionGrid">
-    <div class="combat-tab-pane active" id="tab-spells">
-      <div class="combat-spell-grid">${spellBtns}</div>
-    </div>
-    <div class="combat-tab-pane" id="tab-potions">
-      <div class="combat-spell-grid">${potionBtns}</div>
-    </div>
-    <div class="combat-tab-pane" id="tab-actions">
-      <div class="combat-spell-grid">${actionBtns}</div>
-    </div>
-    <div class="combat-tab-pane" id="tab-freeform">
-      <div class="combat-freeform">
-        <div class="combat-freeform-note">Describe your action. The world will respond.</div>
-        <textarea class="combat-freeform-input" id="combatFreeInput"
-          placeholder="I try to levitate the troll's club..."></textarea>
-        <button class="combat-freeform-btn" onclick="executeCombatAction('freeform',null)">
-          → Act
-        </button>
-      </div>
-    </div>
-  </div>
-</div>`;
-
-  setLocation(`⚔ ${cs.enemyName}`);
-  setNarrative(panelHtml);
-  setChoices([]);
-  showFreeInput(false);
-}
 
 function switchCombatTab(tab, btn) {
   document.querySelectorAll('.combat-tab').forEach(t => t.classList.remove('active'));
@@ -23366,253 +23465,24 @@ async function executeCombatAction(type, id) {
 }
 
 // ── Resolve a combat round ────────────────────────────────
-async function resolveCombatRound(type, id, actionLabel, actionDesc, spellData) {
-  const cs  = STATE.combatState;
-  const enc = cs.bossData;
-  const npc = cs.enemyId ? NPC_DATA[cs.enemyId] : null;
-  const mom = getMomentumLabel(cs.momentum);
+// resolveCombatRound replaced by combat overhaul
 
-  // Boss: direct spells deflect
-  if (enc?.spellDeflection && type === 'spell' && !['protego','finite_incantatem'].includes(id)) {
-    const deflect = enc.spellDeflectionNote || 'Your spell slides off him.';
-    cs.log.push({ round: cs.round, type: 'bad', text: deflect });
-    cs.momentum = Math.max(-3, cs.momentum - 1);
-    cs.round++;
-    await renderCombatPanel({ type: 'bad', text: deflect });
-    await checkCombatEnd();
-    return;
-  }
-
-  // Skill checks
-  const playerDuel  = STATE.skills?.dueling || 10;
-  const playerMagic = STATE.skills?.magicalPower || 10;
-  const playerLuck  = STATE.skills?.luck || 10;
-  const enemyDuel   = npc?.skills?.dueling || 50;
-
-  const spellPower  = spellData?.power || 2;
-  const roll        = Math.random() * 100;
-  const base        = playerDuel - (enemyDuel * 0.4) + 25 + (playerLuck * 0.2) + (spellPower * 3);
-  const successChance = Math.max(8, Math.min(92, base));
-  const success     = roll < successChance;
-  const critical    = roll < successChance * 0.25;
-  const critFail    = roll > 97;
-
-  // Status effects on enemy
-  if (success && spellData?.effect && !cs.enemyEffects.includes(spellData.effect)) {
-    const stickyEffects = ['disarm','stun','silence','restrain','sleep','confuse'];
-    if (stickyEffects.includes(spellData.effect)) {
-      cs.enemyEffects.push(spellData.effect);
-      // Effects last 1-2 rounds
-      setTimeout(() => {
-        cs.enemyEffects = cs.enemyEffects.filter(e => e !== spellData.effect);
-      }, 2000);
-    }
-  }
-
-  // Defensive actions protect player
-  const playerProtected = type === 'action' && id === 'dodge'
-    || type === 'spell' && id === 'protego';
-
-  // Enemy round action risk
-  const roundRisk = enc?.rounds?.[cs.round - 1]?.damageRisk || 'moderate';
-  const enemyHits = !playerProtected && Math.random() > 0.45;
-
-  // Momentum shift
-  let momentumDelta = 0;
-  if (success && critical) momentumDelta = 2;
-  else if (success)        momentumDelta = 1;
-  else if (critFail)       momentumDelta = -2;
-  else                     momentumDelta = -1;
-
-  if (enemyHits && roundRisk === 'serious') momentumDelta -= 1;
-  if (playerProtected && !success)          momentumDelta += 1;
-
-  const momFloor = typeof courageMomentumFloor === 'function'
-    ? courageMomentumFloor() : -3;
-  cs.momentum = Math.max(momFloor, Math.min(3, cs.momentum + momentumDelta));
-
-  // Determine player injury from enemy action
-  if (enemyHits) {
-    const injuryRoll = Math.random();
-    if (roundRisk === 'serious' && cs.momentum <= -2 && injuryRoll > 0.6) {
-      cs.statusEffects.push('injured');
-    } else if (roundRisk === 'moderate' && cs.momentum <= -3 && injuryRoll > 0.7) {
-      cs.statusEffects.push('shaken');
-    }
-  }
-
-  // Remove potion from inventory if used
-  if (type === 'potion' && id) {
-    STATE.inventory = STATE.inventory.filter(i => i.id !== id);
-    updateInventory();
-  }
-
-  // AI narrative for this round
-  const enemyPersona = cs.enemyId ? (NPC_PERSONAS[cs.enemyId] || '') : cs.enemyName;
-  const sys = `You are the narrative engine for a Harry Potter RPG.
-Narrate ONE round of combat. 60-80 words. Second person, present tense.
-Enemy: ${cs.enemyName}. Round ${cs.round}/${cs.maxRounds}.
-Player action: ${actionLabel} (${success ? 'succeeds' : critFail ? 'critically fails' : 'fails'}).
-${critical ? 'CRITICAL SUCCESS — dramatic, decisive moment.' : ''}
-${critFail ? 'CRITICAL FAIL — something goes badly wrong.' : ''}
-Enemy action this round: ${enc?.rounds?.[cs.round-1]?.enemyAction || cs.enemyName + ' retaliates.'}
-Enemy hit player: ${enemyHits ? 'yes — ' + roundRisk + ' threat' : 'no — player avoided it'}.
-Momentum: ${mom.label} (${cs.momentum > 0 ? 'player ahead' : cs.momentum < 0 ? 'player behind' : 'even'}).
-Enemy status effects: ${cs.enemyEffects.join(', ') || 'none'}.
-Player status effects: ${cs.statusEffects.join(', ') || 'none'}.
-Enemy character: ${enemyPersona.slice(0, 120)}
-Keep it tight and vivid. No resolution yet — the fight continues.`;
-
-  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>⚔ Round ${cs.round}...<span class="cursor-blink"></span></div>`);
-  const narrative = await callClaude(sys, `Combat round ${cs.round}.`, 250);
-  const roundText = narrative || (success ? `${actionLabel} connects.` : `${actionLabel} misses.`);
-
-  // Log
-  cs.log.push({
-    round: cs.round,
-    type: success ? 'good' : 'bad',
-    text: roundText.slice(0, 120),
-  });
-
-  cs.round++;
-
-  // Check for combat end
-  await checkCombatEnd(roundText);
-}
 
 // ── Check if combat should end ────────────────────────────
-async function checkCombatEnd(lastRoundText = '') {
-  const cs = STATE.combatState;
-  const enc = cs.bossData;
+// checkCombatEnd replaced by combat overhaul
 
-  const outOfRounds = cs.round > cs.maxRounds;
-  const playerDominant = cs.momentum >= 3 && !cs.scripted;
-  const playerDefeated = cs.momentum <= -3;
-  const bossFinalRound = cs.scripted && cs.round > cs.maxRounds;
-
-  if (playerDefeated) {
-    await resolveCombatDefeat(lastRoundText);
-  } else if (playerDominant) {
-    await resolveCombatVictory('dominated', 'You overwhelmed them completely.');
-  } else if (bossFinalRound) {
-    // Scripted boss — resolve based on outcome
-    if (enc?.scriptedOutcome === 'survive') {
-      await resolveCombatDefeat(lastRoundText, true); // survive but lose
-    }
-  } else {
-    // Continue — render next round
-    await renderCombatPanel({ type: cs.momentum >= 0 ? 'good' : 'bad', text: lastRoundText });
-  }
-}
 
 // ── Victory ───────────────────────────────────────────────
-async function resolveCombatVictory(reason, flavourText) {
-  const cs  = STATE.combatState;
-  const enc = cs.bossData;
+// resolveCombatVictory replaced by combat overhaul
 
-  // Generate victory narrative
-  const winText = enc?.winNarrative || flavourText;
-  const sys = `You are the narrative engine for a Harry Potter RPG.
-Write the end of a combat encounter. Player won.
-Enemy: ${cs.enemyName}. Reason: ${reason}. ${flavourText}
-2 short paragraphs. Vivid, specific, earned. Second person, present tense. 80-100 words.`;
-  const narrative = await callClaude(sys, 'Combat victory.', 280);
-  const text = narrative || winText;
-
-  const paras = text.split(/\n\n+/).filter(p => p.trim());
-  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>⚡ Victory</div>`;
-  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
-  setNarrative(narHtml);
-  setTimeout(() => document.querySelectorAll('.narrative-para')
-    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
-
-  // Apply aftermath
-  if (enc?.aftermath?.win) {
-    const aft = enc.aftermath.win;
-    if (aft.relationship) {
-      Object.entries(aft.relationship).forEach(([id, dims]) => {
-        Object.entries(dims).forEach(([dim, val]) => adjustDim(id, dim, val));
-      });
-    }
-    if (aft.injury) sendToHospitalWing(aft.injury, `${cs.enemyName} encounter`);
-  }
-
-  // Apply alignment for student duels
-  if (!cs.scripted && cs.context === 'unprovoked') {
-    adjustAlignment(-5);
-    showToast('⚠ Unprovoked duelling — alignment shifted.', 3000);
-  }
-
-  // Boss death if scripted
-  if (enc?.npcDeath && NPC_DATA[enc.npcDeath]) {
-    await killNpc(enc.npcDeath, enc.npcDeathCause, false, 'boss', 'none');
-  }
-
-  await endCombat('win');
-}
 
 // ── Defeat ────────────────────────────────────────────────
-async function resolveCombatDefeat(flavourText, scripted = false) {
-  const cs  = STATE.combatState;
-  const enc = cs.bossData;
+// resolveCombatDefeat replaced by combat overhaul
 
-  const loseText = enc?.loseNarrative || `${cs.enemyName} overwhelms you.`;
-  const sys = `You are the narrative engine for a Harry Potter RPG.
-Write the end of a combat encounter. Player lost${scripted ? ' (scripted — they survive but are defeated)' : ''}.
-Enemy: ${cs.enemyName}. ${flavourText}
-2 short paragraphs. Not death — incapacitation, retreat, or being overpowered. Second person, present tense. 80-100 words.`;
-  const narrative = await callClaude(sys, 'Combat defeat.', 280);
-  const text = narrative || loseText;
-
-  const paras = text.split(/\n\n+/).filter(p => p.trim());
-  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>⚔ Defeated</div>`;
-  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
-  setNarrative(narHtml);
-  setTimeout(() => document.querySelectorAll('.narrative-para')
-    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
-
-  // Injury
-  const injuryType = enc?.aftermath?.lose?.injury || (cs.momentum <= -3 ? 'serious' : 'moderate');
-  if (injuryType) {
-    setTimeout(() => sendToHospitalWing(injuryType, `${cs.enemyName} encounter`), 2000);
-  }
-
-  // For student duels — the winner gloats
-  if (!cs.scripted && cs.enemyId && cs.context === 'unprovoked') {
-    adjustAlignment(-8);
-    adjustDim(cs.enemyId, 'rivalry', 5);
-    showToast(`${cs.enemyName} won. This will be remembered.`, 3500);
-  }
-
-  await endCombat('lose');
-}
 
 // ── Flee ──────────────────────────────────────────────────
-async function attemptFlee() {
-  const cs = STATE.combatState;
-  if (!cs.allowEscape) {
-    showToast('There is no way out of here.', 2500);
-    return;
-  }
-  const stealth = STATE.skills?.stealth || 10;
-  const luck    = STATE.skills?.luck    || 10;
-  const chance  = Math.min(85, Math.max(15, stealth * 0.6 + luck * 0.3 + 10));
-  const success = Math.random() * 100 < chance;
+// attemptFlee replaced by combat overhaul
 
-  const enc = cs.bossData;
-  if (success) {
-    const fleeText = enc?.fleeNarrative || 'You break away and run. The sound of the encounter fades behind you.';
-    showToast(`🏃 ${fleeText}`, 5000);
-    if (enc?.fleeConsequence?.missedBond) {
-      showToast('You missed something important.', 3000);
-    }
-    await endCombat('flee');
-  } else {
-    showToast('You cannot get away — they cut off your exit.', 2500);
-    cs.momentum = Math.max(-3, cs.momentum - 1);
-    await renderCombatPanel({ type: 'bad', text: 'Escape failed.' });
-  }
-}
 
 // ── End combat ────────────────────────────────────────────
 async function endCombat(outcome) {
@@ -23636,7 +23506,11 @@ function checkBossEncounterTriggers(locationId, phase) {
       && locationId === 'girls_bathroom'
       && !STATE.flags.includes('TROLL_ENCOUNTERED')) {
     STATE.flags.push('TROLL_ENCOUNTERED');
-    setTimeout(() => startCombat('troll_bathroom', null, 'boss'), 1500);
+    if (typeof sceneTrollHalloween === 'function') {
+      setTimeout(() => sceneTrollHalloween(), 500);
+    } else {
+      setTimeout(() => startCombat('troll_bathroom', null, 'boss'), 1500);
+    }
     return true;
   }
 
@@ -26154,8 +26028,12 @@ function adjustHousePoints(house, delta, reason) {
     STATE.housePoints = { Gryffindor:0, Hufflepuff:0, Ravenclaw:0, Slytherin:0 };
   }
   STATE.housePoints[house] = Math.max(0, (STATE.housePoints[house]||0) + delta);
-  if (delta > 0) showToast(`+${delta} points to ${house}. ${reason||''}`, 3000);
-  else            showToast(`${delta} points from ${house}. ${reason||''}`, 3000);
+  if (typeof notifyHousePointSwing === 'function') {
+    notifyHousePointSwing(house, delta, reason||'');
+  } else {
+    if (delta > 0) showToast(`+${delta} points to ${house}. ${reason||''}`, 3000);
+    else            showToast(`${delta} points from ${house}. ${reason||''}`, 3000);
+  }
   updateHouseCupSidebar();
 }
 
@@ -27196,6 +27074,7 @@ const REL_TABS = [
   { key:'students',   label:'Students' },
   { key:'professors', label:'Staff' },
   { key:'spirits',    label:'Spirits' },
+  { key:'dating',     label:'💫 Dating' },
 ];
 
 // Extended renderRelTab to handle spirits
@@ -27225,6 +27104,9 @@ function renderRelTab(key) {
     descText = npcs.length
       ? `${npcs.length} spirit${npcs.length !== 1 ? 's' : ''} known to haunt these halls.`
       : 'No spirits encountered yet.';
+  } else if (key === 'dating') {
+    renderDatingTab();
+    return;
   } else {
     npcs = allNpcs.filter(n => !GHOST_NPC_IDS.has(n.id));
     descText = `${npcs.length} characters.`;
@@ -29266,6 +29148,12 @@ ${buildStateContext()}`;
 
   // Mirror trigger check
   if (week >= 14 && week <= 17) checkMirrorTrigger();
+  // Christmas gifts — fires once on Christmas morning
+  if (week >= 14 && week <= 17 && (STATE.dayOfWeek||1) === 1) {
+    if (typeof sceneChristmasGifts === 'function') {
+      setTimeout(() => { if (isGameIdle()) sceneChristmasGifts(); }, 3000);
+    }
+  }
 
   // Lore gain
   if (loreChance && arcane >= 30) {
@@ -30044,12 +29932,2318 @@ Second person. Present tense. 100-120 words. End with the player finding somewhe
   }, 2000);
 }
 
+// ═══════════════════════════════════════════════════════════
+// MEGA CONTENT PACK — Part 1
+// 1. Norbert subplot (Weeks 20-23)
+// 2. Fluffy / Third-floor corridor encounter
+// 3. Halloween troll as a real scene
+// 4. Memorable class moments
+// ═══════════════════════════════════════════════════════════
+
+// ════════════════════════════════════════════════════════════
+// 1. NORBERT SUBPLOT
+// Week 20: Hagrid's dragon egg discovered
+// Week 21: Norbert hatches — Hagrid tries to hide it
+// Week 22: Help smuggle Norbert out — Ron gets bitten
+// Week 23: Detention in the Forest as punishment
+// ════════════════════════════════════════════════════════════
+
+const NORBERT_STAGES = {
+  egg_discovered:    20,
+  norbert_hatches:   21,
+  smuggle_out:       22,
+  forest_detention:  23,
+};
+
+// Called at the start of sceneVisitHagrid each week
+async function checkNorbertEvent(week) {
+  const flags = STATE.flags || [];
+
+  if (week >= NORBERT_STAGES.egg_discovered && week < NORBERT_STAGES.norbert_hatches
+      && !flags.includes('NORBERT_EGG_SEEN')) {
+    await sceneNorbertEgg(week);
+    return true;
+  }
+  if (week >= NORBERT_STAGES.norbert_hatches && week < NORBERT_STAGES.smuggle_out
+      && !flags.includes('NORBERT_HATCHED')) {
+    await sceneNorbertHatches(week);
+    return true;
+  }
+  if (week >= NORBERT_STAGES.smuggle_out && !flags.includes('NORBERT_GONE')
+      && !flags.includes('NORBERT_SMUGGLE_DECLINED')) {
+    await sceneNorbertSmuggle(week);
+    return true;
+  }
+  return false;
+}
+
+async function sceneNorbertEgg(week) {
+  STATE.flags.push('NORBERT_EGG_SEEN');
+  setLocation("🛖 Hagrid's Hut");
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Hagrid's hut...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991, Week ${week}.
+Write 3 paragraphs. The player visits Hagrid's hut and notices something very wrong: it is extremely hot inside, the fire is roaring despite warm weather, and Hagrid keeps glancing nervously at the fireplace. On closer inspection, there is a large black egg among the coals.
+Hagrid is clearly hiding something but cannot contain his excitement. He tries to be casual. He fails. He eventually admits a man in a pub sold him the egg — it's a dragon egg.
+A Norwegian Ridgeback. Hagrid is delighted. The player should feel the wrongness of this — a dragon, in a wooden hut.
+HAGRID'S VOICE: warm, genuine, completely lacking in self-preservation instinct.
+Second person. Present tense. 130-160 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Hagrid's dragon egg, week ${week}.`, 420);
+  const fallback = `The hut is sweltering. That is the first thing — the fire enormous despite the mild evening, every curtain drawn, Hagrid moving between the kitchen and the fireplace with the energy of a man concealing something he is also very excited about.\n\n"Tea?" he says, far too quickly.\n\nThe egg is in the coals. It is black and large and moves, just slightly, when you look at it directly. Hagrid's face does something complicated when he realises you've seen it.\n\n"It's a Norwegian Ridgeback," he says, after a silence. "Man in a pub. Won it off him in a card game." He pauses. "I've always wanted one." He says this as though it explains everything. In this wooden hut, in the Scottish Highlands, with no water source for three hundred metres.`;
+
+  renderArrivalScene("🛖 Hagrid's Dragon Egg", text || fallback);
+  setTimeout(() => {
+    setChoices([
+      { text: "Ask how he plans to hide a dragon in a wooden hut", action: 'norbert_worry' },
+      { text: "Tell him you'll keep quiet about it", action: 'norbert_support' },
+      { text: "← Head back to the castle", action: 'day_menu' },
+    ]);
+  }, 1800);
+}
+
+async function sceneNorbertHatches(week) {
+  STATE.flags.push('NORBERT_HATCHED');
+  setLocation("🛖 Hagrid's Hut — Something Has Hatched");
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Hagrid's hut...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991, Week ${week}.
+Write 3 paragraphs. Norbert the Norwegian Ridgeback has hatched. He is the size of a large dog, black, sneezing smoke, and currently biting everything in sight. Hagrid is completely besotted. The hut is at serious risk of catching fire.
+Hagrid has named him Norbert. He is feeding it brandy and chicken. Ron Weasley is also there and has just been bitten trying to pat it. His hand is swelling badly. Hagrid barely notices — he's focused on Norbert.
+The player and Ron exchange a look. Something has to be done about this dragon.
+Second person. Present tense. 130-160 words. Ron's bitten hand is mentioned but Hagrid doesn't register how serious it is.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Norbert hatches, week ${week}.`, 420);
+  const fallback = `Norbert is black, roughly the size of a Labrador, and has already set fire to Hagrid's curtains twice since hatching. He is sneezing smoke and biting the leg of the table with what appears to be genuine enthusiasm.\n\n"Isn't he beautiful?" Hagrid says, holding out a piece of chicken. Norbert takes it, along with three of Hagrid's fingers, temporarily. Hagrid doesn't seem to notice.\n\nRon, who tried to pat it, is holding his hand against his chest with an expression that suggests the swelling is worse than he is letting on. The player and Ron look at each other. The hut smells strongly of smoke. The curtains are on fire again.`;
+
+  renderArrivalScene("🐉 Norbert", text || fallback);
+  adjustDim('hagrid', 'trust', 3);
+  if (STATE.relationships['ron']) STATE.relationships['ron'].met = true;
+
+  setTimeout(() => {
+    setChoices([
+      { text: '🐉 Help find a way to get Norbert out of the country', action: 'norbert_help_smuggle' },
+      { text: '← Head back — this is Hagrid\'s problem', action: 'day_menu' },
+    ]);
+  }, 1800);
+}
+
+async function sceneNorbertSmuggle(week) {
+  STATE.flags.push('NORBERT_GONE');
+  setLocation("🛖 Hagrid's Hut — Night");
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Operation: Norbert...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991, Week ${week}.
+Write 4 paragraphs. The operation to remove Norbert — now considerably larger and meaner — has come together. Charlie Weasley's friends from Romania are coming to collect him from the Astronomy Tower at midnight.
+Cover: the logistical absurdity of carrying a crate with a dragon in it up multiple staircases in the dark, Norbert trying to bite through the crate, making it up the Astronomy Tower, the Romanian handlers arriving on broomsticks and taking Norbert away into the dark.
+Include: the player seeing Norbert disappear into the night and feeling something complicated about it — Hagrid's heartbreak about letting him go, the relief, and then getting caught by McGonagall on the way back down with no explanation that can possibly sound innocent.
+Second person. Present tense. 180-200 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Norbert smuggled out, week ${week}.`, 550);
+  const fallback = `The crate weighs more than expected and Norbert keeps throwing himself against the sides of it, which does not help with the stairs. Four flights. Seven. The Astronomy Tower at midnight with a dragon.\n\nThe handlers arrive silently on broomsticks — four of them, competent and Romanian and apparently used to this sort of thing. They strap the crate between two of the brooms. Norbert bites through the crate at the last moment, gets one good look at the Scottish sky, and is gone.\n\nHagrid, down below, is quietly devastated. He loves that dragon.\n\nOn the way back down, there are footsteps. Then there is Professor McGonagall's voice, very controlled, wanting to know exactly what the three of you are doing in the Astronomy Tower at midnight. There is no answer that helps.`;
+
+  renderArrivalScene("🌙 Norbert is Gone", text || fallback);
+
+  // Consequences: detention, house points
+  STATE.flags.push('NORBERT_DETENTION_PENDING');
+  adjustHousePoints(STATE.player.house, -10, 'Out of bounds after curfew');
+  adjustDim('mcgonagall', 'trust', -8);
+  adjustDim('mcgonagall', 'respect', -5);
+
+  setTimeout(() => {
+    setChoices([
+      { text: 'Accept the detention — you knew the risks', action: 'day_menu' },
+    ]);
+    showToast('📋 Detention assigned — Forbidden Forest with Hagrid.', 5000);
+  }, 1800);
+}
+
+async function sceneNorbertForestDetention(week) {
+  if (!STATE.flags.includes('NORBERT_DETENTION_PENDING')) return;
+  STATE.flags.push('NORBERT_DETENTION_SERVED');
+  STATE.flags = STATE.flags.filter(f => f !== 'NORBERT_DETENTION_PENDING');
+
+  setLocation("🌲 Forbidden Forest — Detention");
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The forest...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write 3 paragraphs. The player is serving detention in the Forbidden Forest with Hagrid at night. The task is to find a wounded unicorn — something has been hurting them. The forest is dark and old and wrong.
+They find evidence: silver blood on the ground, glowing faintly. Hoofprints. Something has been drinking from a living unicorn — the most defenceless creature in the forest.
+Then: in a clearing ahead, something crouching over a unicorn. A cloaked figure. It looks up. The player cannot move.
+Firenze the centaur crashes through the trees toward it. The figure retreats into the dark.
+Firenze speaks. He says something about half-lives and the price of unicorn blood — that there is something walking the forest that should not be walking at all.
+End there. Leave the player with that.
+Second person. Present tense. 170-200 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'Norbert detention — Forbidden Forest, unicorn, cloaked figure.', 550);
+  const fallback = `The forest is different at night under obligation. The trees close in where they didn't before.\n\nHagrid leads with the lantern. The task is to find the unicorn — something has been hurting them, several found over the past weeks, and it should not be possible to hurt a unicorn. There are traces: silver on the soil, glowing faintly, hoofprints pressed deep in panic.\n\nThe clearing appears suddenly. The figure is crouched over the animal — and when it looks up, there is nothing beneath the hood that should be there. The player cannot move. Cannot breathe.\n\nFirenze comes through the trees at speed. The thing retreats. The centaur stands between you and where it was.\n\n"Unicorn blood," he says, when it is quiet. "Drink it and you will have half a life. A cursed life. Whatever is out there wants to live badly enough to pay that price." He looks at the sky. "Consider what that tells you about its situation."`;
+
+  renderArrivalScene("🌲 The Forest — What Drinks Unicorn Blood", text || fallback);
+
+  // Major lore unlock
+  STATE.flags.push('CLOAKED_FIGURE_SEEN');
+  STATE.flags.push('FIRENZE_TOLD_TRUTH');
+  STATE.quirrellSuspicion = Math.max(STATE.quirrellSuspicion || 0, 5);
+  learnKnowledge?.('history', 'unicorn_blood');
+  if (!STATE.relationships['firenze']) {
+    STATE.relationships['firenze'] = { met:true, trust:20, affection:5, respect:30, fear:0, rivalry:0, loyalty:0 };
+  }
+  adjustDim('hagrid', 'trust', 5);
+  adjustDim('hagrid', 'affection', 4);
+
+  setTimeout(() => {
+    setChoices([{ text: '← Walk back to the castle in silence', action: 'day_menu' }]);
+  }, 2200);
+}
+
+// ════════════════════════════════════════════════════════════
+// 2. FLUFFY / THIRD-FLOOR CORRIDOR
+// The locked door. Early discovery leads to Fluffy.
+// Available from Week 3 onward if player explores the
+// third floor corridor. One-time scene.
+// ════════════════════════════════════════════════════════════
+
+async function sceneFluffy() {
+  if (STATE.flags.includes('FLUFFY_ENCOUNTERED')) return;
+  STATE.flags.push('FLUFFY_ENCOUNTERED');
+
+  setLocation('⚠️ Third Floor — The Wrong Door');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The corridor...<span class="cursor-blink"></span></div>`);
+
+  const week    = STATE.currentWeek || 1;
+  const stealth = STATE.skills?.stealth || 10;
+  const courage = STATE.skills?.courage || 10;
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write 3 paragraphs. The player has gone through the wrong door on the third-floor corridor. They did not mean to. They hear something wrong immediately — breathing. Very large breathing. Three lots of it.
+Fluffy is a three-headed dog the size of a small house. All three heads turn toward the player simultaneously. The room smells of dog and something rotting. The dog fills most of the room. Its paws alone are the size of the player.
+The player does not move. One of the heads is curious. The second is deciding. The third is already decided.
+Then they notice: in the middle of the room, Fluffy is standing on a trapdoor. Flush to the floor. Hinged. Something beneath the school.
+They back out. They close the door. Their heart is still running.
+Courage ${courage}. ${courage >= 40 ? 'The player holds their nerve enough to clock the trapdoor.' : 'The player barely notices anything except the dog.'}
+Second person. Present tense. 130-160 words. End with the door closed and the corridor empty.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'Fluffy encounter — third floor corridor.', 420);
+  const fallback = `The breathing is what you hear first. Three lots of it, slightly out of sync, coming from the room you have just walked into.\n\nThe dog is enormous in the way that redefines your sense of the word. Three heads, three sets of eyes, three different assessments of you happening simultaneously. The room smells strongly of something you do not want to think about. One of the paws could cover your entire torso.\n\nNone of the heads moves. You do not move.\n\nThere is a trapdoor beneath it. You register this in the half-second before all three heads begin to turn your way — flush to the floor, hinged, heavy. Something is underneath the school.\n\nYou close the door. The corridor is empty. Your legs are not entirely reliable.`;
+
+  renderArrivalScene("⚠️ Three Heads", text || fallback);
+
+  // Lore unlock
+  learnKnowledge?.('arcane', 'trapdoor_beneath_school');
+  if (courage >= 40) STATE.flags.push('TRAPDOOR_NOTICED');
+  STATE.skills.courage = Math.min(100, (STATE.skills.courage||10) + 2);
+  updateSkills();
+
+  setTimeout(() => {
+    setChoices([
+      { text: courage >= 40 ? '🤔 Think about what was under the dog' : '← Get away from here', action: 'fluffy_debrief' },
+      { text: '← Back to the corridor', action: 'day_menu' },
+    ]);
+  }, 1800);
+}
+
+// ════════════════════════════════════════════════════════════
+// 3. HALLOWEEN TROLL — Real scene
+// Week 8, evening. Currently just starts combat immediately.
+// Now: a proper scene before combat, player choice matters.
+// ════════════════════════════════════════════════════════════
+
+async function sceneTrollHalloween() {
+  if (STATE.flags.includes('TROLL_ENCOUNTERED')) return;
+  STATE.flags.push('TROLL_ENCOUNTERED');
+
+  setLocation("🎃 Halloween — The Wrong Corridor");
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Halloween night...<span class="cursor-blink"></span></div>`);
+
+  const hermRel  = STATE.relationships['hermione']?.trust || 0;
+  const harRel   = STATE.relationships['harry']?.trust || 0;
+  const ronRel   = STATE.relationships['ron']?.trust || 0;
+  const hasKnownHermione = STATE.relationships['hermione']?.met;
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991, Halloween, Week 8.
+Write 3 paragraphs covering what has happened so far this evening: the feast (spectacular, candles and live bats), Quirrell bursting in to announce a troll is in the dungeon (visibly terrified, or performing terror), students evacuated, chaos in the corridors. Then — the player has gone the wrong way, or heard something, or followed. They are in a corridor that smells wrong. Something large. Something stupid and dangerous and twelve feet tall.
+The mountain troll fills the corridor ahead.
+${hasKnownHermione && hermRel >= 10 ? `The player knows Hermione — she is somewhere in this part of the castle. She cried earlier at dinner after Ron said something cruel. She doesn't know about the troll.` : ''}
+Harry and Ron are also here — they ran the wrong way too, or they ran the right way on purpose.
+End on the troll turning around and seeing everyone.
+Second person. Present tense. 150-180 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'Halloween troll — Week 8.', 500);
+  const fallback = `The Halloween feast is the finest thing the castle has produced. Then Quirrell runs in, hat askew, and says there is a troll in the dungeon in a voice that causes immediate panic.\n\nThe corridors are chaos. Prefects shouting. Students running. The player goes the wrong way, or the right way, depending on how you see it — down a corridor that smells of something large and damp and stupid and dangerous.\n\nThe troll is twelve feet tall and appears to be enjoying itself. It is currently destroying a classroom door with a wooden club the size of a small tree. Harry and Ron are pressed against the wall. From inside the bathroom: a sound. Someone who does not know there is a troll outside that door.\n\nThe troll turns around.`;
+
+  renderArrivalScene("🎃 The Troll", text || fallback);
+
+  setTimeout(() => {
+    setChoices([
+      { text: '⚡ Help distract it — Harry and Ron go for Hermione', action: 'troll_fight_assist' },
+      { text: '🏃 Run and get a prefect', action: 'troll_run' },
+      { text: '⚔️ Face it directly', action: 'troll_fight_direct' },
+    ]);
+  }, 1800);
+}
+
+// ════════════════════════════════════════════════════════════
+// 4. MEMORABLE CLASS MOMENTS
+// Specific sessions that fire unique AI scenes instead of
+// the standard lecture. Keyed by session ID.
+// ════════════════════════════════════════════════════════════
+
+const SPECIAL_CLASS_SESSIONS = {
+  // Transfiguration Session 1 — McGonagall the cat
+  'tf_1_1': {
+    flag: 'MCGONAGALL_CAT_SEEN',
+    scene: async (sess) => {
+      const sys = `Write 2 vivid paragraphs. The first Transfiguration class. The students file in. Professor McGonagall is nowhere to be seen — only a tabby cat sitting on the desk at the front, completely still, watching the door. Students are confused, then embarrassed to be confused. Then the cat becomes Professor McGonagall — mid-stride, seamlessly. She tells them this is what Transfiguration is. She has been animagus for thirty years. This is a performance of complete control. Second person. Present tense. 90-110 words.`;
+      return callClaude(sys, 'McGonagall transforms — first Transfiguration class.', 300);
+    },
+    fallback: `The tabby cat is sitting on the front desk when the class files in. Perfectly still. Watching.\n\nHalf the class sits down before anyone says anything. Then the cat stands up, stretches — and is Professor McGonagall, in one motion, without explanation. "That," she says, adjusting her robes, "is Transfiguration." She has been an Animagus for thirty years. She looks out at forty students trying to act as though this was what they expected. It was not what they expected.`,
+    relationship: () => { adjustDim('mcgonagall', 'respect', 4); adjustDim('mcgonagall', 'trust', 2); },
+  },
+
+  // Charms Session 5 — Wingardium Leviosa, Neville levitates himself
+  'ch_1_5': {
+    flag: 'WINGARDIUM_CLASS_SEEN',
+    scene: async (sess) => {
+      const nevRel = STATE.relationships['neville']?.trust || 0;
+      const sys = `Write 2 paragraphs. Charms class, learning Wingardium Leviosa. Students practice on feathers. Neville Longbottom — nervous, trying very hard — mispronounces the incantation, moves his wand incorrectly, and briefly levitates himself rather than the feather. He goes up about two feet and comes down hard. Flitwick is concerned but also visibly struggling not to laugh. Neville is mortified. The feather is fine. Second person. Present tense. 80-100 words. ${nevRel > 15 ? 'The player knows Neville — this moment lands differently.' : ''}`;
+      return callClaude(sys, 'Wingardium Leviosa — Neville levitates himself.', 280);
+    },
+    fallback: `The feathers are supposed to go up. Neville's does not. Neville goes up instead — two feet, briefly, with an expression of complete bewilderment — then comes down onto his chair with a crack that makes everyone wince.\n\nFlitwick rushes over. Neville is unhurt but occupying himself very thoroughly with not making eye contact with anyone. The feather is still on the desk. Flitwick, with admirable composure, notes that this is precisely why wand movement matters before incantation.`,
+    relationship: () => { adjustDim('neville', 'affection', 2); },
+  },
+
+  // Potions Session 1 — Snape's cross-examination
+  'po_1_1': {
+    flag: 'SNAPE_CROSSEXAM_SEEN',
+    scene: async (sess) => {
+      const blood = STATE.player.bloodStatus || 'half-blood';
+      const sys = `Write 3 paragraphs. First Potions class. Snape enters — no greeting, no pleasantries. Immediately begins asking questions: what is the difference between monkshood and wolfsbane? What would you get if you added powdered root of asphodel to an infusion of wormwood? What is the bezoar and where would you find one?
+Hermione's hand shoots up for every question. Snape ignores her.
+Then he looks at the player. He asks one of these questions directly. His voice is quiet and carries the specific weight of someone who has decided they already know the answer.
+${blood === 'muggle-born' ? 'He looks at Muggle-born students with a particular consideration, as if deciding how much to expect.' : ''}
+Second person. Present tense. 130-160 words. End with Snape moving on, having made his assessment.
+${buildStateContext()}`;
+      return callClaude(sys, 'Snape cross-examination — first Potions class.', 420);
+    },
+    fallback: `Snape does not introduce himself. He is simply there, at the front, in black.\n\n"There will be no wand-waving or silly incantations in this class," he says, and proceeds to ask questions about things no one has been taught yet. What is a bezoar? What is the difference between monkshood and wolfsbane? Hermione's hand is up at every pause. He ignores her. His eyes move across the room with the assessment of someone who has already formed opinions.\n\nThen they settle on the player.\n\nHe asks his question quietly. The classroom is very still. He listens to whatever answer comes, makes no indication of what he thinks of it, and moves on. His expression does not change. It was, somehow, not a good sign.`,
+    relationship: () => { adjustDim('snape', 'trust', -3); adjustDim('snape', 'respect', 5); adjustDim('hermione', 'trust', 3); },
+  },
+
+  // History of Magic Session 2 — Binns doesn't notice
+  'hm_1_2': {
+    flag: 'BINNS_ASLEEP_SEEN',
+    scene: async (sess) => {
+      const sys = `Write 2 paragraphs. History of Magic class with Professor Binns — a ghost who died in his armchair and simply got up and kept teaching, apparently without noticing. He drones. The subject matter is actually interesting if anyone were delivering it differently. By halfway through, several students are asleep. Then Binns himself slows. His voice drops. Trails off. There is a pause. He may have also fallen asleep. He has been dead for decades. The class sits in respectful silence, unsure of the etiquette. Second person. Present tense. 80-100 words.`;
+      return callClaude(sys, 'Binns possibly falls asleep mid-lecture.', 270);
+    },
+    fallback: `Binns's voice has one setting: the particular monotone of someone recounting things that happened centuries ago with the emotional distance of someone who was there. Which, possibly, he was.\n\nHe slows somewhere around the goblin rebellions. His voice drops a register. Then there is simply silence. The class waits. Binns may be pausing for emphasis. Binns may have fallen asleep. Binns is a ghost, which technically means he cannot sleep, but the evidence is ambiguous. Nobody moves. Nobody wants to be the one to find out.`,
+    relationship: () => {},
+  },
+};
+
+// Hook into openLectureScene to fire special sessions
+async function checkSpecialClassSession(sess) {
+  const special = SPECIAL_CLASS_SESSIONS[sess.id];
+  if (!special) return false;
+  if (STATE.flags.includes(special.flag)) return false;
+
+  STATE.flags.push(special.flag);
+  const text = await special.scene(sess);
+  const paras = (text || special.fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>📚 ${sess.topic}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  const body = document.getElementById('classBody');
+  if (body) {
+    body.innerHTML = narHtml;
+    setTimeout(() => body.querySelectorAll('.narrative-para')
+      .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
+  }
+  if (special.relationship) special.relationship();
+  return true;
+}
+
+// ═══════════════════════════════════════════════════════════
+// MEGA CONTENT PACK — Part 2
+// 5. Daily Prophet with real story weight
+// 6. Owl post from home made personal
+// 7. Relationship ripple effects
+// 8. Restricted section actual content
+// 9. Christmas gift exchange
+// 10. Alignment showing in scene writing
+// ═══════════════════════════════════════════════════════════
+
+// ════════════════════════════════════════════════════════════
+// 5. DAILY PROPHET — Canon event tracking
+// Each week the Prophet should reflect what is actually
+// happening in the world the player is living in.
+// ════════════════════════════════════════════════════════════
+
+const PROPHET_CANON_STORIES = {
+  1: {
+    headline: "GRINGOTTS VAULT BREAK-IN: NOTHING TAKEN",
+    body: "Ministry officials confirmed this week that a vault in Gringotts Wizarding Bank was broken into on 31 July — the same day it was emptied by Hogwarts staff. Investigators are at a loss to explain what the perpetrators were after, as the vault was already empty. A small figure in the WANTED column notes that anyone with information should contact the Ministry rather than investigate independently.",
+    category: 'news',
+  },
+  3: {
+    headline: "QUIDDITCH SEASON PREVIEW: GRYFFINDOR FIELD SURPRISE SEEKER",
+    body: "Oliver Wood, Gryffindor Quidditch captain, has declined to confirm rumours that a first-year student has been added to the team as Seeker. 'We'll see how the season goes,' Wood said, declining to elaborate. The last time a first-year played Seeker at Hogwarts was over a century ago.",
+    category: 'sport',
+  },
+  8: {
+    headline: "HALLOWEEN INCIDENT AT HOGWARTS: MINISTRY SATISFIED",
+    body: "A mountain troll entered Hogwarts on the evening of 31 October through means that remain under investigation. The troll was subdued by staff with no student fatalities. Headmaster Dumbledore declined to comment on how the troll breached the school's considerable protective enchantments. The Ministry has described the incident as 'resolved' and 'not requiring further inquiry at this time.'",
+    category: 'news',
+  },
+  10: {
+    headline: "GRYFFINDOR DEFEATS SLYTHERIN IN DRAMATIC OPENING MATCH",
+    body: "Harry Potter, 11, caught the Snitch in his mouth in a match that lasted approximately seven minutes. Slytherin captain Marcus Flint lodged a formal protest citing broomstick interference. The protest was dismissed. Potter was unavailable for comment.",
+    category: 'sport',
+  },
+  14: {
+    headline: "STRANGE MAGICAL DISTURBANCES REPORTED IN NORTHERN ENGLAND",
+    body: "Several Muggle-Worthy Excuse teams have been deployed to the Yorkshire Dales following reports of unexplained magical phenomena. The Ministry has declined to specify the nature of the incidents, describing them only as 'consistent with residual magical signatures from accidental Muggle contact.' Observers note this is the fourth such report in as many months.",
+    category: 'news',
+  },
+  20: {
+    headline: "UNICORN KILLINGS IN THE FORBIDDEN FOREST — THIRD THIS TERM",
+    body: "Hogwarts authorities confirmed a third unicorn has been found dead or severely wounded in the Forbidden Forest. Centaur clan representatives are said to be 'deeply disturbed.' The Ministry's Beast Division has opened an investigation. Unicorn blood, when consumed, is known to sustain life even at the point of death — at terrible cost.",
+    category: 'dark',
+  },
+  33: {
+    headline: "YEAR-END EXAMINATIONS BEGIN ACROSS BRITAIN",
+    body: "First through Fifth-Year students at Hogwarts and other magical institutions begin year-end assessments this week. The Wizarding Examinations Authority confirmed all examiners have been placed. OWL and NEWT candidates are reminded that scores will be available by owl by the first of August.",
+    category: 'education',
+  },
+};
+
+function getProphetStory(week) {
+  // Find the most recent canon story for this week or earlier
+  const weeks = Object.keys(PROPHET_CANON_STORIES).map(Number).sort((a,b) => b-a);
+  const bestWeek = weeks.find(w => w <= week);
+  return bestWeek ? PROPHET_CANON_STORIES[bestWeek] : null;
+}
+
+// Enriches the existing prophet modal with canon content
+function enrichProphetWithCanon(week) {
+  const story = getProphetStory(week);
+  if (!story) return '';
+  return `
+    <div class="prophet-canon-story">
+      <div class="prophet-story-category">${story.category.toUpperCase()}</div>
+      <div class="prophet-story-headline">${story.headline}</div>
+      <div class="prophet-story-body">${story.body}</div>
+    </div>`;
+}
+
+// ════════════════════════════════════════════════════════════
+// 6. OWL POST — Personal, specific, blood-status-aware
+// Upgrade: letters now reference actual game events.
+// ════════════════════════════════════════════════════════════
+
+function buildOwlPostContext(week) {
+  const flags = STATE.flags || [];
+  const events = [];
+
+  if (flags.includes('TROLL_ENCOUNTERED') && week <= 10)
+    events.push('There was a troll incident at Halloween — it made the papers. The family is worried.');
+  if (flags.includes('NORBERT_GONE') && week <= 24)
+    events.push('The family has heard a rumour that a student smuggled a dragon out of Hogwarts. They cannot imagine who would do such a thing.');
+  if ((STATE.detentionCount||0) >= 2)
+    events.push('Word of repeated detentions may have reached home. The family is diplomatically not mentioning it.');
+  if (flags.includes('FLUFFY_ENCOUNTERED'))
+    events.push('The player has clearly been in places they should not be. The family does not know this specifically but senses something in the letters.');
+  if (flags.includes('QUIDDITCH_MATCH_1') && week <= 12)
+    events.push('The Quidditch match result was reported in the Prophet. The family saw it.');
+  if (week >= 14 && week <= 17)
+    events.push('It is Christmas. The family is writing with specific plans, questions, or news from home.');
+  if (week >= 20 && flags.includes('UNICORN_DYING_SEEN'))
+    events.push('Something clearly shook the player. The family can feel it in their recent letters without knowing what it was.');
+
+  return events.slice(0, 2).join(' ');
+}
+
+// ════════════════════════════════════════════════════════════
+// 7. RELATIONSHIP RIPPLE EFFECTS
+// Social dynamics propagate — friends of friends warm,
+// enemies of enemies cool, group dynamics shift.
+// ════════════════════════════════════════════════════════════
+
+const RELATIONSHIP_RIPPLES = {
+  // If high trust with Harry → Ron and Hermione warm
+  harry: {
+    positive: [{ id:'ron', dim:'trust', weight:0.3 }, { id:'hermione', dim:'trust', weight:0.25 }],
+    negative: [{ id:'draco', dim:'rivalry', weight:0.4 }],
+  },
+  // If high trust with Draco → Crabbe, Goyle, Pansy warm; Harry, Ron, Hermione cool
+  draco: {
+    positive: [{ id:'pansy', dim:'trust', weight:0.4 }, { id:'blaise', dim:'trust', weight:0.3 }],
+    negative: [{ id:'harry', dim:'rivalry', weight:0.3 }, { id:'ron', dim:'rivalry', weight:0.25 }],
+  },
+  // Ron → Fred, George warm
+  ron: {
+    positive: [{ id:'fred', dim:'trust', weight:0.35 }, { id:'george', dim:'trust', weight:0.35 }],
+    negative: [],
+  },
+  // Hermione → trust with academic NPCs
+  hermione: {
+    positive: [{ id:'neville', dim:'trust', weight:0.2 }, { id:'harry', dim:'trust', weight:0.2 }],
+    negative: [],
+  },
+  // McGonagall → Dumbledore views player similarly
+  mcgonagall: {
+    positive: [{ id:'dumbledore', dim:'trust', weight:0.2 }, { id:'flitwick', dim:'trust', weight:0.2 }],
+    negative: [],
+  },
+};
+
+function applyRelationshipRipples() {
+  // Run weekly — called from advanceWeek
+  Object.entries(RELATIONSHIP_RIPPLES).forEach(([sourceId, ripple]) => {
+    const sourceRel = STATE.relationships[sourceId];
+    if (!sourceRel?.met) return;
+
+    const sourceTrust = sourceRel.trust || 0;
+    const sourceRivalry = sourceRel.rivalry || 0;
+
+    // Positive ripples from high trust
+    if (sourceTrust >= 40 && ripple.positive) {
+      ripple.positive.forEach(({ id, dim, weight }) => {
+        const rel = STATE.relationships[id];
+        if (!rel || !rel.met) return; // only affects NPCs the player has met
+        const delta = Math.round((sourceTrust - 40) * weight * 0.1);
+        if (delta > 0) {
+          rel[dim] = Math.min(100, (rel[dim] || 0) + delta);
+        }
+      });
+    }
+
+    // Negative ripples from high rivalry
+    if (sourceRivalry >= 30 && ripple.negative) {
+      ripple.negative.forEach(({ id, dim, weight }) => {
+        const rel = STATE.relationships[id];
+        if (!rel || !rel.met) return; // only affects NPCs the player has met
+        const delta = Math.round((sourceRivalry - 30) * weight * 0.1);
+        if (delta > 0) {
+          rel[dim] = Math.min(100, (rel[dim] || 0) + delta);
+        }
+      });
+    }
+  });
+}
+
+// ════════════════════════════════════════════════════════════
+// 8. RESTRICTED SECTION — Actual content
+// High Arcane Knowledge + Stealth gets you past the chain.
+// Three discoverable lore entries, chained.
+// ════════════════════════════════════════════════════════════
+
+async function sceneRestrictedSection() {
+  const arcane  = STATE.skills?.arcaneKnowledge || 10;
+  const stealth = STATE.skills?.stealth || 10;
+  const flags   = STATE.flags || [];
+
+  if (arcane < 25 && stealth < 30) {
+    setNarrative(`<div class="narrative-para">The chain across the restricted section is heavy and deliberate. Whatever is back there isn't meant for first-year eyes.</div>`);
+    setTimeout(() => setChoices([{ text: '← Leave', action: 'day_menu' }]), 800);
+    return;
+  }
+
+  // What's findable based on what's already been found
+  const entries = [
+    {
+      flag:    'RESTRICTED_HORCRUX_HINT',
+      reqFlag: null,
+      title:   'An Object of Singular Purpose',
+      sys:     `Write 2 paragraphs. A book in the Restricted Section — old, unchained, which is in itself suspicious. It discusses objects imbued with portions of a soul. The language is clinical and old and deeply wrong. The theory: if a soul were divided and anchored to physical objects, death could be circumvented. The book doesn't use the word Horcrux. The player doesn't know the word either. But the concept sits with them. Second person. Present tense. 70-90 words.`,
+      fallback:`The book is thin and old and the ink has gone brown. It is not chained, which is strange — the books worth chaining are obvious about it.\n\nIt discusses the soul as something that can be divided. Anchored. The language is very precise, which makes it worse. It describes a state of existence that is technically alive but in a way that no reasonable person would choose. The player puts it back exactly as they found it.`,
+      skill:   () => { STATE.skills.arcaneKnowledge = Math.min(100, (STATE.skills.arcaneKnowledge||10) + 3); },
+    },
+    {
+      flag:    'RESTRICTED_NICHOLAS_FLAMEL',
+      reqFlag: 'RESTRICTED_HORCRUX_HINT',
+      title:   'The Philosopher\'s Stone',
+      sys:     `Write 2 paragraphs. The player finds a reference to Nicolas Flamel — alchemist, known associate of Albus Dumbledore, creator of the only known Philosopher's Stone. The Stone produces the Elixir of Life. It makes the drinker immortal. The reference is in a book about notable alchemical achievements and is quite casual about it, as if it is not significant. The player notes: immortality. And something in the dungeons beneath the school, beneath a three-headed dog, that someone tried to steal from Gringotts. Second person. Present tense. 80-100 words.`,
+      fallback:`The name turns up in an index under Alchemy. Nicolas Flamel. Known associate of Dumbledore. Creator of the only known Philosopher's Stone — which produces an Elixir of Life. Immortality, essentially.\n\nThe player stands in the Restricted Section for a moment. The Gringotts vault. The locked door. The dog. The trapdoor. Something worth stealing from the most secure bank in Britain, now at Hogwarts. The dot connects itself without requiring further evidence.`,
+      skill:   () => { STATE.flags.push('FLAMEL_CONNECTION'); learnKnowledge?.('arcane', 'nicolas_flamel'); },
+    },
+    {
+      flag:    'RESTRICTED_DARK_OBJECTS',
+      reqFlag: null,
+      title:   'Dark Objects',
+      sys:     `Write 2 paragraphs. A catalogue of dark objects — not instructions, just descriptions. Cursed necklaces. Vanishing cabinets that connect distant locations. Objects imbued with malicious intent by their makers. The writing is dry and academic but the content is not. This is knowledge that changes what you understand to be possible. Second person. Present tense. 70-80 words.`,
+      fallback:`The catalogue is annotated. Previous readers have underlined things, added question marks, occasionally argued with the text in the margins. The objects it describes are not theoretical. They exist, somewhere, in the world.\n\nA necklace that will curse anyone who touches it except its owner. Cabinets that create a passage between two points in space. The player closes the catalogue and thinks about the difference between knowledge and use.`,
+      skill:   () => { STATE.skills.arcaneKnowledge = Math.min(100, (STATE.skills.arcaneKnowledge||10) + 2); },
+    },
+  ];
+
+  // Find first unlocked, undiscovered entry
+  const available = entries.filter(e =>
+    !flags.includes(e.flag) &&
+    (!e.reqFlag || flags.includes(e.reqFlag))
+  );
+
+  if (!available.length) {
+    setNarrative(`<div class="narrative-para">The restricted section has given up what it has to give — for now.</div>`);
+    setTimeout(() => setChoices([{ text: '← Leave', action: 'day_menu' }]), 800);
+    return;
+  }
+
+  const entry = available[0];
+  STATE.flags.push(entry.flag);
+
+  setLocation('📚 The Restricted Section');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The restricted section...<span class="cursor-blink"></span></div>`);
+
+  const text = await callClaude(entry.sys, `Restricted section: ${entry.title}.`, 280);
+  const paras = (text || entry.fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>📚 ${entry.title}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+  if (entry.skill) entry.skill();
+  updateSkills();
+
+  setTimeout(() => {
+    setChoices([
+      { text: 'Look for more', action: 'restricted_section_more' },
+      { text: '← Return to the library', action: 'day_menu' },
+    ]);
+  }, 1800);
+}
+
+// ════════════════════════════════════════════════════════════
+// 9. CHRISTMAS GIFT EXCHANGE
+// Fires on Christmas morning (Week 14-17, dow=1 = Monday)
+// for players who stayed at Hogwarts.
+// ════════════════════════════════════════════════════════════
+
+async function sceneChristmasGifts() {
+  if (STATE.flags.includes('CHRISTMAS_GIFTS_OPENED')) return;
+  if (STATE.currentWeek < 14 || STATE.currentWeek > 17) return;
+  STATE.flags.push('CHRISTMAS_GIFTS_OPENED');
+
+  const house  = STATE.player.house || 'Gryffindor';
+  const blood  = STATE.player.bloodStatus || 'half-blood';
+  const name   = STATE.player.firstName || 'the player';
+
+  // Determine who sent gifts based on relationships
+  const gifts = [];
+
+  // Family always sends something
+  const familyGift = blood === 'muggle-born'
+    ? { from: 'Your family', item: 'A box of Muggle sweets and a very long, very concerned letter', effect: 'gold', amount: { g:0, s:3, k:0 } }
+    : blood === 'pure-blood'
+    ? { from: 'Your family', item: 'A box of quality sweets and a copy of Which Broomstick', effect: 'gold', amount: { g:1, s:0, k:0 } }
+    : { from: 'Your family', item: 'A home-baked package and a warm letter with news from home', effect: 'gold', amount: { g:0, s:5, k:0 } };
+  gifts.push(familyGift);
+
+  // High-trust NPCs send gifts
+  const giftGivers = [
+    { id:'hagrid', threshold:25, item:'A box of rock cakes that are quite literally rocks and yet somehow edible' },
+    { id:'hermione', threshold:40, item:'A very useful book you hadn\'t thought to get yourself, with a sticky note on the most relevant page' },
+    { id:'ron', threshold:35, item:'A box of Chocolate Frogs from Mrs Weasley — Ron clearly had nothing to do with this but endorses it' },
+    { id:'neville', threshold:45, item:'A small Mimbulus mimbletonia cutting in a pot, with detailed care instructions in Neville\'s careful handwriting' },
+    { id:'harry', threshold:50, item:'A Gryffindor scarf in exactly the right colours, no card' },
+    { id:'luna', threshold:40, item:'A small illustrated guide to magical creatures that definitely don\'t exist, signed' },
+  ];
+
+  giftGivers.forEach(({ id, threshold, item }) => {
+    if ((STATE.relationships[id]?.trust || 0) >= threshold && STATE.relationships[id]?.met) {
+      gifts.push({ from: NPC_DATA[id]?.name || id, item });
+    }
+  });
+
+  setLocation(`🎄 ${house} Common Room — Christmas Morning`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Christmas morning...<span class="cursor-blink"></span></div>`);
+
+  const giftLines = gifts.map(g => `From ${g.from}: ${g.item}.`).join('\n');
+  const sys = `Write 2 paragraphs. Christmas morning in the ${house} common room. It is very quiet — only a few students stayed behind. The fire is lit early. The decorated trees are still up. The enchanted snow outside.
+The player wakes to find parcels at the foot of their bed. Write the feeling of opening them — specific, unhurried, genuinely warm.
+The gifts are: ${giftLines}
+Mention each gift naturally. Make it feel like each sender.
+Second person. Present tense. 100-120 words.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'Christmas morning gifts.', 350);
+  const defaultText = `The common room is lit by the fire and nothing else when you come down. Two other students from your year are already there, both holding mugs of something steaming, neither speaking.\n\nThe parcels are at the foot of the stairs. ${gifts.map(g => `${g.from} sent ${g.item}.`).join(' ')} You open them slowly. Outside, the enchanted snow falls on an empty castle that is, very briefly, entirely yours.`;
+
+  const paras = (text || defaultText).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🎄 Christmas Morning</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  // Apply family gift gold
+  if (familyGift.amount) addGold(familyGift.amount.g, familyGift.amount.s, familyGift.amount.k);
+
+  // Relationship warm from gift-givers
+  gifts.forEach(g => {
+    const npc = Object.values(NPC_DATA).find(n => n.name === g.from);
+    if (npc && STATE.relationships[npc.id]) {
+      adjustDim(npc.id, 'affection', 4);
+      adjustDim(npc.id, 'loyalty',   2);
+    }
+  });
+
+  setTimeout(() => {
+    setChoices([{ text: '🌨️ A quiet Christmas at Hogwarts', action: 'day_menu' }]);
+  }, 2000);
+}
+
+// ════════════════════════════════════════════════════════════
+// 10. ALIGNMENT IN SCENE WRITING
+// buildStateContext already passes darkPathStage but
+// we add specific behavioural notes that the AI can act on.
+// Also: NPCs notice. High-dark-path players get different
+// reactions woven into NPC scenes.
+// ════════════════════════════════════════════════════════════
+
+function buildAlignmentContext() {
+  const align = STATE.alignmentScore || 0;
+  const stage = STATE.darkPathStage || 0;
+  const flags = STATE.flags || [];
+
+  if (stage === 0 && align >= -10) return '';
+
+  const darkNotes = [];
+
+  if (stage >= 1) darkNotes.push('The player has used dark magic. Some NPCs sense something different about them without being able to name it.');
+  if (stage >= 2) darkNotes.push('McGonagall watches the player slightly longer than she used to. Dumbledore\'s warmth has a watchful quality.');
+  if (stage >= 3) darkNotes.push('Some animals are uneasy around the player. The familiar is more clingy. Neville looks at them sometimes with a look he quickly suppresses.');
+  if (stage >= 4) darkNotes.push('The player\'s reputation is beginning to shift. Certain students avoid them. Others are drawn to them for the wrong reasons.');
+  if (align <= -50) darkNotes.push('The player is on a genuinely dark path. This should be visible in how they move through scenes — not announced, just present.');
+
+  if (flags.includes('GREY_LADY_DIADEM_HINT') && stage >= 2)
+    darkNotes.push('The Grey Lady senses something in the player she finds familiar and deeply uncomfortable.');
+
+  return darkNotes.length ? `\nALIGNMENT NOTES (weave naturally, never state directly): ${darkNotes.join(' ')}` : '';
+}
+
+// House points live feedback — NPCs notice big swings
+function notifyHousePointSwing(house, delta, reason) {
+  const playerHouse = STATE.player.house || 'Gryffindor';
+  const isPlayerHouse = house === playerHouse;
+  const isRival = (playerHouse === 'Gryffindor' && house === 'Slytherin') ||
+                  (playerHouse === 'Slytherin' && house === 'Gryffindor');
+
+  if (Math.abs(delta) >= 20) {
+    if (isPlayerHouse && delta > 0) {
+      showToast(`⭐ +${delta} to ${house}. ${reason} Your common room will notice tonight.`, 4000);
+    } else if (isPlayerHouse && delta < 0) {
+      showToast(`${delta} from ${house}. ${reason} There will be looks in the corridor.`, 4000);
+    } else if (isRival && delta < 0) {
+      showToast(`${delta} from ${house}. ${reason} Good news for the House Cup.`, 3500);
+    }
+  }
+}
+
+// Skill gates that narrate competence
+function buildCompetenceContext() {
+  const skills = STATE.skills || {};
+  const notes = [];
+
+  if ((skills.stealth||0) >= 60) notes.push('STEALTH 60+: The player moves through spaces without announcing themselves. Scenes in restricted areas should reflect practiced ease, not tension.');
+  else if ((skills.stealth||0) >= 40) notes.push('STEALTH 40+: The player is careful but not invisible. They choose their moments.');
+
+  if ((skills.intellect||0) >= 70) notes.push('INTELLECT 70+: The player catches things quickly — connections, subtext, the answer before the question is finished.');
+
+  if ((skills.empathy||0) >= 60) notes.push('EMPATHY 60+: The player reads the room. They notice what people aren\'t saying.');
+
+  if ((skills.courage||0) >= 70) notes.push('COURAGE 70+: Fear is present but not controlling. The player moves toward things rather than away from them.');
+
+  if ((skills.luck||0) >= 70) notes.push('LUCK 70+: Things tend to resolve just slightly in this player\'s favour. Doors open. People look away at the right moment.');
+
+  return notes.length ? `\nSKILL COMPETENCE: ${notes.join(' ')}` : '';
+}
+
+// Shared scene renderer for arrival-chain-style scenes
+function renderArrivalScene(title, text) {
+  const paras = (text||'').split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${title}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 155));
+  }, 50);
+}
+
+// Returns true if the game is in a safe state to fire a timed scene
+// (not mid-combat, not in a modal, not in a class session)
+function isGameIdle() {
+  if (STATE.combatState?.active) return false;
+  if (STATE.chessGame?.active)   return false;
+  if (document.querySelector('.modal-overlay.open')) return false;
+  if (document.getElementById('classModal')?.classList.contains('open')) return false;
+  return true;
+}
+
+// ═══════════════════════════════════════════════════════════
+// COMBAT OVERHAUL
+// Fixes: status effect timing, Magical Power in formula,
+//        injury tiers, round log truncation, enemy action
+//        ordering, HP tracking
+// Polish: location context, spell power spread, enemy
+//         intelligence scaling, comeback mechanic, flee
+//         scene, victory variety, opening scene,
+//         post-combat relationship shifts
+// ═══════════════════════════════════════════════════════════
+
+// ── REPLACEMENT: resolveCombatRound ──────────────────────
+async function resolveCombatRound(type, id, actionLabel, actionDesc, spellData) {
+  const cs  = STATE.combatState;
+  const enc = cs.bossData;
+  const npc = cs.enemyId ? NPC_DATA[cs.enemyId] : null;
+
+  // ── Status effects: expire by ROUND, not wall-clock ──
+  // Each effect has { name, roundsLeft }
+  if (!cs.enemyEffectRounds) cs.enemyEffectRounds = {};
+  if (!cs.playerEffectRounds) cs.playerEffectRounds = {};
+
+  // Decrement active effects
+  cs.enemyEffects = cs.enemyEffects.filter(e => {
+    cs.enemyEffectRounds[e] = (cs.enemyEffectRounds[e] || 2) - 1;
+    if (cs.enemyEffectRounds[e] <= 0) { delete cs.enemyEffectRounds[e]; return false; }
+    return true;
+  });
+  cs.statusEffects = cs.statusEffects.filter(e => {
+    cs.playerEffectRounds[e] = (cs.playerEffectRounds[e] || 2) - 1;
+    if (cs.playerEffectRounds[e] <= 0) { delete cs.playerEffectRounds[e]; return false; }
+    return true;
+  });
+
+  // ── Boss: spell deflection ────────────────────────────
+  if (enc?.spellDeflection && type === 'spell'
+      && !['protego','finite_incantatem'].includes(id)) {
+    const deflect = enc.spellDeflectionNote || 'Your spell slides off him.';
+    cs.log.push({ round: cs.round, type: 'bad', text: deflect });
+    cs.momentum = Math.max(-3, cs.momentum - 1);
+    cs.round++;
+    await renderCombatPanel({ type: 'bad', text: deflect });
+    await checkCombatEnd();
+    return;
+  }
+
+  // ── Skill checks — now includes Magical Power ─────────
+  const playerDuel  = STATE.skills?.dueling      || 10;
+  const playerMagic = STATE.skills?.magicalPower  || 10;
+  const playerLuck  = STATE.skills?.luck          || 10;
+  // Enemy scaling: use actual NPC dueling if available
+  const enemyDuel   = npc?.skills?.dueling || enc?.enemyDuel || 50;
+
+  const spellPower  = spellData?.power || 2;
+  // Spell power now has 8× multiplier — meaningful spread
+  // Magical Power contributes alongside Dueling
+  const base = (playerDuel * 0.6) + (playerMagic * 0.3)
+    - (enemyDuel * 0.4)
+    + 20
+    + (playerLuck * 0.15)
+    + (spellPower * 8);
+
+  const roll         = Math.random() * 100;
+  const successChance = Math.max(8, Math.min(92, base));
+  const success      = roll < successChance;
+  const critical     = roll < successChance * 0.2;
+  const critFail     = roll > 97;
+
+  // ── Status effects on enemy ──────────────────────────
+  if (success && spellData?.effect) {
+    const stickyEffects = ['disarm','stun','silence','restrain','sleep','confuse','slow','burn'];
+    if (stickyEffects.includes(spellData.effect)
+        && !cs.enemyEffects.includes(spellData.effect)) {
+      cs.enemyEffects.push(spellData.effect);
+      // Round duration: critical gives +1 round
+      cs.enemyEffectRounds[spellData.effect] = critical ? 3 : 2;
+    }
+  }
+
+  // ── Player protection ─────────────────────────────────
+  const playerProtected = (type === 'action' && id === 'dodge')
+    || (type === 'spell' && id === 'protego');
+
+  // Enemy stunned/silenced/disarmed — cannot act
+  const enemyDisabled = cs.enemyEffects.some(e =>
+    ['stun','silence','disarm','restrain','sleep'].includes(e));
+
+  // ── Enemy hit calculation ─────────────────────────────
+  const roundRisk  = enc?.rounds?.[cs.round - 1]?.damageRisk || 'moderate';
+  const enemyHits  = !playerProtected && !enemyDisabled && Math.random() > 0.45;
+
+  // ── Momentum delta ────────────────────────────────────
+  let momentumDelta = 0;
+  if (success && critical)   momentumDelta = 2;
+  else if (success)          momentumDelta = 1;
+  else if (critFail)         momentumDelta = -2;
+  else                       momentumDelta = -1;
+
+  if (enemyHits && roundRisk === 'serious') momentumDelta -= 1;
+  if (playerProtected && !success)          momentumDelta += 1;
+  if (enemyDisabled && !enemyHits)          momentumDelta += 1; // bonus for disabling
+
+  const momFloor = typeof courageMomentumFloor === 'function'
+    ? courageMomentumFloor() : -3;
+  cs.momentum = Math.max(momFloor, Math.min(3, cs.momentum + momentumDelta));
+
+  // ── Player injury (tiered, not automatic Hospital Wing) ─
+  if (enemyHits) {
+    const injRoll = Math.random();
+    if (roundRisk === 'serious' && cs.momentum <= -2 && injRoll > 0.7) {
+      if (!cs.statusEffects.includes('injured')) {
+        cs.statusEffects.push('injured');
+        cs.playerEffectRounds['injured'] = 99; // lasts rest of fight
+      }
+    } else if (cs.momentum <= -3 && injRoll > 0.6) {
+      if (!cs.statusEffects.includes('shaken')) {
+        cs.statusEffects.push('shaken');
+        cs.playerEffectRounds['shaken'] = 2;
+      }
+    }
+  }
+
+  // ── HP tracking — now actually decrements ────────────
+  if (enemyHits) {
+    const dmg = roundRisk === 'serious' ? 20 : roundRisk === 'moderate' ? 12 : 6;
+    cs.playerHP = Math.max(0, (cs.playerHP || 100) - dmg);
+  }
+  if (success) {
+    const eDmg = critical ? spellPower * 12 : spellPower * 6;
+    cs.enemyHP = Math.max(0, (cs.enemyHP || 100) - eDmg);
+  }
+
+  // ── Comeback option at momentum -2 ───────────────────
+  if (cs.momentum <= -2 && !cs.comebackUsed) {
+    cs.comebackAvailable = true;
+  }
+
+  // ── Remove potion from inventory ─────────────────────
+  if (type === 'potion' && id) {
+    STATE.inventory = STATE.inventory.filter(i => i.id !== id);
+    updateInventory();
+  }
+
+  // ── Location context for AI ──────────────────────────
+  const locId = STATE.currentLocation || '';
+  const locData = LOCATION_DATA[locId] || {};
+  const locContext = locId && locData.name
+    ? `LOCATION: ${locData.name}. ${locData.blurb || ''}. The environment should be used where possible.`
+    : '';
+
+  // ── Enemy action — generated AFTER status effects ────
+  // (so AI knows if they're stunned/silenced this round)
+  let enemyActionThisRound = '';
+  if (enc?.rounds?.[cs.round - 1]) {
+    enemyActionThisRound = enemyDisabled
+      ? `${cs.enemyName} cannot act — ${cs.enemyEffects.join(', ')}.`
+      : enc.rounds[cs.round - 1].enemyAction;
+  } else {
+    enemyActionThisRound = enemyDisabled
+      ? `${cs.enemyName} cannot act this round — ${cs.enemyEffects.join(', ')}.`
+      : `${cs.enemyName} retaliates.`;
+  }
+
+  // ── AI narrative ──────────────────────────────────────
+  const mom = getMomentumLabel(cs.momentum);
+  const enemyPersona = cs.enemyId ? (NPC_PERSONAS[cs.enemyId] || '') : cs.enemyName;
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Narrate ONE round of combat. 65-85 words. Second person, present tense.
+Enemy: ${cs.enemyName}. Round ${cs.round}/${cs.maxRounds}.
+Player action: ${actionLabel}${actionDesc ? ' — ' + actionDesc : ''}.
+Result: ${critical ? 'CRITICAL SUCCESS — decisive, dramatic' : success ? 'success' : critFail ? 'CRITICAL FAIL — something goes badly wrong' : 'failure'}.
+Enemy action: ${enemyActionThisRound}
+Enemy hit player: ${enemyHits ? 'yes — ' + roundRisk + ' level' : 'no — avoided or blocked'}.
+Momentum: ${mom.label} (${cs.momentum > 0 ? 'player ahead' : cs.momentum < 0 ? 'player behind' : 'even'}).
+Player HP: ${cs.playerHP || 100}/100. Enemy HP: ${cs.enemyHP || 100}/100.
+Enemy effects: ${cs.enemyEffects.join(', ') || 'none'}.
+Player effects: ${cs.statusEffects.join(', ') || 'none'}.
+Enemy character: ${enemyPersona.slice(0, 100)}
+${locContext}
+${cs.comebackAvailable && !cs.comebackUsed ? 'The player is at a desperate disadvantage. Something bold must change.' : ''}
+Keep it tight and vivid. The fight is not over.`;
+
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>⚔ Round ${cs.round}...<span class="cursor-blink"></span></div>`);
+  const narrative = await callClaude(sys, `Combat round ${cs.round}.`, 260);
+  const roundText = narrative
+    || (success ? `${actionLabel} connects.` : `${actionLabel} misses.`);
+
+  // ── Full log entry — no truncation ───────────────────
+  cs.log.push({ round: cs.round, type: success ? 'good' : 'bad', text: roundText });
+  cs.round++;
+
+  await checkCombatEnd(roundText);
+}
+
+// ── REPLACEMENT: checkCombatEnd ──────────────────────────
+async function checkCombatEnd(lastRoundText = '') {
+  const cs  = STATE.combatState;
+  const enc = cs.bossData;
+
+  const outOfRounds    = cs.round > cs.maxRounds;
+  const playerDominant = cs.momentum >= 3 && !cs.scripted;
+  const playerDefeated = cs.momentum <= -3;
+  const bossFinalRound = cs.scripted && cs.round > cs.maxRounds;
+
+  // HP-based end condition for non-scripted duels
+  const enemyKOd  = !cs.scripted && (cs.enemyHP || 100) <= 0;
+  const playerKOd = (cs.playerHP || 100) <= 0;
+
+  if (playerDefeated || playerKOd) {
+    await resolveCombatDefeat(lastRoundText);
+  } else if (playerDominant || enemyKOd) {
+    const reason = cs.momentum >= 3 ? 'dominated' : 'hp_depleted';
+    await resolveCombatVictory(reason, 'You wore them down completely.');
+  } else if (outOfRounds && !cs.scripted) {
+    // Time ran out — who's ahead?
+    if (cs.momentum > 0) {
+      await resolveCombatVictory('narrow', 'You held the advantage to the end.');
+    } else if (cs.momentum < 0) {
+      await resolveCombatDefeat(lastRoundText);
+    } else {
+      await resolveCombatStalemate(lastRoundText);
+    }
+  } else if (bossFinalRound) {
+    if (enc?.scriptedOutcome === 'survive') {
+      await resolveCombatDefeat(lastRoundText, true);
+    }
+  } else {
+    // Fight continues — show comeback option if applicable
+    await renderCombatPanel({
+      type: cs.momentum >= 0 ? 'good' : 'bad',
+      text: lastRoundText,
+      showComeback: cs.comebackAvailable && !cs.comebackUsed,
+    });
+  }
+}
+
+// ── NEW: resolveCombatStalemate ───────────────────────────
+async function resolveCombatStalemate(flavourText) {
+  const cs = STATE.combatState;
+  const sys = `Write 2 short paragraphs. A duel has ended in a draw — neither side won, neither lost decisively. Both participants lower their wands. The tension dissipates into something uncomfortable. Second person. Present tense. 60-80 words.`;
+  const text = await callClaude(sys, 'Combat stalemate.', 220)
+    || `${flavourText}\n\nNeither of you has it. The moment passes, held in that uncertain space where the fight ends not with victory but with a mutual agreement to stop.`;
+  const paras = text.split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>═ Draw</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
+  await endCombat('stalemate');
+}
+
+// ── REPLACEMENT: resolveCombatVictory ────────────────────
+async function resolveCombatVictory(reason, flavourText) {
+  const cs  = STATE.combatState;
+  const enc = cs.bossData;
+
+  // Victory narrative varies by how it was won
+  const reasonContext = {
+    dominated:   'The player was dominant throughout — never seriously threatened.',
+    narrow:      'It was close. The player held a slim advantage that paid off at the end.',
+    puzzle:      'The player found the specific solution — not power, but perception.',
+    special:     'An unconventional action turned the fight.',
+    hp_depleted: 'The enemy ran out of stamina before the player did.',
+  }[reason] || flavourText;
+
+  const winText = enc?.winNarrative || flavourText;
+  const locId = STATE.currentLocation || '';
+  const locData = LOCATION_DATA[locId] || {};
+  const locContext = locData.name ? `Location: ${locData.name}.` : '';
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write the end of a combat encounter. The player won.
+Enemy: ${cs.enemyName}. ${reasonContext}
+${locContext}
+2 short paragraphs. Vivid, specific, earned. The relief or satisfaction should feel proportional to how close or decisive it was.
+Second person, present tense. 80-100 words.`;
+
+  const narrative = await callClaude(sys, 'Combat victory.', 280);
+  const text = narrative || winText;
+
+  const paras = text.split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>⚡ Victory</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
+
+  // Aftermath
+  if (enc?.aftermath?.win) {
+    const aft = enc.aftermath.win;
+    if (aft.relationship) {
+      Object.entries(aft.relationship).forEach(([id, dims]) => {
+        Object.entries(dims).forEach(([dim, val]) => adjustDim(id, dim, val));
+      });
+    }
+    if (aft.injury) sendToHospitalWing(aft.injury, `${cs.enemyName} encounter`);
+  }
+
+  // Post-combat relationship shift for NPC duels
+  if (!cs.scripted && cs.enemyId && STATE.relationships[cs.enemyId]) {
+    adjustDim(cs.enemyId, 'respect',  3);   // they respect that you won
+    adjustDim(cs.enemyId, 'rivalry',  4);   // but rivalry increases
+    adjustDim(cs.enemyId, 'trust',   -2);   // trust takes a hit
+    if (cs.context === 'unprovoked') {
+      adjustAlignment(-5);
+      showToast('⚠ Unprovoked duelling — alignment shifted.', 3000);
+    }
+  }
+
+  if (enc?.npcDeath && NPC_DATA[enc.npcDeath]) {
+    await killNpc(enc.npcDeath, enc.npcDeathCause, false, 'boss', 'none');
+  }
+
+  updateRelationshipSidebar();
+  await endCombat('win');
+}
+
+// ── REPLACEMENT: resolveCombatDefeat ─────────────────────
+async function resolveCombatDefeat(flavourText, scripted = false) {
+  const cs  = STATE.combatState;
+  const enc = cs.bossData;
+
+  const loseText = enc?.loseNarrative || `${cs.enemyName} overwhelms you.`;
+  const locId = STATE.currentLocation || '';
+  const locData = LOCATION_DATA[locId] || {};
+  const locContext = locData.name ? `Location: ${locData.name}.` : '';
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write the end of a combat encounter. Player lost${scripted ? ' (scripted — they survive)' : ''}.
+Enemy: ${cs.enemyName}. ${flavourText}
+${locContext}
+2 short paragraphs. Not death — incapacitation, retreat, or being overpowered. The humiliation or pain should feel proportional. Second person, present tense. 80-100 words.`;
+
+  const narrative = await callClaude(sys, 'Combat defeat.', 280);
+  const text = narrative || loseText;
+
+  const paras = text.split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>⚔ Defeated</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
+
+  // Tiered injury — not everything sends to Hospital Wing
+  const playerHP = cs.playerHP || 100;
+  const momentum = cs.momentum;
+  if (!scripted) {
+    if (enc?.aftermath?.lose?.injury) {
+      setTimeout(() => sendToHospitalWing(enc.aftermath.lose.injury, `${cs.enemyName} encounter`), 2000);
+    } else if (momentum <= -3 && playerHP <= 30) {
+      setTimeout(() => sendToHospitalWing('serious', `${cs.enemyName} encounter`), 2000);
+    } else if (momentum <= -2) {
+      // Minor injury — no Hospital Wing, just AP loss
+      STATE.dailyAP = Math.max(0, (STATE.dailyAP || 0) - 1);
+      updateDayStatusBar();
+      showToast('⚕ You were hurt, but not badly enough for the Hospital Wing.', 3500);
+    } else {
+      // Narrow defeat — just shaken
+      STATE.playerMood = 'stressed';
+      updateDayStatusBar();
+    }
+  } else {
+    if (enc?.aftermath?.lose?.injury) {
+      setTimeout(() => sendToHospitalWing(enc.aftermath.lose.injury, `${cs.enemyName} encounter`), 2000);
+    }
+  }
+
+  // Post-combat NPC relationship
+  if (!cs.scripted && cs.enemyId && STATE.relationships[cs.enemyId]) {
+    adjustDim(cs.enemyId, 'rivalry', 6);
+    if (cs.context === 'unprovoked') {
+      adjustAlignment(-8);
+      showToast(`${cs.enemyName} won. This will be remembered.`, 3500);
+    }
+  }
+
+  updateRelationshipSidebar();
+  await endCombat('lose');
+}
+
+// ── REPLACEMENT: attemptFlee — generates a scene ─────────
+async function attemptFlee() {
+  const cs = STATE.combatState;
+  if (!cs.allowEscape) {
+    showToast('There is no way out of here.', 2500);
+    return;
+  }
+  const stealth = STATE.skills?.stealth || 10;
+  const luck    = STATE.skills?.luck    || 10;
+  const chance  = Math.min(80, Math.max(15, stealth * 0.6 + luck * 0.3 + 10));
+  const success = Math.random() * 100 < chance;
+
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>🏃 Fleeing...<span class="cursor-blink"></span></div>`);
+
+  const locId = STATE.currentLocation || '';
+  const locData = LOCATION_DATA[locId] || {};
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 2 short paragraphs describing a player attempting to flee from ${cs.enemyName}.
+Location: ${locData.name || 'Hogwarts'}.
+Result: ${success ? 'SUCCESS — they get away. The sound of the fight fades behind them. Relief and embarrassment in equal measure.' : 'FAILURE — they cannot escape. The exit is cut off. They lose ground.'}
+Second person, present tense. 60-80 words. Make the geography specific.`;
+
+  const text = await callClaude(sys, `Flee attempt — ${success ? 'success' : 'fail'}.`, 220);
+  const fallback = success
+    ? `You break left, find an opening, and go through it at full speed. The corridor swallows you. The sound of the encounter fades.\n\nYou stop somewhere quieter, breathing hard. You are out.`
+    : `The exit you were aiming for isn't there — or they anticipated it. You lose a step, lose the ground you needed. There is no clean way out of this.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🏃 ${success ? 'Away' : 'Caught'}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*150)), 50);
+
+  if (success) {
+    if (cs.bossData?.fleeConsequence?.missedBond) {
+      setTimeout(() => showToast('You missed something important by leaving.', 3500), 1500);
+    }
+    setTimeout(() => endCombat('flee'), 2000);
+  } else {
+    cs.momentum = Math.max(-3, cs.momentum - 1);
+    setTimeout(() => renderCombatPanel({ type: 'bad', text: 'Escape failed — you lose ground.' }), 2000);
+  }
+}
+
+// ── REPLACEMENT: renderCombatPanel — with comeback + HP ──
+async function renderCombatPanel(pendingResult = null) {
+  const cs = STATE.combatState;
+  if (!cs?.active) return;
+
+  const mom     = getMomentumLabel(cs.momentum);
+  const spells  = getCombatSpells();
+  const potions = getCombatPotions();
+
+  const roundLabel = cs.round > cs.maxRounds ? 'Final Round'
+    : `Round ${cs.round} of ${cs.maxRounds}`;
+
+  // Enemy action generated AFTER status effects expire (status effects
+  // already decremented at top of resolveCombatRound before this renders)
+  const enemyDisabled = (cs.enemyEffects || []).some(e =>
+    ['stun','silence','disarm','restrain','sleep'].includes(e));
+
+  let enemyActionText = '';
+  if (cs.bossData?.rounds?.[cs.round - 1] && !enemyDisabled) {
+    enemyActionText = cs.bossData.rounds[cs.round - 1].enemyAction;
+  } else if (enemyDisabled) {
+    enemyActionText = `${cs.enemyName} is ${cs.enemyEffects.join(', ')} — cannot act this round.`;
+  } else if (cs.enemyId && NPC_DATA[cs.enemyId]) {
+    const npc     = NPC_DATA[cs.enemyId];
+    const persona = NPC_PERSONAS[cs.enemyId] || '';
+    const locData = LOCATION_DATA[STATE.currentLocation || ''] || {};
+    const sys = `Write ONE sentence: what ${npc.name} does in round ${cs.round} of a duel.
+Momentum: ${mom.label}. Effects on them: ${cs.enemyEffects.join(', ')||'none'}.
+Location: ${locData.name || 'unknown'}. ${persona.slice(0,80)}
+Present tense. Vivid. No dialogue.`;
+    enemyActionText = await callClaude(sys, 'Enemy action.', 80)
+      || `${npc.name} raises their wand.`;
+  }
+
+  // HP bars
+  const playerHPPct = Math.max(0, cs.playerHP || 100);
+  const enemyHPPct  = Math.max(0, cs.enemyHP  || 100);
+  const hpColour = (pct) => pct > 60 ? '#5a9e6f' : pct > 30 ? '#c08855' : '#b85555';
+
+  // Spell buttons
+  const spellBtns = spells.length
+    ? spells.map(s => `
+      <button class="combat-action-btn spell ${s.type}" onclick="executeCombatAction('spell','${s.id}')">
+        <span class="ca-icon">${s.icon}</span>
+        <span class="ca-label">${s.label}</span>
+        <span class="ca-power">${'●'.repeat(Math.min(s.power,5))}</span>
+        <span class="ca-desc">${s.desc}</span>
+      </button>`).join('')
+    : '<div class="combat-no-spells">No combat spells learned yet.</div>';
+
+  const potionBtns = potions.length
+    ? potions.map(p => `
+      <button class="combat-action-btn potion ${p.type}" onclick="executeCombatAction('potion','${p.id}')">
+        <span class="ca-icon">${p.icon}</span>
+        <span class="ca-label">${p.label}</span>
+        <span class="ca-desc">${p.desc}</span>
+      </button>`).join('')
+    : '<div class="combat-no-spells">No usable potions carried.</div>';
+
+  const actionBtns = Object.entries(COMBAT_ACTIONS)
+    .filter(([key]) => key !== 'flee' || cs.allowEscape)
+    .map(([key, a]) => `
+      <button class="combat-action-btn action" onclick="executeCombatAction('action','${key}')">
+        <span class="ca-icon">${a.icon}</span>
+        <span class="ca-label">${a.label}</span>
+        <span class="ca-desc">${a.desc}</span>
+      </button>`).join('');
+
+  // Comeback button
+  const comebackBtn = (pendingResult?.showComeback || (cs.comebackAvailable && !cs.comebackUsed))
+    ? `<button class="combat-comeback-btn" onclick="useComebackMove()">
+        ⚡ Last resort — one desperate move
+       </button>` : '';
+
+  // Status tags
+  const playerEffects = (cs.statusEffects||[]).length
+    ? cs.statusEffects.map(e => `<span class="combat-status-tag player">${e} (${cs.playerEffectRounds?.[e]||'?'}r)</span>`).join('')
+    : '';
+  const enemyEffects = (cs.enemyEffects||[]).length
+    ? cs.enemyEffects.map(e => `<span class="combat-status-tag enemy">${e} (${cs.enemyEffectRounds?.[e]||'?'}r)</span>`).join('')
+    : '';
+
+  // Round log — full text, most recent 3
+  const logHtml = (cs.log||[]).slice(-3).map(entry => `
+    <div class="combat-log-entry ${entry.type}">
+      <span class="log-round">R${entry.round}</span>
+      <span class="log-text">${entry.text}</span>
+    </div>`).join('');
+
+  const resultHtml = pendingResult && pendingResult.text ? `
+    <div class="combat-result-flash ${pendingResult.type}">
+      ${pendingResult.text}
+    </div>` : '';
+
+  const panelHtml = `
+<div class="combat-panel" id="combatPanel">
+  <!-- Enemy header -->
+  <div class="combat-enemy-bar">
+    <div class="combat-enemy-identity">
+      <span class="combat-enemy-icon">${cs.enemyIcon}</span>
+      <div>
+        <div class="combat-enemy-name">${cs.enemyName}</div>
+        <div class="combat-round-label">${roundLabel}</div>
+      </div>
+    </div>
+    <div class="combat-momentum-track">
+      <div class="momentum-label" style="color:${mom.colour}">${mom.icon} ${mom.label}</div>
+      <div class="momentum-bar">
+        ${[...Array(7)].map((_,i) => {
+          const pos = i - 3;
+          const filled = cs.momentum >= 0 ? (pos <= cs.momentum && pos >= 0)
+                                          : (pos >= cs.momentum && pos <= 0);
+          const isCenter = pos === 0;
+          return `<div class="momentum-pip ${filled?'filled':''} ${isCenter?'center':''}"
+            style="${filled?`background:${mom.colour}`:''}"></div>`;
+        }).join('')}
+      </div>
+    </div>
+  </div>
+
+  <!-- HP bars -->
+  <div class="combat-hp-row">
+    <div class="combat-hp-block">
+      <span class="combat-hp-label">You</span>
+      <div class="combat-hp-bar-bg">
+        <div class="combat-hp-bar-fill" style="width:${playerHPPct}%;background:${hpColour(playerHPPct)}"></div>
+      </div>
+      <span class="combat-hp-num">${playerHPPct}</span>
+    </div>
+    <div class="combat-hp-block">
+      <span class="combat-hp-label">${cs.enemyName.split(' ')[0]}</span>
+      <div class="combat-hp-bar-bg">
+        <div class="combat-hp-bar-fill" style="width:${enemyHPPct}%;background:${hpColour(enemyHPPct)}"></div>
+      </div>
+      <span class="combat-hp-num">${enemyHPPct}</span>
+    </div>
+  </div>
+
+  ${enemyEffects ? `<div class="combat-effects-bar enemy-effects">${enemyEffects}</div>` : ''}
+
+  <!-- Enemy action -->
+  <div class="combat-enemy-action">
+    <span class="combat-enemy-action-label">⚔ This round</span>
+    <span class="combat-enemy-action-text">${enemyActionText}</span>
+    ${playerEffects ? `<div class="combat-effects-bar player-effects">${playerEffects}</div>` : ''}
+  </div>
+
+  ${resultHtml}
+  ${comebackBtn}
+  ${logHtml ? `<div class="combat-log">${logHtml}</div>` : ''}
+
+  <!-- Action tabs -->
+  <div class="combat-tabs">
+    <button class="combat-tab active" onclick="switchCombatTab('spells',this)">⚡ Spells</button>
+    <button class="combat-tab" onclick="switchCombatTab('potions',this)">🧪 Potions</button>
+    <button class="combat-tab" onclick="switchCombatTab('actions',this)">🤸 Actions</button>
+    <button class="combat-tab" onclick="switchCombatTab('freeform',this)">✍ Write it</button>
+  </div>
+
+  <div class="combat-action-grid" id="combatActionGrid">
+    <div class="combat-tab-pane active" id="tab-spells">
+      <div class="combat-spell-grid">${spellBtns}</div>
+    </div>
+    <div class="combat-tab-pane" id="tab-potions">
+      <div class="combat-spell-grid">${potionBtns}</div>
+    </div>
+    <div class="combat-tab-pane" id="tab-actions">
+      <div class="combat-spell-grid">${actionBtns}</div>
+    </div>
+    <div class="combat-tab-pane" id="tab-freeform">
+      <div class="combat-freeform">
+        <div class="combat-freeform-note">Describe your action. The world will respond.</div>
+        <textarea class="combat-freeform-input" id="combatFreeInput"
+          placeholder="I try to levitate the troll's club..."></textarea>
+        <button class="combat-freeform-btn" onclick="executeCombatAction('freeform',null)">
+          → Act
+        </button>
+      </div>
+    </div>
+  </div>
+</div>`;
+
+  setLocation(`⚔ ${cs.enemyName}`);
+  setNarrative(panelHtml);
+  setChoices([]);
+  showFreeInput(false);
+}
+
+// ── NEW: Combat opening scene ─────────────────────────────
+async function sceneCombatOpening(cs) {
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>⚔ ${cs.enemyName}...<span class="cursor-blink"></span></div>`);
+  setChoices([]); showFreeInput(false);
+
+  const npc = cs.enemyId ? NPC_DATA[cs.enemyId] : null;
+  const locId = STATE.currentLocation || '';
+  const locData = LOCATION_DATA[locId] || {};
+  const persona = cs.enemyId ? (NPC_PERSONAS[cs.enemyId] || '') : '';
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 2 short paragraphs describing a combat encounter BEGINNING — not the first action, just the moment before.
+Enemy: ${cs.enemyName}. ${cs.bossData?.description || (npc ? npc.bio?.slice(0,120) : '')}
+Location: ${locData.name || 'Hogwarts'}. ${locData.blurb || ''}
+Context: ${cs.context || 'confrontation'}.
+${persona.slice(0,100)}
+Second person, present tense. 70-90 words. End on the moment the fight is about to begin.
+Do NOT show anyone casting a spell yet.`;
+
+  const text = await callClaude(sys, `Combat opening: ${cs.enemyName}.`, 240);
+  const fallback = cs.bossData?.context
+    || `${cs.enemyName} is in front of you.\n\nThe distance between you is wrong. Too close. You raise your wand.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>⚔ ${cs.enemyName}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*155)), 50);
+
+  // Brief pause then show combat panel
+  await new Promise(r => setTimeout(r, 2200));
+}
+
+// ── NEW: Comeback mechanic ────────────────────────────────
+async function useComebackMove() {
+  const cs = STATE.combatState;
+  if (!cs?.active || cs.comebackUsed) return;
+  cs.comebackUsed = true;
+  cs.comebackAvailable = false;
+
+  const courage = STATE.skills?.courage || 10;
+  const magic   = STATE.skills?.magicalPower || 10;
+  const roll    = Math.random() * 100;
+  // High-risk: better chance than a normal spell but with real downside on fail
+  const success = roll < Math.min(75, 30 + (courage * 0.3) + (magic * 0.2));
+
+  if (success) {
+    cs.momentum = Math.min(3, cs.momentum + 2);
+    const sys = `Write 2 sentences: a desperate, last-resort move in a magical duel that somehow works. The player is at a disadvantage, commits everything to one action, and it lands. Vivid, brief. Second person, present tense.`;
+    const text = await callClaude(sys, 'Comeback move — success.', 120)
+      || `You commit everything to one moment. It connects harder than it has any right to.`;
+    cs.log.push({ round: cs.round, type:'good', text });
+    showToast('⚡ Comeback — momentum shifted!', 3000);
+  } else {
+    cs.momentum = Math.max(-3, cs.momentum - 1);
+    const sys = `Write 2 sentences: a desperate last-resort move in a duel that fails badly. The player overcommits and the enemy takes advantage. Second person, present tense.`;
+    const text = await callClaude(sys, 'Comeback move — fail.', 120)
+      || `The move doesn't land. They were ready for exactly that.`;
+    cs.log.push({ round: cs.round, type:'bad', text });
+    showToast('The gamble failed.', 2500);
+  }
+
+  cs.round++;
+  await checkCombatEnd(cs.log[cs.log.length-1]?.text || '');
+}
+
+// ═══════════════════════════════════════════════════════════
+// ROMANCE SYSTEM — Model C Hybrid
+//
+// New dimension: attraction (0–100) per NPC
+// Romantic status track: none→aware→interested→flirting→
+//   tension→confessed→together|rejected(soft)
+// Four priority arcs: Hermione, Daphne, Luna, Lily Moon
+// Date spots: 7 locations with unlock conditions
+// Jealousy: partner notices, may act
+// Moral compatibility: partners leave over sustained misalignment
+// Relationship buffs: unique per character
+// Dating tab in relationship modal
+// ═══════════════════════════════════════════════════════════
+
+// ── Romance status track ──────────────────────────────────
+const ROMANCE_STAGES = [
+  'none',       // no romantic dimension yet
+  'aware',      // player/NPC has noticed something
+  'interested', // mutual interest acknowledged obliquely
+  'flirting',   // open flirtation, charged exchanges
+  'tension',    // the unresolved question hanging between them
+  'confessed',  // one side has said something direct
+  'together',   // in a relationship
+  'rejected',   // soft rejection — not permanent, circumstances
+];
+
+// ── Character-specific romance data ──────────────────────
+const ROMANCE_DATA = {
+
+  hermione: {
+    attractionThresholds: { aware:20, interested:40, flirting:60, tension:75, confessed:88 },
+    trustRequired:        { flirting:50, tension:65, confessed:80 },
+    jealousyStyle:        'overfunction', // goes quiet, works harder, pretends nothing
+    moralAlignment:       'strict',       // leaves if alignment < -20
+    moralThreshold:       -20,
+    rejectionReason:      "She says it's about timing. About N.E.W.T.s, about what she needs to focus on. She believes this. She also isn't entirely telling the truth.",
+    confessionStyle:      'indirect',     // admits it sideways before she admits it directly
+    togetherBuff: {
+      id: 'hermione_study',
+      label: 'Study Partner — Hermione',
+      desc: '+15% class XP from all sessions. Hermione flags anything important you missed.',
+      effect: () => { STATE.skills.intellect = Math.min(100, (STATE.skills.intellect||10) + 5); }
+    },
+    flirtLines: [
+      "Ask if she ever thinks about anything other than books",
+      "Tell her she's the most infuriating person you've ever admired",
+      "Sit closer than necessary in the library",
+      "Ask her to explain something you already understand — just to hear her talk",
+    ],
+    confessLine: "Tell her directly that you think about her more than you should",
+    npcConfessThreshold: 90, // attraction + trust combined before NPC confesses
+    npcConfessLine: "She says your name once, quietly, and then looks at her hands and says the rest of it to the table.",
+    breakupTriggers: ['dark_magic_repeated', 'cruelty_to_others', 'academic_neglect'],
+  },
+
+  daphne: {
+    attractionThresholds: { aware:15, interested:35, flirting:55, tension:70, confessed:85 },
+    trustRequired:        { flirting:40, tension:60, confessed:75 },
+    jealousyStyle:        'cold',         // withdraws, becomes formally polite — worse than anger
+    moralAlignment:       'pragmatic',    // watches actions, not ideology; leaves if trust < 20
+    moralThreshold:       20,             // trust-based, not alignment
+    rejectionReason:      "She tells you her family has expectations. She says this without apology. She also holds eye contact for a moment too long after she says it.",
+    confessionStyle:      'measured',     // deliberate, chosen words, watching your face
+    togetherBuff: {
+      id: 'daphne_network',
+      label: 'Greengrass Network — Daphne',
+      desc: 'Access to Slytherin political intelligence. Some closed doors open. Certain NPCs become warmer.',
+      effect: () => {
+        ['blaise','theo','pansy'].forEach(id => {
+          if (STATE.relationships[id]) STATE.relationships[id].trust = Math.min(100, (STATE.relationships[id].trust||0) + 15);
+        });
+      }
+    },
+    flirtLines: [
+      "Hold her gaze a beat longer than necessary",
+      "Say something that shows you've been paying attention to her specifically",
+      "Challenge one of her opinions — carefully, with interest",
+      "Acknowledge that she's the most composed person in any room without making it a compliment",
+    ],
+    confessLine: "Tell her she's been in your head longer than you intended",
+    npcConfessThreshold: 85,
+    npcConfessLine: "She asks you a question that isn't really a question. She waits to see if you understand what she actually asked.",
+    breakupTriggers: ['betrayed_slytherin_trust', 'public_humiliation', 'reckless_dark_magic'],
+  },
+
+  luna: {
+    attractionThresholds: { aware:10, interested:30, flirting:45, tension:60, confessed:75 },
+    trustRequired:        { flirting:25, tension:40, confessed:55 },
+    jealousyStyle:        'delayed',      // doesn't notice for weeks, then is quietly devastated
+    moralAlignment:       'open',         // leaves only on genuine cruelty to vulnerable people
+    moralThreshold:       -50,
+    rejectionReason:      "She says she thinks there might be a Wrackspurt affecting her feelings about the timing. She means this. She also doesn't mean only this.",
+    confessionStyle:      'direct',       // no social script, just says the true thing plainly
+    togetherBuff: {
+      id: 'luna_sight',
+      label: 'Luna\'s Sight',
+      desc: 'Intuition +10. Luna notices things others miss — and tells you. Quirrell wrongness thread accelerates.',
+      effect: () => {
+        STATE.skills.intuition = Math.min(100, (STATE.skills.intuition||10) + 10);
+        STATE.quirrellSuspicion = Math.min(5, (STATE.quirrellSuspicion||0) + 2);
+      }
+    },
+    flirtLines: [
+      "Take what she says completely seriously",
+      "Ask her to explain something she believes in without laughing",
+      "Tell her she sees things nobody else does — because it's true",
+      "Sit with her in comfortable silence",
+    ],
+    confessLine: "Ask her, directly and without preamble, if she thinks about you the way you think about her",
+    npcConfessThreshold: 78,
+    npcConfessLine: "She says: 'I think I'm in love with you. Is that strange?' She looks genuinely curious about your answer.",
+    breakupTriggers: ['mockery_of_beliefs', 'cruelty_witnessed', 'lies_discovered'],
+  },
+
+  lily_moon: {
+    attractionThresholds: { aware:18, interested:38, flirting:55, tension:70, confessed:82 },
+    trustRequired:        { flirting:35, tension:55, confessed:70 },
+    jealousyStyle:        'confrontational', // asks directly what is going on
+    moralAlignment:       'balanced',
+    moralThreshold:       -30,
+    rejectionReason:      "She laughs, nervously, and says she didn't think you actually — and then stops. She says she needs time to think. She means it.",
+    confessionStyle:      'nervous_then_certain', // starts hesitant, commits when she decides
+    togetherBuff: {
+      id: 'lily_wit',
+      label: 'Lily\'s Perspective',
+      desc: 'Persuasion +8. Lily reads social situations sharply and tells you what she sees. NPCs are more readable.',
+      effect: () => { STATE.skills.persuasion = Math.min(100, (STATE.skills.persuasion||10) + 8); }
+    },
+    flirtLines: [
+      "Make her laugh — she likes it when you make her laugh",
+      "Be genuinely curious about what she thinks, not what she knows",
+      "Tease her gently about something specific",
+      "Say something honest without the usual deflection",
+    ],
+    confessLine: "Tell her she's the reason you've been arriving at Ravenclaw Tower with increasingly implausible excuses",
+    npcConfessThreshold: 82,
+    npcConfessLine: "She starts a sentence three times before she finishes it. When she does, it's unambiguous.",
+    breakupTriggers: ['consistent_deception', 'public_cruelty', 'deep_dark_path'],
+  },
+};
+
+// ── Date spots ────────────────────────────────────────────
+const DATE_SPOTS = {
+  castle_grounds_evening: {
+    label:      'Walk the grounds — evening',
+    icon:       '🌅',
+    locationId: 'grounds',
+    phase:      'evening',
+    minWeek:    3,
+    minTrust:   20,
+    minAttraction: 15,
+    apCost:     1,
+    relGain:    { trust:3, affection:5, attraction:8, loyalty:2 },
+    desc:       'The grounds in the evening. Room to actually talk.',
+    aiNote:     'Evening walk on Hogwarts grounds. The castle is lit behind them. Space to say things that wouldn\'t come out in the corridors.',
+  },
+  astronomy_tower: {
+    label:      'Astronomy Tower — night',
+    icon:       '🌟',
+    locationId: 'astronomy_tower',
+    phase:      'night',
+    minWeek:    6,
+    minTrust:   35,
+    minAttraction: 30,
+    apCost:     1,
+    relGain:    { trust:4, affection:6, attraction:12, loyalty:3 },
+    desc:       'Late. High up. Stars overhead. Technically curfew.',
+    aiNote:     'The Astronomy Tower at night — stars, cold air, and the particular intimacy of being somewhere you\'re not supposed to be together.',
+  },
+  the_lake: {
+    label:      'By the lake — afternoon',
+    icon:       '🌊',
+    locationId: 'hogwarts_lake',
+    phase:      'afternoon',
+    minWeek:    8,
+    minTrust:   30,
+    minAttraction: 25,
+    apCost:     1,
+    relGain:    { trust:4, affection:6, attraction:10, loyalty:2 },
+    desc:       'The beech tree. The Giant Squid. A proper afternoon.',
+    aiNote:     'Afternoon by the Black Lake. The beech tree. Long enough that the afternoon has a feeling of its own.',
+  },
+  hogsmeade_three_broomsticks: {
+    label:      'Three Broomsticks — Hogsmeade',
+    icon:       '🍺',
+    locationId: 'hogsmeade_unsupervised',
+    phase:      'daytime',
+    minWeek:    8,
+    minTrust:   30,
+    minAttraction: 30,
+    minYear:    3,
+    hogsmeadeRequired: true,
+    apCost:     1,
+    relGain:    { trust:5, affection:7, attraction:10, loyalty:4 },
+    desc:       'Butterbeer. A table in the corner. A real outing.',
+    aiNote:     'The Three Broomsticks in Hogsmeade. Warm, public but intimate at a corner table. Butterbeer. The kind of date that feels unmistakably like a date.',
+  },
+  madam_puddifoots: {
+    label:      "Madam Puddifoot's — Hogsmeade",
+    icon:       '☕',
+    locationId: 'hogsmeade_unsupervised',
+    phase:      'daytime',
+    minWeek:    13,
+    minTrust:   40,
+    minAttraction: 50,
+    minYear:    3,
+    hogsmeadeRequired: true,
+    apCost:     1,
+    relGain:    { trust:4, affection:8, attraction:15, loyalty:3 },
+    desc:       'Aggressively romantic. Lace and cherubs. You\'re past the point of pretending otherwise.',
+    aiNote:     'Madam Puddifoot\'s tea shop — all lace and cherubs and the unmistakable implication. Going here means both people know what this is.',
+  },
+  library_quiet: {
+    label:      'Library — the quiet section',
+    icon:       '📖',
+    locationId: 'library',
+    phase:      'afternoon',
+    minWeek:    4,
+    minTrust:   25,
+    minAttraction: 20,
+    apCost:     1,
+    relGain:    { trust:5, affection:4, attraction:7, loyalty:2 },
+    desc:       'The back of the library. Technically studying. Not really.',
+    aiNote:     'The quiet section of the library. Ostensibly studying. The conversation keeps going sideways. Proximity is doing what proximity does.',
+  },
+  hagrid_evening: {
+    label:      "Hagrid's — evening together",
+    icon:       '🛖',
+    locationId: 'hagrid_hut',
+    phase:      'evening',
+    minWeek:    5,
+    minTrust:   40,
+    minAttraction: 20,
+    apCost:     1,
+    relGain:    { trust:6, affection:7, attraction:6, loyalty:5 },
+    desc:       'Tea, rock cakes, and whatever creature is in the garden this week.',
+    aiNote:     'Evening at Hagrid\'s hut. Tea and rock cakes and genuine warmth. Hagrid is delighted to have them both. Something about the informality of it loosens things.',
+  },
+};
+
+// ── Get available date spots ───────────────────────────────
+function getAvailableDateSpots(npcId) {
+  const rel    = STATE.relationships[npcId] || {};
+  const week   = STATE.currentWeek || 1;
+  const year   = STATE.player.year || 1;
+  const phase  = STATE.dayPhase || 'daytime';
+  const isHogsmeadeWknd = isHogsmeadeWeekend(week, STATE.dayOfWeek || 1);
+
+  return Object.entries(DATE_SPOTS).filter(([id, spot]) => {
+    if (week < (spot.minWeek || 1)) return false;
+    if ((rel.trust || 0) < (spot.minTrust || 0)) return false;
+    if ((rel.attraction || 0) < (spot.minAttraction || 0)) return false;
+    if (spot.minYear && year < spot.minYear) return false;
+    if (spot.hogsmeadeRequired && !isHogsmeadeWknd) return false;
+    return true;
+  }).map(([id, spot]) => ({ id, ...spot }));
+}
+
+// ── Romance helper functions ──────────────────────────────
+
+function getRomanceStage(npcId) {
+  return STATE.relationships[npcId]?.romanceStage || 'none';
+}
+
+function setRomanceStage(npcId, stage) {
+  if (!STATE.relationships[npcId]) return;
+  STATE.relationships[npcId].romanceStage = stage;
+  if (stage === 'together') {
+    STATE.relationships[npcId].datingStartWeek = STATE.currentWeek || 1;
+    applyRelationshipBuff(npcId);
+  }
+  updateRelationshipSidebar();
+}
+
+function getAttraction(npcId) {
+  return STATE.relationships[npcId]?.attraction || 0;
+}
+
+function adjustAttraction(npcId, delta) {
+  if (!STATE.relationships[npcId]) return;
+  STATE.relationships[npcId].attraction = Math.max(0, Math.min(100,
+    (STATE.relationships[npcId].attraction || 0) + delta
+  ));
+  checkRomanceStageAdvance(npcId);
+}
+
+function checkRomanceStageAdvance(npcId) {
+  const rel      = STATE.relationships[npcId] || {};
+  const data     = ROMANCE_DATA[npcId];
+  if (!data || !rel.met) return;
+
+  const attraction = rel.attraction || 0;
+  const trust      = rel.trust || 0;
+  const current    = rel.romanceStage || 'none';
+
+  const stages = ['none','aware','interested','flirting','tension','confessed','together'];
+  const currentIdx = stages.indexOf(current);
+  if (currentIdx < 0 || current === 'together' || current === 'rejected') return;
+
+  const thresholds  = data.attractionThresholds;
+  const trustReqs   = data.trustRequired || {};
+  const nextStage   = stages[currentIdx + 1];
+
+  if (!nextStage || nextStage === 'confessed' || nextStage === 'together') return;
+
+  const attrNeeded  = thresholds[nextStage] || 999;
+  const trustNeeded = trustReqs[nextStage]  || 0;
+
+  if (attraction >= attrNeeded && trust >= trustNeeded) {
+    setRomanceStage(npcId, nextStage);
+    fireRomanceStageEvent(npcId, nextStage);
+  }
+}
+
+function fireRomanceStageEvent(npcId, stage) {
+  const npc = NPC_DATA[npcId] || {};
+  const msgs = {
+    aware:      `Something has shifted between you and ${npc.name}.`,
+    interested: `${npc.name} looks at you differently lately. You've noticed.`,
+    flirting:   `You and ${npc.name} have crossed into something that isn't just friendship.`,
+    tension:    `There's an unresolved question between you and ${npc.name} that neither of you has said aloud yet.`,
+  };
+  if (msgs[stage]) showToast(`💫 ${msgs[stage]}`, 4500);
+
+  // NPC-initiated confession if threshold met
+  if (stage === 'tension') {
+    const data = ROMANCE_DATA[npcId];
+    if (data) {
+      const combined = (STATE.relationships[npcId]?.trust || 0) + (STATE.relationships[npcId]?.attraction || 0);
+      if (combined >= (data.npcConfessThreshold || 999)) {
+        setTimeout(() => triggerNPCConfession(npcId), 5000);
+      }
+    }
+  }
+}
+
+// ── NPC confession ────────────────────────────────────────
+async function triggerNPCConfession(npcId) {
+  if (!isGameIdle()) {
+    setTimeout(() => triggerNPCConfession(npcId), 8000);
+    return;
+  }
+  const npc  = NPC_DATA[npcId] || {};
+  const data = ROMANCE_DATA[npcId];
+  if (!data) return;
+  if (getRomanceStage(npcId) === 'together') return;
+
+  setLocation(`${npc.icon} ${npc.name} — Something to say`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+
+  const rel = STATE.relationships[npcId] || {};
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set in 1991.
+Write the scene where ${npc.name} confesses romantic feelings to the player.
+CHARACTER: ${NPC_PERSONAS[npcId] || npc.bio || ''}
+RELATIONSHIP: Trust ${rel.trust||0}, Attraction ${rel.attraction||0}, Stage: ${rel.romanceStage||'tension'}.
+CONFESSION STYLE: ${data.confessionStyle}
+SPECIFIC LINE: ${data.npcConfessLine}
+3 short paragraphs. Second person, present tense. The scene should build to the confession naturally.
+Physical setting: wherever they plausibly are together based on time of day and their relationship.
+Make it feel like this specific person, not a generic confession. The voice matters.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `NPC confession: ${npcId}.`, 420);
+  const fallback = `${npc.name} finds you alone.\n\n${data.npcConfessLine}\n\nThe room is quiet. They wait.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  setRomanceStage(npcId, 'confessed');
+
+  setTimeout(() => {
+    setChoices([
+      { text: `Yes — you feel the same`, action: `romance_accept_${npcId}` },
+      { text: `Not right now — but not never`, action: `romance_soft_decline_${npcId}` },
+    ]);
+  }, 2000);
+}
+
+// ── Player confession scene ───────────────────────────────
+async function scenePlayerConfession(npcId) {
+  const npc  = NPC_DATA[npcId] || {};
+  const data = ROMANCE_DATA[npcId];
+  if (!data) return;
+
+  const rel       = STATE.relationships[npcId] || {};
+  const stage     = rel.romanceStage || 'none';
+  const canConfess= ['flirting','tension','confessed'].includes(stage);
+
+  if (!canConfess) {
+    showToast('The moment isn\'t there yet.', 2500);
+    return;
+  }
+
+  setLocation(`${npc.icon} ${npc.name}`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set in 1991.
+Write the scene where the player confesses romantic feelings to ${npc.name}.
+CHARACTER: ${NPC_PERSONAS[npcId] || npc.bio || ''}
+RELATIONSHIP: Trust ${rel.trust||0}, Attraction ${rel.attraction||0}, Stage: ${stage}.
+WHAT THE PLAYER SAYS: "${data.confessLine}"
+EXPECTED RESPONSE DIRECTION: ${rel.attraction >= 70 ? 'She/he/they feels the same — but how they show it is specific to who they are.' : 'Uncertain — attracted but complicated. Not a clean yes.'}
+3 paragraphs. Second person, present tense. Make ${npc.name}'s response feel like them specifically.
+Physical details matter. The space they're in. What they do with their hands. What they don't say before they say it.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Player confession to ${npcId}.`, 450);
+  const fallback = `You say it.\n\n${npc.name} is quiet for long enough that you wonder if you've made a mistake.\n\nThen they answer.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  setRomanceStage(npcId, 'confessed');
+  const accepted = (rel.attraction || 0) >= 65;
+
+  setTimeout(() => {
+    if (accepted) {
+      setChoices([
+        { text: 'This is the start of something', action: `romance_accept_${npcId}` },
+      ]);
+    } else {
+      setChoices([
+        { text: 'Understand — for now', action: `romance_soft_decline_${npcId}` },
+      ]);
+      setRomanceStage(npcId, 'rejected');
+    }
+  }, 2200);
+}
+
+// ── Accept/decline romance ────────────────────────────────
+async function resolveRomanceAccept(npcId) {
+  setRomanceStage(npcId, 'together');
+  const npc = NPC_DATA[npcId] || {};
+  adjustAttraction(npcId, 15);
+  adjustDim(npcId, 'trust', 8);
+  adjustDim(npcId, 'affection', 10);
+  adjustDim(npcId, 'loyalty', 8);
+
+  const sys = `Write 2 short paragraphs. The moment after two people acknowledge they want to be together.
+Character: ${npc.name}. ${NPC_PERSONAS[npcId]?.slice(0,120)||''}
+Make it feel like relief and something opening rather than a closed ending. Specific. Physical.
+Second person, present tense. 70-90 words.`;
+  const text = await callClaude(sys, `Romance accepted: ${npcId}.`, 240)
+    || `${npc.name} smiles — not the careful one, the real one.\n\nSomething settles. The question that's been sitting between you for weeks is answered, and the answer is good, and now you have to figure out what comes next.`;
+
+  const paras = (text||'').split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>💫 ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+  showToast(`💫 You and ${npc.name} are together.`, 5000);
+  setTimeout(() => { setChoices([{ text: '← Back to your day', action:'day_menu' }]); }, 2000);
+}
+
+function resolveRomanceSoftDecline(npcId) {
+  const npc = NPC_DATA[npcId] || {};
+  const data = ROMANCE_DATA[npcId];
+  setRomanceStage(npcId, 'rejected');
+  adjustDim(npcId, 'trust', -5);
+  adjustAttraction(npcId, -10);
+
+  const narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>
+    <div class="narrative-para">${data?.rejectionReason || `${npc.name} says it's not the right time. They mean it. They also look away when they say it.`}</div>
+    <div class="narrative-para" style="color:var(--ink-light);font-style:italic;font-size:13px;">This isn't over. The door isn't closed — just not open yet.</div>`;
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+  setTimeout(() => { setChoices([{ text: '← Back to your day', action:'day_menu' }]); }, 1500);
+}
+
+// ── Date scene ────────────────────────────────────────────
+async function sceneDateSpot(npcId, spotId) {
+  if (!consumeAP(1, 'date')) return;
+  const npc  = NPC_DATA[npcId] || {};
+  const spot = DATE_SPOTS[spotId];
+  const rel  = STATE.relationships[npcId] || {};
+  const data = ROMANCE_DATA[npcId];
+  if (!spot) return;
+
+  setLocation(`${spot.icon} ${spot.label}`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${spot.icon} ${spot.label}...<span class="cursor-blink"></span></div>`);
+
+  const stage = rel.romanceStage || 'none';
+  const isTogether = stage === 'together';
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set in 1991.
+Write a date scene between the player and ${npc.name}.
+LOCATION: ${spot.aiNote}
+CHARACTER: ${NPC_PERSONAS[npcId] || npc.bio || ''}
+RELATIONSHIP STATUS: ${isTogether ? 'Together — in a relationship.' : 'Not yet together — charged with something unresolved.'}
+Attraction: ${rel.attraction||0}. Trust: ${rel.trust||0}.
+3 paragraphs. Second person, present tense.
+${isTogether ? 'They are together — write the specific ease and warmth of that, and the ways it has its own complications.' : 'They are not yet together — write the tension of proximity, what almost gets said, what doesn\'t.'}
+Physical detail matters. What they say is less important than how close they are when they say it.
+Be specific to ${npc.name}'s personality. A date with her should feel like her specifically.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Date scene: ${npcId} at ${spotId}.`, 400);
+  const fallback = `${spot.label} with ${npc.name}.\n\nThe time passes the way time does when you're paying attention to someone.\n\nYou walk back to the castle afterward in the comfortable quiet of two people who have said enough.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${spot.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  // Apply relGain
+  Object.entries(spot.relGain).forEach(([dim, val]) => {
+    if (dim === 'attraction') adjustAttraction(npcId, val);
+    else adjustDim(npcId, dim, val);
+  });
+  updateRelationshipSidebar();
+
+  setTimeout(() => {
+    setChoices([
+      { text: `Talk to ${npc.name}`, action: `scene_npc_${npcId}` },
+      { text: '← Back to your day', action: 'day_menu' },
+    ]);
+  }, 2000);
+}
+
+// ── Flirt scene (in NPC conversation) ────────────────────
+async function sceneFlirt(npcId) {
+  const npc  = NPC_DATA[npcId] || {};
+  const data = ROMANCE_DATA[npcId];
+  const rel  = STATE.relationships[npcId] || {};
+  if (!data) return;
+
+  const stage     = rel.romanceStage || 'none';
+  const flirtLine = data.flirtLines[Math.floor(Math.random() * data.flirtLines.length)];
+
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+  setChoices([]); showFreeInput(false);
+
+  const sys = `You are the narrative engine for a mature Harry Potter RPG set in 1991.
+Write a flirtatious exchange between the player and ${npc.name}.
+CHARACTER: ${NPC_PERSONAS[npcId] || npc.bio || ''}
+WHAT THE PLAYER DOES: ${flirtLine}
+RELATIONSHIP: Trust ${rel.trust||0}, Attraction ${rel.attraction||0}, Stage: ${stage}.
+${rel.attraction >= 50 ? 'The attraction is mutual and starting to show.' : 'Still early — she notices but keeps her composure.'}
+2 paragraphs. Second person, present tense.
+${npc.name}'s response should be in character — Hermione deflects into wit, Daphne's guard slips fractionally, Luna takes it at face value and somehow that's more charged, Lily laughs and then goes quiet.
+Physical. Specific. Don't resolve the tension — deepen it.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Flirt: ${npcId}.`, 300);
+  const fallback = `You say it.\n\n${npc.name}'s expression shifts — barely. But you catch it.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  adjustAttraction(npcId, 5);
+  adjustDim(npcId, 'affection', 3);
+
+  setTimeout(() => {
+    const choices = [
+      { text: 'Keep going', action: `flirt_${npcId}` },
+    ];
+    if (['flirting','tension'].includes(stage)) {
+      choices.push({ text: data.confessLine, action: `confess_${npcId}` });
+    }
+    choices.push({ text: '← Back to your day', action: 'day_menu' });
+    setChoices(choices);
+  }, 1800);
+}
+
+// ── Jealousy system ───────────────────────────────────────
+function checkJealousy(witnessNpcId, targetNpcId) {
+  const witness = STATE.relationships[witnessNpcId];
+  if (!witness || witness.romanceStage !== 'together') return;
+
+  const data = ROMANCE_DATA[witnessNpcId];
+  if (!data) return;
+
+  const targetAttraction = STATE.relationships[targetNpcId]?.attraction || 0;
+  if (targetAttraction < 25) return; // not significant enough to notice
+
+  const npc = NPC_DATA[witnessNpcId] || {};
+  if (!witness._jealousyCount) witness._jealousyCount = 0;
+  witness._jealousyCount++;
+
+  if (witness._jealousyCount >= 3) {
+    // Trigger jealousy scene
+    setTimeout(() => triggerJealousyScene(witnessNpcId, targetNpcId), 2000);
+    witness._jealousyCount = 0;
+  } else {
+    // Subtle signal
+    const signals = {
+      overfunction: `${npc.name} has been quieter than usual lately.`,
+      cold:         `${npc.name} was formally polite with you today. That's worse than distant.`,
+      delayed:      `${npc.name} seems fine. She seems absolutely fine.`,
+      confrontational: `${npc.name} asked you something in passing that wasn't really in passing.`,
+    };
+    showToast(`💔 ${signals[data.jealousyStyle] || `${npc.name} noticed.`}`, 4000);
+    adjustDim(witnessNpcId, 'trust', -3);
+  }
+}
+
+async function triggerJealousyScene(witnessNpcId, targetNpcId) {
+  if (!isGameIdle()) {
+    setTimeout(() => triggerJealousyScene(witnessNpcId, targetNpcId), 5000);
+    return;
+  }
+  const npc  = NPC_DATA[witnessNpcId] || {};
+  const data = ROMANCE_DATA[witnessNpcId];
+  const target = NPC_DATA[targetNpcId];
+  const rel  = STATE.relationships[witnessNpcId] || {};
+
+  setLocation(`${npc.icon} ${npc.name} — Something wrong`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+
+  const sys = `Write 2-3 paragraphs. ${npc.name} has noticed the player spending time with ${target?.name || 'someone else'} in a way that doesn't feel like nothing.
+JEALOUSY STYLE: ${data?.jealousyStyle}. They don't yell. They do something more specific to who they are.
+Trust: ${rel.trust||0}. The relationship is real — this scene should feel like someone who has something to lose.
+Second person, present tense. End with them waiting for the player to say something.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `Jealousy scene: ${witnessNpcId}.`, 360);
+  const fallback = `${npc.name} finds you.\n\nShe doesn't say the obvious thing. She says something adjacent to it, in her specific way, and waits to see what you do with it.\n\nThe air has a weight.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>💔 ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  adjustDim(witnessNpcId, 'trust', -8);
+
+  setTimeout(() => {
+    setChoices([
+      { text: 'Reassure them — nothing is going on', action: `jealousy_reassure_${witnessNpcId}` },
+      { text: 'Admit there is something', action: `jealousy_admit_${witnessNpcId}` },
+      { text: 'Stay silent', action: 'day_menu' },
+    ]);
+  }, 2000);
+}
+
+// ── Moral compatibility check (weekly) ───────────────────
+function checkMoralCompatibility() {
+  const flags = STATE.flags || [];
+  const alignment = STATE.alignmentScore || 0;
+  const darkStage = STATE.darkPathStage || 0;
+
+  Object.entries(STATE.relationships || {}).forEach(([npcId, rel]) => {
+    if (rel.romanceStage !== 'together') return;
+    const data = ROMANCE_DATA[npcId];
+    if (!data) return;
+
+    let incompatible = false;
+    const triggers = data.breakupTriggers || [];
+
+    if (data.moralAlignment === 'strict' && alignment < data.moralThreshold) incompatible = true;
+    if (data.moralAlignment === 'pragmatic' && (rel.trust||0) < data.moralThreshold) incompatible = true;
+    if (data.moralAlignment === 'open' && alignment < data.moralThreshold) incompatible = true;
+
+    if (triggers.includes('dark_magic_repeated') && darkStage >= 3) incompatible = true;
+    if (triggers.includes('deep_dark_path') && darkStage >= 4) incompatible = true;
+
+    if (incompatible) {
+      if (!rel._compatibilityWarned) {
+        rel._compatibilityWarned = true;
+        const npc = NPC_DATA[npcId] || {};
+        showToast(`💔 ${npc.name} has been distant. Something about who you've become doesn't sit right with her.`, 6000);
+      } else {
+        // Second strike — NPC ends it
+        setTimeout(() => triggerNPCBreakup(npcId, 'incompatibility'), 3000);
+      }
+    }
+  });
+}
+
+async function triggerNPCBreakup(npcId, reason) {
+  if (!isGameIdle()) {
+    setTimeout(() => triggerNPCBreakup(npcId, reason), 8000);
+    return;
+  }
+  const npc  = NPC_DATA[npcId] || {};
+  const data = ROMANCE_DATA[npcId];
+  const rel  = STATE.relationships[npcId] || {};
+
+  setLocation(`${npc.icon} ${npc.name}`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon} ${npc.name}...<span class="cursor-blink"></span></div>`);
+
+  const reasonContext = {
+    incompatibility: `${npc.name} has been watching who the player has become. It doesn't match who she thought they were. She's not angry — she's sad about it, which is harder.`,
+    jealousy_final:  `${npc.name} has seen enough. She gives the player a clean exit with dignity because that's who she is.`,
+    trust_broken:    `Something specific happened that she cannot move past. She's thought about it carefully before saying anything.`,
+  }[reason] || 'She has made a decision.';
+
+  const sys = `Write 3 paragraphs. ${npc.name} is ending the relationship with the player.
+${reasonContext}
+CHARACTER: ${NPC_PERSONAS[npcId] || npc.bio || ''}
+This should feel like a real breakup — not dramatic, not cruel, but genuinely painful. She respects the player enough to be honest.
+Second person, present tense. End with the door closing — but not locked.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, `NPC breakup: ${npcId}.`, 420);
+  const fallback = `${npc.name} comes to find you.\n\nShe's thought about this. You can tell — it's not impulsive, which makes it harder.\n\nShe says what needs to be said. She does it kindly, which almost makes it worse.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>💔 ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(() => document.querySelectorAll('.narrative-para')
+    .forEach((el,i) => setTimeout(() => el.classList.add('visible'), i*160)), 50);
+
+  // End the relationship — soft, not permanent
+  setRomanceStage(npcId, 'rejected');
+  adjustDim(npcId, 'trust', -10);
+  adjustAttraction(npcId, -20);
+  adjustDim(npcId, 'affection', -5);
+
+  setTimeout(() => {
+    setChoices([{ text: '← Back to your day', action: 'day_menu' }]);
+  }, 2500);
+}
+
+// ── Relationship buffs ────────────────────────────────────
+function applyRelationshipBuff(npcId) {
+  const data = ROMANCE_DATA[npcId];
+  if (!data?.togetherBuff) return;
+  if (STATE.flags.includes(`BUFF_${data.togetherBuff.id}`)) return;
+  STATE.flags.push(`BUFF_${data.togetherBuff.id}`);
+  if (data.togetherBuff.effect) data.togetherBuff.effect();
+  showToast(`✦ ${data.togetherBuff.label}: ${data.togetherBuff.desc}`, 6000);
+  updateSkills();
+}
+
+// ── Dating tab in relationship modal ─────────────────────
+function renderDatingTab() {
+  const body = document.getElementById('relModalBody');
+  const desc = document.getElementById('relModalDesc');
+
+  // Find all NPCs with active romantic stages
+  const romantic = Object.entries(STATE.relationships || {})
+    .filter(([npcId, rel]) => rel.romanceStage && rel.romanceStage !== 'none')
+    .sort(([,a],[,b]) => {
+      const order = ['together','tension','confessed','flirting','interested','aware','rejected'];
+      return order.indexOf(a.romanceStage) - order.indexOf(b.romanceStage);
+    });
+
+  const together = romantic.filter(([,r]) => r.romanceStage === 'together');
+  const active   = romantic.filter(([,r]) => !['together','rejected','none'].includes(r.romanceStage));
+  const rejected = romantic.filter(([,r]) => r.romanceStage === 'rejected');
+
+  if (desc) desc.textContent = together.length
+    ? `${together.length} relationship${together.length!==1?'s':''} active.`
+    : 'No active relationships yet.';
+
+  if (!romantic.length) {
+    body.innerHTML = `<div style="padding:32px;text-align:center;color:var(--ink-light);font-family:'IM Fell English',Georgia,serif;font-size:18px;font-style:italic;">No romantic connections yet.</div>`;
+    return;
+  }
+
+  const renderRomanceCard = ([npcId, rel]) => {
+    const npc  = NPC_DATA[npcId] || {};
+    const data = ROMANCE_DATA[npcId];
+    const stage= rel.romanceStage;
+    const stageLabels = {
+      aware:'Aware', interested:'Interested', flirting:'Flirting',
+      tension:'Unresolved tension', confessed:'Confessed', together:'Together',
+      rejected:'Complicated',
+    };
+    const stageColours = {
+      aware:'var(--ink-light)', interested:'#8B9ED9', flirting:'#C9A84C',
+      tension:'#c08855', confessed:'#5a9e6f', together:'#5a9e6f', rejected:'var(--ink-light)',
+    };
+    const buff = data?.togetherBuff;
+    const buffActive = buff && STATE.flags.includes(`BUFF_${buff.id}`);
+    const dates = getAvailableDateSpots(npcId);
+
+    return `<div class="romance-card">
+      <div class="romance-card-header">
+        <span class="romance-card-icon">${npc.icon || '💫'}</span>
+        <div class="romance-card-info">
+          <div class="romance-card-name">${npc.name}</div>
+          <div class="romance-card-stage" style="color:${stageColours[stage]||'var(--gold)'}">
+            ${stageLabels[stage] || stage}
+          </div>
+        </div>
+        <div class="romance-card-attraction">
+          <div style="font-size:8px;letter-spacing:0.12em;color:var(--gold-dim);font-family:'Cinzel',serif;">ATTRACTION</div>
+          <div style="font-size:18px;color:var(--gold)">${rel.attraction||0}</div>
+        </div>
+      </div>
+      ${buffActive ? `<div class="romance-buff-badge">✦ ${buff.label}</div>` : ''}
+      ${stage === 'together' && dates.length ? `
+        <div style="margin-top:8px;">
+          <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.16em;color:var(--gold-dim);margin-bottom:4px;">AVAILABLE DATE SPOTS</div>
+          ${dates.map(d => `<button class="romance-date-btn" onclick="closeRelModal();sceneDateSpot('${npcId}','${d.id}')">
+            ${d.icon} ${d.label}
+          </button>`).join('')}
+        </div>` : ''}
+      ${['flirting','tension'].includes(stage) ? `
+        <div style="margin-top:8px;display:flex;gap:6px;">
+          <button class="romance-action-btn" onclick="closeRelModal();sceneFlirt('${npcId}')">
+            💬 Flirt
+          </button>
+          ${stage === 'tension' ? `<button class="romance-action-btn confess" onclick="closeRelModal();scenePlayerConfession('${npcId}')">
+            💫 Confess
+          </button>` : ''}
+        </div>` : ''}
+      ${stage === 'together' ? `
+        <div style="margin-top:8px;display:flex;gap:6px;">
+          <button class="romance-action-btn" onclick="closeRelModal();sceneFlirt('${npcId}')">
+            💬 Be with them
+          </button>
+        </div>` : ''}
+    </div>`;
+  };
+
+  body.innerHTML = `
+    ${together.length ? `<div class="romance-section-title">Together</div>${together.map(renderRomanceCard).join('')}` : ''}
+    ${active.length   ? `<div class="romance-section-title">Something developing</div>${active.map(renderRomanceCard).join('')}` : ''}
+    ${rejected.length ? `<div class="romance-section-title">Complicated</div>${rejected.map(renderRomanceCard).join('')}` : ''}
+  `;
+}
+
+function closeRelModal() {
+  document.getElementById('relModal')?.classList.remove('open');
+}
+
+// ── Add attraction to STATE init ──────────────────────────
+// Called during initRelationships — seeds attraction at 0
+function initAttractionDimension() {
+  Object.keys(STATE.relationships || {}).forEach(npcId => {
+    if (STATE.relationships[npcId].attraction === undefined) {
+      STATE.relationships[npcId].attraction = 0;
+      STATE.relationships[npcId].romanceStage = 'none';
+    }
+  });
+}
+
 // Advance week function
 function advanceWeek() {
   STATE.currentWeek = Math.min(34, (STATE.currentWeek||1) + 1);
+  // Apply relationship ripple effects weekly
+  if (typeof applyRelationshipRipples === 'function') applyRelationshipRipples();
+  if (typeof checkMoralCompatibility === 'function') checkMoralCompatibility();
   const w = STATE.currentWeek;
   // School owl always available from week 1
   if (typeof unlockSchoolOwl === 'function') unlockSchoolOwl();
+  // Norbert forest detention fires week 23+ if pending
+  if (w >= 23 && STATE.flags?.includes('NORBERT_DETENTION_PENDING')) {
+    if (typeof sceneNorbertForestDetention === 'function') {
+      setTimeout(() => { if (isGameIdle()) sceneNorbertForestDetention(w); }, 1000);
+    }
+  }
   renderTimetableSidebar();
   renderTimetableWeek(w);
   if (STATE.boardState) STATE.boardState.week = 0;
