@@ -3991,6 +3991,15 @@ function resolveWand() {
     updateInventory();
   }
 
+  // Compute display boosts (wood + core combined)
+  const allBoosts = {};
+  if (woodData?.stats) Object.entries(woodData.stats).forEach(([k,v]) => {
+    allBoosts[k] = (allBoosts[k]||0) + v;
+  });
+  if (coreData?.stats) Object.entries(coreData.stats).forEach(([k,v]) => {
+    allBoosts[k] = (allBoosts[k]||0) + v;
+  });
+
   showWandResult(topWood, topCore, length, flex, woodData, coreData, allBoosts);
 }
 
@@ -8073,6 +8082,39 @@ async function callClaude(systemPrompt, userPrompt, maxTokens=600) {
 function showCallError(msg) {
   // Don't stack errors
   if (document.getElementById('callErrorBanner')) return;
+
+  // Determine safe retry action based on current scene
+  const scene = STATE.currentScene || '';
+  const preHogwarts = scene.startsWith('diagon') || scene.startsWith('express')
+    || scene.startsWith('kings_cross') || scene.startsWith('ollivanders')
+    || scene.startsWith('shop_') || scene.startsWith('sorting')
+    || scene === 'hogwarts_arrival';
+
+  const retryLabel = preHogwarts ? '← Try again' : '← Return to day menu';
+  const retryAction = preHogwarts
+    ? `document.getElementById('callErrorBanner')?.remove(); history.go(0);`
+    : `document.getElementById('callErrorBanner')?.remove(); renderDayMenu();`;
+
+  // For pre-Hogwarts scenes, offer a safer retry that re-runs the current scene
+  const retryFn = preHogwarts ? (() => {
+    const sceneRetryMap = {
+      'diagon_main':      "sceneDiagonAlley()",
+      'kings_cross':      "sceneKingsCross()",
+      'express_explore':  "sceneExpress('explore')",
+      'express_alone':    "sceneExpress('alone')",
+      'express_talk':     "sceneExpress('talk')",
+      'express_observe':  "sceneExpress('observe')",
+      'express_houses':   "sceneExpress('houses')",
+      'hogwarts_arrival': "sceneHogwartsArrival()",
+      'ollivanders':      "sceneShop('ollivanders')",
+    };
+    return sceneRetryMap[scene] || null;
+  })() : null;
+
+  const retryOnclick = retryFn
+    ? `document.getElementById('callErrorBanner')?.remove(); ${retryFn};`
+    : `document.getElementById('callErrorBanner')?.remove(); renderDayMenu();`;
+
   const banner = document.createElement('div');
   banner.id = 'callErrorBanner';
   banner.style.cssText = `
@@ -8084,11 +8126,11 @@ function showCallError(msg) {
   `;
   banner.innerHTML = `
     <div style="margin-bottom:8px;">⚠ ${msg}</div>
-    <button onclick="document.getElementById('callErrorBanner')?.remove();renderDayMenu();"
+    <button onclick="${retryOnclick}"
       style="background:transparent;border:1px solid #b85555;color:#e8c8c8;
         font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.14em;
         padding:5px 14px;cursor:pointer;text-transform:uppercase;">
-      ← Return to day menu
+      ${retryFn ? '↺ Try that again' : '← Return to day menu'}
     </button>
     <button onclick="document.getElementById('callErrorBanner')?.remove();"
       style="background:transparent;border:none;color:#b85555;
@@ -8464,7 +8506,7 @@ async function sceneGringotts() {
 
   const narrative = text || `You approach the towering white marble building that gleams like a beacon at the far end of Diagon Alley. Gringotts Wizarding Bank. Even from the street, you can feel it — something ancient and serious emanating from those stones, a weight of centuries and gold and magical contracts that has nothing to do with the ordinary world you've spent your whole life in.\n\nInside, the hall stretches longer than seems possible from the outside. Goblins sit on high stools behind their counters, scratching notes in ledgers with quills that seem to move of their own accord, weighing coins on scales so precise they could measure a heartbeat. The ceiling vaults upward in great arches of marble and shadow, lit by chandeliers that burn with a flame that throws no heat.\n\nA goblin escorts you deep below the bank in a mine cart that rattles at terrifying speed through tunnels carved by forces you can't name. Your vault door swings open to reveal the fortune your wizarding family has set aside — or, if this is your first contact with the magical world, the trust fund quietly established for you. Gold light spills from the vault. You have never felt more real.`;
 
-  addGold(10, 7, 15);
+  addGold(25, 0, 0); // Gringotts vault — enough for all required supplies, wand, familiar, and some spending money
 
   const paragraphs = narrative.split(/\n\n+/).filter(p=>p.trim());
   let narrativeHtml = `<div class="ai-badge"><div class="ai-dot"></div>Scene Generated</div>`;
@@ -8722,12 +8764,11 @@ function checkReady() {
       <div class="narrative-para visible" style="color:var(--gold);">You pause at the end of Diagon Alley and check your list.</div>
       <div class="narrative-para visible" style="font-style:italic;color:#B87333;">The following required items are still missing from your trunk:</div>
       ${missing.map(id=>`<div class="narrative-para visible" style="color:var(--red-wax);font-size:16px;">✗ ${missingNames[id]||id}</div>`).join('')}
-      <div class="narrative-para visible" style="color:var(--parchment-deep);font-style:italic;margin-top:12px;">Every first-year student needs these before boarding the Hogwarts Express.</div>
+      <div class="narrative-para visible" style="color:var(--parchment-deep);font-style:italic;margin-top:12px;">Every first-year student needs these before boarding the Hogwarts Express. (A familiar is optional — you can board without one.)</div>
     `);
     setTimeout(()=>{
       setChoices([
-        { text:'Continue shopping', action:'diagon_main' },
-        { text:'Board the Express anyway (skip missing items)', action:'king_cross' },
+        { text:'← Continue shopping', action:'diagon_main' },
       ]);
     }, 800);
     return;
@@ -8758,7 +8799,7 @@ async function sceneKingsCross() {
   const systemPrompt = `You are the narrative engine for a mature Harry Potter RPG set on September 1, 1991. Write 3 vivid paragraphs describing the player running through the barrier at King's Cross and arriving on Platform 9¾ for the first time — the scarlet steam engine, the chaos of trunks and owls and families saying goodbye, the smell of steam and coal and magic, the enormity of the moment. This is real now. This is happening. Second person. Include a brief, poignant beat about leaving the ordinary world behind — especially meaningful if they are Muggle-born. No player dialogue.`;
 
   const text = await callClaude(systemPrompt,
-    `Write the Platform 9¾ arrival scene for ${STATE.player.firstName} ${STATE.player.lastName}, ${STATE.player.bloodStatus}. They have their supplies${STATE.familiar?` and their ${STATE.familiar.name}`:''}. This is September 1, 1991.`, 700);
+    'Write the Platform 9¾ arrival scene for ' + (STATE.player.firstName||'') + ' ' + (STATE.player.lastName||'') + ', ' + (STATE.player.bloodStatus||'witch or wizard') + '. They have their supplies' + (STATE.familiar && STATE.familiar.name ? ' and their ' + STATE.familiar.name : '') + '. This is September 1, 1991.', 700);
 
   const narrative = text || `You step through the barrier between platforms nine and ten and the world changes. Not gradually — instantly. One step you are in King's Cross, in the ordinary roar of a London train station, and the next you are standing in a cloud of white steam that smells of coal and magic and something indefinably different, something the ordinary world doesn't have a word for yet.\n\nPlatform Nine and Three-Quarters is beautiful chaos. The Hogwarts Express stands the full length of the platform — scarlet and enormous and absurdly real — breathing steam as though it is alive. Around it, families move in every direction: students dragging trunks, parents gripping arms, owls shrieking in cages, a cat sprinting across the platform followed by a mortified younger student. Someone has already set off sparks from their wand. A prefect is shouting.\n\nYou find a compartment and lift your trunk aboard. The platform whistle sounds once — a long, clear note that cuts through everything. Doors begin to close. Parents wave and shrink and the great engine moves beneath you, and the city slips away, and in its place comes the green of England in late summer, and somewhere ahead, a school you have only imagined, and seven years you cannot yet picture. The train carries you forward into all of it.`;
 
@@ -8813,7 +8854,13 @@ async function sceneExpress(type) {
 
   const text = await callClaude(
     `You are the narrative engine for a mature Harry Potter RPG set September 1, 1991 on the Hogwarts Express. Write immersive, literary second-person narrative. ${prompts[type]||prompts.explore}`,
-    `Player is ${STATE.player.firstName} ${STATE.player.lastName}, ${STATE.player.bloodStatus}${STATE.familiar?`, travelling with their ${STATE.familiar.name}`:''}. Write the scene.`, 500
+    (() => {
+      const familiarNote = (STATE.familiar && STATE.familiar.type && STATE.familiar.name)
+        ? ', travelling with their ' + STATE.familiar.type + ' named ' + STATE.familiar.name
+        : '';
+      return 'Player is ' + (STATE.player.firstName||'') + ' ' + (STATE.player.lastName||'')
+        + ', ' + (STATE.player.bloodStatus||'witch or wizard') + familiarNote + '. Write the scene.';
+    })(), 500
   );
 
   const fallbacks = {
@@ -9008,7 +9055,16 @@ async function handleChoice(idx) {
     case 'open_explore':     openExploreModal(); break;
     case 'day_common_room':  await sceneCommonRoom(); break;
     case 'day_study':        await sceneStudy(); break;
-    case 'day_menu':         renderDayMenu(); break;
+    case 'day_menu': {
+        // Block day_menu during pre-Hogwarts scenes — it would skip the Express/Sorting
+        const _scene = STATE.currentScene || '';
+        const _preHog = _scene.startsWith('diagon') || _scene.startsWith('express')
+          || _scene.startsWith('kings_cross') || _scene.startsWith('ollivanders')
+          || _scene.startsWith('shop_') || _scene.startsWith('sorting')
+          || _scene === 'hogwarts_arrival';
+        if (!_preHog) renderDayMenu();
+        break;
+      }
     case 'look_around_common': {
       const lMap = { Gryffindor:'gryffindor_tower', Hufflepuff:'hufflepuff_basement',
                      Ravenclaw:'ravenclaw_tower',   Slytherin:'slytherin_dungeon' };
@@ -29301,6 +29357,88 @@ function checkHogsmeadeAccess() {
   return true; // access granted
 }
 
+// ── Save Export / Import (cross-device transfer) ──────────
+
+function exportSave() {
+  const data = buildSaveData();
+  if (!data) { showToast('Nothing to export — no active game.', 2500); return; }
+
+  try {
+    const json   = JSON.stringify(data);
+    const b64    = btoa(unescape(encodeURIComponent(json)));
+    const code   = 'HPRSAVE1:' + b64; // version prefix for validation
+
+    navigator.clipboard.writeText(code).then(() => {
+      setConfirmBar('✓ Save code copied to clipboard — paste it on any device.', 'success');
+    }).catch(() => {
+      // Clipboard API failed (some mobile browsers require user gesture)
+      // Fall back: show the code in the textarea so they can copy manually
+      openImportPanel();
+      const ta = document.getElementById('importSaveInput');
+      if (ta) {
+        ta.value = code;
+        ta.select();
+        setConfirmBar('Clipboard unavailable — select all text in the box and copy manually.', 'warn');
+      }
+    });
+  } catch(e) {
+    setConfirmBar('Export failed — save data may be too large.', 'error');
+  }
+}
+
+function openImportPanel() {
+  const panel = document.getElementById('importSavePanel');
+  if (!panel) return;
+  panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+  if (panel.style.display === 'flex') {
+    setTimeout(() => document.getElementById('importSaveInput')?.focus(), 50);
+  }
+}
+
+function importSave() {
+  const ta   = document.getElementById('importSaveInput');
+  const code = ta?.value?.trim();
+  if (!code) { setConfirmBar('Paste a save code first.', 'error'); return; }
+
+  try {
+    if (!code.startsWith('HPRSAVE1:')) {
+      setConfirmBar('Invalid save code — make sure you copied the full export.', 'error');
+      return;
+    }
+    const b64  = code.slice('HPRSAVE1:'.length);
+    const json = decodeURIComponent(escape(atob(b64)));
+    const data = JSON.parse(json);
+
+    if (!data.player || !data.version) {
+      setConfirmBar('Save code is corrupted or from an incompatible version.', 'error');
+      return;
+    }
+
+    // Write to slot 1 as the import destination (safest — visible in the UI)
+    const result = writeSlot(1, data);
+    if (result !== true) {
+      setConfirmBar('Import failed — browser storage issue.', 'error');
+      return;
+    }
+
+    // Immediately load it
+    const ok = applySaveData(data);
+    if (!ok) { setConfirmBar('Save imported but could not be loaded — try loading Slot 1.', 'warn'); renderSaveSlots(); return; }
+
+    closeSaveModal();
+    updateGoldDisplay(); updateInventory(); updateWandDisplay();
+    applyWandStatsIfNeeded(); updateFamiliar(); updateSkills();
+    document.getElementById('gameDate').textContent =
+      `${STATE.gameDate.day} ${monthName(STATE.gameDate.month)} ${STATE.gameDate.year}`;
+
+    showToast(`✓ Save imported — welcome back, ${data.player.firstName} ${data.player.lastName}.`, 5000);
+    reenterScene(STATE.currentScene);
+
+  } catch(e) {
+    setConfirmBar('Could not read save code — it may be incomplete or corrupted.', 'error');
+  }
+}
+
 // Advance week function
 function advanceWeek() {
   STATE.currentWeek = Math.min(34, (STATE.currentWeek||1) + 1);
@@ -30365,6 +30503,37 @@ window.addEventListener('DOMContentLoaded', () => {
       <div style="font-size:11px;color:var(--ink-light);font-family:'Cinzel',serif;letter-spacing:0.1em;">
         Save data stored in your browser only.
       </div>
+
+      <!-- Export / Import row -->
+      <div style="display:flex;gap:6px;margin-top:2px;">
+        <button onclick="exportSave()" style="flex:1;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);color:var(--gold-dim);font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:7px 12px;cursor:pointer;transition:all 0.12s;"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--gold-dim)'">
+          📤 Export Save — copy to clipboard
+        </button>
+        <button onclick="openImportPanel()" style="flex:1;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);color:var(--gold-dim);font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:7px 12px;cursor:pointer;transition:all 0.12s;"
+          onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+          onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--gold-dim)'">
+          📥 Import Save — paste from clipboard
+        </button>
+      </div>
+
+      <!-- Import panel (hidden until button clicked) -->
+      <div id="importSavePanel" style="display:none;flex-direction:column;gap:6px;margin-top:2px;">
+        <textarea id="importSaveInput" placeholder="Paste your exported save code here..."
+          style="width:100%;height:80px;background:rgba(0,0,0,0.3);border:1px solid var(--border);
+            color:var(--parchment);font-family:monospace;font-size:10px;padding:8px;
+            resize:none;box-sizing:border-box;"></textarea>
+        <div style="display:flex;gap:6px;">
+          <button onclick="importSave()" style="flex:1;background:rgba(90,158,111,0.1);border:1px solid rgba(90,158,111,0.3);color:#5a9e6f;font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:7px 12px;cursor:pointer;">
+            ✓ Load this save
+          </button>
+          <button onclick="document.getElementById('importSavePanel').style.display='none'" style="background:transparent;border:1px solid var(--border);color:var(--ink-light);font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:7px 12px;cursor:pointer;">
+            Cancel
+          </button>
+        </div>
+      </div>
+
       <button onclick="clearApiKey()" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);color:var(--gold-dim);font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:7px 12px;cursor:pointer;text-align:left;transition:all 0.12s;"
         onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
         onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--gold-dim)'">
