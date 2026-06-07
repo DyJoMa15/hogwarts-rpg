@@ -2140,6 +2140,459 @@
   }
   .combat-freeform-btn:hover { background: rgba(201,168,76,0.2); border-color: var(--gold); }
 
+  
+  /* ═══════════════ API KEY SCREEN ═══════════════ */
+  .api-key-overlay {
+    position: fixed; inset: 0; z-index: 9999;
+    background: #0d0a06;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .api-key-modal {
+    max-width: 520px; width: 100%;
+    background: #1a1208;
+    border: 1px solid #C9A84C;
+    padding: 40px 36px;
+    display: flex; flex-direction: column; align-items: center; gap: 16px;
+    text-align: center;
+  }
+  .api-key-crest {
+    font-size: 40px; margin-bottom: 4px;
+  }
+  .api-key-title {
+    font-family: 'Cinzel', serif; font-size: 22px; font-weight: 700;
+    color: #C9A84C; letter-spacing: 0.08em; margin: 0; line-height: 1.3;
+  }
+  .api-key-subtitle {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: #8B6F2E; margin: 0;
+  }
+  .api-key-divider {
+    width: 60px; height: 1px; background: #C9A84C; opacity: 0.4;
+  }
+  .api-key-body {
+    font-family: 'Crimson Pro', Georgia, serif; font-size: 16px;
+    line-height: 1.6; color: #c8b89a; margin: 0;
+  }
+  .api-key-error {
+    background: rgba(139,32,32,0.2); border: 1px solid rgba(139,32,32,0.5);
+    color: #e08080; font-size: 13px; padding: 10px 14px;
+    font-family: 'Cinzel', serif; letter-spacing: 0.05em; width: 100%;
+  }
+  .api-key-steps {
+    display: flex; flex-direction: column; gap: 10px;
+    width: 100%; text-align: left;
+  }
+  .api-key-step {
+    display: flex; gap: 12px; align-items: flex-start;
+  }
+  .step-num {
+    font-family: 'Cinzel', serif; font-size: 12px; font-weight: 700;
+    color: #C9A84C; background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.3);
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .step-text {
+    font-family: 'Crimson Pro', Georgia, serif; font-size: 15px;
+    line-height: 1.5; color: #c8b89a;
+  }
+  .api-key-link {
+    color: #C9A84C; text-decoration: underline;
+  }
+  .api-key-link:hover { color: #E8C96A; }
+  .api-key-input-wrap {
+    width: 100%; position: relative;
+  }
+  .api-key-input {
+    width: 100%; padding: 12px 44px 12px 14px;
+    background: rgba(0,0,0,0.4); border: 1px solid #8B6F2E;
+    color: #F5EDD6; font-family: 'Courier New', monospace; font-size: 14px;
+    letter-spacing: 0.05em; outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+  .api-key-input:focus { border-color: #C9A84C; }
+  .api-key-input::placeholder { color: #6b5a3a; font-family: 'Crimson Pro', serif; letter-spacing: 0; }
+  .api-key-input.api-key-input-error {
+    border-color: #8b2020; animation: shake 0.4s ease;
+  }
+  @keyframes shake {
+    0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)}
+  }
+  .api-key-show-btn {
+    position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+    background: none; border: none; cursor: pointer; font-size: 16px; opacity: 0.5;
+    padding: 4px;
+  }
+  .api-key-show-btn:hover { opacity: 1; }
+  .api-key-submit {
+    width: 100%; padding: 14px;
+    background: rgba(201,168,76,0.12); border: 1px solid #C9A84C;
+    color: #C9A84C; font-family: 'Cinzel', serif; font-size: 12px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.15s; margin-top: 4px;
+  }
+  .api-key-submit:hover {
+    background: rgba(201,168,76,0.22); color: #F5EDD6;
+  }
+  .api-key-footnote {
+    font-size: 11px; color: #6b5a3a; line-height: 1.6; margin: 0;
+    font-family: 'Crimson Pro', Georgia, serif;
+  }
+
+    /* ═══════════════ SELL MODAL ═══════════════ */
+  .sell-item-row {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 12px; padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .sell-item-row:last-child { border-bottom: none; }
+  .sell-item-left { display: flex; gap: 10px; align-items: flex-start; flex: 1; min-width: 0; }
+  .sell-item-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .sell-item-info { display: flex; flex-direction: column; gap: 3px; }
+  .sell-item-name {
+    font-family: 'Cinzel', serif; font-size: 12px;
+    letter-spacing: 0.05em; color: var(--parchment);
+  }
+  .sell-item-meta { display: flex; gap: 10px; align-items: center; }
+  .sell-item-catalogue {
+    font-size: 11px; color: var(--ink-light); letter-spacing: 0.04em;
+  }
+  .sell-item-rec {
+    font-size: 11px; color: var(--gold-dim); letter-spacing: 0.04em;
+  }
+  .sell-item-right {
+    display: flex; flex-direction: column; gap: 6px;
+    align-items: flex-end; flex-shrink: 0;
+  }
+  .sell-price-row {
+    display: flex; align-items: center; gap: 4px;
+  }
+  .sell-adj-btn {
+    width: 26px; height: 26px; background: rgba(201,168,76,0.10);
+    border: 1px solid rgba(201,168,76,0.25); color: var(--gold);
+    font-size: 16px; cursor: pointer; display: flex;
+    align-items: center; justify-content: center;
+    transition: all 0.1s; font-family: monospace;
+  }
+  .sell-adj-btn:hover { background: rgba(201,168,76,0.22); border-color: var(--gold); }
+  .sell-price-input {
+    width: 64px; text-align: center; padding: 4px 6px;
+    background: rgba(0,0,0,0.3); border: 1px solid var(--border);
+    color: var(--parchment); font-family: 'Cinzel', serif; font-size: 13px;
+    -moz-appearance: textfield;
+  }
+  .sell-price-input::-webkit-outer-spin-button,
+  .sell-price-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .sell-price-input:focus { border-color: var(--gold); outline: none; }
+  .sell-price-unit {
+    font-family: 'Cinzel', serif; font-size: 11px;
+    color: var(--gold-dim); letter-spacing: 0.1em;
+  }
+  .sell-chance-display { min-height: 16px; }
+  .sell-confirm-btn {
+    background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    padding: 6px 12px; cursor: pointer; transition: all 0.12s;
+  }
+  .sell-confirm-btn:hover { background: rgba(201,168,76,0.22); border-color: var(--gold); }
+
+  /* ═══════════════ COMPANION SYSTEM ═══════════════ */
+  .companion-act-btn {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; background: transparent;
+    border: 1px solid var(--border); cursor: pointer;
+    text-align: left; width: 100%; transition: all 0.12s;
+    font-family: var(--font-sans);
+  }
+  .companion-act-btn:hover:not(:disabled) {
+    background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.4);
+  }
+  .companion-act-btn:disabled,
+  .companion-act-locked { opacity: 0.40; cursor: not-allowed; }
+  .companion-act-info { flex: 1; min-width: 0; }
+  .companion-act-label {
+    font-family: 'Cinzel', serif; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--parchment); margin-bottom: 3px;
+  }
+  .companion-act-desc {
+    font-size: 11px; color: var(--ink-light); line-height: 1.4;
+  }
+  .companion-act-ap {
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.1em;
+    color: var(--gold-dim); flex-shrink: 0;
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2px 7px; border-radius: 3px;
+  }
+  .companion-act-ap.free { color: #5a9e6f; border-color: rgba(90,158,111,0.3); }
+
+    /* ═══════════════ CHESS BOARD ═══════════════ */
+  .chess-container {
+    display: flex; flex-direction: column; gap: 0;
+    background: var(--panel-bg); border: 1px solid var(--border-bright);
+  }
+  .chess-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 14px; background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border);
+  }
+  .chess-opponent { display: flex; align-items: center; gap: 8px; }
+  .chess-opp-name {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    letter-spacing: 0.06em; color: var(--parchment);
+  }
+  .chess-opp-diff {
+    font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--ink-light); background: var(--border);
+    padding: 1px 6px; border-radius: 3px;
+  }
+  .chess-status {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.12em; color: var(--gold);
+  }
+  .chess-board {
+    display: block; max-width: 448px; width: 100%;
+    align-self: center; border: 2px solid #4a3728;
+  }
+  .chess-comment {
+    padding: 8px 14px; font-family: 'Crimson Pro', Georgia, serif;
+    font-size: 14px; font-style: italic; line-height: 1.5;
+    color: var(--parchment-deep); border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.1);
+  }
+  .chess-spectators {
+    padding: 6px 14px; font-size: 11px; color: var(--ink-light);
+    border-top: 1px solid var(--border); letter-spacing: 0.06em;
+  }
+  .chess-ron-btn {
+    margin: 8px 14px; padding: 10px 14px; width: calc(100% - 28px);
+    background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold); font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer;
+    transition: all 0.12s; text-align: left;
+  }
+  .chess-ron-btn:hover { background: rgba(201,168,76,0.22); border-color: var(--gold); }
+  .chess-controls {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 8px 14px; border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.15);
+  }
+  .chess-ctrl-btn {
+    background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold); font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 14px;
+    cursor: pointer; transition: all 0.12s;
+  }
+  .chess-ctrl-btn:hover { background: rgba(201,168,76,0.22); border-color: var(--gold); }
+  .chess-movelog {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.1em; color: var(--ink-light);
+  }
+
+  /* ═══════════════ GAME PICKER ═══════════════ */
+  .game-pick-btn {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 14px; background: transparent;
+    border: 1px solid var(--border); cursor: pointer;
+    text-align: left; width: 100%; transition: all 0.12s;
+    font-family: var(--font-sans);
+  }
+  .game-pick-btn:hover:not(:disabled) {
+    background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.4);
+  }
+  .game-pick-btn:disabled, .game-pick-disabled { opacity: 0.35; cursor: not-allowed; }
+  .game-pick-icon { font-size: 24px; flex-shrink: 0; }
+  .game-pick-info { flex: 1; }
+  .game-pick-name {
+    font-family: 'Cinzel', serif; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--parchment); margin-bottom: 3px;
+  }
+  .game-pick-desc { font-size: 11px; color: var(--ink-light); line-height: 1.4; }
+  .game-stake-row {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+  }
+  .game-stake-label {
+    font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.12em; color: var(--ink-light); flex: 1;
+  }
+  .game-stake-controls { display: flex; align-items: center; gap: 6px; }
+  .game-stake-val {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    color: var(--gold); min-width: 40px; text-align: center;
+  }
+  .game-stake-budget { font-size: 10px; color: var(--ink-light); width: 100%; }
+  .game-hermione-note {
+    padding: 8px 12px; background: rgba(139,158,217,0.08);
+    border: 1px solid rgba(139,158,217,0.2);
+    font-size: 11px; color: #8B9ED9; font-style: italic;
+    font-family: 'Crimson Pro', Georgia, serif; line-height: 1.5;
+  }
+
+  /* ═══════════════ GAME RESULTS ═══════════════ */
+  .game-result-banner {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 16px; margin-top: 12px;
+    border: 1px solid var(--border);
+  }
+  .game-result-banner.win  { background: rgba(90,158,111,0.10); border-color: rgba(90,158,111,0.3); }
+  .game-result-banner.lose { background: rgba(184,85,85,0.08);  border-color: rgba(184,85,85,0.25); }
+  .game-result-banner.draw { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.25); }
+  .game-result-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--game-result-banner-win, var(--parchment));
+  }
+  .game-result-banner.win  .game-result-label { color: #5a9e6f; }
+  .game-result-banner.lose .game-result-label { color: #b85555; }
+  .game-result-banner.draw .game-result-label { color: var(--gold); }
+  .game-result-money {
+    font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold);
+  }
+
+  
+  /* ═══════════════ END OF YEAR PANEL ═══════════════ */
+  .end-year-panel {
+    margin-top: 20px; border: 1px solid var(--border-bright);
+    background: rgba(201,168,76,0.06);
+  }
+  .end-year-title {
+    padding: 10px 16px; font-family: 'Cinzel', serif; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold);
+    border-bottom: 1px solid var(--border);
+  }
+  .end-year-stats { padding: 8px 0; }
+  .end-year-stat {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 6px 16px; border-bottom: 1px solid var(--border);
+    font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.08em;
+    color: var(--ink-light);
+  }
+  .end-year-stat:last-child { border-bottom: none; }
+  .end-year-val { color: var(--parchment); font-weight: 600; }
+
+  /* ═══════════════ HOUSE CUP SIDEBAR ═══════════════ */
+  .house-cup-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 0; font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 0.08em; border-bottom: 1px solid var(--border);
+  }
+  .house-cup-row:last-child { border-bottom: none; }
+  .house-cup-name { font-size: 10px; letter-spacing: 0.06em; }
+  .house-cup-pts { color: var(--gold); font-size: 11px; font-weight: 600; }
+
+    /* ═══════════════ POTION CRAFTING ═══════════════ */
+  .brew-container {
+    display: flex; flex-direction: column; gap: 0;
+    background: var(--panel-bg); border: 1px solid var(--border-bright);
+  }
+  .brew-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 16px; background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 8px;
+  }
+  .brew-mastery-badge {
+    display: flex; flex-direction: column; gap: 2px;
+  }
+  .brew-mastery-label {
+    font-family: 'Cinzel', serif; font-size: 13px;
+    letter-spacing: 0.08em; color: var(--gold); font-weight: 600;
+  }
+  .brew-mastery-stat {
+    font-size: 10px; color: var(--ink-light); letter-spacing: 0.1em;
+  }
+  .brew-stats {
+    display: flex; gap: 14px; font-family: 'Cinzel', serif;
+    font-size: 9px; letter-spacing: 0.12em; color: var(--ink-light);
+    text-transform: uppercase;
+  }
+  .brew-section-title {
+    padding: 8px 16px 4px; font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dim);
+    border-top: 1px solid var(--border); margin-top: 4px;
+  }
+  .brew-recipe-list { display: flex; flex-direction: column; gap: 0; }
+  .brew-empty {
+    padding: 24px 16px; text-align: center; color: var(--ink-light);
+    font-style: italic; font-size: 13px; font-family: 'Crimson Pro', Georgia, serif;
+  }
+  .brew-recipe {
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+  }
+  .brew-recipe:last-child { border-bottom: none; }
+  .brew-recipe:hover { background: rgba(201,168,76,0.04); }
+  .brew-locked { opacity: 0.55; }
+  .brew-unknown { opacity: 0.38; }
+  .brew-recipe-header {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 4px;
+  }
+  .brew-recipe-title {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .brew-recipe-icon { font-size: 18px; }
+  .brew-recipe-name {
+    font-family: 'Cinzel', serif; font-size: 12px;
+    letter-spacing: 0.06em; color: var(--parchment);
+  }
+  .brew-difficulty {
+    font-size: 11px; letter-spacing: 2px; color: var(--gold-dim);
+    flex-shrink: 0;
+  }
+  .brew-recipe-desc {
+    font-family: 'Crimson Pro', Georgia, serif; font-size: 13px;
+    line-height: 1.5; color: var(--ink-light); margin-bottom: 8px;
+  }
+  .brew-ingredients {
+    display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px;
+  }
+  .brew-ing {
+    display: flex; align-items: center; gap: 4px;
+    padding: 3px 8px; border-radius: 3px; font-size: 11px;
+    font-family: 'Cinzel', serif; letter-spacing: 0.04em;
+    border: 1px solid;
+  }
+  .brew-ing.have {
+    background: rgba(90,158,111,0.10); border-color: rgba(90,158,111,0.3);
+    color: #7fb87f;
+  }
+  .brew-ing.missing {
+    background: rgba(184,85,85,0.08); border-color: rgba(184,85,85,0.25);
+    color: #b85555;
+  }
+  .brew-ing-icon { font-size: 13px; }
+  .brew-ing-status { font-weight: 700; font-size: 12px; }
+  .brew-btn {
+    background: rgba(201,168,76,0.10); border: 1px solid rgba(201,168,76,0.35);
+    color: var(--gold); font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.18em; text-transform: uppercase; padding: 7px 16px;
+    cursor: pointer; transition: all 0.12s; width: 100%;
+  }
+  .brew-btn:hover { background: rgba(201,168,76,0.22); border-color: var(--gold); }
+  .brew-missing-note {
+    font-size: 10px; color: var(--ink-light); letter-spacing: 0.1em;
+    font-family: 'Cinzel', serif; text-transform: uppercase; padding: 4px 0;
+  }
+  .brew-stock {
+    padding: 8px 16px; display: flex; flex-direction: column; gap: 6px;
+    border-top: 1px solid var(--border);
+  }
+  .brew-stock-item {
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: 'Cinzel', serif; font-size: 11px; color: var(--parchment);
+  }
+  .brew-use-btn {
+    background: rgba(90,158,111,0.10); border: 1px solid rgba(90,158,111,0.3);
+    color: #7fb87f; font-family: 'Cinzel', serif; font-size: 9px;
+    letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px;
+    cursor: pointer; transition: all 0.12s;
+  }
+  .brew-use-btn:hover { background: rgba(90,158,111,0.22); border-color: #7fb87f; }
+
     /* ═══════════════ REL SIDEBAR MINI LIST ═══════════════ */
   .rel-mini-empty {
     font-size: 12px; color: var(--ink-light); font-style: italic; padding: 4px 0;
@@ -2752,7 +3205,13 @@
     </div>
     <!-- Inventory -->
     <div class="sidebar-panel">
-      <div class="panel-title">Inventory</div>
+      <div class="panel-title" style="display:flex;justify-content:space-between;align-items:center;">
+        Inventory
+        <div style="display:flex;gap:4px;">
+          <button onclick="sceneBrew('day')" style="background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.15em;padding:3px 8px;cursor:pointer;text-transform:uppercase;">Brew</button>
+          <button onclick="openSellModal()" style="background:rgba(201,168,76,0.10);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.15em;padding:3px 8px;cursor:pointer;text-transform:uppercase;">Sell</button>
+        </div>
+      </div>
       <div class="inventory-list" id="inventoryList">
         <div class="inv-empty">Your trunk is empty.</div>
       </div>
@@ -2780,6 +3239,15 @@
       </div>
       <div class="rel-mini-list" id="relSidebarList">
         <div class="rel-mini-empty">No one met yet.</div>
+      </div>
+    </div>
+    <!-- House Cup -->
+    <div class="sidebar-panel">
+      <div class="panel-title">House Cup</div>
+      <div id="houseCupPanel">
+        <div style="font-size:11px;color:var(--ink-light);font-style:italic;">
+          No points awarded yet.
+        </div>
       </div>
     </div>
     <!-- Knowledge -->
@@ -2869,6 +3337,13 @@ const STATE = {
   owlLastPostWeek:    0,
   _npcConvoOpening:   null,
   combatState:        { active: false },
+  chessGame:          { active: false },
+  temporaryBuffs:     [],
+  _apBonus:           0,
+  _potionReady:       null,
+  housePoints:        { Gryffindor:0, Hufflepuff:0, Ravenclaw:0, Slytherin:0 },
+  _initialised:       false,
+  pendingSales:       [],
   _npcConvoId:        null,
   owlPost:            [],
   owlUnread:          0,
@@ -7136,9 +7611,13 @@ function setChoices(choices) {
   const grid = document.getElementById('choicesGrid');
   if(!choices || choices.length === 0) { section.style.display='none'; return; }
   section.style.display='block';
-  grid.innerHTML = choices.map((c,i) =>
-    `<button class="choice-btn" onclick="handleChoice(${i})">${c.text}</button>`
-  ).join('');
+  grid.innerHTML = choices.map((c,i) => {
+    if (c.disabled) {
+      return `<button class="choice-btn" disabled title="Not available right now"
+        style="opacity:0.35;cursor:not-allowed;border-style:dashed;">${c.text}</button>`;
+    }
+    return `<button class="choice-btn" onclick="handleChoice(${i})">${c.text}</button>`;
+  }).join('');
   window._currentChoices = choices;
 }
 
@@ -7286,10 +7765,20 @@ function closeFamiliarShop() {
 // AI NARRATIVE ENGINE
 // ═══════════════════════════════════════════════════════════
 async function callClaude(systemPrompt, userPrompt, maxTokens=600) {
+  const apiKey = localStorage.getItem('hp_rpg_api_key') || '';
+  if (!apiKey) {
+    showApiKeyScreen();
+    return null;
+  }
   try {
     const res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+      },
       body: JSON.stringify({
         model: 'claude-haiku-4-5-20251001',
         max_tokens: maxTokens,
@@ -7298,6 +7787,14 @@ async function callClaude(systemPrompt, userPrompt, maxTokens=600) {
       })
     });
     const data = await res.json();
+    if (data.error) {
+      if (data.error.type === 'authentication_error') {
+        localStorage.removeItem('hp_rpg_api_key');
+        showApiKeyScreen('Your API key was rejected. Please check it and try again.');
+        return null;
+      }
+      return null;
+    }
     return data.content?.map(b=>b.text||'').join('') || '';
   } catch(e) {
     return null;
@@ -8228,8 +8725,29 @@ async function handleChoice(idx) {
     case 'day_visit_hagrid': await sceneVisitHagrid(); break;
     case 'day_curfew_explore': await sceneCurfewExplore(); break;
     case 'open_board':        openBoardModal(); break;
-    case 'quidditch_play':   await sceneQuidditchMatch(true);  break;
-    case 'quidditch_watch':  await sceneQuidditchMatch(false); break;
+    case 'open_brew':         await sceneBrew('day');   break;
+    case 'open_brew_study':   await sceneBrew('study'); break;
+    case 'scene_mirror_harry_player': await sceneMirrorOfErised('harry_player'); break;
+    case 'scene_mirror_alone':        await sceneMirrorOfErised('player_alone'); break;
+    case 'year_1_complete':
+      STATE.flags.push('YEAR_1_COMPLETE');
+      showToast('🚂 The Hogwarts Express carries you home. Year 1 is complete.', 6000);
+      setTimeout(() => renderDayMenu(), 7000);
+      break;
+    case 'no_op_games':
+      showToast('No one in the common room is up for games right now.', 2500);
+      break;
+    case 'open_games':        openGamePicker(window._gamePickerNPCs || []); break;
+    case 'chess_chamber_play': {
+      // Opponent: the enchanted chess set — "master" difficulty, no wager
+      startChessGame('mcgonagall', 'master', 0, 'quirrell_chamber', []);
+      break;
+    }
+    case 'quirrell_after_chess': await startCombat('quirrell_final', null, 'boss'); break;
+    case 'open_sell':          openSellModal();  break;
+    case 'quidditch_play':        await sceneQuidditchMatch(true);  break;
+    case 'quidditch_watch':       await sceneQuidditchMatch(false); break;
+    case 'quidditch_watch_stands':await sceneQuidditchWatch(); break;
     case 'open_timetable':   openTimetable(); break;
     case 'open_prophet':     openProphetModal(); break;
     default:
@@ -8244,6 +8762,16 @@ async function handleChoice(idx) {
         break;
       }
       // NPC interaction routing
+      if (action.startsWith('companion_invite_')) {
+        const npcId = action.slice(17);
+        openCompanionActivityPicker(npcId);
+        break;
+      }
+      if (action.startsWith('game_again_')) {
+        const gameType = action.slice(11);
+        handleGameAgain(gameType);
+        break;
+      }
       if (action.startsWith('npc_respond_')) {
         // Resolution: player has chosen a response tone
         const parts = action.slice(12).split('_');
@@ -8447,6 +8975,8 @@ function buildSaveData() {
     owlLastPostWeek:    STATE.owlLastPostWeek||0,
     _npcConvoOpening:   null,
     combatState:        { active: false },
+    chessGame:          { active: false },
+    pendingSales:       JSON.parse(JSON.stringify(STATE.pendingSales||[])),
     _npcConvoId:        null,
     owlPost:            JSON.parse(JSON.stringify(STATE.owlPost||[])),
     owlUnread:          STATE.owlUnread||0,
@@ -8540,6 +9070,7 @@ function applySaveData(data) {
   if(data.owlLastPostWeek != null) STATE.owlLastPostWeek = data.owlLastPostWeek;
   if(data._catLeadLocation !== undefined) STATE._catLeadLocation = data._catLeadLocation;
   if(data._ferretLastEvent !== undefined) STATE._ferretLastEvent = data._ferretLastEvent;
+  if(data.pendingSales)  STATE.pendingSales = data.pendingSales;
   if(data.injuries)                STATE.injuries = data.injuries;
   if(data._hospitalRecoveryDays != null) STATE._hospitalRecoveryDays = data._hospitalRecoveryDays;
   if(data.dailyAP != null)         STATE.dailyAP = data.dailyAP;
@@ -9622,32 +10153,6 @@ async function maimNpc(npcId, injuryDescription, context='unprovoked', severity=
 }
 
 // ── CORE: Invite NPC as companion ──
-function inviteNpcCompanion(npcId) {
-  const npc = NPC_DATA[npcId];
-  if(!npc) return;
-  if(isNpcDead(npcId)) { showToast(`${npc.name} is dead.`); return; }
-  const state = getNpcState(npcId);
-  const rel = STATE.relationships[npcId] || {};
-
-  // Require minimum relationship
-  if(!rel.met) { showToast(`You haven't met ${npc.name} yet.`); return; }
-  if((rel.trust||0) < 20 && (rel.affection||0) < 20) {
-    showToast(`${npc.name} doesn't trust you enough to accompany you.`); return;
-  }
-
-  // Toggle companion
-  if(state.companion) {
-    state.companion = false;
-    showToast(`${npc.name} is no longer travelling with you.`);
-  } else {
-    state.companion = true;
-    adjustDim(npcId, 'trust', 5);
-    adjustDim(npcId, 'loyalty', 8);
-    showToast(`${npc.name} is now your companion.`);
-  }
-  updateRelSidebar();
-  updateWorldAlterationSidebar();
-}
 
 // ── PLAYER DEATH ──
 async function triggerPlayerDeath(causeNarrative) {
@@ -9739,6 +10244,16 @@ async function handleFreeInput() {
   if(!text) return;
 
   const lowerText = text.toLowerCase();
+
+  // ── Companion invite detection ──
+  if (typeof detectCompanionInvite === 'function') {
+    const companionMatch = detectCompanionInvite(lowerText);
+    if (companionMatch) {
+      input.value = '';
+      inviteNpcCompanion(companionMatch.npcId, companionMatch.activityKey);
+      return;
+    }
+  }
 
   // Quick intent classification
   const exploreKeywords = ['go to','explore','visit','walk to','head to','sneak','find','look for','wander','move to'];
@@ -17352,8 +17867,6 @@ ${buildStateContext()}`;
     STATE.relationships[catcher].trust = (STATE.relationships[catcher].trust || 0) - 10;
   }
 
-  STATE.detentionCount = (STATE.detentionCount || 0) + 1;
-
   // Assign formal detention — type depends on catcher and strike count
   const detType = catcher === 'snape' ? 'snape_dungeon'
     : strikes >= 3 ? 'forbidden_forest'
@@ -18449,7 +18962,8 @@ function initNewDay(dow, mood) {
   STATE.dayOfWeek = dow;
   STATE.playerMood = mood || STATE.playerMood || 'rested';
   STATE.dailyAPMax = calcDailyAPMax(dow, STATE.playerMood);
-  STATE.dailyAP = STATE.dailyAPMax;
+  STATE.dailyAP = STATE.dailyAPMax + (STATE._apBonus || 0);
+  STATE._apBonus = 0; // consume the bonus
   STATE.dayPhase = 'breakfast';
   STATE.dayActionLog = [];
   checkIgnoredDetentions();
@@ -18549,6 +19063,8 @@ async function sleepAndNewDay() {
   if (newDow === 1) advanceWeek();
   await dailyFamiliarTick();
   await resolvePendingBoardPosts();
+  await resolvePendingSales();
+  if (typeof expireTemporaryBuffs === 'function') expireTemporaryBuffs();
   initNewDay(newDow, nextMood);
   await sceneMorning(nextMood, newDow);
 }
@@ -18702,11 +19218,24 @@ function renderDayChoices(dow, classesToday, phase) {
   const isQuidditchWeek = (STATE.currentWeek||1) === 10 && dow === 6;
   const matchSeen = STATE.flags.includes('QUIDDITCH_MATCH_1');
   if (isQuidditchWeek && !matchSeen && (phase === 'morning' || phase === 'afternoon')) {
-    const onTeam = STATE.flags.includes('TIMETABLE_UNLOCKED') && (STATE.player.house === 'Gryffindor');
+    // Year 1: team is full — Harry is Seeker. Always watch.
     choices.unshift({
-      text: `🏟️ ${onTeam ? 'Play in the Quidditch match' : 'Watch the Quidditch match'} — Gryffindor vs Slytherin`,
-      action: onTeam ? 'quidditch_play' : 'quidditch_watch'
+      text: '🏟️ Watch the Quidditch match — Gryffindor vs Slytherin',
+      action: 'quidditch_watch_stands',
     });
+  }
+  // Brew option — available when player has ingredients and AP
+  {
+    const hasIngredients = STATE.inventory.some(i =>
+      typeof ITEM_CATALOGUE !== 'undefined' && ITEM_CATALOGUE[i.id]?.cat === 'ingredient'
+    );
+    const hasRecipes = typeof getBrewableRecipes === 'function'
+      && getBrewableRecipes().some(r => r.isKnown);
+    const brewOk = ap > 0 && hasIngredients && hasRecipes
+      && !['breakfast','night'].includes(phase);
+    if (brewOk) {
+      choices.push({ text: '🧪 Brew a potion', action: 'open_brew' });
+    }
   }
   choices.push({ text: ap === 0 ? '🌙 Sleep — end the day' : '🌙 Turn in early', action: 'day_sleep' });
 
@@ -18774,11 +19303,39 @@ ${buildStateContext()}`;
       STATE.relationships[id].affection = Math.min(100, (STATE.relationships[id].affection||0)+1);
   });
 
+  // Store present NPCs for game picker access
+  window._gamePickerNPCs = presentNPCObjs;
+
   setTimeout(() => {
     const after = presentNPCObjs.map(({ id, name }) =>
       ({ text: `Talk to ${name}`, action: `npc_${id}` })
     );
     after.push({ text: '👁 Look around', action: 'look_around_common' });
+    // Games — available based on day type and phase
+    {
+      const gamesOk = typeof gamesAvailableNow === 'function'
+        ? gamesAvailableNow(STATE.dayOfWeek, phase)
+        : ['afternoon','evening','night'].includes(phase);
+
+      // Count NPCs willing to actually play
+      const willingPlayers = presentNPCObjs.filter(({id}) => {
+        const style = typeof NPC_BETTING_STYLE !== 'undefined'
+          && NPC_BETTING_STYLE[id];
+        return style && style.gambles && STATE.relationships[id]?.met;
+      });
+
+      if (gamesOk && willingPlayers.length > 0) {
+        after.push({ text: `🎮 Play a game (${willingPlayers.length} up for it)`, action: 'open_games' });
+      } else if (gamesOk) {
+        // Right time but nobody to play with — show grayed hint as non-clickable
+        after.push({
+          text: '🎮 Play a game — nobody here to play with',
+          action: 'no_op_games',
+          disabled: true,
+        });
+      }
+      // If not gamesOk (morning before class), don't show option at all
+    }
     after.push({ text: '← Back to your day', action: 'day_menu' });
     setChoices(after); showFreeInput(true);
   }, 1500);
@@ -18808,7 +19365,15 @@ async function sceneStudy() {
       setTimeout(() => el.classList.add('visible'), i*150));
   }, 80);
   updateSkills();
-  setTimeout(() => { setChoices([{ text: '← Back to your day', action: 'day_menu' }]); showFreeInput(true); }, 1500);
+  // Potions study — offer practical brew option
+  const studyHasIngredients = STATE.inventory.some(i =>
+    typeof ITEM_CATALOGUE !== 'undefined' && ITEM_CATALOGUE[i.id]?.cat === 'ingredient'
+  );
+  const studyChoices = [{ text: '← Back to your day', action: 'day_menu' }];
+  if (studyHasIngredients) {
+    studyChoices.unshift({ text: '🧪 Practice brew (no AP cost)', action: 'open_brew_study' });
+  }
+  setTimeout(() => { setChoices(studyChoices); showFreeInput(true); }, 1500);
 }
 
 // ── Visit Hagrid ──────────────────────────────────────────
@@ -19666,6 +20231,15 @@ Second person. Present tense. 150-200 words.`;
 
   // Mark served
   det.served = true;
+
+  // Deduct house points from the House Cup tracker
+  if (det.housePointsLost && typeof adjustHousePoints === 'function') {
+    adjustHousePoints(
+      STATE.player.house || 'Gryffindor',
+      -det.housePointsLost,
+      det.reason || 'Detention'
+    );
+  }
 
   // Relationship effects
   if (STATE.relationships[det.assignedBy]) {
@@ -21095,26 +21669,7 @@ function getLocationNPCs(locationId, timeOfDay) {
     const housemates = houseData.housemates || [];
 
     // Probability depends on time of day
-    const baseProb = {
-      morning: 0.35, daytime: 0.20, evening: 0.70, night: 0.45,
-    }[phase] || 0.45;
-
-    // Named NPCs have personality-driven probabilities
-    const namedProbs = {
-      hermione: { morning:0.80, daytime:0.10, evening:0.65, night:0.30 },
-      harry:    { morning:0.60, daytime:0.15, evening:0.75, night:0.50 },
-      ron:      { morning:0.55, daytime:0.10, evening:0.80, night:0.55 },
-      neville:  { morning:0.50, daytime:0.20, evening:0.70, night:0.35 },
-      percy:    { morning:0.70, daytime:0.30, evening:0.60, night:0.40 },
-      fred:     { morning:0.40, daytime:0.20, evening:0.75, night:0.60 },
-      george:   { morning:0.40, daytime:0.20, evening:0.75, night:0.60 },
-      oliver:   { morning:0.35, daytime:0.20, evening:0.60, night:0.35 },
-      seamus:   { morning:0.50, daytime:0.15, evening:0.70, night:0.45 },
-      dean:     { morning:0.50, daytime:0.15, evening:0.70, night:0.45 },
-      lavender: { morning:0.55, daytime:0.10, evening:0.65, night:0.40 },
-      parvati:  { morning:0.55, daytime:0.10, evening:0.65, night:0.40 },
-    };
-
+    // Use day-aware probability function that accounts for school days vs free days
     // Seed randomness by week+dow+locationId so same visit = same people
     const seed = week * 37 + dow * 7 + locationId.length;
     const seededRandom = (idx) => {
@@ -21125,7 +21680,9 @@ function getLocationNPCs(locationId, timeOfDay) {
     const present = housemates
       .filter(id => isAvailable(id))
       .filter((id, idx) => {
-        const prob = namedProbs[id]?.[phase] ?? baseProb;
+        const prob = typeof getCommonRoomProb === 'function'
+          ? getCommonRoomProb(id, phase, dow)
+          : 0.45;
         return seededRandom(idx) < prob;
       })
       .map(id => ({ id, name: NPC_DATA[id]?.name || id }));
@@ -21640,9 +22197,19 @@ INSTRUCTIONS:
   STATE._npcConvoOpening = null;
   STATE._npcConvoId = null;
 
-  // Return to day after a beat
+  // Return to day — with companion invite option if relationship is warm enough
+  const relAfter = STATE.relationships[npcId] || {};
+  const canInvite = (relAfter.trust||0) >= 10 && relAfter.met;
+
   setTimeout(() => {
-    setChoices([{ text: '← Back to your day', action: 'day_menu' }]);
+    const choices = [{ text: '← Back to your day', action: 'day_menu' }];
+    if (canInvite) {
+      choices.unshift({
+        text: `Do something together with ${npc.name}`,
+        action: `companion_invite_${npcId}`,
+      });
+    }
+    setChoices(choices);
     showFreeInput(false);
   }, 1200);
 }
@@ -22569,10 +23136,22 @@ function checkBossEncounterTriggers(locationId, phase) {
   }
 
   // Quirrell — Week 34, underground chamber
+  // First the chess challenge, then Quirrell
   if (week >= 33 && locationId === 'underground_chamber'
-      && !STATE.flags.includes('QUIRRELL_ENCOUNTERED')
+      && !STATE.flags.includes('CHESS_CHAMBER_WON')
       && STATE.flags.includes('KNOWS_THIRD_FLOOR')) {
     STATE.flags.push('QUIRRELL_ENCOUNTERED');
+    // Is Ron with the player (Strong+ relationship)?
+    const ronTrust = STATE.relationships['ron']?.trust || 0;
+    if (ronTrust >= 30) STATE.flags.push('RON_IN_CHAMBER');
+    setTimeout(() => startChessChamberChallenge(), 1500);
+    return true;
+  }
+  // After winning chess, face Quirrell
+  if (week >= 33 && locationId === 'underground_chamber'
+      && STATE.flags.includes('CHESS_CHAMBER_WON')
+      && !STATE.flags.includes('QUIRRELL_FACED')) {
+    STATE.flags.push('QUIRRELL_FACED');
     setTimeout(() => startCombat('quirrell_final', null, 'boss'), 1500);
     return true;
   }
@@ -22587,6 +23166,2996 @@ async function initiateStudentDuel(npcId, context) {
   if (!npc) return;
   showToast(`⚔ ${npc.name} raises their wand.`, 2000);
   setTimeout(() => startCombat(null, npcId, context), 1500);
+}
+
+// ═══════════════════════════════════════════════════════════
+// API KEY SCREEN
+// Shown on first launch and whenever a key is missing/invalid
+// ═══════════════════════════════════════════════════════════
+function showApiKeyScreen(errorMsg = '') {
+  // Hide the main game UI while key screen is showing
+  const gameWrap = document.querySelector('.game-wrapper') ||
+                   document.querySelector('.layout') ||
+                   document.getElementById('gameLayout');
+  if (gameWrap) gameWrap.style.display = 'none';
+
+  // Remove existing screen if present
+  const existing = document.getElementById('apiKeyScreen');
+  if (existing) existing.remove();
+
+  const screen = document.createElement('div');
+  screen.id = 'apiKeyScreen';
+  screen.innerHTML = `
+    <div class="api-key-overlay">
+      <div class="api-key-modal">
+        <div class="api-key-crest">⚡</div>
+        <h1 class="api-key-title">Hogwarts: A Legacy of Your Own</h1>
+        <p class="api-key-subtitle">A living, AI-powered wizarding world</p>
+
+        <div class="api-key-divider"></div>
+
+        <p class="api-key-body">
+          This game uses the Anthropic API to generate narrative, dialogue,
+          and story events in real time. You need a free API key to play.
+        </p>
+
+        ${errorMsg ? `<div class="api-key-error">${errorMsg}</div>` : ''}
+
+        <div class="api-key-steps">
+          <div class="api-key-step">
+            <span class="step-num">1</span>
+            <span class="step-text">Go to <a href="https://console.anthropic.com" target="_blank"
+              class="api-key-link">console.anthropic.com</a> and create a free account</span>
+          </div>
+          <div class="api-key-step">
+            <span class="step-num">2</span>
+            <span class="step-text">Navigate to <strong>API Keys</strong> and create a new key</span>
+          </div>
+          <div class="api-key-step">
+            <span class="step-num">3</span>
+            <span class="step-text">Paste it below — it's stored only in your browser</span>
+          </div>
+        </div>
+
+        <div class="api-key-input-wrap">
+          <input
+            type="password"
+            id="apiKeyInput"
+            class="api-key-input"
+            placeholder="sk-ant-api03-..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="api-key-show-btn" onclick="toggleApiKeyVisibility()">👁</button>
+        </div>
+
+        <button class="api-key-submit" onclick="submitApiKey()">
+          Enter the Wizarding World →
+        </button>
+
+        <p class="api-key-footnote">
+          Your key never leaves your browser. It is stored in localStorage
+          and sent only to api.anthropic.com. You can clear it at any time
+          from the Settings menu in the game.
+        </p>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(screen);
+
+  // Focus the input
+  setTimeout(() => document.getElementById('apiKeyInput')?.focus(), 100);
+
+  // Allow Enter key to submit
+  document.getElementById('apiKeyInput')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter') submitApiKey();
+  });
+}
+
+function toggleApiKeyVisibility() {
+  const input = document.getElementById('apiKeyInput');
+  if (!input) return;
+  input.type = input.type === 'password' ? 'text' : 'password';
+}
+
+function submitApiKey() {
+  const input = document.getElementById('apiKeyInput');
+  const key = input?.value?.trim();
+
+  if (!key) {
+    input?.classList.add('api-key-input-error');
+    setTimeout(() => input?.classList.remove('api-key-input-error'), 1200);
+    return;
+  }
+
+  if (!key.startsWith('sk-ant-')) {
+    showApiKeyScreen('That doesn\'t look like an Anthropic API key. Keys start with sk-ant-');
+    setTimeout(() => {
+      const newInput = document.getElementById('apiKeyInput');
+      if (newInput) { newInput.value = key; newInput.focus(); }
+    }, 100);
+    return;
+  }
+
+  // Store and proceed
+  localStorage.setItem('hp_rpg_api_key', key);
+
+  // Remove the screen
+  document.getElementById('apiKeyScreen')?.remove();
+
+  // Show game UI
+  const gameWrap = document.querySelector('.game-wrapper') ||
+                   document.querySelector('.layout') ||
+                   document.getElementById('gameLayout');
+  if (gameWrap) gameWrap.style.display = '';
+
+  // If game hasn't initialised yet, do it now
+  if (!STATE._initialised) {
+    STATE._initialised = true;
+    init();
+  }
+}
+
+function clearApiKey() {
+  localStorage.removeItem('hp_rpg_api_key');
+  showToast('API key cleared. Refresh to enter a new key.', 4000);
+}
+
+
+// ═══════════════════════════════════════════════════════════
+// ECONOMY SYSTEM — Pricing, selling, market dynamics
+// ═══════════════════════════════════════════════════════════
+
+// ── Rarity → base sell multiplier ────────────────────────
+// Items sell for a fraction of their catalogue value.
+// Players who price fairly sell quickly; overpricing risks
+// rejection or a longer wait.
+const RARITY_SELL_RATE = {
+  common:    0.40,  // sell for 40% of catalogue valueK
+  uncommon:  0.50,
+  rare:      0.60,
+  very_rare: 0.70,
+};
+
+// ── Get recommended sell price for an item ───────────────
+function getItemSellData(itemId) {
+  const cat = ITEM_CATALOGUE[itemId];
+  if (!cat) return null;
+
+  const baseK    = cat.valueK || 10;
+  const rarity   = cat.rarity || 'common';
+  const rate     = RARITY_SELL_RATE[rarity] || 0.40;
+  const recK     = Math.max(1, Math.round(baseK * rate));
+  const minK     = Math.max(1, Math.round(baseK * 0.15)); // floor: 15% of value
+  const maxFairK = Math.round(baseK * (rate + 0.20));     // ceiling of "fair" range
+
+  return {
+    id:          itemId,
+    name:        cat.name,
+    icon:        cat.icon,
+    rarity,
+    catalogueK:  baseK,
+    recommendedK: recK,
+    minK,
+    maxFairK,
+    // Sell probability by price bracket
+    sellChance: (askingK) => {
+      if (askingK <= recK)      return 0.90;
+      if (askingK <= maxFairK)  return 0.65;
+      if (askingK <= baseK)     return 0.35;
+      if (askingK <= baseK * 2) return 0.12;
+      return 0.03; // wildly overpriced — almost never sells
+    },
+  };
+}
+
+// ── Convert Knuts to {g,s,k} for display ─────────────────
+function knutsToDisplay(k) {
+  const g = Math.floor(k / (17*29)); k -= g*17*29;
+  const s = Math.floor(k / 29);     k -= s*29;
+  return { g, s, k };
+}
+function displayPrice(k) {
+  const c = knutsToDisplay(k);
+  const parts = [];
+  if (c.g) parts.push(`${c.g}g`);
+  if (c.s) parts.push(`${c.s}s`);
+  if (c.k) parts.push(`${c.k}k`);
+  return parts.join(' ') || '0k';
+}
+
+// ── Open sell modal ────────────────────────────────────────
+function openSellModal() {
+  const existing = document.getElementById('sellModal');
+  if (existing) existing.remove();
+
+  // Items that have a catalogue entry can be sold
+  const sellable = STATE.inventory
+    .map((item, idx) => ({ ...item, invIdx: idx, data: getItemSellData(item.id) }))
+    .filter(item => item.data !== null);
+
+  const modal = document.createElement('div');
+  modal.id = 'sellModal';
+  modal.className = 'modal-overlay open';
+  modal.innerHTML = `
+    <div class="modal" style="max-width:640px;max-height:88vh;display:flex;flex-direction:column;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-shop-name">💰 Sell Items</div>
+          <div class="modal-shop-desc">Set your price. Fair prices sell faster.</div>
+        </div>
+        <button class="modal-close" onclick="closeSellModal()">&#x2715;</button>
+      </div>
+      <div style="flex:1;overflow-y:auto;padding:16px 20px;display:flex;flex-direction:column;gap:10px;">
+        ${sellable.length === 0
+          ? '<div style="padding:40px;text-align:center;color:var(--ink-light);font-style:italic;">Nothing in your inventory can be sold.</div>'
+          : sellable.map(item => renderSellItem(item)).join('')
+        }
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+function closeSellModal() {
+  document.getElementById('sellModal')?.remove();
+}
+
+function renderSellItem(item) {
+  const d = item.data;
+  const recDisplay  = displayPrice(d.recommendedK);
+  const catDisplay  = displayPrice(d.catalogueK);
+  const rarityColour = {
+    common:'var(--ink-light)', uncommon:'#8B9ED9',
+    rare:'#C9A84C', very_rare:'#C05555'
+  }[d.rarity] || 'var(--ink-light)';
+
+  return `
+    <div class="sell-item-row" id="sell-row-${item.invIdx}">
+      <div class="sell-item-left">
+        <span class="sell-item-icon">${d.icon}</span>
+        <div class="sell-item-info">
+          <div class="sell-item-name">${d.name}</div>
+          <div class="sell-item-meta">
+            <span style="color:${rarityColour};font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">${d.rarity}</span>
+            <span class="sell-item-catalogue">Market value: ${catDisplay}</span>
+          </div>
+          <div class="sell-item-rec">Recommended: <strong>${recDisplay}</strong></div>
+        </div>
+      </div>
+      <div class="sell-item-right">
+        <div class="sell-price-row">
+          <button class="sell-adj-btn" onclick="adjustSellPrice('${item.invIdx}', -29)">−</button>
+          <input
+            type="number"
+            class="sell-price-input"
+            id="sell-price-${item.invIdx}"
+            value="${d.recommendedK}"
+            min="1"
+            onchange="updateSellChanceDisplay('${item.invIdx}')"
+            oninput="updateSellChanceDisplay('${item.invIdx}')"
+          />
+          <span class="sell-price-unit">k</span>
+          <button class="sell-adj-btn" onclick="adjustSellPrice('${item.invIdx}', 29)">+</button>
+        </div>
+        <div class="sell-chance-display" id="sell-chance-${item.invIdx}">
+          ${getSellChanceLabel(d.recommendedK, d)}
+        </div>
+        <button class="sell-confirm-btn" onclick="confirmSell('${item.id}', ${item.invIdx})">
+          List for sale
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function adjustSellPrice(invIdx, deltaK) {
+  const input = document.getElementById(`sell-price-${invIdx}`);
+  if (!input) return;
+  const current = parseInt(input.value) || 1;
+  input.value = Math.max(1, current + deltaK);
+  updateSellChanceDisplay(invIdx);
+}
+
+function updateSellChanceDisplay(invIdx) {
+  const input   = document.getElementById(`sell-price-${invIdx}`);
+  const display = document.getElementById(`sell-chance-${invIdx}`);
+  if (!input || !display) return;
+
+  const item = STATE.inventory[invIdx];
+  if (!item) return;
+  const d = getItemSellData(item.id);
+  if (!d) return;
+
+  const askingK = parseInt(input.value) || 1;
+  display.innerHTML = getSellChanceLabel(askingK, d);
+}
+
+function getSellChanceLabel(askingK, d) {
+  const chance = d.sellChance(askingK);
+  const label = chance >= 0.85 ? { text:'Very likely to sell',  colour:'#5a9e6f' }
+    : chance >= 0.60 ? { text:'Likely to sell',       colour:'#7fb87f' }
+    : chance >= 0.30 ? { text:'May sell',              colour:'#C9A84C' }
+    : chance >= 0.10 ? { text:'Unlikely to sell',      colour:'#c08855' }
+    :                  { text:'Very unlikely to sell',  colour:'#b85555' };
+  return `<span style="color:${label.colour};font-size:10px;letter-spacing:0.08em;">${label.text}</span>`;
+}
+
+// ── Confirm a sale ─────────────────────────────────────────
+function confirmSell(itemId, invIdx) {
+  const input   = document.getElementById(`sell-price-${invIdx}`);
+  const askingK = parseInt(input?.value) || 1;
+  const item    = STATE.inventory[invIdx];
+  const d       = item ? getItemSellData(itemId) : null;
+  if (!d) return;
+
+  const chance = d.sellChance(askingK);
+
+  // Queue the sale — resolves on next sleep
+  if (!STATE.pendingSales) STATE.pendingSales = [];
+  STATE.pendingSales.push({
+    itemId,
+    invIdx,
+    itemName:  d.name,
+    itemIcon:  d.icon,
+    askingK,
+    chance,
+    listedWeek: STATE.currentWeek || 1,
+    listedDay:  STATE.dayOfWeek || 1,
+  });
+
+  // Remove from active inventory (it's listed)
+  STATE.inventory = STATE.inventory.filter((_, i) => i !== invIdx);
+  updateInventory();
+
+  showToast(`${d.icon} ${d.name} listed for ${displayPrice(askingK)}.`, 3000);
+
+  // Re-render the modal without this item
+  closeSellModal();
+  openSellModal();
+}
+
+// ── Resolve pending sales on sleep ────────────────────────
+async function resolvePendingSales() {
+  if (!STATE.pendingSales?.length) return;
+
+  const resolved = [];
+  const remaining = [];
+
+  for (const sale of STATE.pendingSales) {
+    const daysSinceListing = ((STATE.currentWeek||1) - sale.listedWeek) * 7
+      + ((STATE.dayOfWeek||1) - sale.listedDay);
+
+    // Each day that passes gives the sale another chance to resolve
+    // More time = higher cumulative probability
+    const dailyChance = sale.chance * (1 + daysSinceListing * 0.15);
+    const roll = Math.random();
+
+    if (roll < Math.min(0.97, dailyChance)) {
+      // Sold
+      addGold(0, 0, sale.askingK);
+      resolved.push(sale);
+      showToast(
+        `${sale.itemIcon} ${sale.itemName} sold for ${displayPrice(sale.askingK)}!`,
+        4500
+      );
+    } else if (daysSinceListing >= 7) {
+      // Unsold after a week — returned to inventory
+      STATE.inventory.push({ id: sale.itemId, name: sale.itemName, icon: sale.itemIcon });
+      resolved.push(sale);
+      showToast(
+        `${sale.itemIcon} ${sale.itemName} didn't sell. Returned to your trunk.`,
+        4000
+      );
+    } else {
+      remaining.push(sale);
+    }
+  }
+
+  STATE.pendingSales = remaining;
+  if (resolved.length) {
+    updateInventory();
+    updateGoldDisplay();
+  }
+}
+
+// ── Sell CSS ──────────────────────────────────────────────
+// (injected via style block below)
+
+// ═══════════════════════════════════════════════════════════
+// COMPANION SYSTEM
+// Invite NPCs to join activities — exploration, study,
+// the library, Quidditch watching, casual wandering.
+// ═══════════════════════════════════════════════════════════
+
+// ── NPC social openness classification ───────────────────
+// Every named canon character assessed by personality.
+// OPEN  = will spend time with you before trust is built.
+//         Friendly, curious, unbothered by convention,
+//         or simply warm by default.
+// CLOSED = requires meaningful trust first. Cold, status-
+//         conscious, reserved, or socially calculating.
+// Everyone not listed defaults to trust-threshold behaviour.
+
+const OPEN_PERSONALITY_NPCS = new Set([
+  // ── Year 1 Gryffindor ────────────────────────────────
+  'harry',      // unpretentious, takes people as they come
+  'ron',        // instinctively sociable, easy company
+  'neville',    // eager to be included; says yes when asked
+  'dean',       // relaxed, inclusive by default
+  'seamus',     // loud and friendly, rarely says no
+  'lavender',   // socially enthusiastic, always happy to chat
+  'parvati',    // sociable, warm; happy to include new people
+
+  // ── Year 1 Hufflepuff ────────────────────────────────
+  'ernie',      // pompous but genuinely decent; says yes formally
+  'hannah',     // warm and welcoming by nature
+  'justin',     // keen to make friends, especially cross-house
+  'susan',      // quietly open; Bones family values fairness
+
+  // ── Year 1 Ravenclaw ─────────────────────────────────
+  'terry',      // intellectually curious; happy to engage anyone
+  'michael',    // confident and sociable; enjoys new company
+  // padma and anthony are more reserved — trust required
+  // hermione is trust-required (she's selective with her time)
+
+  // ── Year 1 Slytherin ─────────────────────────────────
+  // Most Slytherins are closed — status-conscious
+  // Exceptions:
+  'millicent',  // blunt but not calculating; straightforward yes or no
+  // draco, pansy, blaise, theo, daphne all require trust
+
+  // ── Year 2+ Gryffindor ───────────────────────────────
+  'fred',       // game for anything, with anyone
+  'george',     // same as Fred
+  'lee_jordan', // gregarious, outgoing, friends with everyone
+  'angelina',   // confident and inclusive on the Quidditch pitch and off it
+  'alicia',     // warm and socially open
+  'katie_bell', // friendly, good-natured
+
+  // ── Year 2+ Hufflepuff ───────────────────────────────
+  'cedric',     // genuinely nice in a rare way; notices and includes people
+  'leanne',     // warm; Hannah's close friend; open to new people
+  'zacharias_smith', // blunt rather than cold; will engage even if critical
+
+  // ── Year 2+ Ravenclaw ────────────────────────────────
+  'cho',        // sociable and warm; more open than her reserved exterior suggests
+  'roger_davies', // confident; Quidditch captain energy; socially comfortable
+
+  // ── Year 2+ Slytherin ────────────────────────────────
+  'adrian_pucey', // less status-obsessed than core Slytherin group; more relaxed
+
+  // ── Older years ──────────────────────────────────────
+  'oliver',     // Quidditch obsessive; will talk to anyone about Quidditch
+                // and by extension about anything
+
+  // ── Pre-Hogwarts / younger ───────────────────────────
+  'luna',       // entirely unbothered by social convention
+  'ginny',      // confident, direct, warm; not shy about including people
+  'colin',      // enthusiastic, eager, perhaps overly so
+
+  // ── Staff ────────────────────────────────────────────
+  'hagrid',     // warmly open to everyone without exception; he'd invite a stranger in
+  'flitwick',   // enthusiastic and warm; happy to talk with students
+  'sprout',     // earthy and kind; genuinely welcoming
+  'lupin',      // warm and generous; the teacher who actually sees students
+  'dumbledore', // open to anyone, always — though his time is limited
+  'hooch',      // no-nonsense but fair and approachable
+  'madam_pomfrey', // professional warmth; open if you're in her wing
+  'slughorn',   // open IF he thinks you're useful or talented; collector instinct
+]);
+
+// ── NPCs who are explicitly CLOSED ───────────────────────
+// These characters will NEVER accept a companion invite
+// until trust exceeds their minTrust. No personality bypass.
+const CLOSED_PERSONALITY_NPCS = new Set([
+  'draco',      // performs openness only when it serves him
+  'pansy',      // socially calculating; does not waste time
+  'blaise',     // coolly aloof; declines by simply not engaging
+  'theo',       // operates alone by choice
+  'daphne',     // measuring; decides whether you are worth her attention
+  'snape',      // does not socialise with students. Period.
+  'umbridge',   // sweet voice, vicious intent; never genuine
+  'filch',      // hostile to students by default
+  'binns',      // does not notice students exist outside of essays
+  'percy',      // rules-conscious; too busy being a prefect to hang out
+  'marcus_flint',// aggressive; no interest in non-Slytherins
+  'terence_higgs',// reserved Slytherin; trust required
+  'quirrell',   // too nervous / concealing too much to be open
+  'moody',      // constant vigilance; does not do casual
+  'lockhart',   // only open to people who admire him; collapses without an audience
+]);
+const COMPANION_ACTIVITIES = {
+  explore: {
+    label:    'Explore together',
+    icon:     '🗺️',
+    apCost:   1,
+    minTrust: 15,
+    desc:     'Walk the castle or grounds together.',
+    relGain:  { trust: 3, affection: 4, loyalty: 2 },
+  },
+  study: {
+    label:    'Study together',
+    icon:     '📚',
+    apCost:   1,
+    minTrust: 10,
+    desc:     'Share notes and revise. Both of you benefit.',
+    relGain:  { trust: 4, affection: 2, respect: 3 },
+    skillBoost: true, // both player and NPC get +1 to a relevant skill
+  },
+  library: {
+    label:    'Visit the library',
+    icon:     '📖',
+    apCost:   1,
+    minTrust: 10,
+    desc:     'Research together. Hermione will correct you. That is fine.',
+    relGain:  { trust: 3, respect: 4, affection: 2 },
+  },
+  quidditch_watch: {
+    label:    'Watch Quidditch together',
+    icon:     '🏟️',
+    apCost:   1,
+    minTrust: 8,
+    desc:     'Sit in the stands and watch the match.',
+    relGain:  { trust: 2, affection: 5, loyalty: 2 },
+  },
+  common_room: {
+    label:    'Spend time in the common room',
+    icon:     '🔥',
+    apCost:   0,
+    minTrust: 8,
+    desc:     'A quiet evening in. No agenda.',
+    relGain:  { trust: 2, affection: 4 },
+    sameHouseOnly: true, // common room is house-exclusive — always
+  },
+  grounds: {
+    label:    'Walk the grounds',
+    icon:     '🌳',
+    apCost:   1,
+    minTrust: 12,
+    desc:     'A walk outside. Room to talk properly.',
+    relGain:  { trust: 4, affection: 4, loyalty: 1 },
+  },
+  hagrid: {
+    label:    'Visit Hagrid together',
+    icon:     '🛖',
+    apCost:   1,
+    minTrust: 15,
+    desc:     'Hagrid always has tea. And something inadvisable in the back garden.',
+    relGain:  { trust: 5, affection: 4 },
+  },
+};
+
+// ── Rebuild inviteNpcCompanion fully ────────────────────
+function inviteNpcCompanion(npcId, activityKey) {
+  const npc  = NPC_DATA[npcId];
+  const rel  = STATE.relationships[npcId] || {};
+  const act  = activityKey ? COMPANION_ACTIVITIES[activityKey] : null;
+
+  if (!npc) return;
+  if (!rel.met) {
+    showToast(`You haven\\'t properly met ${npc.name} yet.`);
+    return;
+  }
+
+  // If no activity specified or activity was invalid for current time — show the picker
+  if (!act) {
+    openCompanionActivityPicker(npcId);
+    return;
+  }
+
+  // Common room is house-exclusive — no exceptions
+  if (act.sameHouseOnly && npc.house !== STATE.player.house) {
+    showToast(`${npc.name} can't come to your common room — different houses.`, 3000);
+    return;
+  }
+
+  // Trust or open personality gate for everywhere else
+  const trust = rel.trust || 0;
+  const isOpen = typeof OPEN_PERSONALITY_NPCS !== 'undefined'
+    && OPEN_PERSONALITY_NPCS.has(npcId);
+  const isClosed = typeof CLOSED_PERSONALITY_NPCS !== 'undefined'
+    && CLOSED_PERSONALITY_NPCS.has(npcId);
+  if (!act.sameHouseOnly && trust < act.minTrust && (!isOpen || isClosed)) {
+    showToast(`${npc.name} doesn't know you well enough yet.`, 3000);
+    return;
+  }
+
+  // AP check
+  if (act.apCost > 0 && !consumeAP(act.apCost, 'companion_activity')) return;
+
+  // Run the companion activity scene
+  runCompanionActivity(npcId, activityKey, act);
+}
+
+// ── Activity picker modal ─────────────────────────────────
+function openCompanionActivityPicker(npcId) {
+  const npc = NPC_DATA[npcId];
+  const rel = STATE.relationships[npcId] || {};
+  const trust = rel.trust || 0;
+  const house = STATE.player.house;
+
+  const existing = document.getElementById('companionModal');
+  if (existing) existing.remove();
+
+  const week   = STATE.currentWeek  || 1;
+  const dow    = STATE.dayOfWeek    || 1;  // 1=Mon … 7=Sun
+  const phase  = STATE.dayPhase     || 'morning';
+  const loc    = STATE.currentLocation || '';
+  const ap     = STATE.dailyAP      || 0;
+  const flags  = STATE.flags        || [];
+
+  // Is it daytime (library, grounds, exploring only make sense then)?
+  const isDaytime  = ['morning','daytime','afternoon'].includes(phase);
+  const isEvening  = phase === 'evening';
+  const isNight    = phase === 'night';
+  const isWeekend  = dow >= 6; // Sat=6, Sun=7
+
+  // Is a Quidditch match happening right now?
+  const isQuidditchDay = week === 10 && dow === 6
+    && !flags.includes('QUIDDITCH_MATCH_1')
+    && isDaytime;
+
+  // Is the library realistically open?
+  const libraryOpen = isDaytime || isEvening;
+
+  // Is it reasonable to go outside?
+  const canGoOutside = isDaytime || (isEvening && !isNight);
+
+  // Does Hagrid have visitors at this hour?
+  const hagridHome = canGoOutside && week >= 2;
+
+  // Is the common room the natural place to be?
+  const inCommonRoom = isEvening || phase === 'breakfast';
+
+  // Does the NPC have enough AP / would realistically be free?
+  // Professors are never available for casual companionship
+  const npcIsProfessor = npc.year === 99;
+
+  const isOpenPersonality = typeof OPEN_PERSONALITY_NPCS !== 'undefined'
+    && OPEN_PERSONALITY_NPCS.has(npcId);
+  const isClosedPersonality = typeof CLOSED_PERSONALITY_NPCS !== 'undefined'
+    && CLOSED_PERSONALITY_NPCS.has(npcId);
+
+  const available = Object.entries(COMPANION_ACTIVITIES)
+    .filter(([key, act]) => {
+      // Professors don't do casual activities with students
+      if (npcIsProfessor) return false;
+
+      // Common room is house-exclusive — always
+      if (act.sameHouseOnly && npc.house !== house) return false;
+
+      // Quidditch watch — only available on match days during match hours
+      if (key === 'quidditch_watch' && !isQuidditchDay) return false;
+
+      // Library — only when it's open
+      if (key === 'library' && !libraryOpen) return false;
+
+      // Grounds and outdoor activities — only in daylight
+      if (key === 'grounds' && !canGoOutside) return false;
+
+      // Explore — only during the day; not at night (curfew risk)
+      if (key === 'explore' && !isDaytime) return false;
+
+      // Hagrid — only if Hagrid is plausibly home and it's daytime
+      if (key === 'hagrid' && !hagridHome) return false;
+
+      // Common room — not at breakfast
+      if (key === 'common_room' && phase === 'breakfast') return false;
+
+      // Study — not at night
+      if (key === 'study' && isNight) return false;
+
+      // AP gate — skip activities that cost AP if player has none
+      if (act.apCost > 0 && ap <= 0) return false;
+
+      // Closed personalities require trust regardless — no bypass
+      if (isClosedPersonality && trust < act.minTrust) return false;
+
+      // Trust gate — open personalities bypass minTrust for non-house-gated activities
+      if (!act.sameHouseOnly && trust < act.minTrust && !isOpenPersonality) return false;
+
+      return true;
+    });
+
+  const houseColour = {
+    Gryffindor:'#C9A84C', Hufflepuff:'#D9A87A',
+    Ravenclaw:'#8B9ED9',  Slytherin:'#7FB87F'
+  }[npc.house] || 'var(--ink-light)';
+
+  const modal = document.createElement('div');
+  modal.id = 'companionModal';
+  modal.className = 'modal-overlay open';
+  modal.innerHTML = `
+    <div class="modal" style="max-width:480px;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-shop-name" style="color:${houseColour}">
+            ${npc.icon || '👤'} ${npc.name}
+          </div>
+          <div class="modal-shop-desc">Choose an activity to do together.</div>
+        </div>
+        <button class="modal-close" onclick="document.getElementById('companionModal').remove()">
+          &#x2715;
+        </button>
+      </div>
+      <div style="padding:12px 20px 20px;display:flex;flex-direction:column;gap:8px;">
+        ${available.length === 0
+          ? `<div style="padding:20px;text-align:center;color:var(--ink-light);font-style:italic;font-size:13px;">
+              Nothing suitable to do together right now.<br>
+              <span style="font-size:11px;margin-top:6px;display:block;">Try again later in the day, or when there's a match on.</span>
+             </div>`
+          : available.map(([key, act]) => {
+          const canDo = trust >= act.minTrust;
+          return `
+            <button class="companion-act-btn ${canDo ? '' : 'companion-act-locked'}"
+              onclick="${canDo ? `inviteNpcCompanion('${npcId}','${key}')` : ''}"
+              ${!canDo ? 'disabled' : ''}>
+              <span class="ca-icon">${act.icon}</span>
+              <div class="companion-act-info">
+                <div class="companion-act-label">${act.label}</div>
+                <div class="companion-act-desc">${canDo ? act.desc
+                  : `Requires more trust (${act.minTrust} needed)`}</div>
+              </div>
+              ${act.apCost > 0
+                ? `<span class="companion-act-ap">${act.apCost} AP</span>`
+                : '<span class="companion-act-ap free">Free</span>'}
+            </button>`;
+        }).join('')
+        }
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+}
+
+// ── Run the activity scene ────────────────────────────────
+async function runCompanionActivity(npcId, activityKey, act) {
+  const npc     = NPC_DATA[npcId];
+  const persona = NPC_PERSONAS[npcId] || npc.bio || '';
+  const rel     = STATE.relationships[npcId] || {};
+  const week    = STATE.currentWeek || 1;
+  const phase   = STATE.dayPhase || 'daytime';
+  const house   = STATE.player.house || 'Gryffindor';
+
+  // Close picker if open
+  document.getElementById('companionModal')?.remove();
+
+  setLocation(`${act.icon} With ${npc.name}`);
+  setChoices([]);
+  showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>${npc.icon || '👤'} ${npc.name}...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write a scene of the player spending time with ${npc.name}.
+Activity: ${act.label} — ${act.desc}
+CHARACTER: ${persona.slice(0,150)}
+RELATIONSHIP: Trust ${rel.trust||0}, Affection ${rel.affection||0}, Respect ${rel.respect||0}.
+CONTEXT: Week ${week}, ${phase}, ${house} student.
+${buildStateContext()}
+Write 2-3 paragraphs. Show the two characters together naturally — what they talk about, a specific moment, something that reveals their dynamic. No grand events. Small and real.
+Second person, present tense. 120-150 words.
+End on a beat that feels complete — not a cliffhanger.`;
+
+  const text = await callClaude(sys, `Companion activity: ${activityKey} with ${npc.name}.`, 400);
+  const fallback = `You and ${npc.name} spend the time together. It is easy company, or difficult, or somewhere between — but it is time spent, and that is not nothing.`;
+
+  const paras = (text || fallback).split(/\n\n+/).filter(p => p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${npc.icon || '👤'} ${npc.name}</div>`;
+  narHtml += paras.map(p => `<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+
+  setTimeout(() => {
+    document.querySelectorAll('.narrative-para')
+      .forEach((el, i) => setTimeout(() => el.classList.add('visible'), i * 150));
+  }, 50);
+
+  // Apply relationship gains
+  Object.entries(act.relGain || {}).forEach(([dim, val]) => adjustDim(npcId, dim, val));
+  updateRelationshipSidebar();
+
+  // Skill boost for study activities
+  if (act.skillBoost) {
+    const skillMap = {
+      hermione: 'intellect', ron: 'magicalPower',
+      neville: 'herbologyMastery', terry: 'arcaneKnowledge',
+    };
+    const boostSkill = skillMap[npcId] || 'intellect';
+    STATE.skills[boostSkill] = Math.min(100, (STATE.skills[boostSkill]||10) + 1);
+    STATE.skills.intellect   = Math.min(100, (STATE.skills.intellect||10) + 1);
+    updateSkills();
+    showToast(`📚 Studying with ${npc.name} — Intellect +1`, 3000);
+  }
+
+  // Log the activity
+  STATE.dayActionLog = STATE.dayActionLog || [];
+  STATE.dayActionLog.push(`${act.label} with ${npc.name}`);
+
+  setTimeout(() => {
+    setChoices([{ text: '← Back to your day', action: 'day_menu' }]);
+    showFreeInput(false);
+  }, 1500);
+}
+
+// ── Wire companion invites into free text input ───────────
+// Called from handleFreeInput when player types invite-style text
+function detectCompanionInvite(lowerText) {
+  const invitePatterns = [
+    /(?:ask|invite|want|come with|join me|together|study with|explore with|walk with|visit.*with)/,
+  ];
+  const npcNames = Object.values(NPC_DATA)
+    .filter(n => n.year && n.year < 10 && STATE.relationships[n.id]?.met)
+    .map(n => ({ id: n.id, name: n.name.toLowerCase(), house: n.house }));
+
+  if (!invitePatterns.some(p => p.test(lowerText))) return null;
+
+  const matched = npcNames.find(n => lowerText.includes(n.name.split(' ')[0].toLowerCase()));
+  if (!matched) return null;
+
+  // Read current context — same conditions as openCompanionActivityPicker
+  const week  = STATE.currentWeek  || 1;
+  const dow   = STATE.dayOfWeek    || 1;
+  const phase = STATE.dayPhase     || 'morning';
+  const flags = STATE.flags        || [];
+  const ap    = STATE.dailyAP      || 0;
+
+  const isDaytime  = ['morning','daytime','afternoon'].includes(phase);
+  const isEvening  = phase === 'evening';
+  const isNight    = phase === 'night';
+  const canGoOutside = isDaytime || (isEvening && !isNight);
+  const libraryOpen  = isDaytime || isEvening;
+  const isQuidditchDay = week === 10 && dow === 6
+    && !flags.includes('QUIDDITCH_MATCH_1') && isDaytime;
+
+  // Detect what the player wants to do
+  let activityKey =
+    lowerText.includes('study') || lowerText.includes('homework')   ? 'study'
+    : lowerText.includes('library')                                  ? 'library'
+    : lowerText.includes('quidditch')                                ? 'quidditch_watch'
+    : lowerText.includes('common room') || lowerText.includes('dorm')? 'common_room'
+    : lowerText.includes('hagrid')                                   ? 'hagrid'
+    : lowerText.includes('walk') || lowerText.includes('ground')    ? 'grounds'
+    : 'explore';
+
+  // Validate that the detected activity is actually available right now
+  // For common_room — check house match
+  const npcForHouseCheck = matched ? NPC_DATA[matched.id] : null;
+  const houseMismatch = activityKey === 'common_room'
+    && npcForHouseCheck
+    && npcForHouseCheck.house !== (STATE.player.house || 'Gryffindor');
+
+  const invalid =
+    houseMismatch                                          ||
+    (activityKey === 'quidditch_watch' && !isQuidditchDay) ||
+    (activityKey === 'library'         && !libraryOpen)    ||
+    (activityKey === 'grounds'         && !canGoOutside)   ||
+    (activityKey === 'explore'         && !isDaytime)      ||
+    (activityKey === 'hagrid'          && !canGoOutside)   ||
+    (activityKey === 'study'           && isNight)         ||
+    (ap <= 0 && COMPANION_ACTIVITIES[activityKey]?.apCost > 0);
+
+  if (invalid) {
+    // Activity exists but isn't available — fall through to picker
+    // so the player gets a helpful explanation
+    return { npcId: matched.id, activityKey: null };
+  }
+
+  return { npcId: matched.id, activityKey };
+}
+
+// ── Save/load aliases — thin wrappers for compatibility ──
+function saveGame(slot) {
+  if (slot) saveToSlot(slot);
+  else openSaveModal();
+}
+function loadGame(slot) {
+  if (slot) loadFromSlot(slot);
+  else openSaveModal();
+}
+
+// ═══════════════════════════════════════════════════════════
+// WIZARD CHESS ENGINE
+// Full interactive chess board with AI opponent.
+// Renders in the narrative panel as a clickable SVG board.
+// Used for: common room games, Quirrell's chess chamber.
+// ═══════════════════════════════════════════════════════════
+
+// ── Chess constants ───────────────────────────────────────
+const CHESS_PIECES = {
+  // White pieces (player)
+  wK:'♔', wQ:'♕', wR:'♖', wB:'♗', wN:'♘', wP:'♙',
+  // Black pieces (opponent)
+  bK:'♚', bQ:'♛', bR:'♜', bB:'♝', bN:'♞', bP:'♟',
+};
+
+const CHESS_INIT = [
+  ['bR','bN','bB','bQ','bK','bB','bN','bR'],
+  ['bP','bP','bP','bP','bP','bP','bP','bP'],
+  [null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null],
+  [null,null,null,null,null,null,null,null],
+  ['wP','wP','wP','wP','wP','wP','wP','wP'],
+  ['wR','wN','wB','wQ','wK','wB','wN','wR'],
+];
+
+// ── Chess state ───────────────────────────────────────────
+// Stored in STATE.chessGame while a game is active
+function initChessState(opponentId, opponentName, difficulty, wager, context) {
+  return {
+    active:       true,
+    board:        CHESS_INIT.map(row => [...row]),
+    turn:         'white',    // white = player
+    selected:     null,       // [row, col] of selected piece
+    legalMoves:   [],         // legal destinations for selected piece
+    opponentId,
+    opponentName,
+    difficulty,               // 'beginner'|'casual'|'strong'|'master'
+    wager,                    // knuts in the pot per player
+    context,                  // 'common_room'|'quirrell_chamber'|'group_game'
+    moveHistory:  [],         // array of { from, to, piece, capture, notation }
+    status:       'playing',  // 'playing'|'check'|'checkmate'|'stalemate'|'resigned'
+    playerColour: 'white',
+    castling:     { wK: true, wQ: true, bK: true, bQ: true },
+    enPassant:    null,
+    halfMoves:    0,
+    fullMoves:    1,
+    spectators:   [],         // NPC ids watching
+    commentary:   [],         // last few commentary lines
+    ronPresent:   false,      // Ron sacrifice option for Quirrell chamber
+  };
+}
+
+// ── Board to FEN ──────────────────────────────────────────
+function boardToFEN(cs) {
+  const pieceMap = { wK:'K',wQ:'Q',wR:'R',wB:'B',wN:'N',wP:'P',
+                     bK:'k',bQ:'q',bR:'r',bB:'b',bN:'n',bP:'p' };
+  let fen = '';
+  for (let r = 0; r < 8; r++) {
+    let empty = 0;
+    for (let c = 0; c < 8; c++) {
+      const p = cs.board[r][c];
+      if (!p) { empty++; }
+      else { if (empty) { fen += empty; empty = 0; } fen += pieceMap[p] || '?'; }
+    }
+    if (empty) fen += empty;
+    if (r < 7) fen += '/';
+  }
+  const turn = cs.turn === 'white' ? 'w' : 'b';
+  let castle = '';
+  if (cs.castling.wK) castle += 'K';
+  if (cs.castling.wQ) castle += 'Q';
+  if (cs.castling.bK) castle += 'k';
+  if (cs.castling.bQ) castle += 'q';
+  if (!castle) castle = '-';
+  const ep = cs.enPassant
+    ? String.fromCharCode(97 + cs.enPassant[1]) + (8 - cs.enPassant[0])
+    : '-';
+  return `${fen} ${turn} ${castle} ${ep} ${cs.halfMoves} ${cs.fullMoves}`;
+}
+
+// ── Legal move generator ──────────────────────────────────
+function getLegalMoves(board, row, col, castling, enPassant) {
+  const piece = board[row][col];
+  if (!piece) return [];
+  const colour = piece[0]; // 'w' or 'b'
+  const type   = piece[1];
+  const moves  = [];
+  const enemy  = colour === 'w' ? 'b' : 'w';
+  const dir    = colour === 'w' ? -1 : 1;
+
+  const inBounds = (r,c) => r>=0 && r<8 && c>=0 && c<8;
+  const isEmpty  = (r,c) => inBounds(r,c) && !board[r][c];
+  const isEnemy  = (r,c) => inBounds(r,c) && board[r][c]?.[0] === enemy;
+  const canMove  = (r,c) => isEmpty(r,c) || isEnemy(r,c);
+
+  const slide = (drs, dcs) => {
+    for (let i = 0; i < drs.length; i++) {
+      let r = row + drs[i], c = col + dcs[i];
+      while (inBounds(r,c)) {
+        if (board[r][c]) { if (isEnemy(r,c)) moves.push([r,c]); break; }
+        moves.push([r,c]);
+        r += drs[i]; c += dcs[i];
+      }
+    }
+  };
+
+  if (type === 'P') {
+    if (isEmpty(row+dir, col)) {
+      moves.push([row+dir, col]);
+      const startRow = colour === 'w' ? 6 : 1;
+      if (row === startRow && isEmpty(row+2*dir, col)) moves.push([row+2*dir, col]);
+    }
+    [[row+dir, col-1],[row+dir, col+1]].forEach(([r,c]) => {
+      if (isEnemy(r,c)) moves.push([r,c]);
+      if (enPassant && enPassant[0]===r && enPassant[1]===c) moves.push([r,c]);
+    });
+  } else if (type === 'N') {
+    [[-2,-1],[-2,1],[-1,-2],[-1,2],[1,-2],[1,2],[2,-1],[2,1]].forEach(([dr,dc]) => {
+      if (canMove(row+dr, col+dc)) moves.push([row+dr, col+dc]);
+    });
+  } else if (type === 'B') {
+    slide([-1,-1,-1,1,1,1],[1,-1],[[-1],[-1],[1],[1]],[[1],[-1],[1],[-1]]);
+    slide([-1,-1,1,1],[-1,1,-1,1]);
+  } else if (type === 'R') {
+    slide([-1,1,0,0],[0,0,-1,1]);
+  } else if (type === 'Q') {
+    slide([-1,1,0,0,  -1,-1,1,1],[0,0,-1,1,  -1,1,-1,1]);
+  } else if (type === 'K') {
+    [[-1,-1],[-1,0],[-1,1],[0,-1],[0,1],[1,-1],[1,0],[1,1]].forEach(([dr,dc]) => {
+      if (canMove(row+dr,col+dc)) moves.push([row+dr,col+dc]);
+    });
+    // Castling (simplified — no check validation here)
+    if (castling[colour+'K'] && !board[row][5] && !board[row][6] && board[row][7]?.[1]==='R')
+      moves.push([row,6]);
+    if (castling[colour+'Q'] && !board[row][3] && !board[row][2] && !board[row][1] && board[row][0]?.[1]==='R')
+      moves.push([row,2]);
+  }
+  return moves.filter(([r,c]) => inBounds(r,c));
+}
+
+// ── Apply a move to the board ─────────────────────────────
+function applyMove(board, from, to, castling, enPassant) {
+  const newBoard  = board.map(r => [...r]);
+  const [fr, fc]  = from;
+  const [tr, tc]  = to;
+  const piece     = newBoard[fr][fc];
+  const colour    = piece[0];
+  const type      = piece[1];
+  let newEP       = null;
+  const newCastle = { ...castling };
+
+  // En passant capture
+  if (type === 'P' && enPassant && tr === enPassant[0] && tc === enPassant[1]) {
+    newBoard[fr][tc] = null; // captured pawn
+  }
+  // Set en passant
+  if (type === 'P' && Math.abs(tr - fr) === 2) newEP = [fr + (tr-fr)/2, fc];
+
+  // Castling move — also move rook
+  if (type === 'K') {
+    newCastle[colour+'K'] = false;
+    newCastle[colour+'Q'] = false;
+    if (tc === 6) { newBoard[fr][5] = newBoard[fr][7]; newBoard[fr][7] = null; }
+    if (tc === 2) { newBoard[fr][3] = newBoard[fr][0]; newBoard[fr][0] = null; }
+  }
+  if (type === 'R') {
+    if (fc === 7) newCastle[colour+'K'] = false;
+    if (fc === 0) newCastle[colour+'Q'] = false;
+  }
+
+  // Promotion — auto queen
+  let movedPiece = piece;
+  if (type === 'P' && (tr === 0 || tr === 7)) movedPiece = colour + 'Q';
+
+  newBoard[tr][tc] = movedPiece;
+  newBoard[fr][fc] = null;
+  return { board: newBoard, castling: newCastle, enPassant: newEP };
+}
+
+// ── Ask Claude for a move ─────────────────────────────────
+async function getChessAIMove(cs) {
+  const fen = boardToFEN(cs);
+  const diffPrompts = {
+    beginner: 'You are a nervous beginner who makes mistakes, sometimes hangs pieces, and panics when losing material. Play weak moves occasionally.',
+    casual:   'You are a casual club player. Solid basics, occasional tactical blunders.',
+    strong:   'You are a strong club player. Play actively, look for tactics, avoid blunders.',
+    master:   'You are playing at near-grandmaster level. Find the strongest move in the position.',
+  };
+
+  const sys = `You are a chess engine. ${diffPrompts[cs.difficulty] || diffPrompts.casual}
+Current position FEN: ${fen}
+It is ${cs.turn === 'white' ? 'White' : 'Black'} to move.
+Respond with ONLY the move in UCI format (e.g. e2e4, g1f3, e1g1 for castling).
+Then on a new line, one sentence describing what the piece does in dramatic wizarding terms — the piece speaks or acts.
+Format:
+MOVE: [uci]
+COMMENT: [one sentence]`;
+
+  const text = await callClaude(sys, 'Chess move.', 120);
+  if (!text) return null;
+  const moveMatch  = text.match(/MOVE:\s*([a-h][1-8][a-h][1-8][qrbn]?)/i);
+  const commentMatch = text.match(/COMMENT:\s*(.+)/i);
+  return moveMatch ? {
+    uci:     moveMatch[1].toLowerCase(),
+    comment: commentMatch?.[1] || '',
+  } : null;
+}
+
+// ── Convert UCI to board coords ───────────────────────────
+function uciToCoords(uci) {
+  const fc = uci.charCodeAt(0) - 97;
+  const fr = 8 - parseInt(uci[1]);
+  const tc = uci.charCodeAt(2) - 97;
+  const tr = 8 - parseInt(uci[3]);
+  const promo = uci[4] || null;
+  return { from:[fr,fc], to:[tr,tc], promo };
+}
+
+function coordsToAlg(row, col) {
+  return String.fromCharCode(97+col) + (8-row);
+}
+
+// ── Render the chess board ────────────────────────────────
+function renderChessBoard(cs) {
+  const board      = cs.board;
+  const selected   = cs.selected;
+  const legalDests = new Set((cs.legalMoves || []).map(([r,c]) => `${r},${c}`));
+  const isPlayer   = cs.turn === 'white';
+  const lastMove   = cs.moveHistory[cs.moveHistory.length - 1];
+
+  const lightSq = '#F0D9B5';
+  const darkSq  = '#B58863';
+  const selSq   = 'rgba(20,85,30,0.5)';
+  const legalSq = 'rgba(20,85,30,0.3)';
+  const lastSq  = 'rgba(155,199,0,0.4)';
+  const checkSq = 'rgba(200,0,0,0.5)';
+
+  const sqSize = 56;
+  const bSize  = sqSize * 8;
+
+  let cells = '';
+  for (let r = 0; r < 8; r++) {
+    for (let c = 0; c < 8; c++) {
+      const isLight    = (r+c) % 2 === 0;
+      const isSelected = selected && selected[0]===r && selected[1]===c;
+      const isLegal    = legalDests.has(`${r},${c}`);
+      const isLast     = lastMove && (
+        (lastMove.from[0]===r && lastMove.from[1]===c) ||
+        (lastMove.to[0]===r   && lastMove.to[1]===c));
+      const piece      = board[r][c];
+      const isKing     = piece === 'wK' && cs.status === 'check';
+
+      let fill = isLight ? lightSq : darkSq;
+      if (isLast)     fill = lastSq;
+      if (isSelected) fill = selSq;
+      if (isKing)     fill = checkSq;
+
+      const x = c * sqSize;
+      const y = r * sqSize;
+      const pieceChar = piece ? CHESS_PIECES[piece] : '';
+      const pieceColour = piece?.[0] === 'w' ? '#FFFFFF' : '#000000';
+      const pieceShadow = piece?.[0] === 'w' ? '#000000' : '#FFFFFF';
+      const isClickable = isPlayer && (!selected
+        ? (piece?.[0] === 'w')
+        : isLegal);
+
+      cells += `
+        <rect x="${x}" y="${y}" width="${sqSize}" height="${sqSize}"
+          fill="${fill}" stroke="none"
+          ${isClickable ? `style="cursor:pointer" onclick="chessClick(${r},${c})"` : ''}
+        />
+        ${isLegal ? `<circle cx="${x+sqSize/2}" cy="${y+sqSize/2}" r="${piece?sqSize*0.46:sqSize*0.18}"
+          fill="${piece ? 'rgba(20,85,30,0.25)' : legalSq}" stroke="none"
+          style="cursor:pointer" onclick="chessClick(${r},${c})"
+          />` : ''}
+        ${pieceChar ? `
+        <text x="${x+sqSize/2}" y="${y+sqSize*0.72}"
+          text-anchor="middle" font-size="${sqSize*0.72}"
+          fill="${pieceColour}" stroke="${pieceShadow}" stroke-width="0.5"
+          paint-order="stroke"
+          style="user-select:none;pointer-events:none;font-family:serif;">
+          ${pieceChar}
+        </text>` : ''}
+      `;
+    }
+  }
+
+  // Rank/file labels
+  let labels = '';
+  for (let i = 0; i < 8; i++) {
+    labels += `
+      <text x="2" y="${i*sqSize+sqSize*0.35}" font-size="10"
+        fill="${i%2===0?darkSq:lightSq}" style="user-select:none">${8-i}</text>
+      <text x="${i*sqSize+sqSize*0.78}" y="${bSize-2}" font-size="10"
+        fill="${i%2===0?lightSq:darkSq}" style="user-select:none">${String.fromCharCode(97+i)}</text>
+    `;
+  }
+
+  const wager    = cs.wager > 0 ? ` · Pot: ${displayPrice(cs.wager * 2)}` : '';
+  const statusTxt = cs.status === 'check'     ? ' ⚠ CHECK'
+                  : cs.status === 'checkmate' ? ' ✗ CHECKMATE'
+                  : cs.status === 'stalemate' ? ' = STALEMATE'
+                  : cs.turn === 'white'       ? '  Your move'
+                  :                             `  ${cs.opponentName} is thinking…`;
+
+  const lastComment = cs.commentary[cs.commentary.length - 1] || '';
+
+  const spectatorHtml = cs.spectators.length
+    ? `<div class="chess-spectators">👥 Watching: ${cs.spectators.map(id=>NPC_DATA[id]?.name||id).join(', ')}</div>`
+    : '';
+
+  // Ron sacrifice option (Quirrell chamber only)
+  const ronSacrifice = cs.context === 'quirrell_chamber' && cs.ronPresent
+    && !STATE.flags.includes('RON_SACRIFICED')
+    ? `<button class="chess-ron-btn" onclick="ronSacrificeChess()">
+        ♟ Ron offers to take a piece's place — let him sacrifice himself
+       </button>`
+    : '';
+
+  return `
+<div class="chess-container">
+  <div class="chess-header">
+    <div class="chess-opponent">
+      <span>${NPC_DATA[cs.opponentId]?.icon || '♟'}</span>
+      <span class="chess-opp-name">${cs.opponentName}</span>
+      <span class="chess-opp-diff">${cs.difficulty}</span>
+    </div>
+    <div class="chess-status">${statusTxt}${wager}</div>
+  </div>
+
+  <svg class="chess-board" viewBox="0 0 ${bSize} ${bSize}"
+    width="${bSize}" height="${bSize}" xmlns="http://www.w3.org/2000/svg">
+    ${cells}${labels}
+  </svg>
+
+  ${lastComment ? `<div class="chess-comment">${lastComment}</div>` : ''}
+  ${spectatorHtml}
+  ${ronSacrifice}
+
+  <div class="chess-controls">
+    ${cs.status === 'playing' || cs.status === 'check'
+      ? `<button class="chess-ctrl-btn" onclick="chessResign()">Resign</button>`
+      : `<button class="chess-ctrl-btn" onclick="chessEndGame('${cs.status}')">Continue →</button>`
+    }
+    ${cs.moveHistory.length > 0
+      ? `<div class="chess-movelog">${cs.moveHistory.slice(-4).map(m=>m.notation).join('  ')}</div>`
+      : ''}
+  </div>
+</div>`;
+}
+
+// ── Handle a click on the board ───────────────────────────
+async function chessClick(row, col) {
+  const cs = STATE.chessGame;
+  if (!cs?.active || cs.turn !== 'white') return;
+
+  const piece = cs.board[row][col];
+
+  // Nothing selected yet — select a white piece
+  if (!cs.selected) {
+    if (!piece || piece[0] !== 'w') return;
+    cs.selected   = [row, col];
+    cs.legalMoves = getLegalMoves(cs.board, row, col, cs.castling, cs.enPassant);
+    setNarrative(renderChessBoard(cs));
+    return;
+  }
+
+  const [sr, sc] = cs.selected;
+  const isLegal  = cs.legalMoves.some(([r,c]) => r===row && c===col);
+
+  // Clicked same piece — deselect
+  if (sr === row && sc === col) {
+    cs.selected = null; cs.legalMoves = [];
+    setNarrative(renderChessBoard(cs));
+    return;
+  }
+
+  // Clicked another white piece — switch selection
+  if (piece && piece[0] === 'w') {
+    cs.selected   = [row, col];
+    cs.legalMoves = getLegalMoves(cs.board, row, col, cs.castling, cs.enPassant);
+    setNarrative(renderChessBoard(cs));
+    return;
+  }
+
+  // Illegal move
+  if (!isLegal) return;
+
+  // Apply player move
+  await applyChessMove(cs, cs.selected, [row, col], null);
+}
+
+async function applyChessMove(cs, from, to, promoOverride) {
+  const piece      = cs.board[from[0]][from[1]];
+  const capture    = cs.board[to[0]][to[1]];
+  const notation   = coordsToAlg(from[0],from[1]) + coordsToAlg(to[0],to[1]);
+
+  const result     = applyMove(cs.board, from, to, cs.castling, cs.enPassant);
+  cs.board         = result.board;
+  cs.castling      = result.castling;
+  cs.enPassant     = result.enPassant;
+  cs.selected      = null;
+  cs.legalMoves    = [];
+  cs.moveHistory.push({ from, to, piece, capture, notation });
+  cs.halfMoves     = piece[1]==='P'||capture ? 0 : cs.halfMoves + 1;
+  if (cs.turn === 'black') cs.fullMoves++;
+  cs.turn          = cs.turn === 'white' ? 'black' : 'white';
+
+  // Check game status
+  cs.status = getChessStatus(cs);
+
+  if (cs.status !== 'playing' && cs.status !== 'check') {
+    setNarrative(renderChessBoard(cs));
+    await chessEndGame(cs.status);
+    return;
+  }
+
+  setNarrative(renderChessBoard(cs));
+
+  // Opponent's turn
+  if (cs.turn === 'black' && cs.status === 'playing' || cs.status === 'check') {
+    await doAIChessMove();
+  }
+}
+
+async function doAIChessMove() {
+  const cs = STATE.chessGame;
+  if (!cs?.active) return;
+
+  // Show thinking state
+  cs.commentary.push(`${cs.opponentName} studies the board…`);
+  setNarrative(renderChessBoard(cs));
+
+  const aiResult = await getChessAIMove(cs);
+  if (!aiResult) {
+    // Fallback — resign if AI can't move (shouldn't happen)
+    await chessEndGame('ai_error');
+    return;
+  }
+
+  const { from, to } = uciToCoords(aiResult.uci);
+  if (aiResult.comment) {
+    cs.commentary = cs.commentary.slice(-2);
+    cs.commentary.push(aiResult.comment);
+  }
+
+  await applyChessMove(cs, from, to, null);
+}
+
+// ── Simple game status check ──────────────────────────────
+function getChessStatus(cs) {
+  // Find king
+  const colour = cs.turn === 'white' ? 'w' : 'b';
+  let kingR = -1, kingC = -1;
+  for (let r = 0; r < 8; r++)
+    for (let c = 0; c < 8; c++)
+      if (cs.board[r][c] === colour+'K') { kingR=r; kingC=c; }
+
+  // Has any legal move?
+  let hasMove = false;
+  for (let r = 0; r < 8 && !hasMove; r++)
+    for (let c = 0; c < 8 && !hasMove; c++)
+      if (cs.board[r][c]?.[0] === colour)
+        if (getLegalMoves(cs.board,r,c,cs.castling,cs.enPassant).length) hasMove = true;
+
+  // Is king in check? (simplified — check if any enemy attacks king)
+  const enemy = colour === 'w' ? 'b' : 'w';
+  let inCheck = false;
+  for (let r = 0; r < 8 && !inCheck; r++)
+    for (let c = 0; c < 8 && !inCheck; c++)
+      if (cs.board[r][c]?.[0] === enemy)
+        if (getLegalMoves(cs.board,r,c,cs.castling,cs.enPassant).some(([mr,mc])=>mr===kingR&&mc===kingC))
+          inCheck = true;
+
+  if (inCheck && !hasMove) return 'checkmate';
+  if (!inCheck && !hasMove) return 'stalemate';
+  if (inCheck)              return 'check';
+  if (cs.halfMoves >= 50)   return 'draw_50';
+  return 'playing';
+}
+
+// ── End game resolution ───────────────────────────────────
+async function chessEndGame(status) {
+  const cs = STATE.chessGame;
+  if (!cs) return;
+
+  const playerWon  = status === 'checkmate' && cs.turn === 'black'
+    || status === 'resigned_opponent';
+  const opponentWon = status === 'checkmate' && cs.turn === 'white'
+    || status === 'resigned_player';
+  const draw = ['stalemate','draw_50'].includes(status);
+
+  const npc = NPC_DATA[cs.opponentId] || {};
+  let resultText = '';
+  let resultType = '';
+
+  if (playerWon) {
+    resultText = 'Checkmate. The pieces still for a moment, then bow.';
+    resultType = 'win';
+    if (cs.wager > 0) {
+      addGold(0, 0, cs.wager * 2);
+      showToast(`You win ${displayPrice(cs.wager * 2)} from the match.`, 3500);
+    }
+    adjustDim(cs.opponentId, 'respect', 5);
+    adjustDim(cs.opponentId, 'trust',   2);
+    if (cs.context === 'quirrell_chamber') {
+      STATE.flags.push('CHESS_CHAMBER_WON');
+    }
+  } else if (opponentWon) {
+    resultText = `${cs.opponentName} wins. The pieces return to their squares.`;
+    resultType = 'lose';
+    if (cs.wager > 0 && !spend(0,0,cs.wager)) {
+      adjustDim(cs.opponentId, 'trust', -3);
+      showToast(`You owe ${cs.opponentName} ${displayPrice(cs.wager)}.`, 4000);
+    }
+    adjustDim(cs.opponentId, 'respect', 2);
+  } else if (draw) {
+    resultText = 'The game is drawn. An honourable result.';
+    resultType = 'draw';
+    if (cs.wager > 0) { /* return ante — no net change */ }
+    adjustDim(cs.opponentId, 'trust', 1);
+  }
+
+  // Generate closing narrative
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 2 short paragraphs describing the end of a Wizard Chess match.
+Result: ${playerWon ? 'Player wins' : opponentWon ? 'Opponent wins' : 'Draw'}.
+Opponent: ${npc.name || cs.opponentName}.
+Context: ${cs.context === 'quirrell_chamber' ? 'The underground chamber beneath Hogwarts. High stakes.' : 'The common room. A casual game between classmates.'}.
+Wizard Chess: pieces are alive, they fight, they have opinions.
+${playerWon && cs.context==='quirrell_chamber' ? 'The path forward is clear. The way to Quirrell is open.' : ''}
+Second person. Present tense. 80-100 words.`;
+
+  const text = await callClaude(sys, 'Chess end.', 250);
+  const para = text || resultText;
+  const paras = para.split(/\n\n+/).filter(p=>p.trim());
+
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>♟ ${resultType === 'win' ? 'Victory' : resultType === 'lose' ? 'Defeat' : 'Draw'}</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150));
+  },50);
+
+  // Clear chess state
+  STATE.chessGame = { active: false };
+  updateRelationshipSidebar();
+
+  // Route back
+  setTimeout(()=>{
+    if (cs.context === 'quirrell_chamber') {
+      // Continue to Quirrell encounter
+      setChoices([{ text:'Face Quirrell →', action:'quirrell_after_chess' }]);
+    } else {
+      setChoices([{ text:'← Back to the common room', action:'day_common_room' }]);
+    }
+    showFreeInput(false);
+  }, 2000);
+}
+
+function chessResign() {
+  const cs = STATE.chessGame;
+  if (!cs) return;
+  cs.turn = 'white'; // mark so endGame reads it correctly
+  chessEndGame('resigned_player');
+}
+
+// ── Ron sacrifice option ──────────────────────────────────
+async function ronSacrificeChess() {
+  const cs = STATE.chessGame;
+  if (!cs) return;
+
+  STATE.flags.push('RON_SACRIFICED');
+  adjustDim('ron', 'loyalty',  15);
+  adjustDim('ron', 'trust',    10);
+  adjustDim('ron', 'affection', 8);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 2 paragraphs. Ron Weasley steps forward and takes the place of a chess piece — a knight.
+He says it is the only way. He knows what it means. He does it anyway.
+The giant piece moves. Ron is struck. He crumples.
+He is not dead — but he is not conscious. He will be fine. Later.
+The path is open. Second person. Present tense. 100-120 words. No dialogue from the player.`;
+
+  const text = await callClaude(sys, 'Ron sacrifice scene.', 320);
+  const fallback = `Ron steps forward.\n\nYou say his name. He shakes his head — once, with complete finality — and takes the knight's square. The piece he has replaced regards him with something that might be respect. Then the opposing queen moves. Ron crumples. He breathes. He is alive. The path to Quirrell is open.`;
+
+  const paras = (text||fallback).split(/\n\n+/).filter(p=>p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>♟ Ron</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150));
+  },50);
+
+  // Send Ron to hospital wing
+  if (STATE.npcStates?.['ron']) STATE.npcStates.ron.injured = true;
+
+  STATE.chessGame = { active: false };
+
+  setTimeout(()=>{
+    STATE.flags.push('CHESS_CHAMBER_WON');
+    setChoices([{ text:'Face Quirrell →', action:'quirrell_after_chess' }]);
+    showFreeInput(false);
+  }, 2500);
+}
+
+// ── Start a chess game ────────────────────────────────────
+function startChessGame(opponentId, difficulty, wagerK, context, spectators) {
+  const npc      = NPC_DATA[opponentId] || {};
+  const cs       = initChessState(
+    opponentId, npc.name || 'Opponent',
+    difficulty, wagerK, context || 'common_room'
+  );
+  cs.spectators  = spectators || [];
+  cs.ronPresent  = context === 'quirrell_chamber'
+    && STATE.flags.includes('RON_IN_CHAMBER')
+    && !STATE.flags.includes('RON_SACRIFICED')
+    && (STATE.relationships['ron']?.trust||0) >= 30;
+
+  STATE.chessGame = cs;
+
+  setLocation(`♟ Wizard Chess — ${npc.name || 'Opponent'}`);
+  setChoices([]);
+  showFreeInput(false);
+  setNarrative(renderChessBoard(cs));
+}
+
+// ═══════════════════════════════════════════════════════════
+// COMMON ROOM GAMES & BETTING SYSTEM
+// Four games: Exploding Snap, Gobstones, Wizarding Cards,
+// plus group betting mechanics.
+// ═══════════════════════════════════════════════════════════
+
+// ── NPC betting personality ───────────────────────────────
+const NPC_BETTING_STYLE = {
+  // Stakes: 'low'|'medium'|'high'|'reckless'
+  // Refuses to gamble at all if false
+  harry:    { stakes:'low',     gambles:true  },
+  ron:      { stakes:'medium',  gambles:true  },  // chess prodigy, adventurous
+  hermione: { stakes:null,      gambles:false },   // refuses on principle
+  neville:  { stakes:'low',     gambles:true  },   // nervous but game
+  dean:     { stakes:'medium',  gambles:true  },
+  seamus:   { stakes:'high',    gambles:true  },   // reckless
+  fred:     { stakes:'reckless',gambles:true  },
+  george:   { stakes:'reckless',gambles:true  },
+  oliver:   { stakes:'low',     gambles:false },   // too focused on Quidditch
+  draco:    { stakes:'high',    gambles:true  },
+  crabbe:   { stakes:'medium',  gambles:true  },
+  goyle:    { stakes:'medium',  gambles:true  },
+  pansy:    { stakes:'medium',  gambles:true  },
+  blaise:   { stakes:'high',    gambles:true  },
+  lavender: { stakes:'low',     gambles:true  },
+  parvati:  { stakes:'low',     gambles:true  },
+  ernie:    { stakes:'low',     gambles:true  },
+  hannah:   { stakes:'low',     gambles:true  },
+  justin:   { stakes:'low',     gambles:true  },
+  terry:    { stakes:'medium',  gambles:true  },
+  luna:     { stakes:'low',     gambles:true  },
+  cedric:   { stakes:'medium',  gambles:true  },
+  percy:    { stakes:null,      gambles:false },   // too rule-conscious
+};
+
+const STAKE_AMOUNTS = {   // knuts per player per round
+  low:      { min:5, max:15, default:10 },
+  medium:   { min:15,max:50, default:25 },
+  high:     { min:50,max:145,default:87 },   // ~3 sickles default
+  reckless: { min:87,max:290,default:145 },
+};
+
+// ── Build a group game session ────────────────────────────
+// Takes the present NPCs, filters to those willing to play
+// a given game, returns players with their antes
+function buildGameGroup(presentNPCObjs, gameType, playerStakeK) {
+  const willing = presentNPCObjs.filter(({ id }) => {
+    const style   = NPC_BETTING_STYLE[id];
+    if (!style || !style.gambles) return false;
+    const rel     = STATE.relationships[id] || {};
+    // Hermione always refuses gambling but will watch
+    if (id === 'hermione') return false;
+    // Need at least a nodding acquaintance
+    return rel.met;
+  });
+
+  // Limit to 4 NPCs maximum for readability
+  const players = willing.slice(0, 4).map(({ id, name }) => {
+    const style   = NPC_BETTING_STYLE[id] || { stakes:'low' };
+    const amounts = STAKE_AMOUNTS[style.stakes] || STAKE_AMOUNTS.low;
+    // NPCs bet similar to player or up to their default
+    const npcAnte = Math.min(amounts.max, Math.max(amounts.min, playerStakeK));
+    return { id, name, ante: npcAnte, icon: NPC_DATA[id]?.icon || '👤' };
+  });
+
+  // Hermione watches if present
+  const hermPresent = presentNPCObjs.some(n => n.id === 'hermione');
+
+  return { players, hermPresent };
+}
+
+// ── Pot calculator ────────────────────────────────────────
+function calculatePot(group, playerAnte) {
+  return group.players.reduce((sum, p) => sum + p.ante, playerAnte);
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 1: EXPLODING SNAP
+// Fast card-flip group game. Pure luck + Luck stat modifier.
+// ═══════════════════════════════════════════════════════════
+async function playExplodingSnap(presentNPCObjs, wagerK) {
+  const group = buildGameGroup(presentNPCObjs, 'snap', wagerK);
+  if (!group.players.length) {
+    showToast('Nobody here is up for Exploding Snap right now.', 2500);
+    return;
+  }
+  if (!spend(0,0,wagerK)) { showToast('Not enough gold.', 2000); return; }
+
+  const allPlayers = [
+    { id:'player', name: STATE.player.firstName||'You', ante:wagerK, icon:'🧙' },
+    ...group.players,
+  ];
+  const pot = calculatePot(group, wagerK);
+  const rounds = 5;
+  const scores = Object.fromEntries(allPlayers.map(p=>[p.id, 0]));
+  const playerLuck = STATE.skills?.luck || 10;
+
+  setLocation('⚡ Exploding Snap');
+  setChoices([]);
+  showFreeInput(false);
+
+  let log = '';
+
+  for (let r = 1; r <= rounds; r++) {
+    // Each player flips a card value 1–10, luck skews player's roll
+    const flip = (luck) => {
+      const base = Math.floor(Math.random()*10)+1;
+      const bonus = Math.random() < (luck/200) ? 1 : 0;
+      return Math.min(10, base+bonus);
+    };
+    const flips = Object.fromEntries(
+      allPlayers.map(p => [p.id, p.id==='player' ? flip(playerLuck) : flip(10)])
+    );
+    const maxVal   = Math.max(...Object.values(flips));
+    const minVal   = Math.min(...Object.values(flips));
+    const roundWin = allPlayers.filter(p=>flips[p.id]===maxVal);
+    const roundExp = allPlayers.filter(p=>flips[p.id]===minVal && minVal<3);
+
+    roundWin.forEach(p => scores[p.id]++);
+
+    const exploded = roundExp.map(p=>p.name).join(' and ');
+    const winner   = roundWin.map(p=>p.name).join(' & ');
+    const didExplode = roundExp.length && minVal < 3;
+
+    log += `Round ${r}: ${allPlayers.map(p=>`${p.name}(${flips[p.id]})`).join(' · ')}`;
+    log += ` — ${winner} ${roundWin.length>1?'tie':'wins'}`;
+    if (didExplode) log += ` · 💥 ${exploded} SNAP!`;
+    log += '\n';
+  }
+
+  // Determine overall winner
+  const maxScore  = Math.max(...allPlayers.map(p=>scores[p.id]));
+  const winners   = allPlayers.filter(p=>scores[p.id]===maxScore);
+  const playerWon = winners.some(p=>p.id==='player');
+  const splitWin  = winners.length > 1;
+
+  let payout = 0;
+  if (playerWon) {
+    payout = splitWin ? Math.floor(pot/winners.length) : pot;
+    addGold(0,0,payout);
+  }
+
+  // Generate narrative
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 3 short paragraphs narrating a game of Exploding Snap in the Hogwarts common room.
+Players: ${allPlayers.map(p=>p.name).join(', ')}.
+Result: ${playerWon ? 'Player wins' : 'Player loses'} (${playerWon?'winner':'loser'}).
+Round log: ${log}
+Pot: ${displayPrice(pot)}.
+Exploding Snap: cards occasionally explode with a bang and a flash. Tension builds each round.
+Funny, fast, vivid. Second person. Present tense. 100-130 words.`;
+  const text = await callClaude(sys, 'Exploding Snap game.', 350);
+  const fallback = playerWon
+    ? `The cards slap down. Yours holds. The others explode in sequence, leaving scorch marks on the carpet. You collect your winnings with as much dignity as you can manage, which is not much.`
+    : `The snap comes before you expect it — your pile catches first, flashing white and singed. Someone laughs. You try to look as though you meant it.`;
+
+  await renderGameResult(text||fallback, playerWon ? 'win' : 'lose',
+    playerWon ? `+${displayPrice(payout)}` : `-${displayPrice(wagerK)}`,
+    group.players, 'snap');
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 2: GOBSTONES
+// Social marble-like game. Courage + Luck. Low stakes —
+// relationship gain is primary reward.
+// ═══════════════════════════════════════════════════════════
+async function playGobstones(presentNPCObjs, wagerK) {
+  const group = buildGameGroup(presentNPCObjs, 'gobstones', wagerK);
+  if (!group.players.length) {
+    showToast('Nobody here wants to play Gobstones right now.', 2500);
+    return;
+  }
+  if (wagerK > 0 && !spend(0,0,wagerK)) { showToast('Not enough gold.', 2000); return; }
+
+  const allPlayers = [
+    { id:'player', name:STATE.player.firstName||'You', icon:'🧙' },
+    ...group.players,
+  ];
+  const playerCourage = STATE.skills?.courage || 10;
+  const playerLuck    = STATE.skills?.luck    || 10;
+
+  // 5 rounds — each round everyone flicks, lowest score gets squirted
+  const scores    = Object.fromEntries(allPlayers.map(p=>[p.id, 0]));
+  const squirted  = Object.fromEntries(allPlayers.map(p=>[p.id, 0]));
+  let log = '';
+
+  for (let r = 1; r <= 5; r++) {
+    const rolls = Object.fromEntries(allPlayers.map(p => {
+      let base = Math.floor(Math.random()*10)+1;
+      if (p.id==='player') base += (playerCourage-10)/20 + (playerLuck-10)/30;
+      return [p.id, Math.max(1, Math.min(10, Math.round(base)))];
+    }));
+    const minVal    = Math.min(...Object.values(rolls));
+    const maxVal    = Math.max(...Object.values(rolls));
+    const roundLose = allPlayers.filter(p=>rolls[p.id]===minVal);
+    const roundWin  = allPlayers.filter(p=>rolls[p.id]===maxVal);
+    roundWin.forEach(p=>scores[p.id]++);
+    roundLose.forEach(p=>squirted[p.id]++);
+    log += `Round ${r}: ${allPlayers.map(p=>`${p.name}(${rolls[p.id]})`).join(' · ')}`;
+    log += ` — ${roundLose.map(p=>p.name).join('&')} squirted\n`;
+  }
+
+  const maxScore  = Math.max(...allPlayers.map(p=>scores[p.id]));
+  const playerWon = scores['player'] === maxScore;
+  const playerSq  = squirted['player'];
+
+  // Relationship gains from playing together (primary reward)
+  group.players.forEach(({ id }) => {
+    adjustDim(id, 'affection', 3);
+    adjustDim(id, 'trust',     1);
+  });
+  if (playerSq > 0) adjustDim(group.players[0]?.id, 'affection', 1); // laughed at together
+
+  let payout = 0;
+  if (wagerK > 0 && playerWon) {
+    const pot = calculatePot(group, wagerK);
+    payout = pot;
+    addGold(0,0,payout);
+  }
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 3 paragraphs narrating a Gobstones match in the common room.
+Players: ${allPlayers.map(p=>p.name).join(', ')}.
+The player was squirted ${playerSq} time${playerSq!==1?'s':''}.
+Result: ${playerWon?'Player wins':'Player loses'}.
+Round log: ${log}
+Gobstones squirt foul-smelling liquid at the loser of each round.
+Funny, warm, social. Even losing is a bit fun. Second person. Present tense. 100-130 words.`;
+  const text = await callClaude(sys, 'Gobstones game.', 350);
+
+  await renderGameResult(text||'A game of Gobstones. Someone gets wet. Everyone laughs.',
+    playerWon?'win':'lose',
+    payout>0?`+${displayPrice(payout)}`:wagerK>0?`-${displayPrice(wagerK)}`:'No stakes',
+    group.players, 'gobstones');
+}
+
+// ═══════════════════════════════════════════════════════════
+// GAME 3: CELESTIAL (Wizarding Card Game)
+// Tarot-adjacent trick-taking game. Intuition + Luck.
+// ═══════════════════════════════════════════════════════════
+const CELESTIAL_SUITS   = ['Wands','Cups','Swords','Pentacles'];
+const CELESTIAL_SPECIAL = ['The Tower','The Star','The World'];
+
+function dealCelestialHand(luck, intuition) {
+  // Hand of 5 cards from suits + one chance at a special card
+  const hand = [];
+  for (let i = 0; i < 5; i++) {
+    const suit = CELESTIAL_SUITS[Math.floor(Math.random()*4)];
+    const val  = Math.floor(Math.random()*10)+1;
+    hand.push({ suit, val, label:`${suit} ${val}` });
+  }
+  // Small chance of a special card based on Intuition
+  if (Math.random() < intuition/200) {
+    hand[Math.floor(Math.random()*5)] = {
+      suit:'Special', val:11,
+      label: CELESTIAL_SPECIAL[Math.floor(Math.random()*3)],
+      special: true,
+    };
+  }
+  // Luck slightly improves card quality
+  if (luck > 50 && Math.random() < 0.3) {
+    const idx = Math.floor(Math.random()*5);
+    hand[idx].val = Math.min(10, hand[idx].val + 1);
+  }
+  return hand;
+}
+
+function scoreHand(hand) {
+  // Score: sum of card values; specials worth 11; The World wins round outright
+  const hasWorld = hand.some(c=>c.label==='The World');
+  if (hasWorld) return 100; // auto-win
+  return hand.reduce((s,c)=>s+c.val,0);
+}
+
+async function playCelestial(presentNPCObjs, wagerK) {
+  const group = buildGameGroup(presentNPCObjs, 'celestial', wagerK);
+  if (!group.players.length) {
+    showToast('Nobody here wants to play Celestial right now.', 2500);
+    return;
+  }
+  if (!spend(0,0,wagerK)) { showToast('Not enough gold.', 2000); return; }
+
+  const intuition = STATE.skills?.intuition || 10;
+  const luck      = STATE.skills?.luck      || 10;
+
+  const playerHand  = dealCelestialHand(luck, intuition);
+  const playerScore = scoreHand(playerHand);
+  const allPlayers  = [
+    { id:'player', name:STATE.player.firstName||'You',
+      hand:playerHand, score:playerScore, icon:'🧙' },
+    ...group.players.map(p => {
+      const h = dealCelestialHand(10,10);
+      return { ...p, hand:h, score:scoreHand(h) };
+    }),
+  ];
+  const pot     = calculatePot(group, wagerK);
+  const maxScore= Math.max(...allPlayers.map(p=>p.score));
+  const winners = allPlayers.filter(p=>p.score===maxScore);
+  const playerWon = winners.some(p=>p.id==='player');
+  const split     = winners.length > 1;
+
+  let payout = 0;
+  if (playerWon) {
+    payout = split ? Math.floor(pot/winners.length) : pot;
+    addGold(0,0,payout);
+  }
+
+  const handDesc = playerHand.map(c=>c.label).join(', ');
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 3 paragraphs describing a Wizarding card game called Celestial — Tarot-adjacent, trick-taking.
+The player's hand: ${handDesc}. Player score: ${playerScore}.
+Other players: ${allPlayers.slice(1).map(p=>`${p.name}(${p.score})`).join(', ')}.
+Result: ${playerWon?'Player wins':'Player loses'}.
+${playerHand.some(c=>c.special)?'The player had a special card — describe its magical effect.':''}
+Atmospheric, slightly mysterious, specific card details. Second person. Present tense. 100-130 words.`;
+  const text = await callClaude(sys, 'Celestial card game.', 350);
+
+  await renderGameResult(text||'The cards fall. Someone wins. The pot changes hands.',
+    playerWon?'win':'lose',
+    playerWon?`+${displayPrice(payout)}`:`-${displayPrice(wagerK)}`,
+    group.players, 'celestial');
+}
+
+// ═══════════════════════════════════════════════════════════
+// SHARED RESULT RENDERER
+// ═══════════════════════════════════════════════════════════
+async function renderGameResult(narrative, outcome, moneyStr, npcPlayers, gameType) {
+  const paras = narrative.split(/\n\n+/).filter(p=>p.trim());
+  const icon  = {snap:'⚡',gobstones:'🔵',celestial:'🃏',chess:'♟'}[gameType]||'🎮';
+  const label = {snap:'Exploding Snap',gobstones:'Gobstones',
+                 celestial:'Celestial',chess:'Wizard Chess'}[gameType]||'Game';
+
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${icon} ${label} — ${outcome==='win'?'Victory':outcome==='lose'?'Defeat':'Draw'}</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+  narHtml += `<div class="game-result-banner ${outcome}">
+    <span class="game-result-label">${outcome==='win'?'You win':'You lose'}</span>
+    <span class="game-result-money">${moneyStr}</span>
+  </div>`;
+
+  setNarrative(narHtml);
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150));
+  },50);
+
+  // Relationship effects
+  npcPlayers.forEach(({id}) => {
+    if (outcome==='win') {
+      adjustDim(id,'respect',2);
+    } else if (outcome==='lose') {
+      adjustDim(id,'affection',2); // losing gracefully is endearing
+    }
+  });
+  updateRelationshipSidebar();
+  STATE.dayActionLog = STATE.dayActionLog || [];
+  STATE.dayActionLog.push(`Played ${label}`);
+
+  setTimeout(()=>{
+    setChoices([
+      { text:`Play again`,         action:`game_again_${gameType}` },
+      { text:'← Common room',      action:'day_common_room' },
+    ]);
+    showFreeInput(false);
+  },2000);
+}
+
+// ═══════════════════════════════════════════════════════════
+// COMMON ROOM GAME LAUNCHER
+// Opens from sceneCommonRoom as an additional choice.
+// ═══════════════════════════════════════════════════════════
+function openGamePicker(presentNPCObjs) {
+  const existing = document.getElementById('gamePicker');
+  if (existing) existing.remove();
+
+  const phase = STATE.dayPhase || 'evening';
+  const isGoodTime = ['evening','night','afternoon'].includes(phase);
+  if (!isGoodTime) {
+    showToast('It\'s too early in the day for games.', 2500);
+    return;
+  }
+
+  // Which NPCs are willing to play anything?
+  const players = presentNPCObjs.filter(({id}) => {
+    const style = NPC_BETTING_STYLE[id];
+    return style?.gambles && STATE.relationships[id]?.met;
+  });
+  const hermHere = presentNPCObjs.some(n=>n.id==='hermione');
+  const ronHere  = presentNPCObjs.some(n=>n.id==='ron');
+
+  const playerCount = players.length;
+  const budgetK = totalKnuts();
+  const canBet  = budgetK >= 10;
+
+  const modal = document.createElement('div');
+  modal.id = 'gamePicker';
+  modal.className = 'modal-overlay open';
+  modal.innerHTML = `
+    <div class="modal" style="max-width:480px;">
+      <div class="modal-header">
+        <div>
+          <div class="modal-shop-name">🎮 Common Room Games</div>
+          <div class="modal-shop-desc">${playerCount
+            ? `${players.map(p=>p.name).join(', ')} ${playerCount===1?'is':'are'} up for a game.`
+            : 'No one seems keen right now.'}</div>
+        </div>
+        <button class="modal-close" onclick="document.getElementById('gamePicker').remove()">&#x2715;</button>
+      </div>
+      <div style="padding:16px 20px 20px;display:flex;flex-direction:column;gap:10px;">
+
+        ${hermHere ? `<div class="game-hermione-note">
+          Hermione is here. She will not bet but she will watch and have opinions.
+        </div>` : ''}
+
+        ${playerCount === 0 ? `<div style="padding:20px;text-align:center;color:var(--ink-light);font-style:italic;">
+          Nobody willing to play is here right now. Try again this evening.
+        </div>` : `
+          <div class="game-stake-row">
+            <label class="game-stake-label">Your stake per game</label>
+            <div class="game-stake-controls">
+              <button class="sell-adj-btn" onclick="adjustGameStake(-10)">−</button>
+              <span id="gameStakeDisplay" class="game-stake-val">10k</span>
+              <button class="sell-adj-btn" onclick="adjustGameStake(10)">+</button>
+            </div>
+            <span class="game-stake-budget">You have ${displayPrice(0,0,budgetK)}</span>
+          </div>
+
+          <button class="game-pick-btn" onclick="launchGame('snap')">
+            <span class="game-pick-icon">⚡</span>
+            <div class="game-pick-info">
+              <div class="game-pick-name">Exploding Snap</div>
+              <div class="game-pick-desc">Fast. Loud. Cards explode. Pure luck. Up to 5 players.</div>
+            </div>
+          </button>
+
+          <button class="game-pick-btn" onclick="launchGame('gobstones')">
+            <span class="game-pick-icon">🔵</span>
+            <div class="game-pick-info">
+              <div class="game-pick-name">Gobstones</div>
+              <div class="game-pick-desc">Social and silly. Losers get squirted. Great for friendships.</div>
+            </div>
+          </button>
+
+          <button class="game-pick-btn" onclick="launchGame('celestial')">
+            <span class="game-pick-icon">🃏</span>
+            <div class="game-pick-info">
+              <div class="game-pick-name">Celestial</div>
+              <div class="game-pick-desc">Tarot-adjacent card game. Intuition and Luck matter.</div>
+            </div>
+          </button>
+
+          <button class="game-pick-btn ${!ronHere&&playerCount<1?'game-pick-disabled':''}"
+            onclick="launchChessFromCommonRoom()"
+            ${!playerCount?'disabled':''}>
+            <span class="game-pick-icon">♟</span>
+            <div class="game-pick-info">
+              <div class="game-pick-name">Wizard Chess</div>
+              <div class="game-pick-desc">Real chess against a live opponent. Pieces fight.
+                ${ronHere?' Ron will play at master level.':''}</div>
+            </div>
+          </button>
+        `}
+      </div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  window._gamePickerNPCs = presentNPCObjs;
+}
+
+let _gameStakeK = 10;
+function adjustGameStake(delta) {
+  const max = Math.min(145, totalKnuts());
+  _gameStakeK = Math.max(5, Math.min(max, _gameStakeK + delta));
+  const el = document.getElementById('gameStakeDisplay');
+  if (el) el.textContent = displayPrice(0,0,_gameStakeK);
+}
+
+function launchGame(gameType) {
+  const npcs = window._gamePickerNPCs || [];
+  document.getElementById('gamePicker')?.remove();
+  consumeAP(1, 'game');
+  const w = _gameStakeK;
+  if (gameType==='snap')      playExplodingSnap(npcs, w);
+  else if (gameType==='gobstones') playGobstones(npcs, w);
+  else if (gameType==='celestial') playCelestial(npcs, w);
+}
+
+function launchChessFromCommonRoom() {
+  const npcs = window._gamePickerNPCs || [];
+  document.getElementById('gamePicker')?.remove();
+  consumeAP(1, 'game');
+
+  // Pick opponent — Ron at master, others at matching difficulty
+  const ronPresent = npcs.some(n=>n.id==='ron');
+  const opponentId = ronPresent ? 'ron'
+    : npcs.find(n=>NPC_BETTING_STYLE[n.id]?.gambles)?.id || npcs[0]?.id;
+  if (!opponentId) { showToast('No one to play against.', 2000); return; }
+
+  const diff = opponentId==='ron' ? 'master'
+    : opponentId==='draco' ? 'strong'
+    : ['terry','michael','blaise'].includes(opponentId) ? 'casual'
+    : 'casual';
+
+  const spectators = npcs.filter(n=>n.id!==opponentId).map(n=>n.id);
+  startChessGame(opponentId, diff, _gameStakeK, 'common_room', spectators);
+}
+
+// ── Wire game-again actions in handleChoice ───────────────
+// These are handled at the bottom of the switch statement
+function handleGameAgain(gameType) {
+  const npcs = window._gamePickerNPCs || [];
+  if (gameType==='snap')      playExplodingSnap(npcs, _gameStakeK);
+  else if (gameType==='gobstones') playGobstones(npcs, _gameStakeK);
+  else if (gameType==='celestial') playCelestial(npcs, _gameStakeK);
+  else if (gameType==='chess') launchChessFromCommonRoom();
+}
+
+async function startChessChamberChallenge() {
+  // The giant chess set — must win or have Ron sacrifice to pass
+
+  setLocation('♟ The Chess Chamber');
+  setChoices([]);
+  showFreeInput(false);
+
+  const ronInChamber = STATE.flags.includes('RON_IN_CHAMBER');
+
+  const sys = `You are the narrative engine for a Harry Potter RPG.
+Write 3 paragraphs describing the player entering the giant chess chamber deep beneath Hogwarts.
+A life-size Wizard Chess board. The pieces are alive and waiting.
+To pass, they must win — or sacrifice a companion.
+${ronInChamber ? 'Ron Weasley is here with them. He can see what needs to be done. His expression is complicated.' : 'They are alone.'}
+Tense, atmospheric, ancient. The pieces are war-worn. Second person. Present tense. 120-150 words.`;
+
+  const text = await callClaude(sys, 'Chess chamber scene.', 400);
+  const fallback = `The door opens onto darkness — and then the darkness resolves into a board.
+
+It is enormous. The pieces are as tall as you are, carved from black and white stone, and they are alive. They turn their heads to look at you. The white pieces on your side. The black pieces between you and the door on the other side.
+
+${ronInChamber ? 'Ron is beside you. He is already studying the board. You know that look.' : 'You are alone. The board waits.'}`;
+
+  const paras = (text||fallback).split('\n\n').filter(p=>p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>♟ The Chess Chamber</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150));
+  },50);
+
+  setTimeout(()=>{
+    setChoices([
+      { text:'♟ Play the chess set', action:'chess_chamber_play' },
+    ]);
+    showFreeInput(false);
+  }, 2000);
+}
+
+// ── School day helpers ────────────────────────────────────
+// These drive NPC presence probability and games availability
+
+// Returns true if today has any scheduled classes
+function hasClassesToday(dow) {
+  dow = dow || STATE.dayOfWeek || 1;
+  // Mon=1 Tue=2 Wed=3 Thu=4 have classes; Fri=5 Sat=6 Sun=7 are free
+  return dow >= 1 && dow <= 4;
+}
+
+// Returns whether morning/daytime is a class period on this day
+function isMorningClassPeriod(dow, phase) {
+  dow   = dow   || STATE.dayOfWeek || 1;
+  phase = phase || STATE.dayPhase  || 'morning';
+  if (!hasClassesToday(dow)) return false;
+  // Morning phases on class days = likely in class
+  return ['breakfast','morning','daytime'].includes(phase);
+}
+
+// Returns whether games should be available right now in the common room
+function gamesAvailableNow(dow, phase) {
+  dow   = dow   || STATE.dayOfWeek || 1;
+  phase = phase || STATE.dayPhase  || 'morning';
+  // Never available at breakfast (everyone's eating)
+  if (phase === 'breakfast') return false;
+  // On class days: only afternoon, evening, night are free
+  if (hasClassesToday(dow)) {
+    return ['afternoon','evening','night'].includes(phase);
+  }
+  // Free days (Fri/Sat/Sun): all day except breakfast
+  return true;
+}
+
+// Returns adjusted NPC common room probability for a given phase + day
+// Students are more likely to be in the common room on free days
+function getCommonRoomProb(npcId, phase, dow) {
+  dow = dow || STATE.dayOfWeek || 1;
+  const isFreeDay = !hasClassesToday(dow);
+
+  // Base multipliers: free days bring students back to the common room
+  const freeMultiplier = {
+    morning:   2.2,  // lazy lie-in
+    daytime:   2.5,  // nowhere else to be
+    afternoon: 1.6,
+    evening:   1.1,  // same either way
+    night:     1.0,
+  }[phase] || 1.0;
+
+  const namedProbs = {
+    hermione: { morning:0.80, daytime:0.10, afternoon:0.35, evening:0.65, night:0.30 },
+    harry:    { morning:0.60, daytime:0.15, afternoon:0.50, evening:0.75, night:0.50 },
+    ron:      { morning:0.55, daytime:0.10, afternoon:0.60, evening:0.80, night:0.55 },
+    neville:  { morning:0.50, daytime:0.20, afternoon:0.45, evening:0.70, night:0.35 },
+    percy:    { morning:0.70, daytime:0.30, afternoon:0.40, evening:0.60, night:0.40 },
+    fred:     { morning:0.40, daytime:0.20, afternoon:0.65, evening:0.75, night:0.60 },
+    george:   { morning:0.40, daytime:0.20, afternoon:0.65, evening:0.75, night:0.60 },
+    oliver:   { morning:0.35, daytime:0.20, afternoon:0.35, evening:0.60, night:0.35 },
+    seamus:   { morning:0.50, daytime:0.15, afternoon:0.55, evening:0.70, night:0.45 },
+    dean:     { morning:0.50, daytime:0.15, afternoon:0.55, evening:0.70, night:0.45 },
+    lavender: { morning:0.55, daytime:0.10, afternoon:0.50, evening:0.65, night:0.40 },
+    parvati:  { morning:0.55, daytime:0.10, afternoon:0.50, evening:0.65, night:0.40 },
+  };
+
+  const baseProb = {
+    morning:   0.35,
+    daytime:   0.20,
+    afternoon: 0.45,
+    evening:   0.70,
+    night:     0.45,
+  }[phase] || 0.45;
+
+  const raw = namedProbs[npcId]?.[phase] ?? baseProb;
+  return isFreeDay ? Math.min(0.95, raw * freeMultiplier) : raw;
+}
+
+
+// ═══════════════════════════════════════════════════════════
+// YEAR 1 CANONICAL SCENES
+// ─ Quidditch (watch-only, Harry is seeker)
+// ─ Mirror of Erised (Harry's quest, player invited back)
+// ─ End of Year / Dumbledore's Speech
+// ═══════════════════════════════════════════════════════════
+
+// ── 1. QUIDDITCH — Watch Only ─────────────────────────────
+// The team is full. Harry is Seeker. This is his story.
+// The player watches from the stands regardless of house.
+// Relationship with Harry, Oliver, Fred, George affects
+// how good their vantage point and experience is.
+
+async function sceneQuidditchWatch() {
+  const house     = STATE.player.house || 'Gryffindor';
+  const harryRel  = STATE.relationships['harry']  || {};
+  const ronRel    = STATE.relationships['ron']    || {};
+  const oliverRel = STATE.relationships['oliver'] || {};
+
+  // Where is the player sitting? Depends on relationships
+  const goodSeats = (harryRel.trust||0) >= 20 || (oliverRel.trust||0) >= 20;
+  const withRon   = (ronRel.trust||0) >= 10 && STATE.relationships['ron']?.met;
+
+  setLocation('🏟️ Quidditch Pitch — Gryffindor vs Slytherin');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>Match day...<span class="cursor-blink"></span></div>`);
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write a Quidditch match scene — Gryffindor vs Slytherin, Week 10. The player is watching from the stands.
+${withRon ? 'Ron Weasley is sitting beside the player.' : ''}
+${goodSeats ? 'The player has good seats — close enough to see the players clearly.' : 'The player is in the upper stands with a partial view.'}
+CANON FACTS this scene must include:
+- Harry Potter is the Gryffindor Seeker — youngest in a century
+- This is his first competitive match. He is nervous but determined.
+- His broom (Nimbus 2000) is jinxed mid-match — he bucks and spins. Quirrell is the cause, though nobody knows yet.
+- Hermione spots Snape muttering and assumes it is Snape jinxing the broom. She lights his robes on fire.
+- Harry regains control, dives, and catches the Snitch in his mouth. Gryffindor wins.
+- The crowd erupts. It is a spectacular, chaotic, unforgettable match.
+Write 4 paragraphs: the atmosphere before kickoff, the match in motion, the jinxing crisis, and Harry catching the Snitch.
+Second person. Present tense. 220-260 words. Specific and vivid — the cold, the noise, the smell of the pitch.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'Quidditch match — watching from stands.', 600);
+  const fallback = `The pitch is cold and vast and already roaring before the players even mount their brooms.\n\nHarry Potter is the smallest figure in red and gold. He circles above while the Chasers clash below — Quaffles and Bludgers and shouts everywhere. Then his broom bucks. He lurches. The crowd gasps as one. He fights it — whoever is doing this clearly underestimated him.\n\nHermione does something with her wand near the professors' box. Snape's robes catch fire. The jinx breaks.\n\nHarry dives. Vertical. Impossibly fast. He pulls up with his fist in the air and something gold glinting between his fingers — the Snitch, caught in his mouth, actually in his mouth — and the stands become a single continuous sound that you feel in your chest before you hear it.`;
+
+  const paras = (text||fallback).split('\n\n').filter(p=>p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🏟️ Quidditch — Gryffindor vs Slytherin</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150));
+  },50);
+
+  // Relationship effects from shared experience
+  ['harry','ron','oliver','fred','george'].forEach(id => {
+    if (STATE.relationships[id]?.met) {
+      adjustDim(id, 'trust',    2);
+      adjustDim(id, 'affection', 3);
+    }
+  });
+  // Witnessing Harry's seeker moment
+  if (!STATE.flags.includes('WITNESSED_FIRST_CATCH')) {
+    STATE.flags.push('WITNESSED_FIRST_CATCH');
+    STATE.skills.quidditch = Math.min(100, (STATE.skills.quidditch||10) + 2);
+  }
+  STATE.flags.push('QUIDDITCH_MATCH_1');
+  updateRelationshipSidebar();
+
+  setTimeout(()=>{
+    setChoices([{ text:'← Back to your day', action:'day_menu' }]);
+    showFreeInput(false);
+  }, 2200);
+}
+
+// ── 2. MIRROR OF ERISED ───────────────────────────────────
+// Harry's arc. The player can only experience it through
+// Harry — he discovers it first alone, then brings Ron,
+// and if the relationship is strong enough, you too.
+
+async function sceneMirrorOfErised(context) {
+  // context: 'harry_alone'   — Harry has just found it (background event)
+  //          'harry_ron'     — Harry brings Ron (Week 14 canon)
+  //          'harry_player'  — Harry brings the player (relationship gate: trust >= 60)
+  //          'player_alone'  — player stumbles on it independently (high Intuition)
+
+  setLocation('🪞 The Mirror of Erised');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The Mirror...<span class="cursor-blink"></span></div>`);
+
+  const playerTraits   = STATE.playerTraits || [];
+  const alignmentScore = STATE.alignmentScore || 0;
+  const topRels = Object.entries(STATE.relationships)
+    .filter(([id, rel]) => rel.met && (rel.trust||0) > 30)
+    .sort(([,a],[,b]) => ((b.trust||0)+(b.affection||0)) - ((a.trust||0)+(a.affection||0)))
+    .slice(0, 3)
+    .map(([id]) => NPC_DATA[id]?.name || id);
+  const completedSessions = Object.keys(STATE.completedSessions || {}).length;
+  const flags = STATE.flags || [];
+
+  const visionPromptByContext = {
+    harry_ron: `Harry and Ron are with the player. Harry is showing Ron the Mirror — describing what he sees (his parents, his family). Ron looks in and sees himself as Head Boy and Quidditch Captain. The player is watching from the doorway, uncertain whether to step closer.`,
+    harry_player: `Harry has brought the player here specifically. He trusts them enough. He describes briefly what he sees in the Mirror — his parents, a family he never had. Then he steps aside and lets the player look.`,
+    player_alone: `The player found this room on their own, following a sound or a light or nothing at all. There is no one else here. Just the Mirror.`,
+  };
+
+  // Personalised vision based on player data
+  const visionContext = `The player's vision in the Mirror of Erised must be personalised:
+Their traits: ${playerTraits.join(', ') || 'balanced'}.
+Their closest relationships: ${topRels.join(', ') || 'mostly alone so far'}.
+Alignment: ${alignmentScore > 20 ? 'clearly good' : alignmentScore < -20 ? 'darker tendencies' : 'uncertain'}.
+Classes attended: ${completedSessions} sessions.
+Flags that hint at what they want: ${flags.filter(f => ['QUIDDITCH_MATCH_1','WITNESSED_FIRST_CATCH','TROLL_ENCOUNTERED','RON_SACRIFICED','CHESS_CHAMBER_WON'].includes(f)).join(', ') || 'none notable'}.
+The vision should reflect their deepest desire — not what they have, but what they most want.
+Do NOT make it generic (a loving family, fame, wealth). Make it specific to what this player has done and shown.`;
+
+  const sceneDesc = visionPromptByContext[context] || visionPromptByContext['player_alone'];
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write a Mirror of Erised scene. 3-4 paragraphs. Second person, present tense.
+CANON: The Mirror shows the viewer their deepest, most desperate desire. The inscription reads "Erised stra ehru oyt ube cafru oyt on wohsi" — "I show not your face but your heart's desire" backwards. Dumbledore will later warn Harry: men have wasted away before it.
+SCENE: ${sceneDesc}
+${visionContext}
+Write the Mirror's appearance first (ancient, gold-framed, letters across the top), then what the player sees when they look into it — specific, visual, emotionally resonant. Then their reaction. 200-240 words.
+This is not a happy moment. The Mirror shows the truth of a person and that is rarely comfortable.`;
+
+  const text = await callClaude(sys, `Mirror of Erised — ${context}.`, 600);
+  const fallback = `The Mirror is enormous — floor to ceiling, ornate gold frame, the inscription along the top in strange reversed lettering.\n\nYou step in front of it.\n\nWhat you see is not what you expected. It is not wealth or fame or power. It is something smaller and more specific and somehow more devastating for that specificity. You stand there longer than you mean to.\n\nYou do not notice, until you finally look away, that your cheeks are wet.`;
+
+  const paras = (text||fallback).split('\n\n').filter(p=>p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🪞 The Mirror of Erised</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+  setNarrative(narHtml);
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150));
+  },50);
+
+  // Flag the Mirror encounter
+  STATE.flags.push('MIRROR_SEEN');
+  if (context === 'harry_player') {
+    adjustDim('harry','trust', 8);
+    adjustDim('harry','loyalty', 5);
+    adjustDim('harry','affection', 6);
+    showToast('Harry has shared something deeply personal with you.', 4000);
+  }
+  updateRelationshipSidebar();
+
+  setTimeout(()=>{
+    setChoices([{ text:'← Leave the Mirror', action:'day_menu' }]);
+    showFreeInput(false);
+  }, 2500);
+}
+
+// ── Mirror triggers ────────────────────────────────────────
+// Week 14 — Harry discovers the Mirror (background)
+// If player has Harry trust >= 60 and has met him: Harry invites them
+function checkMirrorTrigger() {
+  const week = STATE.currentWeek || 1;
+  if (week < 14 || week > 17) return;
+  if (STATE.flags.includes('MIRROR_SEEN')) return;
+  if (STATE.flags.includes('MIRROR_TRIGGERED')) return;
+
+  STATE.flags.push('MIRROR_TRIGGERED');
+
+  const harryTrust = STATE.relationships['harry']?.trust || 0;
+  const harryMet   = STATE.relationships['harry']?.met;
+
+  if (harryMet && harryTrust >= 60) {
+    // Harry invites the player
+    setTimeout(() => {
+      showToast(`Harry finds you alone one evening. "There's something I want to show you," he says quietly. "Come with me."`, 6000);
+      setTimeout(() => {
+        setChoices([{
+          text: '🪞 Follow Harry to the Mirror of Erised',
+          action: 'scene_mirror_harry_player',
+        }]);
+      }, 6500);
+    }, 2000);
+  } else {
+    // Background event — Harry and Ron go without the player
+    showToast(`You hear Harry and Ron whispering late one night about a mirror Harry found. You weren't invited.`, 5000);
+    // Player can find it independently if Intuition is high enough
+    if ((STATE.skills?.intuition || 10) >= 50) {
+      setTimeout(() => {
+        showToast(`Something draws you to the seventh floor corridor during Christmas break. You remember what you overheard.`, 4000);
+      }, 6000);
+    }
+  }
+}
+
+// ── 3. END OF YEAR — Dumbledore's Speech ──────────────────
+// Full end-of-year feast scene with Dumbledore's speech.
+// House Cup results calculated from house points tracking.
+// Dumbledore's speech weaves in the player's actual year.
+
+async function sceneEndOfYear() {
+  if (STATE.flags.includes('YEAR_1_ENDED')) return;
+  STATE.flags.push('YEAR_1_ENDED');
+
+  setLocation('🎓 End of Year — The Great Hall');
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>The feast...<span class="cursor-blink"></span></div>`);
+
+  // Calculate House Cup winner from STATE.housePoints
+  const points = STATE.housePoints || { Gryffindor:0, Hufflepuff:0, Ravenclaw:0, Slytherin:0 };
+
+  // Add canonical last-minute Gryffindor points from the Philosopher's Stone events
+  // (Harry/Hermione/Ron/Neville awarded points by Dumbledore)
+  // But these only apply if the chess chamber was resolved
+  if (STATE.flags.includes('CHESS_CHAMBER_WON') || STATE.flags.includes('QUIRRELL_FACED')) {
+    points.Gryffindor = (points.Gryffindor || 0) + 170; // canonical last-minute award
+  }
+
+  const sorted = Object.entries(points).sort(([,a],[,b]) => b - a);
+  const winner = sorted[0][0];
+  const rankings = sorted.map(([h,p],i) => `${i+1}. ${h}: ${p} points`).join(', ');
+
+  // Build the player's year summary for Dumbledore
+  const flags        = STATE.flags || [];
+  const log          = STATE.narrativeLog || [];
+  const topRels      = Object.entries(STATE.relationships)
+    .filter(([id, rel]) => rel.met && (rel.trust||0) >= 20)
+    .sort(([,a],[,b]) => ((b.trust||0)+(b.affection||0)) - ((a.trust||0)+(a.affection||0)))
+    .slice(0, 5)
+    .map(([id]) => NPC_DATA[id]?.name || id);
+  const alignment    = STATE.alignmentScore || 0;
+  const darkStage    = STATE.darkPathStage  || 0;
+  const sessions     = Object.keys(STATE.completedSessions || {}).length;
+  const detentions   = STATE.detentionCount || 0;
+  const hospitalDays = STATE.hospitalState?.totalDaysAdmitted || 0;
+  const chessChamber = flags.includes('CHESS_CHAMBER_WON');
+  const ronSacrificed= flags.includes('RON_SACRIFICED');
+  const trollFaced   = flags.includes('TROLL_ENCOUNTERED');
+  const mirrorSeen   = flags.includes('MIRROR_SEEN');
+  const inventoryCount = STATE.inventory.length;
+
+  // Year narrative summary for the AI
+  const yearSummary = [
+    `${sessions} class sessions attended.`,
+    topRels.length ? `Formed meaningful bonds with: ${topRels.join(', ')}.` : 'Mostly kept to themselves.',
+    detentions > 0 ? `Received ${detentions} detention${detentions>1?'s':''}.` : 'Avoided detention entirely.',
+    hospitalDays > 0 ? `Spent ${hospitalDays} day${hospitalDays>1?'s':''} in the Hospital Wing.` : '',
+    trollFaced ? 'Survived a mountain troll encounter on Halloween.' : '',
+    chessChamber ? `Navigated the underground chess chamber${ronSacrificed ? ' — Ron Weasley sacrificed himself to allow passage' : ''}.` : '',
+    mirrorSeen ? 'Stood before the Mirror of Erised.' : '',
+    alignment < -20 ? 'Made several choices that drew them toward darkness.' : '',
+    alignment > 20 ? 'Consistently made choices reflecting courage and goodness.' : '',
+    darkStage >= 2 ? 'Used magic that cannot easily be undone.' : '',
+    inventoryCount > 10 ? 'Accumulated an impressive collection of items.' : '',
+  ].filter(Boolean).join(' ');
+
+  const house = STATE.player.house || 'Gryffindor';
+  const playerName = `${STATE.player.firstName||''} ${STATE.player.lastName||''}`.trim();
+
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write the End of Year feast and Dumbledore's speech. This is the final scene of Year 1.
+4-5 paragraphs. Second person. Present tense.
+
+STRUCTURE:
+Para 1: The Great Hall transformed for the feast — decorations in ${winner} colours (they won the House Cup). The noise, the food, the feeling of a year ending.
+Para 2: Dumbledore rises to speak. His usual openings — kindness, growth, the courage of small moments. Warm, slightly eccentric, deeply sincere.
+Para 3: The House Cup announcement. ${rankings}. ${winner} wins. Dumbledore's response to the result — he is pleased but not surprised.
+Para 4: Dumbledore's ominous knowing — he subtly references things that happened this year as though he knows far more than he should. He does not name the player directly. He speaks in generalities that are somehow perfectly specific. He references: ${yearSummary}
+Weave these references in as poetic, oblique observations — "There are those among you who learned this year that courage is not the absence of fear..." — not as direct accusations or acknowledgements. He seems to be speaking to the whole hall but somehow to each person individually.
+Para 5: The feast ends. The year is over. The train tomorrow. The player's feeling as they leave the hall.
+
+DUMBLEDORE'S VOICE: Warm, unhurried, wise, slightly playful. He speaks as someone who has seen everything and found most of it moving rather than surprising. His ominous knowledge is conveyed through precise, gentle observation rather than threat. He is not frightening — but he is not oblivious either.
+
+DO NOT mention Voldemort by name in the speech. DO reference "what lies at the end of long corridors" or similar.
+Player: ${playerName}, ${house}, ${STATE.player.bloodStatus}.
+${buildStateContext()}`;
+
+  const text = await callClaude(sys, 'End of Year feast and Dumbledore speech.', 900);
+  const fallback = `The Great Hall is transformed. ${winner} banners hang from every column, and the enchanted ceiling reflects a summer sky so blue it aches.\n\nDumbledore rises. The hall quiets in the way it only quiets for him — not because anyone told it to.\n\n"Another year," he says, "ended. Not finished — ended. There is a difference." He pauses. "You have all done things this year that surprised you. Some of you surprised yourselves in ways you haven't yet fully understood. That is as it should be."\n\nThe House Cup goes to ${winner}. ${rankings}. There is the usual noise.\n\n"I would be remiss," Dumbledore continues, "if I did not observe that some of you ventured into places this year that were marked, quite clearly, as forbidden. I note this not to scold." He smiles. "The corridors of Hogwarts have always known more than they are given credit for."\n\nThe feast ends. You walk out into the evening, and the year — this specific, unrepeatable year — closes behind you like a door.`;
+
+  const paras = (text||fallback).split('\n\n').filter(p=>p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>🎓 End of Year One</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+
+  // Add year stats summary panel
+  narHtml += `<div class="end-year-panel">
+    <div class="end-year-title">Year 1 — 1991–92</div>
+    <div class="end-year-stats">
+      <div class="end-year-stat"><span>House Cup</span><span class="end-year-val">${winner}</span></div>
+      <div class="end-year-stat"><span>Classes attended</span><span class="end-year-val">${sessions}</span></div>
+      <div class="end-year-stat"><span>Relationships formed</span><span class="end-year-val">${topRels.length}</span></div>
+      ${detentions ? `<div class="end-year-stat"><span>Detentions served</span><span class="end-year-val">${detentions}</span></div>` : ''}
+      ${hospitalDays ? `<div class="end-year-stat"><span>Hospital days</span><span class="end-year-val">${hospitalDays}</span></div>` : ''}
+      <div class="end-year-stat"><span>Alignment</span><span class="end-year-val">${alignment > 20 ? 'Light' : alignment < -20 ? 'Shadow' : 'Grey'}</span></div>
+    </div>
+  </div>`;
+
+  setNarrative(narHtml);
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*180));
+  },50);
+
+  updateRelationshipSidebar();
+
+  setTimeout(()=>{
+    setChoices([{
+      text: '🚂 Board the Hogwarts Express home — Year 1 complete',
+      action: 'year_1_complete',
+    }]);
+    showFreeInput(false);
+  }, 3000);
+}
+
+// ── House points tracking helper ──────────────────────────
+// Called whenever house points are awarded or deducted
+function adjustHousePoints(house, delta, reason) {
+  if (!STATE.housePoints) {
+    STATE.housePoints = { Gryffindor:0, Hufflepuff:0, Ravenclaw:0, Slytherin:0 };
+  }
+  STATE.housePoints[house] = Math.max(0, (STATE.housePoints[house]||0) + delta);
+  if (delta > 0) showToast(`+${delta} points to ${house}. ${reason||''}`, 3000);
+  else            showToast(`${delta} points from ${house}. ${reason||''}`, 3000);
+  updateHouseCupSidebar();
+}
+
+function updateHouseCupSidebar() {
+  const el = document.getElementById('houseCupPanel');
+  if (!el) return;
+  const pts = STATE.housePoints || { Gryffindor:0, Hufflepuff:0, Ravenclaw:0, Slytherin:0 };
+  const sorted = Object.entries(pts).sort(([,a],[,b])=>b-a);
+  const houseColours = { Gryffindor:'#C9A84C', Hufflepuff:'#D9A87A',
+                         Ravenclaw:'#8B9ED9',  Slytherin:'#7FB87F' };
+  el.innerHTML = sorted.map(([h,p])=>`
+    <div class="house-cup-row">
+      <span class="house-cup-name" style="color:${houseColours[h]}">${h}</span>
+      <span class="house-cup-pts">${p}</span>
+    </div>`).join('');
+}
+
+// ═══════════════════════════════════════════════════════════
+// POTION CRAFTING SYSTEM
+// Recipe-driven brewing with skill checks, narrative scenes,
+// temporary/permanent effects, and full economy integration.
+// ═══════════════════════════════════════════════════════════
+
+// ── Potion recipes ────────────────────────────────────────
+// ingredients: array of ITEM_CATALOGUE ids (all must be in inventory)
+// difficulty:  1-5 (drives skill check threshold)
+// brewTime:    flavour label only
+// yield:       how many potions produced on success
+// effect:      what the potion does when used outside combat
+// statBuff:    { skill, amount, duration } — duration in days or 'scene' or 'permanent'
+// sellBonus:   multiplier on base valueK for a perfect brew
+
+const POTION_RECIPES = {
+
+  // ── Year 1 ────────────────────────────────────────────
+  cure_for_boils: {
+    name:        'Cure for Boils',
+    icon:        '🫧',
+    year:        1,
+    difficulty:  1,
+    brewTime:    'several minutes',
+    yield:       2,
+    ingredients: ['dried_nettles', 'snake_fangs', 'horned_slugs', 'porcupine_quills'],
+    effect:      'heal_minor',
+    effectDesc:  'Heals minor skin conditions and shallow wounds. Removes the "blistered" status effect.',
+    statBuff:    null,
+    sellBonus:   1.4,
+    valueK:      18,
+    masterDesc:  'At high skill, produces an especially potent batch — two doses instead of one.',
+  },
+
+  wideye_potion: {
+    name:        'Wideye Potion',
+    icon:        '👁️',
+    year:        1,
+    difficulty:  1,
+    brewTime:    'twenty minutes',
+    yield:       1,
+    ingredients: ['dried_nettles', 'ginger_root', 'billywig_stings'],
+    effect:      'remove_fatigue',
+    effectDesc:  'Removes tired and stressed mood. Grants +1 AP on the next day.',
+    statBuff:    { skill: null, amount: 1, type: 'ap_bonus', duration: 'next_day' },
+    sellBonus:   1.3,
+    valueK:      22,
+    masterDesc:  'A perfect brew clears even severe exhaustion — removes two days of fatigue at once.',
+  },
+
+  forgetfulness_potion: {
+    name:        'Forgetfulness Potion',
+    icon:        '🌫️',
+    year:        1,
+    difficulty:  2,
+    brewTime:    'forty-five minutes',
+    yield:       1,
+    ingredients: ['leech_juice', 'syrup_of_hellebore', 'val_valerian_sprigs'],
+    // Note: val_valerian_sprigs not in catalogue — substitute lovage
+    ingredients: ['leech_juice', 'syrup_of_hellebore', 'lovage'],
+    effect:      'npc_forget',
+    effectDesc:  'Causes a target NPC to forget the most recent conversation with the player. Must be administered discreetly.',
+    statBuff:    null,
+    sellBonus:   1.5,
+    valueK:      35,
+    masterDesc:  'A master brew erases up to three recent interactions, not just one.',
+  },
+
+  sleeping_draught: {
+    name:        'Sleeping Draught',
+    icon:        '💤',
+    year:        1,
+    difficulty:  2,
+    brewTime:    'one hour',
+    yield:       1,
+    ingredients: ['flobberworm_mucus', 'lacewing_flies', 'armadillo_bile'],
+    effect:      'sleep_npc',
+    effectDesc:  'Renders a target unconscious for several hours. Used in stealth, social bypasses, or combat.',
+    statBuff:    null,
+    sellBonus:   1.6,
+    valueK:      45,
+    masterDesc:  'A perfect Sleeping Draught is undetectable in drink and lasts twelve hours.',
+    combatId:    'sleeping_draught',
+  },
+
+  herbicide_potion: {
+    name:        'Herbicide Potion',
+    icon:        '☠️',
+    year:        1,
+    difficulty:  3,
+    brewTime:    'ninety minutes',
+    yield:       1,
+    ingredients: ['horned_slugs', 'flobberworm_mucus', 'bubotuber_pus', 'ginger_root'],
+    effect:      'combat_damage',
+    effectDesc:  'Destroys plant matter and burns most organic targets. Effective against creatures in combat.',
+    statBuff:    null,
+    sellBonus:   1.7,
+    valueK:      55,
+    masterDesc:  'A master brew produces a concentrated version — twice the combat potency.',
+    combatId:    'herbicide',
+  },
+
+  // ── Year 2 (available to brew in Y1 if self-taught) ───
+  // These appear as locked entries unless the player found
+  // the recipe through exploration or the board
+
+  swelling_solution: {
+    name:        'Swelling Solution',
+    icon:        '🫧',
+    year:        2,
+    difficulty:  2,
+    brewTime:    'thirty minutes',
+    yield:       1,
+    ingredients: ['dried_nettles', 'daisy_roots', 'caterpillar'],
+    effect:      'combat_offensive',
+    effectDesc:  'Causes rapid swelling in targets. Effective as a combat throw.',
+    statBuff:    null,
+    sellBonus:   1.4,
+    valueK:      30,
+    combatId:    'swelling_solution',
+    requiresDiscovery: true,
+  },
+
+  confusing_concoction: {
+    name:        'Befuddlement Draught',
+    icon:        '😵',
+    year:        2,
+    difficulty:  3,
+    brewTime:    'one hour',
+    yield:       1,
+    ingredients: ['lovage', 'scurvy_grass', 'billywig_stings'],
+    ingredients: ['lovage', 'ginger_root', 'billywig_stings'],
+    effect:      'combat_confuse',
+    effectDesc:  'Target becomes confused, attacking random entities for one round.',
+    statBuff:    null,
+    sellBonus:   1.6,
+    valueK:      48,
+    combatId:    'confusing_concoction',
+    requiresDiscovery: true,
+  },
+
+  strengthening_solution: {
+    name:        'Strengthening Solution',
+    icon:        '💪',
+    year:        3,
+    difficulty:  4,
+    brewTime:    'three hours',
+    yield:       1,
+    ingredients: ['armadillo_bile', 'lionfish_spines', 'sal_ammoniac'],
+    effect:      'stat_buff_temp',
+    effectDesc:  'Temporarily boosts Magical Power by 15 for 3 combat rounds.',
+    statBuff:    { skill: 'magicalPower', amount: 15, duration: '3_rounds', type: 'combat' },
+    sellBonus:   1.8,
+    valueK:      90,
+    combatId:    'strengthening_solution',
+    requiresDiscovery: true,
+  },
+};
+
+// ── Potion effect types ───────────────────────────────────
+const POTION_EFFECT_HANDLERS = {
+  heal_minor: (potionId) => {
+    STATE.skills.magicalPower = Math.min(100, (STATE.skills.magicalPower||10) + 3);
+    if (STATE.hospitalState?.admitted) {
+      STATE.hospitalState.severity = Math.max(0, (STATE.hospitalState.severity||1) - 1);
+    }
+    showToast('🫧 Minor wounds salved. You feel a little better.', 3000);
+    updateSkills();
+  },
+  remove_fatigue: (potionId) => {
+    STATE.playerMood = 'energised';
+    STATE._apBonus   = (STATE._apBonus || 0) + 1;
+    showToast('👁️ The fatigue lifts. Your mind sharpens.', 3000);
+    updateDayStatusBar();
+  },
+  npc_forget: (potionId) => {
+    // Prompt player to select target NPC — handled in usePotionEffect
+    showToast('🌫️ Ready to use. Target an NPC with "use on [name]".', 4000);
+    STATE._potionReady = potionId;
+  },
+  sleep_npc: (potionId) => {
+    showToast('💤 Sleeping Draught prepared. Use it in conversation or combat.', 4000);
+    STATE._potionReady = potionId;
+  },
+  combat_damage:   (potionId) => showToast('☠️ Ready for combat use.', 2500),
+  combat_offensive:(potionId) => showToast('🫧 Ready for combat use.', 2500),
+  combat_confuse:  (potionId) => showToast('😵 Ready for combat use.', 2500),
+  stat_buff_temp:  (potionId, recipe) => {
+    if (!recipe?.statBuff) return;
+    const { skill, amount, duration } = recipe.statBuff;
+    if (skill) {
+      if (!STATE.temporaryBuffs) STATE.temporaryBuffs = [];
+      STATE.temporaryBuffs.push({ skill, amount, duration, source: potionId, applied: STATE.currentWeek });
+      STATE.skills[skill] = Math.min(100, (STATE.skills[skill]||10) + amount);
+      updateSkills();
+      showToast(`💪 ${skill} +${amount} (temporary — ${duration}).`, 3500);
+    }
+  },
+};
+
+// ── Skill check ───────────────────────────────────────────
+function brewSkillCheck(difficulty) {
+  const mastery = STATE.skills?.potionsMastery || 10;
+  const luck    = STATE.skills?.luck           || 10;
+  // Roll 1–40 + mastery + luck bonus
+  const roll    = Math.floor(Math.random() * 40) + 1;
+  const bonus   = Math.floor(luck / 20); // 0–5
+  const total   = mastery + roll + bonus;
+  const threshold = difficulty * 16; // D1=16, D2=32, D3=48, D4=64, D5=80
+
+  if (total >= threshold + 15) return 'perfect';
+  if (total >= threshold)      return 'success';
+  if (total >= threshold - 10) return 'partial';
+  return 'fail';
+}
+
+// ── Mastery label ─────────────────────────────────────────
+function masteryLabel(mastery) {
+  if (mastery >= 80) return 'Master';
+  if (mastery >= 60) return 'Skilled';
+  if (mastery >= 40) return 'Competent';
+  if (mastery >= 20) return 'Developing';
+  return 'Novice';
+}
+
+// ── Get brewable recipes for the player ───────────────────
+function getBrewableRecipes() {
+  const known    = STATE.knownKnowledge?.potions || {};
+  const recipes  = [];
+
+  Object.entries(POTION_RECIPES).forEach(([id, recipe]) => {
+    if (recipe.requiresDiscovery && !STATE.flags.includes(`RECIPE_${id.toUpperCase()}`)) return;
+    if (recipe.year > 1 && !known[id] && recipe.requiresDiscovery) return;
+
+    const ingredientsHeld = recipe.ingredients.map(ingId => ({
+      id:   ingId,
+      name: ITEM_CATALOGUE[ingId]?.name || ingId,
+      icon: ITEM_CATALOGUE[ingId]?.icon || '🧪',
+      have: STATE.inventory.some(i => i.id === ingId),
+    }));
+    const canBrew = ingredientsHeld.every(i => i.have);
+    const isKnown = !!known[id] || recipe.year === 1;
+
+    recipes.push({ id, ...recipe, ingredientsHeld, canBrew, isKnown });
+  });
+
+  return recipes;
+}
+
+// ── Main brewing scene ────────────────────────────────────
+async function sceneBrew(context) {
+  // context: 'day'|'study'|'curfew'
+  const mastery = STATE.skills?.potionsMastery || 10;
+  const recipes = getBrewableRecipes();
+
+  if (context !== 'study' && !consumeAP(1, 'brew')) return;
+
+  setLocation('🧪 Your Cauldron');
+  setChoices([]); showFreeInput(false);
+
+  // Check if player has any ingredients at all
+  const hasIngredients = STATE.inventory.some(i => ITEM_CATALOGUE[i.id]?.cat === 'ingredient');
+
+  const masteryLbl  = masteryLabel(mastery);
+  const ingCount    = STATE.inventory.filter(i => ITEM_CATALOGUE[i.id]?.cat === 'ingredient').length;
+  const knownCount  = recipes.filter(r => r.isKnown).length;
+
+  // ── Brew UI ──────────────────────────────────────────
+  const diffIcons = (d) => '🫙'.repeat(d) + '○'.repeat(5-d);
+
+  const recipeCards = recipes.filter(r => r.isKnown).map(r => {
+    const allHave = r.canBrew;
+    const ingHtml = r.ingredientsHeld.map(ing => `
+      <div class="brew-ing ${ing.have ? 'have' : 'missing'}">
+        <span class="brew-ing-icon">${ing.icon}</span>
+        <span class="brew-ing-name">${ing.name}</span>
+        <span class="brew-ing-status">${ing.have ? '✓' : '✗'}</span>
+      </div>`).join('');
+
+    return `
+      <div class="brew-recipe ${allHave ? '' : 'brew-locked'}">
+        <div class="brew-recipe-header">
+          <div class="brew-recipe-title">
+            <span class="brew-recipe-icon">${r.icon}</span>
+            <span class="brew-recipe-name">${r.name}</span>
+          </div>
+          <span class="brew-difficulty" title="Difficulty">${diffIcons(r.difficulty)}</span>
+        </div>
+        <div class="brew-recipe-desc">${r.effectDesc}</div>
+        <div class="brew-ingredients">${ingHtml}</div>
+        ${allHave
+          ? `<button class="brew-btn" onclick="attemptBrew('${r.id}','${context||'day'}')">
+               Brew — ${r.brewTime}
+             </button>`
+          : `<div class="brew-missing-note">Missing ingredients</div>`
+        }
+      </div>`;
+  }).join('');
+
+  // Locked (not yet learned) recipes
+  const lockedCards = recipes.filter(r => !r.isKnown).map(r => `
+    <div class="brew-recipe brew-locked brew-unknown">
+      <div class="brew-recipe-header">
+        <div class="brew-recipe-title">
+          <span class="brew-recipe-icon">🔒</span>
+          <span class="brew-recipe-name">${r.name}</span>
+        </div>
+        <span class="brew-difficulty">${diffIcons(r.difficulty)}</span>
+      </div>
+      <div class="brew-recipe-desc" style="font-style:italic;color:var(--ink-light)">
+        Recipe not yet learned. Study Potions or find the text.
+      </div>
+    </div>`).join('');
+
+  // Brewed stock in inventory
+  const brewedStock = STATE.inventory
+    .filter(i => i.brewed && POTION_RECIPES[i.id])
+    .map(i => {
+      const r = POTION_RECIPES[i.id];
+      return `<div class="brew-stock-item">
+        <span>${r.icon} ${r.name}</span>
+        <button class="brew-use-btn" onclick="usePotionEffect('${i.id}','${i._invId||i.id}')">Use</button>
+      </div>`;
+    }).join('');
+
+  const html = `
+<div class="brew-container">
+  <div class="brew-header">
+    <div class="brew-mastery-badge">
+      <span class="brew-mastery-label">${masteryLbl}</span>
+      <span class="brew-mastery-stat">Potions ${mastery}</span>
+    </div>
+    <div class="brew-stats">
+      <span>${ingCount} ingredient${ingCount!==1?'s':''} carried</span>
+      <span>${knownCount} recipe${knownCount!==1?'s':''} known</span>
+    </div>
+  </div>
+
+  ${!hasIngredients
+    ? `<div class="brew-empty">You have no ingredients. Visit the Apothecary on Diagon Alley or buy from the board.</div>`
+    : `<div class="brew-section-title">Known Recipes</div>
+       <div class="brew-recipe-list">${recipeCards || '<div class="brew-empty">No recipes learned yet. Attend Potions class.</div>'}</div>`
+  }
+
+  ${lockedCards ? `<div class="brew-section-title">Discoverable</div>
+    <div class="brew-recipe-list">${lockedCards}</div>` : ''}
+
+  ${brewedStock ? `<div class="brew-section-title">Your Stock</div>
+    <div class="brew-stock">${brewedStock}</div>` : ''}
+</div>`;
+
+  setNarrative(html);
+  setChoices([{ text: '← Back to your day', action: 'day_menu' }]);
+  showFreeInput(false);
+}
+
+// ── Attempt a brew ────────────────────────────────────────
+async function attemptBrew(potionId, context) {
+  const recipe  = POTION_RECIPES[potionId];
+  if (!recipe) return;
+
+  const result  = brewSkillCheck(recipe.difficulty);
+  const mastery = STATE.skills?.potionsMastery || 10;
+  const house   = STATE.player.house || 'Gryffindor';
+  const week    = STATE.currentWeek || 1;
+
+  // Remove ingredients from inventory
+  recipe.ingredients.forEach(ingId => {
+    const idx = STATE.inventory.findIndex(i => i.id === ingId);
+    if (idx >= 0) STATE.inventory.splice(idx, 1);
+  });
+  updateInventory();
+
+  setLocation(`🧪 Brewing — ${recipe.name}`);
+  setChoices([]); showFreeInput(false);
+  setNarrative(`<div class="ai-badge"><div class="ai-dot"></div>🧪 Brewing...<span class="cursor-blink"></span></div>`);
+
+  // Outcome text
+  const outcomes = {
+    perfect: `The brew is flawless. The colour is exactly right — ${recipe.icon} ${recipe.name}, textbook quality. You produced ${recipe.yield > 1 ? recipe.yield + ' doses' : 'a clean dose'}. ${recipe.masterDesc || ''}`,
+    success: `The potion sets correctly. Not your finest work, but solid — ${recipe.icon} ${recipe.name}, usable. One dose.`,
+    partial: `Something went slightly wrong. The colour is off. The potion is there but degraded — half potency at best. One dose, weakened.`,
+    fail:    `The cauldron produces a grim smell and a mess. Whatever was building in the liquid collapses. Nothing viable. The ingredients are gone.`,
+  };
+
+  const diffLabel = ['','straightforward','moderate','demanding','difficult','extremely difficult'][recipe.difficulty];
+  const sys = `You are the narrative engine for a Harry Potter RPG set in 1991.
+Write a potion brewing scene. 2-3 paragraphs. Second person, present tense.
+Potion: ${recipe.name}. Difficulty: ${diffLabel} (${recipe.difficulty}/5).
+Player's Potions skill: ${mastery} — ${masteryLabel(mastery)}.
+Outcome: ${result} — ${outcomes[result]}
+Context: ${context === 'study' ? 'studying in a quiet corner' : context === 'curfew' ? 'brewing secretly after hours — risky' : 'a free period at their cauldron'}.
+House: ${house}. Week: ${week}.
+Describe: the smell, the colour changes, the texture of the ingredients, what goes right or wrong.
+${result === 'perfect' ? 'The player is confident and precise. The brew responds to their skill.' : ''}
+${result === 'fail' ? 'Something collapses. The smell is wrong. The moment of realisation.' : ''}
+${context === 'curfew' ? 'There is the additional tension of doing this after hours — every sound matters.' : ''}
+Do not describe the mechanical outcome — just the sensory experience of the brewing.`;
+
+  const text = await callClaude(sys, `Brewing ${recipe.name} — ${result}.`, 450);
+  const fallback = {
+    perfect: `The cauldron responds exactly as it should.\n\nEvery step lands — the colour shifts on cue, the texture thickens at the right moment. The finished potion is exactly what it should be: clear, correctly hued, smelling faintly of what it promises.\n\nYou label it and set it aside. Clean work.`,
+    success: `The cauldron does what it is supposed to do, more or less.\n\nThere is a moment in the middle where things feel uncertain — the colour sits at the wrong shade for too long — but it corrects. The result is serviceable. Not elegant, but usable.\n\nOne dose. It will work.`,
+    partial: `Something goes wrong in the third step.\n\nThe liquid goes the right colour briefly, then slides into something murkier. You push through anyway. The result is cloudy where it should be clear. Half strength, probably. Maybe less.\n\nA dose of something. Better than nothing.`,
+    fail:    `The smell changes before you can fix it.\n\nYou watch the liquid go from promising to catastrophic in about forty seconds. By the time you lift the ladle the texture has gone entirely wrong. There is nothing to salvage. The ingredients are gone.\n\nYou clean out the cauldron and start over.`,
+  }[result];
+
+  const paras = (text||fallback).split('\n\n').filter(p=>p.trim());
+  let narHtml = `<div class="ai-badge"><div class="ai-dot"></div>${recipe.icon} ${recipe.name}</div>`;
+  narHtml += paras.map(p=>`<div class="narrative-para">${p.trim()}</div>`).join('');
+
+  // Result badge
+  const resultColour = { perfect:'#5a9e6f', success:'#7fb87f', partial:'#C9A84C', fail:'#b85555' }[result];
+  const resultLabel  = { perfect:'Perfect brew', success:'Success', partial:'Partial — weakened', fail:'Failed brew' }[result];
+  narHtml += `<div style="padding:8px 0;font-family:'Cinzel',serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:${resultColour}">${resultLabel}</div>`;
+
+  setNarrative(narHtml);
+  setTimeout(()=>{
+    document.querySelectorAll('.narrative-para')
+      .forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*150));
+  },50);
+
+  // Apply outcome
+  if (result !== 'fail') {
+    const quantity = result === 'perfect' ? recipe.yield : 1;
+    const potency  = result === 'partial' ? 'weakened' : 'standard';
+    for (let q = 0; q < quantity; q++) {
+      const invId = `${potionId}_brewed_${Date.now()}_${q}`;
+      STATE.inventory.push({
+        id:       potionId,
+        name:     recipe.name,
+        icon:     recipe.icon,
+        brewed:   true,
+        potency,
+        _invId:   invId,
+      });
+    }
+    // Skill gain
+    const skillGain = Math.max(1, Math.ceil(recipe.difficulty * 1.5));
+    STATE.skills.potionsMastery = Math.min(100, (STATE.skills.potionsMastery||10) + skillGain);
+    updateSkills();
+    updateInventory();
+    showToast(`Potions Mastery +${skillGain}`, 2500);
+  } else {
+    // Failed brew — tiny skill gain from the attempt
+    STATE.skills.potionsMastery = Math.min(100, (STATE.skills.potionsMastery||10) + 1);
+    updateSkills();
+  }
+
+  // Log
+  STATE.dayActionLog = STATE.dayActionLog || [];
+  STATE.dayActionLog.push(`Brewed ${recipe.name} (${result})`);
+
+  setTimeout(()=>{
+    setChoices([
+      { text:'🧪 Brew another',      action:'open_brew' },
+      { text:'← Back to your day',  action:'day_menu' },
+    ]);
+    showFreeInput(false);
+  }, 2000);
+}
+
+// ── Use a potion outside combat ───────────────────────────
+function usePotionEffect(potionId, invId) {
+  const recipe  = POTION_RECIPES[potionId];
+  const invItem = STATE.inventory.find(i => i._invId === invId || (i.id === potionId && i.brewed));
+  if (!recipe || !invItem) return;
+
+  const potency = invItem.potency === 'weakened' ? 0.5 : 1.0;
+  const handler = POTION_EFFECT_HANDLERS[recipe.effect];
+  if (handler) handler(potionId, recipe, potency);
+
+  // Remove from inventory
+  const idx = STATE.inventory.findIndex(i => i._invId === invId || (i.id === potionId && i.brewed));
+  if (idx >= 0) STATE.inventory.splice(idx, 1);
+  updateInventory();
+}
+
+// ── Expire temporary buffs ────────────────────────────────
+// Called from sleepAndNewDay
+function expireTemporaryBuffs() {
+  if (!STATE.temporaryBuffs?.length) return;
+  const week = STATE.currentWeek || 1;
+  const expired = [];
+
+  STATE.temporaryBuffs = STATE.temporaryBuffs.filter(buff => {
+    if (buff.duration === 'scene') { expired.push(buff); return false; }
+    if (buff.duration === 'next_day') { expired.push(buff); return false; }
+    if (buff.duration === 'permanent') return true;
+    return true; // combat durations expire during combat
+  });
+
+  expired.forEach(buff => {
+    if (buff.skill && STATE.skills[buff.skill] !== undefined) {
+      STATE.skills[buff.skill] = Math.max(0, STATE.skills[buff.skill] - buff.amount);
+    }
+  });
+
+  if (expired.length) {
+    updateSkills();
+    showToast('Some potion effects have worn off.', 2500);
+  }
 }
 
 // Advance week function
@@ -22604,6 +26173,14 @@ function advanceWeek() {
     : w === 34 ? '🎓 The year draws to a close.'
     : null;
   if (termMsg) showToast(termMsg, 4000);
+
+  // Mirror of Erised trigger (Week 14–17, Christmas break)
+  if (w >= 14 && w <= 17) checkMirrorTrigger();
+
+  // End of Year trigger (Week 34)
+  if (w === 34 && !STATE.flags.includes('YEAR_1_ENDED')) {
+    setTimeout(() => sceneEndOfYear(), 3000);
+  }
 
   // Canon event week notices — surface quietly as a background beat
   const weekNotes = {
@@ -23527,7 +27104,15 @@ function closeThemePanel() {
   document.getElementById('themeModal').classList.remove('open');
 }
 
-window.addEventListener('DOMContentLoaded', () => { loadTheme(); init(); });
+window.addEventListener('DOMContentLoaded', () => {
+  loadTheme();
+  const storedKey = localStorage.getItem('hp_rpg_api_key');
+  if (!storedKey) {
+    showApiKeyScreen();
+  } else {
+    init();
+  }
+});
 </script>
 
 
@@ -23631,6 +27216,16 @@ window.addEventListener('DOMContentLoaded', () => { loadTheme(); init(); });
     </div>
     <div class="modal-body" style="padding:16px 24px;display:flex;flex-direction:column;gap:10px;" id="saveSlotList"></div>
     <div class="save-confirm-bar" id="saveConfirmBar">Choose a slot to save or load your game.</div>
+    <div style="padding:10px 24px 16px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:6px;">
+      <div style="font-size:11px;color:var(--ink-light);font-family:'Cinzel',serif;letter-spacing:0.1em;">
+        Save data stored in your browser only.
+      </div>
+      <button onclick="clearApiKey()" style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);color:var(--gold-dim);font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;padding:7px 12px;cursor:pointer;text-align:left;transition:all 0.12s;"
+        onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)'"
+        onmouseout="this.style.borderColor='rgba(201,168,76,0.2)';this.style.color='var(--gold-dim)'">
+        🔑 Clear API Key — re-enter on next load
+      </button>
+    </div>
   </div>
 </div>
 
